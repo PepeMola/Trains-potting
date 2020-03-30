@@ -1,5 +1,4 @@
 ﻿Public Class Main
-    'Hola a los chavales
     Private train As Trains
     Private price As Prices
     Private product As Products
