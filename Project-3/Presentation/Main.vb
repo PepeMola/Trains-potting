@@ -1,4 +1,7 @@
 ﻿Public Class Main
+    'hola juan ramon 
+    'ismael la chupa
+    'jajdasddjefref
     Private train As Trains
     Private price As Prices
     Private product As Products
