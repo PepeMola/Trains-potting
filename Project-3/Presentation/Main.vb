@@ -1,7 +1,8 @@
 ﻿Public Class Main
+    'Hola a los chavales
     Private train As Trains
     Private price As Prices
-    Private product As Product
+    Private product As Products
     Private train_type As TrainTypes
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
@@ -19,7 +20,7 @@
     Private Sub btnConectar_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
         Me.train = New Trains
         Me.price = New Prices
-        Me.product = New Product
+        Me.product = New Products
         Me.train_type = New TrainTypes
         Try
             Me.train.ReadAllTrains(OfdPath.FileName)
@@ -40,7 +41,7 @@
             Me.lstTrain.Items.Add(c.PriceDate)
         Next
 
-        For Each c As Product In Me.product.ProDao.Product
+        For Each c As Products In Me.product.ProDao.Product
             Me.lstTrain.Items.Add(c.ProductID)
         Next
 
@@ -56,7 +57,4 @@
         Me.txtProductDescription.Text = String.Empty
     End Sub
 
-    Private Sub btnAddTrainType_Click(sender As Object, e As EventArgs) Handles btnAddTrainType.Click
-
-    End Sub
 End Class

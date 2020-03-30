@@ -1,4 +1,4 @@
-﻿Public Class Product
+﻿Public Class Products
     Public Property ProductID As Integer
     Public Property ProductDescription As String
     Public Property ProDao As ProductDAO
@@ -16,19 +16,23 @@
         Me.ProDao.ReadAll(path)
     End Sub
 
-    Public Sub ReadProduct()
+    Public Sub ReadProducts()
         Me.ProDao.Read(Me)
     End Sub
 
-    Public Function InsertProduct() As Integer
+    Public Sub ReadProductDescription()
+        Me.ProDao.Read(Me)
+    End Sub
+
+    Public Function InsertProducts() As Integer
         Return Me.ProDao.Insert(Me)
     End Function
 
-    Public Function UpdateProduct() As Integer
+    Public Function UpdateProducts() As Integer
         Return Me.ProDao.Change(Me)
     End Function
 
-    Public Function DeleteProduct() As Integer
+    Public Function DeleteProducts() As Integer
         Return Me.ProDao.Delete(Me)
     End Function
 
