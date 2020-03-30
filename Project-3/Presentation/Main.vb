@@ -1,4 +1,8 @@
 ﻿Public Class Main
+    Private train As Trains
+    Private price As Prices
+    Private product As Product
+    Private train_type As TrainTypes
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
     End Sub
@@ -13,19 +17,35 @@
     End Sub
 
     Private Sub btnConectar_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
-        Dim cli As Cliente = New Cliente
-
+        Me.train = New Trains
+        Me.price = New Prices
+        Me.product = New Product
+        Me.train_type = New TrainTypes
         Try
-            cli.LeerTodosClientes(Me.OfdPath.FileName)
+            Me.train.ReadAllTrains(OfdPath.FileName)
+            Me.price.ReadAllPrices(OfdPath.FileName)
+            Me.product.ReadAllProducts(OfdPath.FileName)
+            Me.train_type.ReadAllTrainTypes(OfdPath.FileName)
             MessageBox.Show("BASE DE DATOS CONECTADA CORRECTAMENTE")
         Catch ex As Exception
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
-
         End Try
 
-        For Each c As Cliente In cli.cliDao.Clientes
-            'Me.lstClientes.Items.Add(c.DNI)
+        For Each c As Trains In Me.train.TraDao.Trains
+            Me.lstTrain.Items.Add(c.TrainID)
+        Next
+
+        For Each c As Prices In Me.price.PriDao.Prices
+            Me.lstTrain.Items.Add(c.PriceDate)
+        Next
+
+        For Each c As Product In Me.product.ProDao.Product
+            Me.lstTrain.Items.Add(c.ProductID)
+        Next
+
+        For Each c As TrainTypes In Me.train_type.TypDao.TrainTypes
+            Me.lstTrain.Items.Add(c.TrainTypeID)
         Next
 
         Me.btnConnect.Enabled = False
@@ -36,5 +56,7 @@
         Me.txtProductDescription.Text = String.Empty
     End Sub
 
+    Private Sub btnAddTrainType_Click(sender As Object, e As EventArgs) Handles btnAddTrainType.Click
 
+    End Sub
 End Class
