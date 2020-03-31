@@ -26,7 +26,7 @@
 
     Public Sub ReadDescription(ByRef p As Products)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductID=" & p.ProductID & ";")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductDesciption='" & p.ProductDescription & "';")
         For Each aux In col
             p.ProductDescription = aux(1).ToString
         Next
