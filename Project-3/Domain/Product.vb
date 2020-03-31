@@ -7,9 +7,14 @@
         Me.ProDao = New ProductDAO
     End Sub
 
-    Public Sub New(id As String)
+    Public Sub New(ProductID As Integer)
         Me.ProDao = New ProductDAO
-        Me.ProductID = id
+        Me.ProductID = ProductID
+    End Sub
+
+    Public Sub New(ProductDescription As String)
+        Me.ProDao = New ProductDAO
+        Me.ProductDescription = ProductDescription
     End Sub
 
     Public Sub ReadAllProducts(path As String)
@@ -21,7 +26,7 @@
     End Sub
 
     Public Sub ReadProductDescription()
-        Me.ProDao.Read(Me)
+        Me.ProDao.ReadDescription(Me)
     End Sub
 
     Public Function InsertProducts() As Integer

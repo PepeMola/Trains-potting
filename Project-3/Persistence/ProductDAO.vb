@@ -18,7 +18,7 @@
 
     Public Sub Read(ByRef p As Products)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductID='" & p.ProductID & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductID=" & p.ProductID & ";")
         For Each aux In col
             p.ProductDescription = aux(2).ToString
         Next
@@ -26,21 +26,21 @@
 
     Public Sub ReadDescription(ByRef p As Products)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductID='" & p.ProductID & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductID=" & p.ProductID & ";")
         For Each aux In col
             p.ProductDescription = aux(1).ToString
         Next
     End Sub
 
     Public Function Insert(ByVal p As Products) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Products VALUES ('" & p.ProductID & "', '" & p.ProductDescription & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO Products (ProductDesciption) VALUES ('" & p.ProductDescription & "');")
     End Function
 
     Public Function Change(ByVal p As Products) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Products SET ProductDescription='" & p.ProductDescription & "' WHERE ProductID='" & p.ProductID & "';")
+        Return DBBroker.GetBroker.Change("UPDATE Products SET ProductDescription='" & p.ProductDescription & "' WHERE ProductDescription='" & p.ProductDescription & "';")
     End Function
 
     Public Function Delete(ByVal p As Products) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Products WHERE ProductID='" & p.ProductID & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM Products WHERE ProductDescription='" & p.ProductDescription & "';")
     End Function
 End Class

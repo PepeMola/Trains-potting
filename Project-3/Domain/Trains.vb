@@ -7,9 +7,14 @@
         Me.TraDao = New TrainsDAO
     End Sub
 
-    Public Sub New(t As String)
+    Public Sub New(TrainID As String)
         Me.TraDao = New TrainsDAO
-        Me.TrainType = t
+        Me.TrainID = TrainID
+    End Sub
+
+    Public Sub New(TrainType As Integer)
+        Me.TraDao = New TrainsDAO
+        Me.TrainType = TrainType
     End Sub
 
     Public Sub ReadAllTrains(path As String)
@@ -18,6 +23,10 @@
 
     Public Sub ReadTrain()
         Me.TraDao.Read(Me)
+    End Sub
+
+    Public Sub ReadTrainType()
+        Me.TraDao.ReadTrainType(Me)
     End Sub
 
     Public Function InsertTrain() As Integer

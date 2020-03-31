@@ -26,14 +26,14 @@
         Dim result As New Collection
         Dim row As Collection
         Dim i As Integer
-        Dim reader As OleDb.OleDbDataReader 'Almacena toda la información de la consulta'
+        Dim reader As OleDb.OleDbDataReader 'Almacena toda la información de la consulta
         Dim com As New OleDb.OleDbCommand(sql, DBBroker.connection) 'comando de la consulta
         Connect()
         reader = com.ExecuteReader 'ejecuta la consulta
         While reader.Read
             row = New Collection
             For i = 0 To reader.FieldCount - 1
-                row.Add(reader(i).ToString) 'i número de columnas de las cuales queremos leer un valor'
+                row.Add(reader(i).ToString) 'i número de columnas de las cuales queremos leer un valor
             Next
             result.Add(row)
         End While
@@ -45,7 +45,7 @@
         Dim com As New OleDb.OleDbCommand(sql, DBBroker.connection)
         Dim result As Integer
         Diconnect()
-        result = com.ExecuteNonQuery 'Devuelve el número de filas afectadas'
+        result = com.ExecuteNonQuery 'Devuelve el número de filas afectadas
         Diconnect()
         Return result
     End Function

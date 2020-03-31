@@ -1,5 +1,5 @@
 ﻿Public Class Prices
-    Public Property Product As Integer
+    Public Property ProductID As Integer
     Public Property PriceDate As Date
     Public Property EurosPerTon As Double
     Public Property PriDao As PricesDAO
@@ -8,9 +8,10 @@
         Me.PriDao = New PricesDAO
     End Sub
 
-    Public Sub New(p As String)
+    Public Sub New(ProductID As Integer, PriceDate As Date)
         Me.PriDao = New PricesDAO
-        Me.Product = p
+        Me.ProductID = ProductID
+        Me.PriceDate = PriceDate
     End Sub
 
     Public Sub ReadAllPrices(path As String)

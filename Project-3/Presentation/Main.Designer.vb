@@ -27,81 +27,105 @@ Partial Class Main
         Me.tabControl = New System.Windows.Forms.TabControl()
         Me.tabMain = New System.Windows.Forms.TabPage()
         Me.tabProduct = New System.Windows.Forms.TabPage()
-        Me.lblProductDescription = New System.Windows.Forms.Label()
-        Me.txtProductDescription = New System.Windows.Forms.TextBox()
-        Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnClean = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.lblProductList = New System.Windows.Forms.Label()
+        Me.gbProductsList = New System.Windows.Forms.GroupBox()
         Me.lstProduct = New System.Windows.Forms.ListBox()
+        Me.gbProductsBoxes = New System.Windows.Forms.GroupBox()
+        Me.txtProductDescription = New System.Windows.Forms.TextBox()
+        Me.lblProductDescription = New System.Windows.Forms.Label()
+        Me.gbControlProducts = New System.Windows.Forms.GroupBox()
+        Me.btnAddProduct = New System.Windows.Forms.Button()
+        Me.btnCleanProduct = New System.Windows.Forms.Button()
+        Me.btnDeleteProduct = New System.Windows.Forms.Button()
+        Me.btnUpdateProduct = New System.Windows.Forms.Button()
+        Me.lblProductList = New System.Windows.Forms.Label()
         Me.tabTrains = New System.Windows.Forms.TabPage()
-        Me.cboxTrain = New System.Windows.Forms.ComboBox()
-        Me.lblTypeTrain = New System.Windows.Forms.Label()
+        Me.gbTrainsList = New System.Windows.Forms.GroupBox()
+        Me.lstTrain = New System.Windows.Forms.ListBox()
+        Me.gbTrainsBoxes = New System.Windows.Forms.GroupBox()
         Me.lblTrainDescription = New System.Windows.Forms.Label()
         Me.txtTrainID = New System.Windows.Forms.TextBox()
-        Me.btnUpdateTrain = New System.Windows.Forms.Button()
-        Me.btnDeleteTrain = New System.Windows.Forms.Button()
-        Me.btnCleanTrain = New System.Windows.Forms.Button()
+        Me.cboxTrain = New System.Windows.Forms.ComboBox()
+        Me.lblTypeTrain = New System.Windows.Forms.Label()
+        Me.gbControlTrains = New System.Windows.Forms.GroupBox()
         Me.btnAddTrain = New System.Windows.Forms.Button()
-        Me.lblTrainList = New System.Windows.Forms.Label()
-        Me.lstTrain = New System.Windows.Forms.ListBox()
+        Me.btnUpdateTrain = New System.Windows.Forms.Button()
+        Me.btnCleanTrain = New System.Windows.Forms.Button()
+        Me.btnDeleteTrain = New System.Windows.Forms.Button()
         Me.tabTrainTypes = New System.Windows.Forms.TabPage()
-        Me.txtCapacityTrainTypes = New System.Windows.Forms.TextBox()
-        Me.lblCapacity = New System.Windows.Forms.Label()
+        Me.gbTrainTypeList = New System.Windows.Forms.GroupBox()
+        Me.lstTrainType = New System.Windows.Forms.ListBox()
+        Me.gbTrainTypeBoxes = New System.Windows.Forms.GroupBox()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.lblTrainType = New System.Windows.Forms.Label()
         Me.txtTrainTypeDescription = New System.Windows.Forms.TextBox()
+        Me.txtCapacityTrainTypes = New System.Windows.Forms.TextBox()
+        Me.lblCapacity = New System.Windows.Forms.Label()
+        Me.gbControlTrainType = New System.Windows.Forms.GroupBox()
+        Me.btnAddTrainType = New System.Windows.Forms.Button()
+        Me.btnCleanTrainType = New System.Windows.Forms.Button()
         Me.btnUpdateTrainType = New System.Windows.Forms.Button()
         Me.btnDeleteTrainType = New System.Windows.Forms.Button()
-        Me.btnTrainType = New System.Windows.Forms.Button()
-        Me.btnAddTrainType = New System.Windows.Forms.Button()
         Me.lblTrainTypeList = New System.Windows.Forms.Label()
-        Me.lstTrainType = New System.Windows.Forms.ListBox()
         Me.tabPrices = New System.Windows.Forms.TabPage()
-        Me.gbBtnPrices = New System.Windows.Forms.GroupBox()
+        Me.gbPriceList = New System.Windows.Forms.GroupBox()
+        Me.lstViewPrices = New System.Windows.Forms.ListView()
+        Me.ProductID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ProductDescription = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PriceDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PricePerTon = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.gbControlPrices = New System.Windows.Forms.GroupBox()
         Me.btnAddPrices = New System.Windows.Forms.Button()
         Me.btnCleanPrices = New System.Windows.Forms.Button()
         Me.btnDeletePrices = New System.Windows.Forms.Button()
         Me.btnUpdatePrices = New System.Windows.Forms.Button()
         Me.gbPrices = New System.Windows.Forms.GroupBox()
-        Me.txtPrice = New System.Windows.Forms.TextBox()
-        Me.lblPriceProduct = New System.Windows.Forms.Label()
+        Me.lblEuroSymbol = New System.Windows.Forms.Label()
+        Me.txtEurosPrices = New System.Windows.Forms.TextBox()
+        Me.lblProductPrices = New System.Windows.Forms.Label()
         Me.lblDate = New System.Windows.Forms.Label()
         Me.lblPrice = New System.Windows.Forms.Label()
-        Me.dtpPrices = New System.Windows.Forms.DateTimePicker()
+        Me.dtpDatePrices = New System.Windows.Forms.DateTimePicker()
         Me.cboxProductPrices = New System.Windows.Forms.ComboBox()
         Me.lblPricesList = New System.Windows.Forms.Label()
-        Me.lstPrices = New System.Windows.Forms.ListBox()
         Me.txtPath = New System.Windows.Forms.TextBox()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
         Me.tabControl.SuspendLayout()
         Me.tabProduct.SuspendLayout()
+        Me.gbProductsList.SuspendLayout()
+        Me.gbProductsBoxes.SuspendLayout()
+        Me.gbControlProducts.SuspendLayout()
         Me.tabTrains.SuspendLayout()
+        Me.gbTrainsList.SuspendLayout()
+        Me.gbTrainsBoxes.SuspendLayout()
+        Me.gbControlTrains.SuspendLayout()
         Me.tabTrainTypes.SuspendLayout()
+        Me.gbTrainTypeList.SuspendLayout()
+        Me.gbTrainTypeBoxes.SuspendLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbControlTrainType.SuspendLayout()
         Me.tabPrices.SuspendLayout()
-        Me.gbBtnPrices.SuspendLayout()
+        Me.gbPriceList.SuspendLayout()
+        Me.gbControlPrices.SuspendLayout()
         Me.gbPrices.SuspendLayout()
         Me.gbDatabase.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnSelect
         '
-        Me.btnSelect.Location = New System.Drawing.Point(5, 23)
-        Me.btnSelect.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSelect.Location = New System.Drawing.Point(5, 19)
         Me.btnSelect.Name = "btnSelect"
-        Me.btnSelect.Size = New System.Drawing.Size(100, 28)
+        Me.btnSelect.Size = New System.Drawing.Size(87, 23)
         Me.btnSelect.TabIndex = 0
         Me.btnSelect.Text = "Select DB"
         Me.btnSelect.UseVisualStyleBackColor = True
         '
         'btnConnect
         '
-        Me.btnConnect.Location = New System.Drawing.Point(127, 23)
-        Me.btnConnect.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnConnect.Location = New System.Drawing.Point(111, 19)
         Me.btnConnect.Name = "btnConnect"
-        Me.btnConnect.Size = New System.Drawing.Size(100, 28)
+        Me.btnConnect.Size = New System.Drawing.Size(87, 23)
         Me.btnConnect.TabIndex = 1
         Me.btnConnect.Text = "Connect DB"
         Me.btnConnect.UseVisualStyleBackColor = True
@@ -113,531 +137,634 @@ Partial Class Main
         Me.tabControl.Controls.Add(Me.tabTrains)
         Me.tabControl.Controls.Add(Me.tabTrainTypes)
         Me.tabControl.Controls.Add(Me.tabPrices)
-        Me.tabControl.Location = New System.Drawing.Point(16, 15)
-        Me.tabControl.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tabControl.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tabControl.Location = New System.Drawing.Point(14, 12)
         Me.tabControl.Name = "tabControl"
         Me.tabControl.SelectedIndex = 0
-        Me.tabControl.Size = New System.Drawing.Size(635, 503)
+        Me.tabControl.Size = New System.Drawing.Size(708, 447)
         Me.tabControl.TabIndex = 2
         '
         'tabMain
         '
-        Me.tabMain.Location = New System.Drawing.Point(4, 25)
-        Me.tabMain.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tabMain.Location = New System.Drawing.Point(4, 26)
         Me.tabMain.Name = "tabMain"
-        Me.tabMain.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.tabMain.Size = New System.Drawing.Size(627, 474)
+        Me.tabMain.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabMain.Size = New System.Drawing.Size(700, 417)
         Me.tabMain.TabIndex = 0
         Me.tabMain.Text = "Main"
         Me.tabMain.UseVisualStyleBackColor = True
         '
         'tabProduct
         '
-        Me.tabProduct.Controls.Add(Me.lblProductDescription)
-        Me.tabProduct.Controls.Add(Me.txtProductDescription)
-        Me.tabProduct.Controls.Add(Me.btnUpdate)
-        Me.tabProduct.Controls.Add(Me.btnDelete)
-        Me.tabProduct.Controls.Add(Me.btnClean)
-        Me.tabProduct.Controls.Add(Me.btnAdd)
+        Me.tabProduct.Controls.Add(Me.gbProductsList)
+        Me.tabProduct.Controls.Add(Me.gbProductsBoxes)
+        Me.tabProduct.Controls.Add(Me.gbControlProducts)
         Me.tabProduct.Controls.Add(Me.lblProductList)
-        Me.tabProduct.Controls.Add(Me.lstProduct)
-        Me.tabProduct.Location = New System.Drawing.Point(4, 25)
-        Me.tabProduct.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tabProduct.Location = New System.Drawing.Point(4, 26)
         Me.tabProduct.Name = "tabProduct"
-        Me.tabProduct.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.tabProduct.Size = New System.Drawing.Size(627, 474)
+        Me.tabProduct.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabProduct.Size = New System.Drawing.Size(700, 417)
         Me.tabProduct.TabIndex = 1
         Me.tabProduct.Text = "Products"
         Me.tabProduct.UseVisualStyleBackColor = True
         '
-        'lblProductDescription
+        'gbProductsList
         '
-        Me.lblProductDescription.AutoSize = True
-        Me.lblProductDescription.Location = New System.Drawing.Point(273, 244)
-        Me.lblProductDescription.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblProductDescription.Name = "lblProductDescription"
-        Me.lblProductDescription.Size = New System.Drawing.Size(132, 17)
-        Me.lblProductDescription.TabIndex = 7
-        Me.lblProductDescription.Text = "Product Description"
-        '
-        'txtProductDescription
-        '
-        Me.txtProductDescription.Location = New System.Drawing.Point(277, 277)
-        Me.txtProductDescription.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtProductDescription.Multiline = True
-        Me.txtProductDescription.Name = "txtProductDescription"
-        Me.txtProductDescription.Size = New System.Drawing.Size(233, 158)
-        Me.txtProductDescription.TabIndex = 6
-        '
-        'btnUpdate
-        '
-        Me.btnUpdate.Location = New System.Drawing.Point(412, 113)
-        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(100, 28)
-        Me.btnUpdate.TabIndex = 5
-        Me.btnUpdate.Text = "Update"
-        Me.btnUpdate.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Location = New System.Drawing.Point(412, 171)
-        Me.btnDelete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(100, 28)
-        Me.btnDelete.TabIndex = 4
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
-        'btnClean
-        '
-        Me.btnClean.Location = New System.Drawing.Point(277, 171)
-        Me.btnClean.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnClean.Name = "btnClean"
-        Me.btnClean.Size = New System.Drawing.Size(100, 28)
-        Me.btnClean.TabIndex = 3
-        Me.btnClean.Text = "Clean"
-        Me.btnClean.UseVisualStyleBackColor = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Location = New System.Drawing.Point(277, 113)
-        Me.btnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(100, 28)
-        Me.btnAdd.TabIndex = 2
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'lblProductList
-        '
-        Me.lblProductList.Location = New System.Drawing.Point(8, 30)
-        Me.lblProductList.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblProductList.Name = "lblProductList"
-        Me.lblProductList.Size = New System.Drawing.Size(175, 18)
-        Me.lblProductList.TabIndex = 1
-        Me.lblProductList.Text = "Product List"
+        Me.gbProductsList.Controls.Add(Me.lstProduct)
+        Me.gbProductsList.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbProductsList.Location = New System.Drawing.Point(10, 6)
+        Me.gbProductsList.Name = "gbProductsList"
+        Me.gbProductsList.Size = New System.Drawing.Size(322, 409)
+        Me.gbProductsList.TabIndex = 21
+        Me.gbProductsList.TabStop = False
+        Me.gbProductsList.Text = "Products List"
         '
         'lstProduct
         '
         Me.lstProduct.FormattingEnabled = True
-        Me.lstProduct.ItemHeight = 16
-        Me.lstProduct.Location = New System.Drawing.Point(8, 63)
-        Me.lstProduct.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.lstProduct.ItemHeight = 17
+        Me.lstProduct.Location = New System.Drawing.Point(7, 19)
         Me.lstProduct.Name = "lstProduct"
-        Me.lstProduct.Size = New System.Drawing.Size(236, 372)
+        Me.lstProduct.Size = New System.Drawing.Size(307, 378)
         Me.lstProduct.TabIndex = 0
+        '
+        'gbProductsBoxes
+        '
+        Me.gbProductsBoxes.Controls.Add(Me.txtProductDescription)
+        Me.gbProductsBoxes.Controls.Add(Me.lblProductDescription)
+        Me.gbProductsBoxes.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbProductsBoxes.Location = New System.Drawing.Point(339, 164)
+        Me.gbProductsBoxes.Name = "gbProductsBoxes"
+        Me.gbProductsBoxes.Size = New System.Drawing.Size(339, 251)
+        Me.gbProductsBoxes.TabIndex = 20
+        Me.gbProductsBoxes.TabStop = False
+        Me.gbProductsBoxes.Text = "Selection Product Panel"
+        '
+        'txtProductDescription
+        '
+        Me.txtProductDescription.Location = New System.Drawing.Point(10, 42)
+        Me.txtProductDescription.Multiline = True
+        Me.txtProductDescription.Name = "txtProductDescription"
+        Me.txtProductDescription.Size = New System.Drawing.Size(312, 200)
+        Me.txtProductDescription.TabIndex = 6
+        '
+        'lblProductDescription
+        '
+        Me.lblProductDescription.AutoSize = True
+        Me.lblProductDescription.Location = New System.Drawing.Point(7, 21)
+        Me.lblProductDescription.Name = "lblProductDescription"
+        Me.lblProductDescription.Size = New System.Drawing.Size(142, 17)
+        Me.lblProductDescription.TabIndex = 7
+        Me.lblProductDescription.Text = "Product Description"
+        '
+        'gbControlProducts
+        '
+        Me.gbControlProducts.Controls.Add(Me.btnAddProduct)
+        Me.gbControlProducts.Controls.Add(Me.btnCleanProduct)
+        Me.gbControlProducts.Controls.Add(Me.btnDeleteProduct)
+        Me.gbControlProducts.Controls.Add(Me.btnUpdateProduct)
+        Me.gbControlProducts.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbControlProducts.Location = New System.Drawing.Point(339, 6)
+        Me.gbControlProducts.Name = "gbControlProducts"
+        Me.gbControlProducts.Size = New System.Drawing.Size(338, 152)
+        Me.gbControlProducts.TabIndex = 19
+        Me.gbControlProducts.TabStop = False
+        Me.gbControlProducts.Text = "Control Panel"
+        '
+        'btnAddProduct
+        '
+        Me.btnAddProduct.Location = New System.Drawing.Point(28, 31)
+        Me.btnAddProduct.Name = "btnAddProduct"
+        Me.btnAddProduct.Size = New System.Drawing.Size(115, 42)
+        Me.btnAddProduct.TabIndex = 2
+        Me.btnAddProduct.Text = "Add"
+        Me.btnAddProduct.UseVisualStyleBackColor = True
+        '
+        'btnCleanProduct
+        '
+        Me.btnCleanProduct.Location = New System.Drawing.Point(28, 88)
+        Me.btnCleanProduct.Name = "btnCleanProduct"
+        Me.btnCleanProduct.Size = New System.Drawing.Size(115, 42)
+        Me.btnCleanProduct.TabIndex = 3
+        Me.btnCleanProduct.Text = "Clean"
+        Me.btnCleanProduct.UseVisualStyleBackColor = True
+        '
+        'btnDeleteProduct
+        '
+        Me.btnDeleteProduct.Location = New System.Drawing.Point(202, 88)
+        Me.btnDeleteProduct.Name = "btnDeleteProduct"
+        Me.btnDeleteProduct.Size = New System.Drawing.Size(115, 42)
+        Me.btnDeleteProduct.TabIndex = 4
+        Me.btnDeleteProduct.Text = "Delete"
+        Me.btnDeleteProduct.UseVisualStyleBackColor = True
+        '
+        'btnUpdateProduct
+        '
+        Me.btnUpdateProduct.Location = New System.Drawing.Point(202, 31)
+        Me.btnUpdateProduct.Name = "btnUpdateProduct"
+        Me.btnUpdateProduct.Size = New System.Drawing.Size(115, 42)
+        Me.btnUpdateProduct.TabIndex = 5
+        Me.btnUpdateProduct.Text = "Update"
+        Me.btnUpdateProduct.UseVisualStyleBackColor = True
+        '
+        'lblProductList
+        '
+        Me.lblProductList.Location = New System.Drawing.Point(7, 24)
+        Me.lblProductList.Name = "lblProductList"
+        Me.lblProductList.Size = New System.Drawing.Size(153, 15)
+        Me.lblProductList.TabIndex = 1
+        Me.lblProductList.Text = "Product List"
         '
         'tabTrains
         '
-        Me.tabTrains.Controls.Add(Me.cboxTrain)
-        Me.tabTrains.Controls.Add(Me.lblTypeTrain)
-        Me.tabTrains.Controls.Add(Me.lblTrainDescription)
-        Me.tabTrains.Controls.Add(Me.txtTrainID)
-        Me.tabTrains.Controls.Add(Me.btnUpdateTrain)
-        Me.tabTrains.Controls.Add(Me.btnDeleteTrain)
-        Me.tabTrains.Controls.Add(Me.btnCleanTrain)
-        Me.tabTrains.Controls.Add(Me.btnAddTrain)
-        Me.tabTrains.Controls.Add(Me.lblTrainList)
-        Me.tabTrains.Controls.Add(Me.lstTrain)
-        Me.tabTrains.Location = New System.Drawing.Point(4, 25)
-        Me.tabTrains.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tabTrains.Controls.Add(Me.gbTrainsList)
+        Me.tabTrains.Controls.Add(Me.gbTrainsBoxes)
+        Me.tabTrains.Controls.Add(Me.gbControlTrains)
+        Me.tabTrains.Location = New System.Drawing.Point(4, 26)
         Me.tabTrains.Name = "tabTrains"
-        Me.tabTrains.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.tabTrains.Size = New System.Drawing.Size(627, 474)
+        Me.tabTrains.Padding = New System.Windows.Forms.Padding(3)
+        Me.tabTrains.Size = New System.Drawing.Size(700, 417)
         Me.tabTrains.TabIndex = 2
         Me.tabTrains.Text = "Trains"
         Me.tabTrains.UseVisualStyleBackColor = True
         '
-        'cboxTrain
+        'gbTrainsList
         '
-        Me.cboxTrain.FormattingEnabled = True
-        Me.cboxTrain.Location = New System.Drawing.Point(363, 288)
-        Me.cboxTrain.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.cboxTrain.Name = "cboxTrain"
-        Me.cboxTrain.Size = New System.Drawing.Size(160, 24)
-        Me.cboxTrain.TabIndex = 17
+        Me.gbTrainsList.Controls.Add(Me.lstTrain)
+        Me.gbTrainsList.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTrainsList.Location = New System.Drawing.Point(10, 6)
+        Me.gbTrainsList.Name = "gbTrainsList"
+        Me.gbTrainsList.Size = New System.Drawing.Size(322, 409)
+        Me.gbTrainsList.TabIndex = 20
+        Me.gbTrainsList.TabStop = False
+        Me.gbTrainsList.Text = "Trains List"
         '
-        'lblTypeTrain
+        'lstTrain
         '
-        Me.lblTypeTrain.AutoSize = True
-        Me.lblTypeTrain.Location = New System.Drawing.Point(292, 292)
-        Me.lblTypeTrain.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblTypeTrain.Name = "lblTypeTrain"
-        Me.lblTypeTrain.Size = New System.Drawing.Size(40, 17)
-        Me.lblTypeTrain.TabIndex = 16
-        Me.lblTypeTrain.Text = "Type"
+        Me.lstTrain.FormattingEnabled = True
+        Me.lstTrain.ItemHeight = 17
+        Me.lstTrain.Location = New System.Drawing.Point(7, 20)
+        Me.lstTrain.Name = "lstTrain"
+        Me.lstTrain.Size = New System.Drawing.Size(307, 378)
+        Me.lstTrain.TabIndex = 8
+        '
+        'gbTrainsBoxes
+        '
+        Me.gbTrainsBoxes.Controls.Add(Me.lblTrainDescription)
+        Me.gbTrainsBoxes.Controls.Add(Me.txtTrainID)
+        Me.gbTrainsBoxes.Controls.Add(Me.cboxTrain)
+        Me.gbTrainsBoxes.Controls.Add(Me.lblTypeTrain)
+        Me.gbTrainsBoxes.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTrainsBoxes.Location = New System.Drawing.Point(339, 224)
+        Me.gbTrainsBoxes.Name = "gbTrainsBoxes"
+        Me.gbTrainsBoxes.Size = New System.Drawing.Size(338, 191)
+        Me.gbTrainsBoxes.TabIndex = 19
+        Me.gbTrainsBoxes.TabStop = False
+        Me.gbTrainsBoxes.Text = "Selection Train Panel"
         '
         'lblTrainDescription
         '
         Me.lblTrainDescription.AutoSize = True
-        Me.lblTrainDescription.Location = New System.Drawing.Point(273, 241)
-        Me.lblTrainDescription.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTrainDescription.Location = New System.Drawing.Point(7, 38)
         Me.lblTrainDescription.Name = "lblTrainDescription"
-        Me.lblTrainDescription.Size = New System.Drawing.Size(58, 17)
+        Me.lblTrainDescription.Size = New System.Drawing.Size(61, 17)
         Me.lblTrainDescription.TabIndex = 15
         Me.lblTrainDescription.Text = "Train ID"
         '
         'txtTrainID
         '
-        Me.txtTrainID.Location = New System.Drawing.Point(363, 238)
-        Me.txtTrainID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtTrainID.Location = New System.Drawing.Point(85, 35)
         Me.txtTrainID.Multiline = True
         Me.txtTrainID.Name = "txtTrainID"
-        Me.txtTrainID.Size = New System.Drawing.Size(160, 26)
+        Me.txtTrainID.Size = New System.Drawing.Size(245, 22)
         Me.txtTrainID.TabIndex = 14
         '
-        'btnUpdateTrain
+        'cboxTrain
         '
-        Me.btnUpdateTrain.Location = New System.Drawing.Point(412, 113)
-        Me.btnUpdateTrain.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnUpdateTrain.Name = "btnUpdateTrain"
-        Me.btnUpdateTrain.Size = New System.Drawing.Size(100, 28)
-        Me.btnUpdateTrain.TabIndex = 13
-        Me.btnUpdateTrain.Text = "Update"
-        Me.btnUpdateTrain.UseVisualStyleBackColor = True
+        Me.cboxTrain.FormattingEnabled = True
+        Me.cboxTrain.Location = New System.Drawing.Point(82, 109)
+        Me.cboxTrain.Name = "cboxTrain"
+        Me.cboxTrain.Size = New System.Drawing.Size(245, 25)
+        Me.cboxTrain.TabIndex = 17
         '
-        'btnDeleteTrain
+        'lblTypeTrain
         '
-        Me.btnDeleteTrain.Location = New System.Drawing.Point(412, 171)
-        Me.btnDeleteTrain.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnDeleteTrain.Name = "btnDeleteTrain"
-        Me.btnDeleteTrain.Size = New System.Drawing.Size(100, 28)
-        Me.btnDeleteTrain.TabIndex = 12
-        Me.btnDeleteTrain.Text = "Delete"
-        Me.btnDeleteTrain.UseVisualStyleBackColor = True
+        Me.lblTypeTrain.AutoSize = True
+        Me.lblTypeTrain.Location = New System.Drawing.Point(23, 112)
+        Me.lblTypeTrain.Name = "lblTypeTrain"
+        Me.lblTypeTrain.Size = New System.Drawing.Size(40, 17)
+        Me.lblTypeTrain.TabIndex = 16
+        Me.lblTypeTrain.Text = "Type"
         '
-        'btnCleanTrain
+        'gbControlTrains
         '
-        Me.btnCleanTrain.Location = New System.Drawing.Point(277, 171)
-        Me.btnCleanTrain.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnCleanTrain.Name = "btnCleanTrain"
-        Me.btnCleanTrain.Size = New System.Drawing.Size(100, 28)
-        Me.btnCleanTrain.TabIndex = 11
-        Me.btnCleanTrain.Text = "Clean"
-        Me.btnCleanTrain.UseVisualStyleBackColor = True
+        Me.gbControlTrains.Controls.Add(Me.btnAddTrain)
+        Me.gbControlTrains.Controls.Add(Me.btnUpdateTrain)
+        Me.gbControlTrains.Controls.Add(Me.btnCleanTrain)
+        Me.gbControlTrains.Controls.Add(Me.btnDeleteTrain)
+        Me.gbControlTrains.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbControlTrains.Location = New System.Drawing.Point(339, 6)
+        Me.gbControlTrains.Name = "gbControlTrains"
+        Me.gbControlTrains.Size = New System.Drawing.Size(338, 152)
+        Me.gbControlTrains.TabIndex = 18
+        Me.gbControlTrains.TabStop = False
+        Me.gbControlTrains.Text = "Control Panel"
         '
         'btnAddTrain
         '
-        Me.btnAddTrain.Location = New System.Drawing.Point(277, 113)
-        Me.btnAddTrain.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnAddTrain.Location = New System.Drawing.Point(28, 31)
         Me.btnAddTrain.Name = "btnAddTrain"
-        Me.btnAddTrain.Size = New System.Drawing.Size(100, 28)
+        Me.btnAddTrain.Size = New System.Drawing.Size(115, 42)
         Me.btnAddTrain.TabIndex = 10
         Me.btnAddTrain.Text = "Add"
         Me.btnAddTrain.UseVisualStyleBackColor = True
         '
-        'lblTrainList
+        'btnUpdateTrain
         '
-        Me.lblTrainList.Location = New System.Drawing.Point(8, 30)
-        Me.lblTrainList.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblTrainList.Name = "lblTrainList"
-        Me.lblTrainList.Size = New System.Drawing.Size(175, 18)
-        Me.lblTrainList.TabIndex = 9
-        Me.lblTrainList.Text = "Train List"
+        Me.btnUpdateTrain.Location = New System.Drawing.Point(202, 31)
+        Me.btnUpdateTrain.Name = "btnUpdateTrain"
+        Me.btnUpdateTrain.Size = New System.Drawing.Size(115, 42)
+        Me.btnUpdateTrain.TabIndex = 13
+        Me.btnUpdateTrain.Text = "Update"
+        Me.btnUpdateTrain.UseVisualStyleBackColor = True
         '
-        'lstTrain
+        'btnCleanTrain
         '
-        Me.lstTrain.FormattingEnabled = True
-        Me.lstTrain.ItemHeight = 16
-        Me.lstTrain.Location = New System.Drawing.Point(8, 63)
-        Me.lstTrain.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.lstTrain.Name = "lstTrain"
-        Me.lstTrain.Size = New System.Drawing.Size(236, 372)
-        Me.lstTrain.TabIndex = 8
+        Me.btnCleanTrain.Location = New System.Drawing.Point(28, 88)
+        Me.btnCleanTrain.Name = "btnCleanTrain"
+        Me.btnCleanTrain.Size = New System.Drawing.Size(115, 42)
+        Me.btnCleanTrain.TabIndex = 11
+        Me.btnCleanTrain.Text = "Clean"
+        Me.btnCleanTrain.UseVisualStyleBackColor = True
+        '
+        'btnDeleteTrain
+        '
+        Me.btnDeleteTrain.Location = New System.Drawing.Point(202, 88)
+        Me.btnDeleteTrain.Name = "btnDeleteTrain"
+        Me.btnDeleteTrain.Size = New System.Drawing.Size(115, 42)
+        Me.btnDeleteTrain.TabIndex = 12
+        Me.btnDeleteTrain.Text = "Delete"
+        Me.btnDeleteTrain.UseVisualStyleBackColor = True
         '
         'tabTrainTypes
         '
-        Me.tabTrainTypes.Controls.Add(Me.txtCapacityTrainTypes)
-        Me.tabTrainTypes.Controls.Add(Me.lblCapacity)
-        Me.tabTrainTypes.Controls.Add(Me.lblTrainType)
-        Me.tabTrainTypes.Controls.Add(Me.txtTrainTypeDescription)
-        Me.tabTrainTypes.Controls.Add(Me.btnUpdateTrainType)
-        Me.tabTrainTypes.Controls.Add(Me.btnDeleteTrainType)
-        Me.tabTrainTypes.Controls.Add(Me.btnTrainType)
-        Me.tabTrainTypes.Controls.Add(Me.btnAddTrainType)
+        Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeList)
+        Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeBoxes)
+        Me.tabTrainTypes.Controls.Add(Me.gbControlTrainType)
         Me.tabTrainTypes.Controls.Add(Me.lblTrainTypeList)
-        Me.tabTrainTypes.Controls.Add(Me.lstTrainType)
-        Me.tabTrainTypes.Location = New System.Drawing.Point(4, 25)
-        Me.tabTrainTypes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tabTrainTypes.Location = New System.Drawing.Point(4, 26)
         Me.tabTrainTypes.Name = "tabTrainTypes"
-        Me.tabTrainTypes.Size = New System.Drawing.Size(627, 474)
+        Me.tabTrainTypes.Size = New System.Drawing.Size(700, 417)
         Me.tabTrainTypes.TabIndex = 3
         Me.tabTrainTypes.Text = "Train Types"
         Me.tabTrainTypes.UseVisualStyleBackColor = True
         '
-        'txtCapacityTrainTypes
+        'gbTrainTypeList
         '
-        Me.txtCapacityTrainTypes.Location = New System.Drawing.Point(287, 357)
-        Me.txtCapacityTrainTypes.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtCapacityTrainTypes.Multiline = True
-        Me.txtCapacityTrainTypes.Name = "txtCapacityTrainTypes"
-        Me.txtCapacityTrainTypes.Size = New System.Drawing.Size(233, 64)
-        Me.txtCapacityTrainTypes.TabIndex = 17
+        Me.gbTrainTypeList.Controls.Add(Me.lstTrainType)
+        Me.gbTrainTypeList.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTrainTypeList.Location = New System.Drawing.Point(10, 6)
+        Me.gbTrainTypeList.Name = "gbTrainTypeList"
+        Me.gbTrainTypeList.Size = New System.Drawing.Size(322, 409)
+        Me.gbTrainTypeList.TabIndex = 21
+        Me.gbTrainTypeList.TabStop = False
+        Me.gbTrainTypeList.Text = "Train Types List"
         '
-        'lblCapacity
+        'lstTrainType
         '
-        Me.lblCapacity.AutoSize = True
-        Me.lblCapacity.Location = New System.Drawing.Point(283, 334)
-        Me.lblCapacity.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblCapacity.Name = "lblCapacity"
-        Me.lblCapacity.Size = New System.Drawing.Size(128, 17)
-        Me.lblCapacity.TabIndex = 16
-        Me.lblCapacity.Text = "Maximum Capacity:"
+        Me.lstTrainType.FormattingEnabled = True
+        Me.lstTrainType.ItemHeight = 17
+        Me.lstTrainType.Location = New System.Drawing.Point(7, 19)
+        Me.lstTrainType.Name = "lstTrainType"
+        Me.lstTrainType.Size = New System.Drawing.Size(307, 378)
+        Me.lstTrainType.TabIndex = 8
+        '
+        'gbTrainTypeBoxes
+        '
+        Me.gbTrainTypeBoxes.Controls.Add(Me.NumericUpDown1)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.lblTrainType)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.txtTrainTypeDescription)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.txtCapacityTrainTypes)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.lblCapacity)
+        Me.gbTrainTypeBoxes.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbTrainTypeBoxes.Location = New System.Drawing.Point(339, 202)
+        Me.gbTrainTypeBoxes.Name = "gbTrainTypeBoxes"
+        Me.gbTrainTypeBoxes.Size = New System.Drawing.Size(338, 214)
+        Me.gbTrainTypeBoxes.TabIndex = 20
+        Me.gbTrainTypeBoxes.TabStop = False
+        Me.gbTrainTypeBoxes.Text = "Selection Train Type Panel"
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Location = New System.Drawing.Point(213, 104)
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(71, 25)
+        Me.NumericUpDown1.TabIndex = 18
         '
         'lblTrainType
         '
         Me.lblTrainType.AutoSize = True
-        Me.lblTrainType.Location = New System.Drawing.Point(283, 233)
-        Me.lblTrainType.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTrainType.Location = New System.Drawing.Point(7, 21)
         Me.lblTrainType.Name = "lblTrainType"
-        Me.lblTrainType.Size = New System.Drawing.Size(152, 17)
+        Me.lblTrainType.Size = New System.Drawing.Size(161, 17)
         Me.lblTrainType.TabIndex = 15
         Me.lblTrainType.Text = "Train Type Description"
         '
         'txtTrainTypeDescription
         '
-        Me.txtTrainTypeDescription.Location = New System.Drawing.Point(287, 263)
-        Me.txtTrainTypeDescription.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtTrainTypeDescription.Location = New System.Drawing.Point(7, 46)
         Me.txtTrainTypeDescription.Multiline = True
         Me.txtTrainTypeDescription.Name = "txtTrainTypeDescription"
-        Me.txtTrainTypeDescription.Size = New System.Drawing.Size(233, 62)
+        Me.txtTrainTypeDescription.Size = New System.Drawing.Size(324, 51)
         Me.txtTrainTypeDescription.TabIndex = 14
+        '
+        'txtCapacityTrainTypes
+        '
+        Me.txtCapacityTrainTypes.Location = New System.Drawing.Point(7, 156)
+        Me.txtCapacityTrainTypes.Multiline = True
+        Me.txtCapacityTrainTypes.Name = "txtCapacityTrainTypes"
+        Me.txtCapacityTrainTypes.Size = New System.Drawing.Size(324, 29)
+        Me.txtCapacityTrainTypes.TabIndex = 17
+        '
+        'lblCapacity
+        '
+        Me.lblCapacity.AutoSize = True
+        Me.lblCapacity.Location = New System.Drawing.Point(7, 106)
+        Me.lblCapacity.Name = "lblCapacity"
+        Me.lblCapacity.Size = New System.Drawing.Size(138, 17)
+        Me.lblCapacity.TabIndex = 16
+        Me.lblCapacity.Text = "Maximum Capacity:"
+        '
+        'gbControlTrainType
+        '
+        Me.gbControlTrainType.Controls.Add(Me.btnAddTrainType)
+        Me.gbControlTrainType.Controls.Add(Me.btnCleanTrainType)
+        Me.gbControlTrainType.Controls.Add(Me.btnUpdateTrainType)
+        Me.gbControlTrainType.Controls.Add(Me.btnDeleteTrainType)
+        Me.gbControlTrainType.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbControlTrainType.Location = New System.Drawing.Point(339, 6)
+        Me.gbControlTrainType.Name = "gbControlTrainType"
+        Me.gbControlTrainType.Size = New System.Drawing.Size(338, 152)
+        Me.gbControlTrainType.TabIndex = 19
+        Me.gbControlTrainType.TabStop = False
+        Me.gbControlTrainType.Text = "Control Panel"
+        '
+        'btnAddTrainType
+        '
+        Me.btnAddTrainType.Location = New System.Drawing.Point(28, 31)
+        Me.btnAddTrainType.Name = "btnAddTrainType"
+        Me.btnAddTrainType.Size = New System.Drawing.Size(115, 42)
+        Me.btnAddTrainType.TabIndex = 10
+        Me.btnAddTrainType.Text = "Add"
+        Me.btnAddTrainType.UseVisualStyleBackColor = True
+        '
+        'btnCleanTrainType
+        '
+        Me.btnCleanTrainType.Location = New System.Drawing.Point(28, 88)
+        Me.btnCleanTrainType.Name = "btnCleanTrainType"
+        Me.btnCleanTrainType.Size = New System.Drawing.Size(115, 42)
+        Me.btnCleanTrainType.TabIndex = 11
+        Me.btnCleanTrainType.Text = "Clean"
+        Me.btnCleanTrainType.UseVisualStyleBackColor = True
         '
         'btnUpdateTrainType
         '
-        Me.btnUpdateTrainType.Location = New System.Drawing.Point(421, 100)
-        Me.btnUpdateTrainType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnUpdateTrainType.Location = New System.Drawing.Point(202, 31)
         Me.btnUpdateTrainType.Name = "btnUpdateTrainType"
-        Me.btnUpdateTrainType.Size = New System.Drawing.Size(100, 28)
+        Me.btnUpdateTrainType.Size = New System.Drawing.Size(115, 42)
         Me.btnUpdateTrainType.TabIndex = 13
         Me.btnUpdateTrainType.Text = "Update"
         Me.btnUpdateTrainType.UseVisualStyleBackColor = True
         '
         'btnDeleteTrainType
         '
-        Me.btnDeleteTrainType.Location = New System.Drawing.Point(421, 158)
-        Me.btnDeleteTrainType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnDeleteTrainType.Location = New System.Drawing.Point(202, 88)
         Me.btnDeleteTrainType.Name = "btnDeleteTrainType"
-        Me.btnDeleteTrainType.Size = New System.Drawing.Size(100, 28)
+        Me.btnDeleteTrainType.Size = New System.Drawing.Size(115, 42)
         Me.btnDeleteTrainType.TabIndex = 12
         Me.btnDeleteTrainType.Text = "Delete"
         Me.btnDeleteTrainType.UseVisualStyleBackColor = True
         '
-        'btnTrainType
-        '
-        Me.btnTrainType.Location = New System.Drawing.Point(287, 158)
-        Me.btnTrainType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnTrainType.Name = "btnTrainType"
-        Me.btnTrainType.Size = New System.Drawing.Size(100, 28)
-        Me.btnTrainType.TabIndex = 11
-        Me.btnTrainType.Text = "Clean"
-        Me.btnTrainType.UseVisualStyleBackColor = True
-        '
-        'btnAddTrainType
-        '
-        Me.btnAddTrainType.Location = New System.Drawing.Point(287, 100)
-        Me.btnAddTrainType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.btnAddTrainType.Name = "btnAddTrainType"
-        Me.btnAddTrainType.Size = New System.Drawing.Size(100, 28)
-        Me.btnAddTrainType.TabIndex = 10
-        Me.btnAddTrainType.Text = "Add"
-        Me.btnAddTrainType.UseVisualStyleBackColor = True
-        '
         'lblTrainTypeList
         '
-        Me.lblTrainTypeList.Location = New System.Drawing.Point(17, 16)
-        Me.lblTrainTypeList.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTrainTypeList.Location = New System.Drawing.Point(15, 13)
         Me.lblTrainTypeList.Name = "lblTrainTypeList"
-        Me.lblTrainTypeList.Size = New System.Drawing.Size(175, 18)
+        Me.lblTrainTypeList.Size = New System.Drawing.Size(153, 15)
         Me.lblTrainTypeList.TabIndex = 9
         Me.lblTrainTypeList.Text = "Train Type List"
         '
-        'lstTrainType
-        '
-        Me.lstTrainType.FormattingEnabled = True
-        Me.lstTrainType.ItemHeight = 16
-        Me.lstTrainType.Location = New System.Drawing.Point(17, 49)
-        Me.lstTrainType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.lstTrainType.Name = "lstTrainType"
-        Me.lstTrainType.Size = New System.Drawing.Size(236, 372)
-        Me.lstTrainType.TabIndex = 8
-        '
         'tabPrices
         '
-        Me.tabPrices.Controls.Add(Me.gbBtnPrices)
+        Me.tabPrices.Controls.Add(Me.gbPriceList)
+        Me.tabPrices.Controls.Add(Me.gbControlPrices)
         Me.tabPrices.Controls.Add(Me.gbPrices)
         Me.tabPrices.Controls.Add(Me.lblPricesList)
-        Me.tabPrices.Controls.Add(Me.lstPrices)
-        Me.tabPrices.Location = New System.Drawing.Point(4, 25)
-        Me.tabPrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.tabPrices.Location = New System.Drawing.Point(4, 26)
         Me.tabPrices.Name = "tabPrices"
-        Me.tabPrices.Size = New System.Drawing.Size(627, 474)
+        Me.tabPrices.Size = New System.Drawing.Size(700, 417)
         Me.tabPrices.TabIndex = 4
         Me.tabPrices.Text = "Prices"
         Me.tabPrices.UseVisualStyleBackColor = True
         '
-        'gbBtnPrices
+        'gbPriceList
         '
-        Me.gbBtnPrices.Controls.Add(Me.btnAddPrices)
-        Me.gbBtnPrices.Controls.Add(Me.btnCleanPrices)
-        Me.gbBtnPrices.Controls.Add(Me.btnDeletePrices)
-        Me.gbBtnPrices.Controls.Add(Me.btnUpdatePrices)
-        Me.gbBtnPrices.Location = New System.Drawing.Point(269, 57)
-        Me.gbBtnPrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.gbBtnPrices.Name = "gbBtnPrices"
-        Me.gbBtnPrices.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.gbBtnPrices.Size = New System.Drawing.Size(337, 123)
-        Me.gbBtnPrices.TabIndex = 34
-        Me.gbBtnPrices.TabStop = False
-        Me.gbBtnPrices.Text = "Controller"
+        Me.gbPriceList.Controls.Add(Me.lstViewPrices)
+        Me.gbPriceList.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbPriceList.Location = New System.Drawing.Point(10, 6)
+        Me.gbPriceList.Name = "gbPriceList"
+        Me.gbPriceList.Size = New System.Drawing.Size(322, 409)
+        Me.gbPriceList.TabIndex = 35
+        Me.gbPriceList.TabStop = False
+        Me.gbPriceList.Text = "Prices List"
+        '
+        'lstViewPrices
+        '
+        Me.lstViewPrices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ProductID, Me.ProductDescription, Me.PriceDate, Me.PricePerTon})
+        Me.lstViewPrices.HideSelection = False
+        Me.lstViewPrices.Location = New System.Drawing.Point(6, 20)
+        Me.lstViewPrices.Name = "lstViewPrices"
+        Me.lstViewPrices.Size = New System.Drawing.Size(307, 383)
+        Me.lstViewPrices.TabIndex = 0
+        Me.lstViewPrices.UseCompatibleStateImageBehavior = False
+        Me.lstViewPrices.View = System.Windows.Forms.View.Details
+        '
+        'ProductID
+        '
+        Me.ProductID.Text = "ID"
+        Me.ProductID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ProductID.Width = 30
+        '
+        'ProductDescription
+        '
+        Me.ProductDescription.Text = "Product"
+        Me.ProductDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.ProductDescription.Width = 80
+        '
+        'PriceDate
+        '
+        Me.PriceDate.Text = "Price Date"
+        Me.PriceDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.PriceDate.Width = 90
+        '
+        'PricePerTon
+        '
+        Me.PricePerTon.Text = "Euros/Tons"
+        Me.PricePerTon.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.PricePerTon.Width = 90
+        '
+        'gbControlPrices
+        '
+        Me.gbControlPrices.Controls.Add(Me.btnAddPrices)
+        Me.gbControlPrices.Controls.Add(Me.btnCleanPrices)
+        Me.gbControlPrices.Controls.Add(Me.btnDeletePrices)
+        Me.gbControlPrices.Controls.Add(Me.btnUpdatePrices)
+        Me.gbControlPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbControlPrices.Location = New System.Drawing.Point(339, 6)
+        Me.gbControlPrices.Name = "gbControlPrices"
+        Me.gbControlPrices.Size = New System.Drawing.Size(338, 152)
+        Me.gbControlPrices.TabIndex = 34
+        Me.gbControlPrices.TabStop = False
+        Me.gbControlPrices.Text = "Control Panel"
         '
         'btnAddPrices
         '
-        Me.btnAddPrices.Location = New System.Drawing.Point(12, 23)
-        Me.btnAddPrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnAddPrices.Location = New System.Drawing.Point(28, 31)
         Me.btnAddPrices.Name = "btnAddPrices"
-        Me.btnAddPrices.Size = New System.Drawing.Size(136, 28)
+        Me.btnAddPrices.Size = New System.Drawing.Size(115, 42)
         Me.btnAddPrices.TabIndex = 23
         Me.btnAddPrices.Text = "Add"
         Me.btnAddPrices.UseVisualStyleBackColor = True
         '
         'btnCleanPrices
         '
-        Me.btnCleanPrices.Location = New System.Drawing.Point(12, 74)
-        Me.btnCleanPrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCleanPrices.Location = New System.Drawing.Point(28, 88)
         Me.btnCleanPrices.Name = "btnCleanPrices"
-        Me.btnCleanPrices.Size = New System.Drawing.Size(136, 28)
+        Me.btnCleanPrices.Size = New System.Drawing.Size(115, 42)
         Me.btnCleanPrices.TabIndex = 24
         Me.btnCleanPrices.Text = "Clean"
         Me.btnCleanPrices.UseVisualStyleBackColor = True
         '
         'btnDeletePrices
         '
-        Me.btnDeletePrices.Location = New System.Drawing.Point(189, 74)
-        Me.btnDeletePrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnDeletePrices.Location = New System.Drawing.Point(202, 88)
         Me.btnDeletePrices.Name = "btnDeletePrices"
-        Me.btnDeletePrices.Size = New System.Drawing.Size(140, 28)
+        Me.btnDeletePrices.Size = New System.Drawing.Size(115, 42)
         Me.btnDeletePrices.TabIndex = 25
         Me.btnDeletePrices.Text = "Delete"
         Me.btnDeletePrices.UseVisualStyleBackColor = True
         '
         'btnUpdatePrices
         '
-        Me.btnUpdatePrices.Location = New System.Drawing.Point(189, 23)
-        Me.btnUpdatePrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnUpdatePrices.Location = New System.Drawing.Point(202, 31)
         Me.btnUpdatePrices.Name = "btnUpdatePrices"
-        Me.btnUpdatePrices.Size = New System.Drawing.Size(140, 28)
+        Me.btnUpdatePrices.Size = New System.Drawing.Size(115, 42)
         Me.btnUpdatePrices.TabIndex = 26
         Me.btnUpdatePrices.Text = "Update"
         Me.btnUpdatePrices.UseVisualStyleBackColor = True
         '
         'gbPrices
         '
-        Me.gbPrices.Controls.Add(Me.txtPrice)
-        Me.gbPrices.Controls.Add(Me.lblPriceProduct)
+        Me.gbPrices.Controls.Add(Me.lblEuroSymbol)
+        Me.gbPrices.Controls.Add(Me.txtEurosPrices)
+        Me.gbPrices.Controls.Add(Me.lblProductPrices)
         Me.gbPrices.Controls.Add(Me.lblDate)
         Me.gbPrices.Controls.Add(Me.lblPrice)
-        Me.gbPrices.Controls.Add(Me.dtpPrices)
+        Me.gbPrices.Controls.Add(Me.dtpDatePrices)
         Me.gbPrices.Controls.Add(Me.cboxProductPrices)
-        Me.gbPrices.Location = New System.Drawing.Point(269, 187)
-        Me.gbPrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gbPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbPrices.Location = New System.Drawing.Point(339, 224)
         Me.gbPrices.Name = "gbPrices"
-        Me.gbPrices.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.gbPrices.Size = New System.Drawing.Size(337, 249)
+        Me.gbPrices.Size = New System.Drawing.Size(338, 191)
         Me.gbPrices.TabIndex = 33
         Me.gbPrices.TabStop = False
         Me.gbPrices.Text = "Prices Selection"
         '
-        'txtPrice
+        'lblEuroSymbol
         '
-        Me.txtPrice.Location = New System.Drawing.Point(95, 181)
-        Me.txtPrice.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(223, 22)
-        Me.txtPrice.TabIndex = 32
+        Me.lblEuroSymbol.AutoSize = True
+        Me.lblEuroSymbol.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEuroSymbol.Location = New System.Drawing.Point(263, 131)
+        Me.lblEuroSymbol.Name = "lblEuroSymbol"
+        Me.lblEuroSymbol.Size = New System.Drawing.Size(16, 17)
+        Me.lblEuroSymbol.TabIndex = 33
+        Me.lblEuroSymbol.Text = "€"
         '
-        'lblPriceProduct
+        'txtEurosPrices
         '
-        Me.lblPriceProduct.AutoSize = True
-        Me.lblPriceProduct.Location = New System.Drawing.Point(8, 185)
-        Me.lblPriceProduct.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lblPriceProduct.Name = "lblPriceProduct"
-        Me.lblPriceProduct.Size = New System.Drawing.Size(65, 17)
-        Me.lblPriceProduct.TabIndex = 27
-        Me.lblPriceProduct.Text = "Product: "
+        Me.txtEurosPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEurosPrices.Location = New System.Drawing.Point(94, 126)
+        Me.txtEurosPrices.Name = "txtEurosPrices"
+        Me.txtEurosPrices.Size = New System.Drawing.Size(163, 25)
+        Me.txtEurosPrices.TabIndex = 32
+        '
+        'lblProductPrices
+        '
+        Me.lblProductPrices.AutoSize = True
+        Me.lblProductPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProductPrices.Location = New System.Drawing.Point(19, 30)
+        Me.lblProductPrices.Name = "lblProductPrices"
+        Me.lblProductPrices.Size = New System.Drawing.Size(69, 17)
+        Me.lblProductPrices.TabIndex = 27
+        Me.lblProductPrices.Text = "Product: "
         '
         'lblDate
         '
         Me.lblDate.AutoSize = True
-        Me.lblDate.Location = New System.Drawing.Point(21, 156)
-        Me.lblDate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDate.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDate.Location = New System.Drawing.Point(25, 83)
         Me.lblDate.Name = "lblDate"
-        Me.lblDate.Size = New System.Drawing.Size(42, 17)
+        Me.lblDate.Size = New System.Drawing.Size(43, 17)
         Me.lblDate.TabIndex = 30
         Me.lblDate.Text = "Date:"
         '
         'lblPrice
         '
         Me.lblPrice.AutoSize = True
-        Me.lblPrice.Location = New System.Drawing.Point(20, 27)
-        Me.lblPrice.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblPrice.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrice.Location = New System.Drawing.Point(25, 129)
         Me.lblPrice.Name = "lblPrice"
-        Me.lblPrice.Size = New System.Drawing.Size(44, 17)
+        Me.lblPrice.Size = New System.Drawing.Size(45, 17)
         Me.lblPrice.TabIndex = 31
         Me.lblPrice.Text = "Price:"
         '
-        'dtpPrices
+        'dtpDatePrices
         '
-        Me.dtpPrices.Location = New System.Drawing.Point(95, 149)
-        Me.dtpPrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.dtpPrices.Name = "dtpPrices"
-        Me.dtpPrices.Size = New System.Drawing.Size(223, 22)
-        Me.dtpPrices.TabIndex = 29
+        Me.dtpDatePrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDatePrices.Location = New System.Drawing.Point(94, 77)
+        Me.dtpDatePrices.Name = "dtpDatePrices"
+        Me.dtpDatePrices.Size = New System.Drawing.Size(236, 25)
+        Me.dtpDatePrices.TabIndex = 29
         '
         'cboxProductPrices
         '
+        Me.cboxProductPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxProductPrices.FormattingEnabled = True
-        Me.cboxProductPrices.Location = New System.Drawing.Point(95, 23)
-        Me.cboxProductPrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cboxProductPrices.Location = New System.Drawing.Point(94, 27)
         Me.cboxProductPrices.Name = "cboxProductPrices"
-        Me.cboxProductPrices.Size = New System.Drawing.Size(223, 24)
+        Me.cboxProductPrices.Size = New System.Drawing.Size(236, 25)
         Me.cboxProductPrices.TabIndex = 28
         '
         'lblPricesList
         '
-        Me.lblPricesList.Location = New System.Drawing.Point(24, 32)
-        Me.lblPricesList.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblPricesList.Location = New System.Drawing.Point(21, 26)
         Me.lblPricesList.Name = "lblPricesList"
-        Me.lblPricesList.Size = New System.Drawing.Size(175, 18)
+        Me.lblPricesList.Size = New System.Drawing.Size(153, 15)
         Me.lblPricesList.TabIndex = 22
         Me.lblPricesList.Text = "Prices List"
         '
-        'lstPrices
-        '
-        Me.lstPrices.FormattingEnabled = True
-        Me.lstPrices.ItemHeight = 16
-        Me.lstPrices.Location = New System.Drawing.Point(24, 65)
-        Me.lstPrices.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.lstPrices.Name = "lstPrices"
-        Me.lstPrices.Size = New System.Drawing.Size(236, 372)
-        Me.lstPrices.TabIndex = 21
-        '
         'txtPath
         '
-        Me.txtPath.Location = New System.Drawing.Point(8, 68)
-        Me.txtPath.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPath.Location = New System.Drawing.Point(7, 55)
         Me.txtPath.Multiline = True
         Me.txtPath.Name = "txtPath"
-        Me.txtPath.Size = New System.Drawing.Size(217, 101)
+        Me.txtPath.Size = New System.Drawing.Size(191, 83)
         Me.txtPath.TabIndex = 3
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(725, 172)
-        Me.btnExit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnExit.Location = New System.Drawing.Point(840, 283)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(100, 28)
+        Me.btnExit.Size = New System.Drawing.Size(87, 23)
         Me.btnExit.TabIndex = 4
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
@@ -651,35 +778,45 @@ Partial Class Main
         Me.gbDatabase.Controls.Add(Me.btnSelect)
         Me.gbDatabase.Controls.Add(Me.btnConnect)
         Me.gbDatabase.Controls.Add(Me.txtPath)
-        Me.gbDatabase.Location = New System.Drawing.Point(659, 332)
-        Me.gbDatabase.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.gbDatabase.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbDatabase.Location = New System.Drawing.Point(729, 312)
         Me.gbDatabase.Name = "gbDatabase"
-        Me.gbDatabase.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.gbDatabase.Size = New System.Drawing.Size(235, 181)
+        Me.gbDatabase.Size = New System.Drawing.Size(205, 147)
         Me.gbDatabase.TabIndex = 5
         Me.gbDatabase.TabStop = False
         Me.gbDatabase.Text = "Database"
         '
         'Main
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(904, 533)
+        Me.ClientSize = New System.Drawing.Size(948, 460)
         Me.Controls.Add(Me.gbDatabase)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.tabControl)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "Main"
-        Me.Text = "Main"
+        Me.Text = "Trains-potting"
         Me.tabControl.ResumeLayout(False)
         Me.tabProduct.ResumeLayout(False)
-        Me.tabProduct.PerformLayout()
+        Me.gbProductsList.ResumeLayout(False)
+        Me.gbProductsBoxes.ResumeLayout(False)
+        Me.gbProductsBoxes.PerformLayout()
+        Me.gbControlProducts.ResumeLayout(False)
         Me.tabTrains.ResumeLayout(False)
-        Me.tabTrains.PerformLayout()
+        Me.gbTrainsList.ResumeLayout(False)
+        Me.gbTrainsBoxes.ResumeLayout(False)
+        Me.gbTrainsBoxes.PerformLayout()
+        Me.gbControlTrains.ResumeLayout(False)
         Me.tabTrainTypes.ResumeLayout(False)
-        Me.tabTrainTypes.PerformLayout()
+        Me.gbTrainTypeList.ResumeLayout(False)
+        Me.gbTrainTypeBoxes.ResumeLayout(False)
+        Me.gbTrainTypeBoxes.PerformLayout()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbControlTrainType.ResumeLayout(False)
         Me.tabPrices.ResumeLayout(False)
-        Me.gbBtnPrices.ResumeLayout(False)
+        Me.gbPriceList.ResumeLayout(False)
+        Me.gbControlPrices.ResumeLayout(False)
         Me.gbPrices.ResumeLayout(False)
         Me.gbPrices.PerformLayout()
         Me.gbDatabase.ResumeLayout(False)
@@ -695,10 +832,10 @@ Partial Class Main
     Friend WithEvents tabProduct As TabPage
     Friend WithEvents lblProductDescription As Label
     Friend WithEvents txtProductDescription As TextBox
-    Friend WithEvents btnUpdate As Button
-    Friend WithEvents btnDelete As Button
-    Friend WithEvents btnClean As Button
-    Friend WithEvents btnAdd As Button
+    Friend WithEvents btnUpdateProduct As Button
+    Friend WithEvents btnDeleteProduct As Button
+    Friend WithEvents btnCleanProduct As Button
+    Friend WithEvents btnAddProduct As Button
     Friend WithEvents lblProductList As Label
     Friend WithEvents lstProduct As ListBox
     Friend WithEvents tabTrains As TabPage
@@ -715,7 +852,6 @@ Partial Class Main
     Friend WithEvents btnDeleteTrain As Button
     Friend WithEvents btnCleanTrain As Button
     Friend WithEvents btnAddTrain As Button
-    Friend WithEvents lblTrainList As Label
     Friend WithEvents lstTrain As ListBox
     Friend WithEvents txtCapacityTrainTypes As TextBox
     Friend WithEvents lblCapacity As Label
@@ -723,23 +859,39 @@ Partial Class Main
     Friend WithEvents txtTrainTypeDescription As TextBox
     Friend WithEvents btnUpdateTrainType As Button
     Friend WithEvents btnDeleteTrainType As Button
-    Friend WithEvents btnTrainType As Button
+    Friend WithEvents btnCleanTrainType As Button
     Friend WithEvents btnAddTrainType As Button
     Friend WithEvents lblTrainTypeList As Label
     Friend WithEvents lstTrainType As ListBox
-    Friend WithEvents txtPrice As TextBox
+    Friend WithEvents txtEurosPrices As TextBox
     Friend WithEvents lblPrice As Label
     Friend WithEvents lblDate As Label
-    Friend WithEvents dtpPrices As DateTimePicker
+    Friend WithEvents dtpDatePrices As DateTimePicker
     Friend WithEvents cboxProductPrices As ComboBox
-    Friend WithEvents lblPriceProduct As Label
+    Friend WithEvents lblProductPrices As Label
     Friend WithEvents btnUpdatePrices As Button
     Friend WithEvents btnDeletePrices As Button
     Friend WithEvents btnCleanPrices As Button
     Friend WithEvents btnAddPrices As Button
     Friend WithEvents lblPricesList As Label
-    Friend WithEvents lstPrices As ListBox
-    Friend WithEvents gbBtnPrices As GroupBox
+    Friend WithEvents gbControlPrices As GroupBox
     Friend WithEvents gbPrices As GroupBox
     Friend WithEvents gbDatabase As GroupBox
+    Friend WithEvents gbProductsList As GroupBox
+    Friend WithEvents gbProductsBoxes As GroupBox
+    Friend WithEvents gbControlProducts As GroupBox
+    Friend WithEvents gbTrainsList As GroupBox
+    Friend WithEvents gbTrainsBoxes As GroupBox
+    Friend WithEvents gbControlTrains As GroupBox
+    Friend WithEvents gbTrainTypeBoxes As GroupBox
+    Friend WithEvents gbControlTrainType As GroupBox
+    Friend WithEvents gbTrainTypeList As GroupBox
+    Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents gbPriceList As GroupBox
+    Friend WithEvents lstViewPrices As ListView
+    Friend WithEvents ProductDescription As ColumnHeader
+    Friend WithEvents PriceDate As ColumnHeader
+    Friend WithEvents PricePerTon As ColumnHeader
+    Friend WithEvents lblEuroSymbol As Label
+    Friend WithEvents ProductID As ColumnHeader
 End Class
