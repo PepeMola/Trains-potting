@@ -26,14 +26,14 @@
 
     Public Sub ReadDescription(ByRef p As Products)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductDesciption='" & p.ProductDescription & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductDescription='" & p.ProductDescription & "';")
         For Each aux In col
             p.ProductDescription = aux(1).ToString
         Next
     End Sub
 
     Public Function Insert(ByVal p As Products) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Products (ProductDesciption) VALUES ('" & p.ProductDescription & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO Products (ProductDescription) VALUES ('" & p.ProductDescription & "');")
     End Function
 
     Public Function Change(ByVal p As Products) As Integer

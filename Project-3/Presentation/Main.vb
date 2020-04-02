@@ -1,11 +1,5 @@
 ﻿Public Class Main
 
-    Private train As Trains
-    Private price As Prices
-    Private product As Products
-    Private train_type As TrainTypes
-    Private trip As Trips
-
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
     End Sub
@@ -15,37 +9,34 @@
         If (Me.OfdPath.ShowDialog() = DialogResult.OK) Then
             Me.txtPath.Text = Me.OfdPath.FileName
             Me.btnConnect.Enabled = True
+            tabControl.Enabled = False
         End If
 
     End Sub
 
     'This Method allow us connect the database and load the info in our Form "Trains-potting"
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
-
-        Me.train = New Trains
-        Me.price = New Prices
-        Me.product = New Products
-        Me.train_type = New TrainTypes
-        Me.trip = New Trips
+        Dim train As Trains = New Trains
+        Dim price As Prices = New Prices
+        Dim product As Products = New Products
+        Dim train_type As TrainTypes = New TrainTypes
+        Dim trip As Trips = New Trips
 
         Try
-            Me.train.ReadAllTrains(OfdPath.FileName)
-            Me.price.ReadAllPrices(OfdPath.FileName)
-            Me.product.ReadAllProducts(OfdPath.FileName)
-            Me.train_type.ReadAllTrainTypes(OfdPath.FileName)
-            Me.trip.ReadAllTrips(OfdPath.FileName)
+            train.ReadAllTrains(OfdPath.FileName)
+            price.ReadAllPrices(OfdPath.FileName)
+            product.ReadAllProducts(OfdPath.FileName)
+            train_type.ReadAllTrainTypes(OfdPath.FileName)
+            trip.ReadAllTrips(OfdPath.FileName)
 
             MessageBox.Show("Correctly Connected Data Base")
-
         Catch ex As Exception
-
             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
-
         End Try
 
         'Load TRAINS in List and Combo
-        For Each t As Trains In Me.train.TraDao.Trains
+        For Each t As Trains In train.TraDao.Trains
             Me.lstTrain.Items.Add(t.TrainID)
         Next
 
@@ -53,7 +44,7 @@
         Dim item As ListViewItem
         Dim pro As Products
 
-        For Each pri As Prices In Me.price.PriDao.Prices
+        For Each pri As Prices In price.PriDao.Prices
             pro = New Products(pri.ProductID)
             pro.ReadProducts()
 
@@ -65,18 +56,19 @@
 
         Next
         'Load PRODUCTS in List and txtBox
-        For Each p As Products In Me.product.ProDao.Product
+        For Each p As Products In product.ProDao.Product
             Me.lstProduct.Items.Add(p.ProductID)
             Me.cboxProductPrices.Items.Add(p.ProductDescription)
         Next
         cboxProductPrices.SelectedIndex = 0 'We will use this to append the first element in the cbox in Prices
 
         'Load TRAIN TYPES in List and combos
-        For Each type As TrainTypes In Me.train_type.TypDao.TrainTypes
+        For Each type As TrainTypes In train_type.TypDao.TrainTypes
             Me.lstTrain.Items.Add(type.TrainTypeID)
         Next
 
         tabControl.Enabled = True
+        'Disable DB buttons
         Me.btnConnect.Enabled = False
         Me.btnSelect.Enabled = False
         'Add Buttons
@@ -109,7 +101,7 @@
             p = New Products()
             p.ProductDescription = Me.txtProductDescription.Text
             Try
-                If p.InsertProducts() <> -1 Then
+                If p.InsertProducts() <> 1 Then
                     MessageBox.Show("Error inserting product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
@@ -157,5 +149,29 @@
             btnDeleteProduct.Enabled = False
 
         End If
+    End Sub
+
+    Private Sub lstViewPrices_Click(sender As Object, e As EventArgs) Handles lstViewPrices.Click
+        If Me.lstViewPrices.SelectedItems(0) Is Nothing Then
+            Dim i As Integer = lstViewPrices.FocusedItem.Index 'Select the afected row
+            Try
+                cboxProductPrices.Text = lstViewPrices.Items(i).SubItems(1).Text
+                dtpDatePrices.Text = lstViewPrices.Items(i).SubItems(2).Text
+                txtEurosPrices.Text = lstViewPrices.Items(i).SubItems(3).Text
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            End Try
+
+        End If
+    End Sub
+
+    Private Sub btnAddPrices_Click(sender As Object, e As EventArgs) Handles btnAddPrices.Click
+        Dim pri As New Prices
+        Dim pro As Products
+
+        ' If Me.txtEurosPrices <> Nothing Then
+
+        ' End If
     End Sub
 End Class
