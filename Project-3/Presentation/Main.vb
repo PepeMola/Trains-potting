@@ -93,8 +93,10 @@
         btnDeleteTrainType.Enabled = False
 
     End Sub
-
-    'Button Add in PRODUCT TAB
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF PRODUCTS TAB---------------------------------------------------------------------------
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    'Button Add in PRODUCT
     Private Sub btnAddProduct_Click(sender As Object, e As EventArgs) Handles btnAddProduct.Click
         Dim p As Products
         If Me.txtProductDescription.Text <> String.Empty Then
@@ -122,7 +124,17 @@
         End If
     End Sub
 
-    'Button Clean in PRODUCT TAB
+    'Button Delete in PRODUCT
+    Private Sub btnDeleteProduct_Click(sender As Object, e As EventArgs) Handles btnDeleteProduct.Click
+
+    End Sub
+
+    'Button Update in PRODUCT
+    Private Sub btnUpdateProduct_Click(sender As Object, e As EventArgs) Handles btnUpdateProduct.Click
+
+    End Sub
+
+    'Button Clean in PRODUCT
     Private Sub btnCleanProduct_Click(sender As Object, e As EventArgs) Handles btnCleanProduct.Click
         Me.txtProductDescription.Text = String.Empty
         btnAddProduct.Enabled = True
@@ -166,12 +178,157 @@
         End If
     End Sub
 
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF PRICES TAB-----------------------------------------------------------------------------
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+
+    'Button Add in PRICES
     Private Sub btnAddPrices_Click(sender As Object, e As EventArgs) Handles btnAddPrices.Click
         Dim pri As New Prices
         Dim pro As Products
 
-        ' If Me.txtEurosPrices <> Nothing Then
+        If Me.txtEurosPrices.Text <> Nothing Then
+            pro = New Products(cboxProductPrices.SelectedItem.ToString)
+            pro.ReadProductDescription()
+            pri.ProductID = pro.ProductID
+            pri.PriceDate = dtpDatePrices.Text
+            pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ",", "."))
 
-        ' End If
+            Try
+                If pri.InsertPrice() <> 1 Then
+                    MessageBox.Show("Error inserting price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                Dim item As New ListViewItem(pri.ProductID)
+                item.SubItems.Add(pro.ProductDescription)
+                item.SubItems.Add(pri.PriceDate)
+                item.SubItems.Add(pri.EurosPerTon)
+
+                MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & " Correctly inserted.")
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
+
+    'Button Update in PRICES
+    Private Sub btnUpdatePrices_Click(sender As Object, e As EventArgs) Handles btnUpdatePrices.Click
+        Dim pri As New Prices
+        Dim pro As Products
+
+        If Me.txtEurosPrices.Text <> Nothing Then
+            pro = New Products(cboxProductPrices.SelectedItem.ToString)
+            pro.ReadProductDescription()
+            pri = New Prices(pro.ProductID, dtpDatePrices.Text)
+            pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ",", "."))
+
+            Try
+                If pri.UpdatePrice() <> 1 Then
+                    MessageBox.Show("Error updating Price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                lstViewPrices.SelectedItems(0).SubItems(3).Text = pri.EurosPerTon
+                MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & "correctly updated.")
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    'Button Delete in PRICES
+    Private Sub btnDeletePrices_Click(sender As Object, e As EventArgs) Handles btnDeletePrices.Click
+        Dim pri As New Prices
+        Dim pro As Products
+
+        If Not Me.lstViewPrices.SelectedItems(0) Is Nothing Then
+            If MessageBox.Show("Are you sure to remove this? " & lstViewPrices.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                pro = New Products(cboxProductPrices.SelectedItem.ToString)
+                pro.ReadProductDescription()
+                pri = New Prices(pro.ProductID, dtpDatePrices.Text)
+                Try
+                    If pri.DeletePrice() <> 1 Then
+                        MessageBox.Show("Error removing this price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    lstViewPrices.Items.Remove(lstViewPrices.SelectedItems(0))
+                    MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & " correctly deleted.")
+
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End If
+    End Sub
+
+    'Button Clean in PRICES
+    Private Sub btnCleanPrices_Click(sender As Object, e As EventArgs) Handles btnCleanPrices.Click
+        Me.txtEurosPrices.Text = String.Empty
+        btnAddProduct.Enabled = True
+        btnCleanProduct.Enabled = False
+        btnUpdateProduct.Enabled = False
+        btnDeleteProduct.Enabled = False
+    End Sub
+
+
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF TRAINS TAB-----------------------------------------------------------------------------
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+
+    'Button Add in TRAIN
+    Private Sub btnAddTrain_Click(sender As Object, e As EventArgs) Handles btnAddTrain.Click
+
+    End Sub
+
+    'Button Delete in TRAIN
+    Private Sub btnDeleteTrain_Click(sender As Object, e As EventArgs) Handles btnDeleteTrain.Click
+
+    End Sub
+
+    'Button Update in TRAIN
+    Private Sub btnUpdateTrain_Click(sender As Object, e As EventArgs) Handles btnUpdateTrain.Click
+
+    End Sub
+
+    'Button Clean in TRAIN
+    Private Sub btnCleanTrain_Click(sender As Object, e As EventArgs) Handles btnCleanTrain.Click
+
+    End Sub
+
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF TRAIN TYPES TAB------------------------------------------------------------------------
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+
+    'Button Add in TRAIN TYPES
+    Private Sub btnAddTrainType_Click(sender As Object, e As EventArgs) Handles btnAddTrainType.Click
+
+    End Sub
+
+    'Button Delete in TRAIN TYPES
+    Private Sub btnDeleteTrainType_Click(sender As Object, e As EventArgs) Handles btnDeleteTrainType.Click
+
+    End Sub
+
+    'Button Update in TRAIN TYPES
+    Private Sub btnUpdateTrainType_Click(sender As Object, e As EventArgs) Handles btnUpdateTrainType.Click
+
+    End Sub
+
+    'Button Clean in TRAIN TYPES
+    Private Sub btnCleanTrainType_Click(sender As Object, e As EventArgs) Handles btnCleanTrainType.Click
+
+    End Sub
+
+
+
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF TRAIN TYPES TAB-----------------------------------------------------------------------------
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 End Class
