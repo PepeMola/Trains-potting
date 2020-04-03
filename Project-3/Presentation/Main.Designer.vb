@@ -139,7 +139,7 @@ Partial Class Main
         Me.tabControl.Controls.Add(Me.tabTrainTypes)
         Me.tabControl.Controls.Add(Me.tabPrices)
         Me.tabControl.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tabControl.Location = New System.Drawing.Point(14, 12)
+        Me.tabControl.Location = New System.Drawing.Point(15, 12)
         Me.tabControl.Name = "tabControl"
         Me.tabControl.SelectedIndex = 0
         Me.tabControl.Size = New System.Drawing.Size(708, 447)
@@ -581,8 +581,10 @@ Partial Class Main
         'lstViewPrices
         '
         Me.lstViewPrices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ProductID, Me.ProductDescription, Me.PriceDate, Me.PricePerTon})
+        Me.lstViewPrices.FullRowSelect = True
         Me.lstViewPrices.HideSelection = False
         Me.lstViewPrices.Location = New System.Drawing.Point(6, 20)
+        Me.lstViewPrices.MultiSelect = False
         Me.lstViewPrices.Name = "lstViewPrices"
         Me.lstViewPrices.Size = New System.Drawing.Size(307, 383)
         Me.lstViewPrices.TabIndex = 0

@@ -28,7 +28,7 @@
         Dim col As Collection : Dim aux As Collection
         col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductDescription='" & p.ProductDescription & "';")
         For Each aux In col
-            p.ProductDescription = aux(1).ToString
+            p.ProductID = aux(1).ToString
         Next
     End Sub
 

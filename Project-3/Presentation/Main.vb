@@ -61,7 +61,7 @@
             Me.cboxProductPrices.Items.Add(p.ProductDescription)
         Next
         'Paulino comento esto
-        'cboxProductPrices.SelectedIndex = 0 'We will use this to append the first element in the cbox in Prices
+        cboxProductPrices.SelectedIndex = 0 'We will use this to append the first element in the cbox in Prices
 
         'Load TRAIN TYPES in List and combos
         For Each type As TrainTypes In train_type.TypDao.TrainTypes
@@ -160,16 +160,16 @@
             End Try
 
             'Change buttons' state
-            btnAddProduct.Enabled = True
-            btnCleanProduct.Enabled = False
-            btnUpdateProduct.Enabled = False
-            btnDeleteProduct.Enabled = False
+            btnAddProduct.Enabled = False
+            btnCleanProduct.Enabled = True
+            btnUpdateProduct.Enabled = True
+            btnDeleteProduct.Enabled = True
 
         End If
     End Sub
 
     Private Sub lstViewPrices_Click(sender As Object, e As EventArgs) Handles lstViewPrices.Click
-        If Me.lstViewPrices.SelectedItems(0) Is Nothing Then
+        If Not Me.lstViewPrices.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewPrices.FocusedItem.Index 'Select the afected row
             Try
                 cboxProductPrices.Text = lstViewPrices.Items(i).SubItems(1).Text
@@ -179,7 +179,10 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             End Try
-
+            btnAddProduct.Enabled = False
+            btnCleanPrices.Enabled = True
+            btnUpdatePrices.Enabled = True
+            btnDeletePrices.Enabled = True
         End If
     End Sub
 
@@ -209,17 +212,13 @@
                 item.SubItems.Add(pro.ProductDescription)
                 item.SubItems.Add(pri.PriceDate)
                 item.SubItems.Add(pri.EurosPerTon)
+                lstViewPrices.Items.Add(item)
 
                 MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & " Correctly inserted.")
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
-
-            btnAddPrices.Enabled = True
-            btnCleanPrices.Enabled = False
-            btnUpdatePrices.Enabled = False
-            btnDeletePrices.Enabled = False
         End If
     End Sub
 
@@ -255,7 +254,7 @@
         Dim pro As Products
 
         If Not Me.lstViewPrices.SelectedItems(0) Is Nothing Then
-            If MessageBox.Show("Are you sure to remove this? " & lstViewPrices.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If MessageBox.Show("Are you sure to remove this?" & lstViewPrices.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 pro = New Products(cboxProductPrices.SelectedItem.ToString)
                 pro.ReadProductDescription()
                 pri = New Prices(pro.ProductID, dtpDatePrices.Text)
@@ -279,12 +278,11 @@
     Private Sub btnCleanPrices_Click(sender As Object, e As EventArgs) Handles btnCleanPrices.Click
         Me.txtEurosPrices.Text = String.Empty
         btnAddProduct.Enabled = True
-        btnCleanProduct.Enabled = False
-        btnUpdateProduct.Enabled = False
-        btnDeleteProduct.Enabled = False
+        btnCleanPrices.Enabled = False
+        btnUpdatePrices.Enabled = False
+        btnDeletePrices.Enabled = False
     End Sub
 
-<<<<<<< HEAD
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
     '---------------------------------------BUTTONS OF TRAINS TAB-----------------------------------------------------------------------------
@@ -339,31 +337,12 @@
             Try
                 Me.txtTrainID.Text = lstTrain.SelectedItem.ToString
 
-=======
-    'Menu trains
-    Private Sub btnAddTrain_Click(sender As Object, e As EventArgs) Handles btnAddTrain.Click
-        Dim t As Trains
-        If (Me.cboxTrain.SelectedItem <> Nothing) And (Me.txtTrainID.Text <> String.Empty) Then
-            t = New Trains()
-            t.TrainID = txtTrainID.Text.ToUpper
-            t.TrainType = cboxTrain.SelectedItem
-            lstTrain.Items.Add(t.TrainID)
-            lstTrain.Items.Add(t.TrainType)
-            Try
-                If t.InsertTrain() <> 1 Then
-                    MessageBox.Show("Error inserting train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                End If
-                lstProduct.Items.Add(t.TrainID)
-                MessageBox.Show(t.TrainType.ToString & " inserted.")
->>>>>>> 58e3b8fdb08d8f74451eaf1d9b4be6ac4dd5dfc9
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
 
-<<<<<<< HEAD
             'Change buttons state
             btnAddTrain.Enabled = True
             btnCleanTrain.Enabled = False
@@ -372,40 +351,4 @@
 
         End If
     End Sub
-
-
-
-
-
-    '-----------------------------------------------------------------------------------------------------------------------------------------
-    '---------------------------------------BUTTONS OF TRAIN TYPES TAB-----------------------------------------------------------------------------
-    '-----------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-=======
-            'Change buttons' state
-        End If
-        btnAddProduct.Enabled = True
-        btnCleanProduct.Enabled = True
-        btnUpdateProduct.Enabled = True
-        btnDeleteProduct.Enabled = True
-    End Sub
-
-    Private Sub btnCleanTrain_Click(sender As Object, e As EventArgs) Handles btnCleanTrain.Click
-        txtTrainID.Text = Nothing
-    End Sub
-
-    Private Sub btnDeleteTrain_Click(sender As Object, e As EventArgs) Handles btnDeleteTrain.Click
-
-    End Sub
-
-    Private Sub btnUpdateTrain_Click(sender As Object, e As EventArgs) Handles btnUpdateTrain.Click
-
-    End Sub
-
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
->>>>>>> 58e3b8fdb08d8f74451eaf1d9b4be6ac4dd5dfc9
 End Class
