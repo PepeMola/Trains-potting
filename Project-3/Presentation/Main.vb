@@ -210,6 +210,11 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+
+            btnAddPrices.Enabled = True
+            btnCleanPrices.Enabled = False
+            btnUpdatePrices.Enabled = False
+            btnDeletePrices.Enabled = False
         End If
     End Sub
 
@@ -322,6 +327,28 @@
     Private Sub btnCleanTrainType_Click(sender As Object, e As EventArgs) Handles btnCleanTrainType.Click
 
     End Sub
+
+    Private Sub lstTrain_Click(sender As Object, e As EventArgs) Handles lstTrain.Click
+        If Not Me.lstTrain.SelectedItems Is Nothing Then
+            Try
+                Me.txtTrainID.Text = lstTrain.SelectedItem.ToString
+
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End Try
+
+            'Change buttons state
+            btnAddTrain.Enabled = True
+            btnCleanTrain.Enabled = False
+            btnUpdateTrain.Enabled = False
+            btnDeleteTrain.Enabled = False
+
+        End If
+    End Sub
+
+
 
 
 
