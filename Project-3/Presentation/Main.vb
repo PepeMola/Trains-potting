@@ -60,7 +60,8 @@
             Me.lstProduct.Items.Add(p.ProductID)
             Me.cboxProductPrices.Items.Add(p.ProductDescription)
         Next
-        cboxProductPrices.SelectedIndex = 0 'We will use this to append the first element in the cbox in Prices
+        'Paulino comento esto
+        'cboxProductPrices.SelectedIndex = 0 'We will use this to append the first element in the cbox in Prices
 
         'Load TRAIN TYPES in List and combos
         For Each type As TrainTypes In train_type.TypDao.TrainTypes
