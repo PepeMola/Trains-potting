@@ -22,6 +22,7 @@ Partial Class Main
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.btnSelect = New System.Windows.Forms.Button()
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.tabControl = New System.Windows.Forms.TabControl()
@@ -185,7 +186,7 @@ Partial Class Main
         Me.lstProduct.ItemHeight = 17
         Me.lstProduct.Location = New System.Drawing.Point(7, 19)
         Me.lstProduct.Name = "lstProduct"
-        Me.lstProduct.Size = New System.Drawing.Size(307, 378)
+        Me.lstProduct.Size = New System.Drawing.Size(307, 361)
         Me.lstProduct.TabIndex = 0
         '
         'gbProductsBoxes
@@ -305,7 +306,7 @@ Partial Class Main
         Me.lstTrain.ItemHeight = 17
         Me.lstTrain.Location = New System.Drawing.Point(7, 20)
         Me.lstTrain.Name = "lstTrain"
-        Me.lstTrain.Size = New System.Drawing.Size(307, 378)
+        Me.lstTrain.Size = New System.Drawing.Size(307, 361)
         Me.lstTrain.TabIndex = 8
         '
         'gbTrainsBoxes
@@ -325,7 +326,7 @@ Partial Class Main
         'lblTrainDescription
         '
         Me.lblTrainDescription.AutoSize = True
-        Me.lblTrainDescription.Location = New System.Drawing.Point(7, 38)
+        Me.lblTrainDescription.Location = New System.Drawing.Point(1, 45)
         Me.lblTrainDescription.Name = "lblTrainDescription"
         Me.lblTrainDescription.Size = New System.Drawing.Size(61, 17)
         Me.lblTrainDescription.TabIndex = 15
@@ -333,7 +334,7 @@ Partial Class Main
         '
         'txtTrainID
         '
-        Me.txtTrainID.Location = New System.Drawing.Point(85, 35)
+        Me.txtTrainID.Location = New System.Drawing.Point(85, 46)
         Me.txtTrainID.Multiline = True
         Me.txtTrainID.Name = "txtTrainID"
         Me.txtTrainID.Size = New System.Drawing.Size(245, 22)
@@ -436,7 +437,7 @@ Partial Class Main
         Me.lstTrainType.ItemHeight = 17
         Me.lstTrainType.Location = New System.Drawing.Point(7, 19)
         Me.lstTrainType.Name = "lstTrainType"
-        Me.lstTrainType.Size = New System.Drawing.Size(307, 378)
+        Me.lstTrainType.Size = New System.Drawing.Size(307, 361)
         Me.lstTrainType.TabIndex = 8
         '
         'gbTrainTypeBoxes
@@ -447,9 +448,9 @@ Partial Class Main
         Me.gbTrainTypeBoxes.Controls.Add(Me.txtCapacityTrainTypes)
         Me.gbTrainTypeBoxes.Controls.Add(Me.lblCapacity)
         Me.gbTrainTypeBoxes.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbTrainTypeBoxes.Location = New System.Drawing.Point(339, 202)
+        Me.gbTrainTypeBoxes.Location = New System.Drawing.Point(339, 178)
         Me.gbTrainTypeBoxes.Name = "gbTrainTypeBoxes"
-        Me.gbTrainTypeBoxes.Size = New System.Drawing.Size(338, 214)
+        Me.gbTrainTypeBoxes.Size = New System.Drawing.Size(338, 238)
         Me.gbTrainTypeBoxes.TabIndex = 20
         Me.gbTrainTypeBoxes.TabStop = False
         Me.gbTrainTypeBoxes.Text = "Selection Train Type Panel"
@@ -795,6 +796,7 @@ Partial Class Main
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.tabControl)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Main"
         Me.Text = "Trains-potting"
         Me.tabControl.ResumeLayout(False)
