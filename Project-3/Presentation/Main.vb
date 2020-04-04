@@ -66,14 +66,10 @@
 
         'Load TRAIN TYPES in List and combos
         For Each type As TrainTypes In train_type.TypDao.TrainTypes
-            Me.lstTrainType.Items.Add(type.TrainTypeID & type.TrainTypeDescription)
+            Me.lstTrainType.Items.Add(type.TrainTypeID & " " & type.TrainTypeDescription)
             n_trains_types += 1
         Next
         'Initialize the cbox in the train section
-        cboxTrain.Items.Add(1)
-        cboxTrain.Items.Add(2)
-        cboxTrain.Items.Add(3)
-
         tabControl.Enabled = True
         'Disable DB buttons
         Me.btnConnect.Enabled = False
@@ -87,7 +83,7 @@
         btnCleanPrices.Enabled = False
         btnCleanTrain.Enabled = True
         btnCleanProduct.Enabled = False
-        btnCleanTrainType.Enabled = False
+        btnCleanTrainType.Enabled = True
         'Update Buttons
         btnUpdatePrices.Enabled = False
         btnUpdateTrain.Enabled = False
@@ -97,7 +93,7 @@
         btnDeletePrices.Enabled = False
         btnDeleteTrain.Enabled = False
         btnDeleteProduct.Enabled = False
-        btnDeleteTrainType.Enabled = False
+        btnDeleteTrainType.Enabled = True
 
     End Sub
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -396,7 +392,28 @@
 
     'Button Delete in TRAIN TYPES
     Private Sub btnDeleteTrainType_Click(sender As Object, e As EventArgs) Handles btnDeleteTrainType.Click
+        Dim t As New TrainTypes
+        Dim aux As String
+        Dim id As Integer
+        If Not Me.lstTrainType.SelectedItems(0) Is Nothing Then
+            If MessageBox.Show("Are you sure to remove this?" & lstTrainType.SelectedItems(0), "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                aux = lstTrainType.SelectedItem.ToString
+                id = Convert.ToUInt16(aux.Split.ElementAt(0))
+                t = New TrainTypes(id)
+                t.ReadTrainType()
+                Try
+                    If t.DeleteTrainType() <> 1 Then
+                        MessageBox.Show("Error removing this train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
 
+                    lstViewPrices.Items.Remove(lstViewPrices.SelectedItems(0))
+                    MessageBox.Show(t.TrainTypeID & " " & t.TrainTypeDescription.ToString & " correctly deleted.")
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End If
     End Sub
 
     'Button Update in TRAIN TYPES
@@ -406,15 +423,14 @@
 
     'Button Clean in TRAIN TYPES
     Private Sub btnCleanTrainType_Click(sender As Object, e As EventArgs) Handles btnCleanTrainType.Click
-
+        txtTrainTypeDescription.Text = String.Empty
+        NumericUpDown1.Value = 0
     End Sub
 
     Private Sub lstTrain_Click(sender As Object, e As EventArgs) Handles lstTrain.Click
         If Not Me.lstTrain.SelectedItems Is Nothing Then
             Try
                 Me.txtTrainID.Text = lstTrain.SelectedItem.ToString
-
-
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -436,4 +452,5 @@
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+
 End Class
