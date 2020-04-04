@@ -386,6 +386,7 @@
                 End If
                 lstProduct.Items.Add(t.TrainTypeID)
                 MessageBox.Show(t.TrainTypeDescription.ToString & " inserted.")
+                n_trains_types += 1
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
