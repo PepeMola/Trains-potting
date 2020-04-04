@@ -103,17 +103,22 @@
     '-----------------------------------------------------------------------------------------------------------------------------------------
     'Button Add in PRODUCT
     Private Sub btnAddProduct_Click(sender As Object, e As EventArgs) Handles btnAddProduct.Click
-        Dim p As Products
+        Dim pro As Products
         If Me.txtProductDescription.Text <> String.Empty Then
-            p = New Products()
-            p.ProductDescription = Me.txtProductDescription.Text
+            pro = New Products(Me.txtProductDescription.Text)
+            pro.ReadProductDescription()
+            If pro.ProductID <> 1 Then
+
+            Else
+
+            End If
             Try
-                If p.InsertProducts() <> 1 Then
+                If pro.InsertProducts() <> 1 Then
                     MessageBox.Show("Error inserting product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
-                lstProduct.Items.Add(p.ProductDescription)
-                MessageBox.Show(p.ProductDescription.ToString & " inserted.")
+                lstProduct.Items.Add(pro.ProductDescription)
+                MessageBox.Show(pro.ProductDescription.ToString & " inserted.")
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -131,11 +136,44 @@
 
     'Button Delete in PRODUCT
     Private Sub btnDeleteProduct_Click(sender As Object, e As EventArgs) Handles btnDeleteProduct.Click
+        Dim pro As Products
+        If Me.txtProductDescription.Text <> String.Empty Then
+            pro = New Products(Me.txtProductDescription.Text)
+            pro.ReadProductDescription()
+            If pro.ProductID <> 1 Then
 
+            Else
+
+            End If
+            Try
+                If pro.InsertProducts() <> 1 Then
+                    MessageBox.Show("Error inserting product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                lstProduct.Items.Add(pro.ProductDescription)
+                MessageBox.Show(pro.ProductDescription.ToString & " inserted.")
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End Try
+
+            'Change buttons' state
+            btnAddProduct.Enabled = True
+            btnCleanProduct.Enabled = False
+            btnUpdateProduct.Enabled = False
+            btnDeleteProduct.Enabled = False
+        End If
     End Sub
 
     'Button Update in PRODUCT
     Private Sub btnUpdateProduct_Click(sender As Object, e As EventArgs) Handles btnUpdateProduct.Click
+        Dim pro As Products
+        If Me.txtProductDescription.Text <> String.Empty Then
+            pro = New Products()
+            pro.ReadProductDescription()
+        End If
+
 
     End Sub
 
