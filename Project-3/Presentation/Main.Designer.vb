@@ -468,10 +468,10 @@ Partial Class Main
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(38, 157)
+        Me.TextBox1.Location = New System.Drawing.Point(46, 157)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(145, 51)
+        Me.TextBox1.Size = New System.Drawing.Size(145, 31)
         Me.TextBox1.TabIndex = 19
         '
         'NumericUpDown1
