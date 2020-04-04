@@ -341,7 +341,7 @@
                 t = New TrainTypes
                 t.MaxCapacity = Me.NumericUpDown1.Value
                 t.TrainTypeDescription = Me.txtTrainTypeDescription.Text
-                t.TrainTypeID = n_trains_types
+                't.TrainTypeID =
                 If t.InsertTrainType <> 1 Then
                     MessageBox.Show("Error inserting traintype", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
