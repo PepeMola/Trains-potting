@@ -392,23 +392,24 @@
 
     'Button Delete in TRAIN TYPES
     Private Sub btnDeleteTrainType_Click(sender As Object, e As EventArgs) Handles btnDeleteTrainType.Click
-        Dim t As New TrainTypes
         Dim aux As String
         Dim id As Integer
+
         If Not Me.lstTrainType.SelectedItems(0) Is Nothing Then
             If MessageBox.Show("Are you sure to remove this?" & lstTrainType.SelectedItems(0), "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 aux = lstTrainType.SelectedItem.ToString
                 id = Convert.ToUInt16(aux.Split.ElementAt(0))
-                t = New TrainTypes(id)
-                t.ReadTrainType()
+                Dim typ As TrainTypes = New TrainTypes(id)
+                'Error aqui bro
+                typ.ReadTrainType()
                 Try
-                    If t.DeleteTrainType() <> 1 Then
+                    If typ.DeleteTrainType() <> 1 Then
                         MessageBox.Show("Error removing this train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
 
                     lstViewPrices.Items.Remove(lstViewPrices.SelectedItems(0))
-                    MessageBox.Show(t.TrainTypeID & " " & t.TrainTypeDescription.ToString & " correctly deleted.")
+                    MessageBox.Show(typ.TrainTypeID & " " & typ.TrainTypeDescription.ToString & " correctly deleted.")
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
