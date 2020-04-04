@@ -377,15 +377,15 @@
         If txtTrainTypeDescription.Text <> String.Empty And NumericUpDown1.Value > 0 Then
             Try
                 t = New TrainTypes
+                t.TrainTypeID = n_trains_types
                 t.MaxCapacity = Me.NumericUpDown1.Value
                 t.TrainTypeDescription = Me.txtTrainTypeDescription.Text
-                't.TrainTypeID =
+                lstTrainType.Items.Add(t.TrainTypeID)
                 If t.InsertTrainType <> 1 Then
                     MessageBox.Show("Error inserting traintype", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
                 lstProduct.Items.Add(t.TrainTypeID)
                 MessageBox.Show(t.TrainTypeDescription.ToString & " inserted.")
-                t.TrainTypeID += 1
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
