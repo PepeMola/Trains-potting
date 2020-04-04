@@ -1,5 +1,5 @@
 ﻿Public Class Main
-
+    Private n_trains_types As Integer
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
     End Sub
@@ -21,6 +21,7 @@
         Dim product As Products = New Products
         Dim train_type As TrainTypes = New TrainTypes
         Dim trip As Trips = New Trips
+        n_trains_types = 0
 
         Try
             train.ReadAllTrains(OfdPath.FileName)
@@ -65,7 +66,8 @@
 
         'Load TRAIN TYPES in List and combos
         For Each type As TrainTypes In train_type.TypDao.TrainTypes
-            Me.lstTrain.Items.Add(type.TrainTypeID)
+            Me.lstTrainType.Items.Add(type.TrainTypeID & type.TrainTypeDescription)
+            n_trains_types += 1
         Next
         'Initialize the cbox in the train section
         cboxTrain.Items.Add(1)
@@ -328,7 +330,25 @@
 
     'Button Add in TRAIN
     Private Sub btnAddTrain_Click(sender As Object, e As EventArgs) Handles btnAddTrain.Click
+        Dim t As Trains
+        If (txtTrainID.Text <> String.Empty) And (cboxTrain.SelectedItem <> Nothing) Then
+            Try
+                t = New Trains
+                t.TrainID = txtTrainID.Text
+                t.TrainType = cboxTrain.SelectedItem
+                lstTrain.Items.Add(t.TrainID)
+                lstTrain.Items.Add(t.TrainType)
+                If t.InsertTrain() <> 1 Then
+                    MessageBox.Show("Error inserting this train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                lstProduct.Items.Add(t.TrainID)
+                MessageBox.Show(t.TrainID.ToString & " inserted.")
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
 
+        End If
     End Sub
 
     'Button Delete in TRAIN
@@ -352,7 +372,25 @@
 
     'Button Add in TRAIN TYPES
     Private Sub btnAddTrainType_Click(sender As Object, e As EventArgs) Handles btnAddTrainType.Click
+        Dim t As TrainTypes
 
+        If txtTrainTypeDescription.Text <> String.Empty And NumericUpDown1.Value > 0 Then
+            Try
+                t = New TrainTypes
+                t.MaxCapacity = Me.NumericUpDown1.Value
+                t.TrainTypeDescription = Me.txtTrainTypeDescription.Text
+                't.TrainTypeID =
+                If t.InsertTrainType <> 1 Then
+                    MessageBox.Show("Error inserting traintype", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+                lstProduct.Items.Add(t.TrainTypeID)
+                MessageBox.Show(t.TrainTypeDescription.ToString & " inserted.")
+                t.TrainTypeID += 1
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
+        End If
     End Sub
 
     'Button Delete in TRAIN TYPES
