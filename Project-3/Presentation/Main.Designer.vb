@@ -56,6 +56,8 @@ Partial Class Main
         Me.gbTrainTypeList = New System.Windows.Forms.GroupBox()
         Me.lstTrainType = New System.Windows.Forms.ListBox()
         Me.gbTrainTypeBoxes = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.lblTrainType = New System.Windows.Forms.Label()
         Me.txtTrainTypeDescription = New System.Windows.Forms.TextBox()
@@ -441,6 +443,8 @@ Partial Class Main
         '
         'gbTrainTypeBoxes
         '
+        Me.gbTrainTypeBoxes.Controls.Add(Me.Label1)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.TextBox1)
         Me.gbTrainTypeBoxes.Controls.Add(Me.NumericUpDown1)
         Me.gbTrainTypeBoxes.Controls.Add(Me.lblTrainType)
         Me.gbTrainTypeBoxes.Controls.Add(Me.txtTrainTypeDescription)
@@ -453,9 +457,26 @@ Partial Class Main
         Me.gbTrainTypeBoxes.TabStop = False
         Me.gbTrainTypeBoxes.Text = "Selection Train Type Panel"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 165)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(34, 23)
+        Me.Label1.TabIndex = 20
+        Me.Label1.Text = "ID:"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(38, 157)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(145, 51)
+        Me.TextBox1.TabIndex = 19
+        '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.Location = New System.Drawing.Point(189, 160)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(189, 112)
         Me.NumericUpDown1.Name = "NumericUpDown1"
         Me.NumericUpDown1.Size = New System.Drawing.Size(71, 29)
         Me.NumericUpDown1.TabIndex = 18
@@ -463,7 +484,7 @@ Partial Class Main
         'lblTrainType
         '
         Me.lblTrainType.AutoSize = True
-        Me.lblTrainType.Location = New System.Drawing.Point(6, 57)
+        Me.lblTrainType.Location = New System.Drawing.Point(6, 25)
         Me.lblTrainType.Name = "lblTrainType"
         Me.lblTrainType.Size = New System.Drawing.Size(202, 23)
         Me.lblTrainType.TabIndex = 15
@@ -471,7 +492,7 @@ Partial Class Main
         '
         'txtTrainTypeDescription
         '
-        Me.txtTrainTypeDescription.Location = New System.Drawing.Point(6, 83)
+        Me.txtTrainTypeDescription.Location = New System.Drawing.Point(10, 51)
         Me.txtTrainTypeDescription.Multiline = True
         Me.txtTrainTypeDescription.Name = "txtTrainTypeDescription"
         Me.txtTrainTypeDescription.Size = New System.Drawing.Size(324, 51)
@@ -480,7 +501,7 @@ Partial Class Main
         'lblCapacity
         '
         Me.lblCapacity.AutoSize = True
-        Me.lblCapacity.Location = New System.Drawing.Point(6, 160)
+        Me.lblCapacity.Location = New System.Drawing.Point(6, 112)
         Me.lblCapacity.Name = "lblCapacity"
         Me.lblCapacity.Size = New System.Drawing.Size(177, 23)
         Me.lblCapacity.TabIndex = 16
@@ -887,4 +908,6 @@ Partial Class Main
     Friend WithEvents PricePerTon As ColumnHeader
     Friend WithEvents lblEuroSymbol As Label
     Friend WithEvents ProductID As ColumnHeader
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TextBox1 As TextBox
 End Class
