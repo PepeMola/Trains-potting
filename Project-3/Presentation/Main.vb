@@ -62,7 +62,7 @@
             Me.cboxProductPrices.Items.Add(p.ProductDescription)
         Next
         'Paulino comento esto
-        cboxProductPrices.SelectedIndex = 0 'We will use this to append the first element in the cbox in Prices
+        'cboxProductPrices.SelectedIndex = 0 'We will use this to append the first element in the cbox in Prices
 
         'Load TRAIN TYPES in List and combos
         For Each type As TrainTypes In train_type.TypDao.TrainTypes
@@ -429,6 +429,10 @@
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
