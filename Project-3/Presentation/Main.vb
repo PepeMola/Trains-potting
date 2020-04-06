@@ -172,7 +172,7 @@
         If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewTrainTypes.FocusedItem.Index 'Select the afected row
             Try
-                txtTrainTypeDescription.Text = lstViewPrices.Items(i).SubItems(1).Text
+                txtTrainTypeDescription.Text = lstViewTrainTypes.Items(i).SubItems(1).Text
                 nudMaxCapacity.Text = lstViewTrainTypes.Items(i).SubItems(2).Text
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -373,8 +373,28 @@
 
     'Button Delete in TRAIN TYPES
     Private Sub btnDeleteTrainType_Click(sender As Object, e As EventArgs) Handles btnDeleteTrainType.Click
-        Dim aux As String
+        Dim ty As TrainTypes
         Dim id As Integer
+        If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
+            If MessageBox.Show("Are you sure to remove this?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                id = Convert.ToInt32(Val(lstViewTrainTypes.SelectedItems(0).SubItems(0).Text))
+                ty = New TrainTypes(id)
+                MessageBox.Show(ty.TrainTypeID)
+                ty.ReadTrainType()
+                Try
+                    If ty.DeleteTrainType() <> 1 Then
+                        MessageBox.Show("Error removing this price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    lstViewTrainTypes.Items.Remove(lstViewPrices.SelectedItems(0))
+                    MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly deleted.")
+
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End If
 
     End Sub
 
@@ -390,10 +410,6 @@
     End Sub
 
     Private Sub lstTrain_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub lstViewTrainTypes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstViewTrainTypes.SelectedIndexChanged
 
     End Sub
 End Class
