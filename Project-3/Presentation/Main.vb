@@ -69,10 +69,7 @@
 
         'Load TRAIN TYPES in List and combos
         Dim itemTypes As ListViewItem
-        Dim tr As Trains
         For Each type As TrainTypes In train_type.TypDao.TrainTypes
-            tr = New Trains(type.TrainTypeID)
-            tr.ReadTrain()
 
             itemTypes = New ListViewItem(type.TrainTypeID)
             itemTypes.SubItems.Add(type.TrainTypeDescription)
@@ -396,5 +393,7 @@
 
     End Sub
 
+    Private Sub lstViewTrainTypes_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstViewTrainTypes.SelectedIndexChanged
 
+    End Sub
 End Class
