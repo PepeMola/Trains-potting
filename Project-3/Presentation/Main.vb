@@ -367,8 +367,28 @@
 
     'Button Add in TRAIN TYPES
     Private Sub btnAddTrainType_Click(sender As Object, e As EventArgs) Handles btnAddTrainType.Click
-        Dim t As TrainTypes
+        Dim ty As TrainTypes
 
+        If Me.txtTrainTypeDescription.Text <> Nothing Then
+            ty = New TrainTypes(txtTrainTypeDescription.ToString)
+            ty.ReadTrainType()
+
+            Try
+                If ty.InsertTrainType() <> 1 Then
+                    MessageBox.Show("Error inserting train type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                Dim item As New ListViewItem(ty.TrainTypeID)
+                item.SubItems.Add(ty.TrainTypeDescription)
+                lstViewTrainTypes.Items.Add(item)
+
+                MessageBox.Show(ty.TrainTypeDescription.ToString & " Correctly inserted.")
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
 
     'Button Delete in TRAIN TYPES
