@@ -1,5 +1,6 @@
 ﻿Public Class Main
     Private n_trains_types As Integer
+
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
     End Sub
@@ -18,7 +19,7 @@
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
         Dim train As Trains = New Trains
         Dim price As Prices = New Prices
-        Dim product As Products = New Products
+        Dim product As Product = New Product
         Dim train_type As TrainTypes = New TrainTypes
         Dim trip As Trips = New Trips
         n_trains_types = 0
@@ -26,7 +27,7 @@
         Try
             train.ReadAllTrains(OfdPath.FileName)
             price.ReadAllPrices(OfdPath.FileName)
-            product.ReadAllProducts(OfdPath.FileName)
+            product.ReadAllProduct(OfdPath.FileName)
             train_type.ReadAllTrainTypes(OfdPath.FileName)
             trip.ReadAllTrips(OfdPath.FileName)
 
@@ -46,12 +47,11 @@
 
         'Load PRICES in List View and Combos
         Dim itemPrices As ListViewItem
-        Dim pro As Products
+        Dim pro As Product
 
         For Each pri As Prices In price.PriDao.Prices
-            pro = New Products(pri.ProductID)
-            pro.ReadProducts()
-
+            pro = New Product(pri.ProductID)
+            pro.ReadProductDescription()
             itemPrices = New ListViewItem(pri.ProductID)
             itemPrices.SubItems.Add(pro.ProductDescription)
             itemPrices.SubItems.Add(pri.PriceDate)
@@ -59,12 +59,14 @@
             lstViewPrices.Items.Add(itemPrices)
 
         Next
-        'Load PRODUCTS in List and txtBox
-        Dim itemProducts As ListViewItem
-        For Each p As Products In product.ProDao.Product
-            itemProducts = New ListViewItem(p.ProductID)
-            itemProducts.SubItems.Add(p.ProductDescription)
-            lstViewProducts.Items.Add(itemProducts)
+
+        'Load Product in List and txtBox
+        Dim itemProduct As ListViewItem
+        For Each p As Product In product.ProDao.Product
+            p.ReadProductDescription()
+            itemProduct = New ListViewItem(p.ProductID)
+            itemProduct.SubItems.Add(p.ProductDescription)
+            lstViewProducts.Items.Add(itemProduct)
         Next
 
         'Load TRAIN TYPES in List and combos
@@ -89,19 +91,19 @@
         btnAddProduct.Enabled = True
         btnAddTrainType.Enabled = True
         'Clean Buttons
-        btnCleanPrices.Enabled = False
+        btnCleanPrices.Enabled = True
         btnCleanTrain.Enabled = True
-        btnCleanProduct.Enabled = False
+        btnCleanProduct.Enabled = True
         btnCleanTrainType.Enabled = True
         'Update Buttons
-        btnUpdatePrices.Enabled = False
-        btnUpdateTrain.Enabled = False
-        btnUpdateProduct.Enabled = False
-        btnUpdateTrainType.Enabled = False
+        btnUpdatePrices.Enabled = True
+        btnUpdateTrain.Enabled = True
+        btnUpdateProduct.Enabled = True
+        btnUpdateTrainType.Enabled = True
         'Delete Buttons
-        btnDeletePrices.Enabled = False
-        btnDeleteTrain.Enabled = False
-        btnDeleteProduct.Enabled = False
+        btnDeletePrices.Enabled = True
+        btnDeleteTrain.Enabled = True
+        btnDeleteProduct.Enabled = True
         btnDeleteTrainType.Enabled = True
 
         'Falta por imlementar el tabQuery y el tabTrips
@@ -113,22 +115,6 @@
     '---------------------------------------LISTS IN EACH TAB---------------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
 
-    'List View in Product
-    Private Sub lstViewProducts_Click(sender As Object, e As EventArgs) Handles lstViewProducts.Click
-        If Not Me.lstViewProducts.SelectedItems(0) Is Nothing Then
-            Dim i As Integer = lstViewProducts.FocusedItem.Index 'Select the afected row
-            Try
-                txtProductDescription.Text = lstViewProducts.Items(i).SubItems(1).Text
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
-
-            End Try
-            btnAddProduct.Enabled = False
-            btnCleanProduct.Enabled = True
-            btnUpdateProduct.Enabled = True
-            btnDeleteProduct.Enabled = True
-        End If
-    End Sub
 
     'List View in Prices
     Private Sub lstViewPrices_Click(sender As Object, e As EventArgs) Handles lstViewPrices.Click
@@ -142,10 +128,6 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             End Try
-            btnAddPrices.Enabled = False
-            btnCleanPrices.Enabled = True
-            btnUpdatePrices.Enabled = True
-            btnDeletePrices.Enabled = True
         End If
     End Sub
 
@@ -187,45 +169,98 @@
     'List View in Trips
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    '---------------------------------------BUTTONS OF PRODUCTS TAB---------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF Product TAB---------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    'Button Add in PRODUCT
-    Private Sub btnAddProduct_Click(sender As Object, e As EventArgs) Handles btnAddProduct.Click
-        Dim pro As Products
-
-        If Me.txtProductDescription.Text <> Nothing Then
-            pro = New Products(txtProductDescription.ToString)
-            pro.ReadProducts()
-
+    'List View in Product
+    Private Sub lstViewProducts_Click(sender As Object, e As EventArgs) Handles lstViewProducts.Click
+        If Not Me.lstViewProducts.SelectedItems(0) Is Nothing Then
+            Dim i As Integer = lstViewProducts.FocusedItem.Index 'Select the afected row
             Try
-                If pro.InsertProducts() <> 1 Then
-                    MessageBox.Show("Error inserting product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
-                End If
-
-                Dim item As New ListViewItem(pro.ProductID)
-                item.SubItems.Add(pro.ProductDescription)
-                lstViewPrices.Items.Add(item)
-
-                MessageBox.Show(pro.ProductDescription.ToString & " Correctly inserted.")
-
+                txtProductDescription.Text = lstViewProducts.Items(i).SubItems(1).Text
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+            btnAddTrainType.Enabled = False
+            btnCleanTrainType.Enabled = True
+            btnUpdateTrainType.Enabled = True
+            btnDeleteTrainType.Enabled = True
+        End If
+    End Sub
+
+    'Button Add in PRODUCT
+    Private Sub btnAddProduct_Click(sender As Object, e As EventArgs) Handles btnAddProduct.Click
+        Dim pro As Product
+
+        If Me.txtProductDescription.Text <> String.Empty Then 'if the textbox is empty we can not add nothing so the button do nothing
+            pro = New Product(Me.txtProductDescription.Text)
+            pro.ReadProductDescription()
+
+            If (pro.isProductDescription = 0) Then 'If the product description is registered in the data base, it is not added
+                Try
+                    If pro.InsertProduct() <> 1 Then 'If the product is correctly inserted the method insert() return us the value: 1
+                        MessageBox.Show("Error inserting product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    pro.ReadProductDescription() 'With this new call to the method we obtain its ID and now we can add the ID to the list view 
+                    Dim item As New ListViewItem(pro.ProductID) 'me esta volviendo loco el puto id joderrrrrrrrrrrrr
+                    item.SubItems.Add(pro.ProductDescription)
+                    lstViewProducts.Items.Add(item)
+
+                    MessageBox.Show(pro.ProductDescription.ToString & " Correctly inserted.")
+                    txtProductDescription.Text = String.Empty
+
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            Else
+                MessageBox.Show("This product already exists.")
+            End If
         End If
     End Sub
 
     'Button Delete in PRODUCT
     Private Sub btnDeleteProduct_Click(sender As Object, e As EventArgs) Handles btnDeleteProduct.Click
+        Dim pro As New Product
 
+        If Not Me.lstViewProducts.SelectedItems(0).SubItems(0).Text = "" Then
+            If MessageBox.Show("Are yoou sure to remove this? " & lstViewProducts.SelectedItems(0).SubItems(1).Text, "Por favor, confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                pro = New Product(Me.txtProductDescription.Text)
+                pro.ReadProductDescription()
+                Try
+                    If pro.DeleteProduct() <> 1 Then
+                        MessageBox.Show("Error removing product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    lstViewProducts.Items.Remove(lstViewProducts.SelectedItems(0))
+                    MessageBox.Show(pro.ProductDescription.ToString & " Correctly removed.")
+                    txtProductDescription.Text = String.Empty
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End Try
+            End If
+        End If
     End Sub
 
     'Button Update in PRODUCT
     Private Sub btnUpdateProduct_Click(sender As Object, e As EventArgs) Handles btnUpdateProduct.Click
-        Dim pro As Products
+        Dim pro As Product
         If Me.txtProductDescription.Text <> String.Empty Then
-            pro = New Products()
+            pro = New Product(Me.txtProductDescription.Text)
             pro.ReadProductDescription()
+            Try
+                If pro.UpdateProduct() <> 1 Then
+                    MessageBox.Show("Error updating product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+
+                lstViewProducts.SelectedItems(0).SubItems(1).Text = pro.ProductDescription
+                MessageBox.Show(pro.ProductDescription.ToString & " Correctly updated.")
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
         End If
 
     End Sub
@@ -246,10 +281,10 @@
     'Button Add in PRICES
     Private Sub btnAddPrices_Click(sender As Object, e As EventArgs) Handles btnAddPrices.Click
         Dim pri As New Prices
-        Dim pro As Products
+        Dim pro As Product
 
         If Me.txtEurosPrices.Text <> Nothing Then
-            pro = New Products(cboxProductPrices.SelectedItem.ToString)
+            pro = New Product(cboxProductPrices.SelectedItem.ToString)
             pro.ReadProductDescription()
             pri.ProductID = pro.ProductID
             pri.PriceDate = dtpDatePrices.Text
@@ -278,10 +313,10 @@
     'Button Update in PRICES
     Private Sub btnUpdatePrices_Click(sender As Object, e As EventArgs) Handles btnUpdatePrices.Click
         Dim pri As New Prices
-        Dim pro As Products
+        Dim pro As Product
 
         If Me.txtEurosPrices.Text <> Nothing Then
-            pro = New Products(cboxProductPrices.SelectedItem.ToString)
+            pro = New Product(cboxProductPrices.SelectedItem.ToString)
             pro.ReadProductDescription()
             pri = New Prices(pro.ProductID, dtpDatePrices.Text)
             pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ",", "."))
@@ -304,11 +339,11 @@
     'Button Delete in PRICES
     Private Sub btnDeletePrices_Click(sender As Object, e As EventArgs) Handles btnDeletePrices.Click
         Dim pri As New Prices
-        Dim pro As Products
+        Dim pro As Product
 
         If Not Me.lstViewPrices.SelectedItems(0) Is Nothing Then
             If MessageBox.Show("Are you sure to remove this?" & lstViewPrices.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                pro = New Products(cboxProductPrices.SelectedItem.ToString)
+                pro = New Product(cboxProductPrices.SelectedItem.ToString)
                 pro.ReadProductDescription()
                 pri = New Prices(pro.ProductID, dtpDatePrices.Text)
                 Try
@@ -431,5 +466,9 @@
 
     Private Sub lstTrain_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        tabControl.Enabled = False
     End Sub
 End Class
