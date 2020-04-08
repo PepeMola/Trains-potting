@@ -389,7 +389,7 @@
                 nudMaxCapacity.Text = lstViewTrainTypes.Items(i).SubItems(2).Text
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+                Exit Sub
             End Try
             btnAddTrainType.Enabled = False
             btnCleanTrainType.Enabled = True
@@ -405,11 +405,11 @@
         If Me.txtTrainTypeDescription.Text <> Nothing Then
             ty = New TrainTypes(txtTrainTypeDescription.ToString)
             ty.ReadTrainType()
-
+            ty.MaxCapacity = nudMaxCapacity.Value
             Try
                 If ty.InsertTrainType() <> 1 Then
                     MessageBox.Show("Error inserting train type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    Exit Sub
+
                 End If
 
                 Dim item As New ListViewItem(ty.TrainTypeID)
@@ -420,6 +420,7 @@
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             End Try
         End If
     End Sub
@@ -432,7 +433,6 @@
             If MessageBox.Show("Are you sure to remove this?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 id = Convert.ToInt32(Val(lstViewTrainTypes.SelectedItems(0).SubItems(0).Text))
                 ty = New TrainTypes(id)
-                MessageBox.Show(ty.TrainTypeID)
                 ty.ReadTrainType()
                 Try
                     If ty.DeleteTrainType() <> 1 Then

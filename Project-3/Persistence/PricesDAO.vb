@@ -26,7 +26,7 @@
     End Sub
 
     Public Function Insert(ByVal p As Prices) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Prices VALUES ('" & p.ProductID & "', #" & p.PriceDate & "#, '" & p.EurosPerTon & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO Prices VALUES (" & p.ProductID & ", #" & p.PriceDate & "#, '" & p.EurosPerTon & "');")
     End Function
 
     Public Function Change(ByVal p As Prices) As Integer

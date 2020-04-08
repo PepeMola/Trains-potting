@@ -19,7 +19,7 @@
 
     Public Sub Read(ByRef typ As TrainTypes)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM TrainTypes WHERE Product='" & typ.TrainTypeID & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM TrainTypes WHERE Product=" & typ.TrainTypeID & ";")
         For Each aux In col
             typ.TrainTypeDescription = aux(2).ToString
             typ.MaxCapacity = aux(3).ToString
@@ -27,14 +27,14 @@
     End Sub
 
     Public Function Insert(ByVal typ As TrainTypes) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO TrainTypes VALUES ('" & typ.TrainTypeID & "', '" & typ.TrainTypeDescription & "', '" & typ.MaxCapacity & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO TrainTypes VALUES (" & typ.TrainTypeID & ", '" & typ.TrainTypeDescription & "', " & typ.MaxCapacity & ");")
     End Function
 
     Public Function Change(ByVal typ As TrainTypes) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE TrainTypes SET TrainTypeDescription='" & typ.TrainTypeDescription & "' AND MaxCapacity='" & typ.MaxCapacity & "' WHERE TrainTypeID='" & typ.TrainTypeID & "';")
+        Return DBBroker.GetBroker.Change("UPDATE TrainTypes SET TrainTypeDescription='" & typ.TrainTypeDescription & "' AND MaxCapacity=" & typ.MaxCapacity & " WHERE TrainTypeID=" & typ.TrainTypeID & ";")
     End Function
 
     Public Function Delete(ByVal typ As TrainTypes) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM TrainTypes WHERE TrainTypeID='" & typ.TrainTypeID & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM TrainTypes WHERE TrainTypeID=" & typ.TrainTypeID & ";")
     End Function
 End Class
