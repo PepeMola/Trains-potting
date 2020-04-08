@@ -1,5 +1,5 @@
 ﻿Public Class Main
-    Private n_trains_types As Integer
+    Private n_Train_types As Integer
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
@@ -15,17 +15,17 @@
 
     End Sub
 
-    'This Method allow us connect the database and load the info in our Form "Trains-potting"
+    'This Method allow us connect the database and load the info in our Form "Train-potting"
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
-        Dim train As Trains = New Trains
+        Dim train As Train = New Train
         Dim price As Prices = New Prices
         Dim product As Product = New Product
         Dim train_type As TrainTypes = New TrainTypes
         Dim trip As Trips = New Trips
-        n_trains_types = 0
+        n_Train_types = 0
 
         Try
-            train.ReadAllTrains(OfdPath.FileName)
+            train.ReadAllTrain(OfdPath.FileName)
             price.ReadAllPrices(OfdPath.FileName)
             product.ReadAllProduct(OfdPath.FileName)
             train_type.ReadAllTrainTypes(OfdPath.FileName)
@@ -37,12 +37,12 @@
             Exit Sub
         End Try
 
-        'Load TRAINS in List and Combo
-        Dim itemTrains As ListViewItem
-        For Each t As Trains In train.TraDao.Trains
-            itemTrains = New ListViewItem(t.TrainID)
-            itemTrains.SubItems.Add(t.TrainType)
-            lstViewTrains.Items.Add(itemTrains)
+        'Load Train in List and Combo
+        Dim itemTrain As ListViewItem
+        For Each t As Train In train.TraDao.Train
+            itemTrain = New ListViewItem(t.TrainID)
+            itemTrain.SubItems.Add(t.TrainType)
+            lstViewTrains.Items.Add(itemTrain)
         Next
 
         'Load PRICES in List View and Combos
@@ -78,7 +78,6 @@
             itemTypes.SubItems.Add(type.MaxCapacity)
             lstViewTrainTypes.Items.Add(itemTypes)
         Next
-
 
         'Initialize the cbox in the train section
         tabControl.Enabled = True
@@ -151,7 +150,7 @@
                     item.SubItems.Add(pro.ProductDescription)
                     lstViewProducts.Items.Add(item)
 
-                    MessageBox.Show(pro.ProductDescription.ToString & " Correctly inserted.")
+                    MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly inserted.")
                     txtProductDescription.Text = String.Empty
 
                 Catch ex As Exception
@@ -177,7 +176,7 @@
                         Exit Sub
                     End If
                     lstViewProducts.Items.Remove(lstViewProducts.SelectedItems(0))
-                    MessageBox.Show(pro.ProductDescription.ToString & " Correctly removed.")
+                    MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly removed.")
                     txtProductDescription.Text = String.Empty
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -191,14 +190,9 @@
     Private Sub btnUpdateProduct_Click(sender As Object, e As EventArgs) Handles btnUpdateProduct.Click
         Dim pro As Product
         If Me.txtProductDescription.Text <> String.Empty Then
-            'pro = New Product(Convert.ToInt32(lstViewProducts.SelectedItems(0).SubItems(0).Text))
-            'pro.ReadProduct()
-
-            'pro.ProductDescription = txtProductDescription.Text
-            'pro.UpdateProduct()
-
             pro = New Product(Me.txtProductDescription.Text)
-            pro.ReadProductDescription()
+            pro.ProductID = Integer.Parse(lstViewProducts.SelectedItems(0).Text)
+
             Try
                 If pro.UpdateProduct() <> 1 Then
                     MessageBox.Show("Error updating product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -206,8 +200,8 @@
                 End If
 
                 lstViewProducts.SelectedItems(0).SubItems(1).Text = pro.ProductDescription
-                MessageBox.Show(pro.ProductDescription.ToString & " Correctly updated.")
-
+                MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly updated.")
+                txtProductDescription.Text = String.Empty
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -218,10 +212,10 @@
     'Button Clean in PRODUCT
     Private Sub btnCleanProduct_Click(sender As Object, e As EventArgs) Handles btnCleanProduct.Click
         Me.txtProductDescription.Text = String.Empty
-        btnAddProduct.Enabled = True
-        btnCleanProduct.Enabled = False
-        btnUpdateProduct.Enabled = False
-        btnDeleteProduct.Enabled = False
+        btnAddProduct.Enabled = False
+        btnCleanProduct.Enabled = True
+        btnUpdateProduct.Enabled = True
+        btnDeleteProduct.Enabled = True
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -306,7 +300,7 @@
         Dim pro As Product
 
         If Not Me.lstViewPrices.SelectedItems(0) Is Nothing Then
-            If MessageBox.Show("Are you sure to remove this?" & lstViewPrices.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If MessageBox.Show("Are you sure to remove this? " & lstViewPrices.SelectedItems(0).SubItems(1).Text, " Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 pro = New Product(cboxProductPrices.SelectedItem.ToString)
                 pro.ReadProductDescription()
                 pri = New Prices(pro.ProductID, dtpDatePrices.Text)
@@ -317,7 +311,7 @@
                     End If
 
                     lstViewPrices.Items.Remove(lstViewPrices.SelectedItems(0))
-                    MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & " correctly deleted.")
+                    MessageBox.Show("' " & pro.ProductDescription.ToString & " " & pri.PriceDate & "' correctly deleted.")
 
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -329,18 +323,18 @@
     'Button Clean in PRICES
     Private Sub btnCleanPrices_Click(sender As Object, e As EventArgs) Handles btnCleanPrices.Click
         Me.txtEurosPrices.Text = String.Empty
-        btnAddProduct.Enabled = True
-        btnCleanPrices.Enabled = False
-        btnUpdatePrices.Enabled = False
-        btnDeletePrices.Enabled = False
+        btnAddProduct.Enabled = False
+        btnCleanPrices.Enabled = True
+        btnUpdatePrices.Enabled = True
+        btnDeletePrices.Enabled = True
     End Sub
 
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    '---------------------------------------BUTTONS OF TRAINS TAB-----------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF Train TAB-----------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    'List View in Trains
-    Private Sub lstViewTrains_Click(sender As Object, e As EventArgs) Handles lstViewTrains.Click
+    'List View in Train
+    Private Sub lstViewTrain_Click(sender As Object, e As EventArgs) Handles lstViewTrains.Click
         If Not Me.lstViewTrains.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewTrains.FocusedItem.Index 'Select the afected row
             Try
@@ -359,7 +353,38 @@
 
     'Button Add in TRAIN
     Private Sub btnAddTrain_Click(sender As Object, e As EventArgs) Handles btnAddTrain.Click
+        Dim t As New Train
 
+        If Me.txtTrainID.Text <> String.Empty And Me.cboxTrain.Text <> Nothing Then
+            t = New Train(Me.txtTrainID.Text)
+            t.ReadTrainType()
+            t.TrainID = Me.txtTrainID.Text
+            t.TrainType = Me.cboxTrain.Text
+
+
+            Try
+                If t.InsertTrain() <> 1 Then 'If the train is correctly inserted the method insert() return us the value: 1
+                    MessageBox.Show("Error inserting Train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+                MessageBox.Show(t.TrainID.ToString, t.TrainType.ToString)
+                'With this new call to the method we obtain its ID and now we can add the ID to the list view 
+                t.ReadTrain()
+                Dim item As New ListViewItem(t.TrainID)
+                item.SubItems.Add(t.TrainType)
+                lstViewTrains.Items.Add(item)
+
+                MessageBox.Show("'" & t.TrainID.ToString & t.TrainType.ToString & "' correctly inserted.")
+                txtProductDescription.Text = String.Empty
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+
+        Else
+            MessageBox.Show("Please fill the boxes to add a new Train.")
+
+        End If
     End Sub
 
     'Button Delete in TRAIN
@@ -374,7 +399,12 @@
 
     'Button Clean in TRAIN
     Private Sub btnCleanTrain_Click(sender As Object, e As EventArgs) Handles btnCleanTrain.Click
-
+        txtTrainID.Text = String.Empty
+        cboxTrain.Text = String.Empty
+        btnAddTrain.Enabled = False
+        btnCleanTrain.Enabled = True
+        btnUpdateTrain.Enabled = True
+        btnDeleteTrain.Enabled = True
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -403,7 +433,7 @@
         Dim ty As TrainTypes
 
         If Me.txtTrainTypeDescription.Text <> Nothing Then
-            ty = New TrainTypes(txtTrainTypeDescription.ToString)
+            ty = New TrainTypes(txtTrainTypeDescription.Text)
             ty.ReadTrainType()
             ty.MaxCapacity = nudMaxCapacity.Value
             Try

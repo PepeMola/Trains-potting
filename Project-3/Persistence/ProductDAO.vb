@@ -47,10 +47,10 @@
     End Function
 
     Public Function Change(ByVal p As Product) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Products SET ProductDescription='" & p.ProductDescription & "' WHERE ProductDescription='" & p.ProductDescription & "';")
+        Return DBBroker.GetBroker.Change("UPDATE Products SET ProductDescription='" & p.ProductDescription & "' WHERE ProductID=" & p.ProductID & ";")
     End Function
 
     Public Function Delete(ByVal p As Product) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Products WHERE ProductDescription='" & p.ProductDescription & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM Products WHERE ProductID=" & p.ProductID & ";")
     End Function
 End Class

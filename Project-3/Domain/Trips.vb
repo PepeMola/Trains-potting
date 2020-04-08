@@ -2,7 +2,7 @@
     Public Property TripDate As Date
     Public Property Train As String
     Public Property Product As Integer
-    Public Property TonsTransported As Integer
+    Public Property TonsTransported As String
     Public Property TrDao As TripsDAO
 
     Public Sub New()

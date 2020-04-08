@@ -29,14 +29,14 @@
     End Sub
 
     Public Function Insert(ByVal tr As Trips) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Trips VALUES ('" & tr.TripDate & "', '" & tr.Train & "', '" & tr.Product & "', '" & tr.TonsTransported & "');")
+        Return DBBroker.GetBroker.Change("INSERT INTO Trips VALUES (#" & tr.TripDate & "#, '" & tr.Train & "', " & tr.Product & ", '" & tr.TonsTransported & "');")
     End Function
 
     Public Function Change(ByVal tr As Trips) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Trips SET Train='" & tr.Train & "' AND Product='" & tr.Product & "' AND TonsTransported='" & tr.TonsTransported & "'WHERE TripDate='" & tr.TripDate & "';")
+        Return DBBroker.GetBroker.Change("UPDATE Trips SET Train='" & tr.Train & "' AND Product=" & tr.Product & " AND TonsTransported='" & tr.TonsTransported & "'WHERE TripDate=#" & tr.TripDate & "#;")
     End Function
 
     Public Function Delete(ByVal tr As Trips) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Trips WHERE TripDate='" & tr.TripDate & "';")
+        Return DBBroker.GetBroker.Change("DELETE FROM Trips WHERE TripDate=#" & tr.TripDate & "#;")
     End Function
 End Class
