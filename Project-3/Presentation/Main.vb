@@ -460,17 +460,17 @@
         Dim ty As TrainTypes
         Dim id As Integer
         If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
-            If MessageBox.Show("Are you sure to remove this?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If MessageBox.Show("Are you sure to remove this traintype?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 id = Convert.ToInt32(Val(lstViewTrainTypes.SelectedItems(0).SubItems(0).Text))
                 ty = New TrainTypes(id)
-                ty.ReadTrainType()
+ 
                 Try
                     If ty.DeleteTrainType() <> 1 Then
                         MessageBox.Show("Error removing this price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
 
-                    lstViewTrainTypes.Items.Remove(lstViewPrices.SelectedItems(0))
+                    lstViewTrainTypes.Items.Remove(lstViewTrainTypes.SelectedItems(0))
                     MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly deleted.")
 
                 Catch ex As Exception
@@ -483,7 +483,34 @@
 
     'Button Update in TRAIN TYPES
     Private Sub btnUpdateTrainType_Click(sender As Object, e As EventArgs) Handles btnUpdateTrainType.Click
+        Dim ty As TrainTypes
+        Dim id As Integer
+        If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
+            If MessageBox.Show("Are you sure to update this traintype?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
 
+                Try
+                    id = Convert.ToInt32(Val(lstViewTrainTypes.SelectedItems(0).SubItems(0).Text))
+                    ty = New TrainTypes(id)
+                    ty.MaxCapacity = nudMaxCapacity.Value
+                    ty.TrainTypeDescription = txtTrainTypeDescription.Text
+
+                    If ty.UpdateTrainType() <> 1 Then
+                        MessageBox.Show("Error updating this traintype.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    lstViewTrainTypes.SelectedItems(0).SubItems(1).Text = ty.TrainTypeDescription
+                    lstViewTrainTypes.SelectedItems(0).SubItems(2).Text = ty.MaxCapacity.ToString
+                    MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly update.")
+                    txtTrainTypeDescription.Text = String.Empty
+                    nudMaxCapacity.Value = 0
+
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End Try
+            End If
+        End If
     End Sub
 
     'Button Clean in TRAIN TYPES
