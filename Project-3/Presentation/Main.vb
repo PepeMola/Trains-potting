@@ -433,12 +433,13 @@
         Dim ty As TrainTypes
 
         If Me.txtTrainTypeDescription.Text <> Nothing Then
-            ty = New TrainTypes(txtTrainTypeDescription.Text)
-            ty.ReadTrainType()
+            ty = New TrainTypes()
+            ty.TrainTypeDescription = txtTrainTypeDescription.Text
             ty.MaxCapacity = nudMaxCapacity.Value
+
             Try
                 If ty.InsertTrainType() <> 1 Then
-                    MessageBox.Show("Error inserting train type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Error inserting traintype.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
 
                 End If
 
