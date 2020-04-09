@@ -390,7 +390,26 @@
 
     'Button Delete in TRAIN
     Private Sub btnDeleteTrain_Click(sender As Object, e As EventArgs) Handles btnDeleteTrain.Click
+        Dim t As New Train
 
+        If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = "" Then
+            If MessageBox.Show("Are yoou sure to remove this? " & lstViewTrains.SelectedItems(0).SubItems(1).Text, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                t = New Train(Me.txtTrainID.Text)
+                t.ReadTrain()
+                Try
+                    If t.DeleteTrain() <> 1 Then
+                        MessageBox.Show("Error removing train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    lstViewTrains.Items.Remove(lstViewTrains.SelectedItems(0))
+                    MessageBox.Show("'" & t.TrainID.ToString & "' correctly removed.")
+                    txtTrainID.Text = String.Empty
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End Try
+            End If
+        End If
     End Sub
 
     'Button Update in TRAIN
