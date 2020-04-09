@@ -47,10 +47,10 @@
     End Function
 
     Public Function Change(ByVal t As Train) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Trains SET TrainType='" & t.TrainType & "' WHERE TrainID=" & t.TrainID & ";")
+        Return DBBroker.GetBroker.Change("UPDATE Trains SET TrainType=" & t.TrainType & " WHERE TrainID='" & t.TrainID & "';")
     End Function
 
     Public Function Delete(ByVal t As Train) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Trains WHERE TrainID=" & t.TrainID & ";")
+        Return DBBroker.GetBroker.Change("DELETE FROM Trains WHERE TrainID='" & t.TrainID & "';")
     End Function
 End Class

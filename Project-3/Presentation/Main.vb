@@ -390,7 +390,7 @@
         Dim t As New Train
 
         If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = "" Then
-            If MessageBox.Show("Are yoou sure to remove this? " & lstViewTrains.SelectedItems(0).SubItems(1).Text, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If MessageBox.Show("Are you sure to remove this? " & lstViewTrains.SelectedItems(0).SubItems(1).Text, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 t = New Train(Me.txtTrainID.Text)
                 Try
                     If t.DeleteTrain() <> 1 Then
@@ -410,7 +410,31 @@
     End Sub
 
     'Button Update in TRAIN
+    'ya funciona lo de trains, la cosa es que para el update, segun la sentencia se tiene que mantener el traintype, que hace la referencia a la tabla, solo permite cambia el id
     Private Sub btnUpdateTrain_Click(sender As Object, e As EventArgs) Handles btnUpdateTrain.Click
+        Dim t As New Train
+
+        If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = "" Then
+            If MessageBox.Show("Are you sure to update this? " & lstViewTrains.SelectedItems(0).SubItems(1).Text, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                t = New Train()
+                t.TrainID = txtTrainID.Text
+                t.TrainType = Convert.ToInt32(cboxTrain.Text)
+                Try
+                    If t.UpdateTrain() <> 1 Then
+                        MessageBox.Show("Error updating train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    lstViewTrains.SelectedItems(0).SubItems(0).Text = t.TrainID
+                    lstViewTrains.SelectedItems(0).SubItems(1).Text = t.TrainType
+                    MessageBox.Show("'" & t.TrainID.ToString & "' correctly update.")
+                    txtTrainID.Text = String.Empty
+                    cboxTrain.Text = String.Empty
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End Try
+            End If
+        End If
 
     End Sub
 
