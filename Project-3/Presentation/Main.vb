@@ -345,7 +345,7 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
 
             End Try
-            btnAddTrain.Enabled = False
+            btnAddTrain.Enabled = True
             btnCleanTrain.Enabled = True
             btnUpdateTrain.Enabled = True
             btnDeleteTrain.Enabled = True
@@ -355,20 +355,17 @@
     'Button Add in TRAIN
     Private Sub btnAddTrain_Click(sender As Object, e As EventArgs) Handles btnAddTrain.Click
         Dim t As New Train
-
+        Dim type As New TrainTypes
         If Me.txtTrainID.Text <> String.Empty And Me.cboxTrain.Text <> Nothing Then
             t = New Train(Me.txtTrainID.Text)
-            t.ReadTrainType()
             t.TrainID = Me.txtTrainID.Text
-            t.TrainType = Me.cboxTrain.Text
-
+            t.TrainType = Convert.ToInt32(Me.cboxTrain.Text)
 
             Try
                 If t.InsertTrain() <> 1 Then 'If the train is correctly inserted the method insert() return us the value: 1
                     MessageBox.Show("Error inserting Train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
-                MessageBox.Show(t.TrainID.ToString, t.TrainType.ToString)
                 'With this new call to the method we obtain its ID and now we can add the ID to the list view 
                 t.ReadTrain()
                 Dim item As New ListViewItem(t.TrainID)
@@ -380,6 +377,7 @@
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             End Try
 
         Else
