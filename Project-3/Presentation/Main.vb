@@ -343,7 +343,7 @@
                 cboxTrain.Text = lstViewTrains.Items(i).SubItems(1).Text
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
-
+                Exit Sub
             End Try
             btnAddTrain.Enabled = True
             btnCleanTrain.Enabled = True
@@ -367,14 +367,13 @@
                     Exit Sub
                 End If
                 'With this new call to the method we obtain its ID and now we can add the ID to the list view 
-                t.ReadTrain()
                 Dim item As New ListViewItem(t.TrainID)
                 item.SubItems.Add(t.TrainType)
                 lstViewTrains.Items.Add(item)
 
                 MessageBox.Show("'" & t.TrainID.ToString & t.TrainType.ToString & "' correctly inserted.")
-                txtProductDescription.Text = String.Empty
-
+                txtTrainID.Text = String.Empty
+                cboxTrain.Text = String.Empty
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -401,6 +400,7 @@
                     lstViewTrains.Items.Remove(lstViewTrains.SelectedItems(0))
                     MessageBox.Show("'" & t.TrainID.ToString & "' correctly removed.")
                     txtTrainID.Text = String.Empty
+                    cboxTrain.Text = String.Empty
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -545,4 +545,6 @@
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tabControl.Enabled = False
     End Sub
+
+
 End Class
