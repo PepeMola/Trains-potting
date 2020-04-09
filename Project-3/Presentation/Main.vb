@@ -77,6 +77,7 @@
             itemTypes.SubItems.Add(type.TrainTypeDescription)
             itemTypes.SubItems.Add(type.MaxCapacity)
             lstViewTrainTypes.Items.Add(itemTypes)
+            n_Train_types += 1
         Next
 
         'Initialize the cbox in the train section
@@ -436,7 +437,7 @@
             ty = New TrainTypes()
             ty.TrainTypeDescription = txtTrainTypeDescription.Text
             ty.MaxCapacity = nudMaxCapacity.Value
-
+            ty.TrainTypeID = n_Train_types
             Try
                 If ty.InsertTrainType() <> 1 Then
                     MessageBox.Show("Error inserting traintype.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -445,10 +446,11 @@
 
                 Dim item As New ListViewItem(ty.TrainTypeID)
                 item.SubItems.Add(ty.TrainTypeDescription)
+                item.SubItems.Add(ty.MaxCapacity)
                 lstViewTrainTypes.Items.Add(item)
 
                 MessageBox.Show(ty.TrainTypeDescription.ToString & " Correctly inserted.")
-
+                n_Train_types += 1
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -464,7 +466,7 @@
             If MessageBox.Show("Are you sure to remove this traintype?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 id = Convert.ToInt32(Val(lstViewTrainTypes.SelectedItems(0).SubItems(0).Text))
                 ty = New TrainTypes(id)
- 
+
                 Try
                     If ty.DeleteTrainType() <> 1 Then
                         MessageBox.Show("Error removing this price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -472,7 +474,7 @@
                     End If
 
                     lstViewTrainTypes.Items.Remove(lstViewTrainTypes.SelectedItems(0))
-                    MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly deleted.")
+                    MessageBox.Show(ty.TrainTypeID & " was correctly deleted.")
 
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
