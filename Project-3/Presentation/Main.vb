@@ -339,8 +339,8 @@
         If Not Me.lstViewTrains.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewTrains.FocusedItem.Index 'Select the afected row
             Try
-                txtTrainID.Text = lstViewTrains.Items(i).SubItems(1).Text
-                cboxTrain.Text = lstViewTrains.Items(i).SubItems(2).Text
+                txtTrainID.Text = lstViewTrains.Items(i).SubItems(0).Text
+                cboxTrain.Text = lstViewTrains.Items(i).SubItems(1).Text
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
 
@@ -393,7 +393,6 @@
         If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = "" Then
             If MessageBox.Show("Are yoou sure to remove this? " & lstViewTrains.SelectedItems(0).SubItems(1).Text, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 t = New Train(Me.txtTrainID.Text)
-                t.ReadTrain()
                 Try
                     If t.DeleteTrain() <> 1 Then
                         MessageBox.Show("Error removing train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
