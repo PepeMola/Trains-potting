@@ -91,20 +91,20 @@
         btnAddProduct.Enabled = True
         btnAddTrainType.Enabled = True
         'Clean Buttons
-        btnCleanPrices.Enabled = True
-        btnCleanTrain.Enabled = True
-        btnCleanProduct.Enabled = True
-        btnCleanTrainType.Enabled = True
+        btnCleanPrices.Enabled = False
+        btnCleanTrain.Enabled = False
+        btnCleanProduct.Enabled = False
+        btnCleanTrainType.Enabled = False
         'Update Buttons
-        btnUpdatePrices.Enabled = True
-        btnUpdateTrain.Enabled = True
-        btnUpdateProduct.Enabled = True
-        btnUpdateTrainType.Enabled = True
+        btnUpdatePrices.Enabled = False
+        btnUpdateTrain.Enabled = False
+        btnUpdateProduct.Enabled = False
+        btnUpdateTrainType.Enabled = False
         'Delete Buttons
-        btnDeletePrices.Enabled = True
-        btnDeleteTrain.Enabled = True
-        btnDeleteProduct.Enabled = True
-        btnDeleteTrainType.Enabled = True
+        btnDeletePrices.Enabled = False
+        btnDeleteTrain.Enabled = False
+        btnDeleteProduct.Enabled = False
+        btnDeleteTrainType.Enabled = False
 
         'Falta por imlementar el tabQuery y el tabTrips
         'Faltan los botones de esos dos tabs
@@ -124,10 +124,10 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
-            btnAddTrainType.Enabled = False
-            btnCleanTrainType.Enabled = True
-            btnUpdateTrainType.Enabled = True
-            btnDeleteTrainType.Enabled = True
+            btnAddProduct.Enabled = False
+            btnCleanProduct.Enabled = True
+            btnUpdateProduct.Enabled = True
+            btnDeleteProduct.Enabled = True
         End If
     End Sub
 
@@ -213,10 +213,10 @@
     'Button Clean in PRODUCT
     Private Sub btnCleanProduct_Click(sender As Object, e As EventArgs) Handles btnCleanProduct.Click
         Me.txtProductDescription.Text = String.Empty
-        btnAddProduct.Enabled = False
-        btnCleanProduct.Enabled = True
-        btnUpdateProduct.Enabled = True
-        btnDeleteProduct.Enabled = True
+        btnAddProduct.Enabled = True
+        btnCleanProduct.Enabled = False
+        btnUpdateProduct.Enabled = False
+        btnDeleteProduct.Enabled = False
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -235,6 +235,10 @@
 
             End Try
         End If
+        btnAddPrices.Enabled = False
+        btnCleanPrices.Enabled = True
+        btnUpdatePrices.Enabled = True
+        btnDeletePrices.Enabled = True
     End Sub
 
     'Button Add in PRICES
@@ -324,10 +328,10 @@
     'Button Clean in PRICES
     Private Sub btnCleanPrices_Click(sender As Object, e As EventArgs) Handles btnCleanPrices.Click
         Me.txtEurosPrices.Text = String.Empty
-        btnAddProduct.Enabled = False
-        btnCleanPrices.Enabled = True
-        btnUpdatePrices.Enabled = True
-        btnDeletePrices.Enabled = True
+        btnAddPrices.Enabled = True
+        btnCleanPrices.Enabled = False
+        btnUpdatePrices.Enabled = False
+        btnDeletePrices.Enabled = False
     End Sub
 
 
@@ -345,7 +349,7 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
-            btnAddTrain.Enabled = True
+            btnAddTrain.Enabled = False
             btnCleanTrain.Enabled = True
             btnUpdateTrain.Enabled = True
             btnDeleteTrain.Enabled = True
@@ -442,10 +446,10 @@
     Private Sub btnCleanTrain_Click(sender As Object, e As EventArgs) Handles btnCleanTrain.Click
         txtTrainID.Text = String.Empty
         cboxTrain.Text = String.Empty
-        btnAddTrain.Enabled = False
-        btnCleanTrain.Enabled = True
-        btnUpdateTrain.Enabled = True
-        btnDeleteTrain.Enabled = True
+        btnAddTrain.Enabled = True
+        btnCleanTrain.Enabled = False
+        btnUpdateTrain.Enabled = False
+        btnDeleteTrain.Enabled = False
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -478,6 +482,7 @@
             ty.TrainTypeDescription = txtTrainTypeDescription.Text
             ty.MaxCapacity = nudMaxCapacity.Value
             ty.TrainTypeID = n_Train_types
+
             Try
                 If ty.InsertTrainType() <> 1 Then
                     MessageBox.Show("Error inserting traintype.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -560,15 +565,14 @@
     Private Sub btnCleanTrainType_Click(sender As Object, e As EventArgs) Handles btnCleanTrainType.Click
         txtTrainTypeDescription.Text = String.Empty
         nudMaxCapacity.Value = 0
-    End Sub
-
-    Private Sub lstTrain_Click(sender As Object, e As EventArgs)
-
+        btnAddTrainType.Enabled = True
+        btnCleanTrainType.Enabled = False
+        btnUpdateTrainType.Enabled = False
+        btnDeleteTrainType.Enabled = False
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tabControl.Enabled = False
     End Sub
-
 
 End Class
