@@ -29,10 +29,6 @@
         Me.TraDao.ReadTrainType(Me)
     End Sub
 
-    Public Function isTrain() As Integer
-        Return Me.TraDao.isTrainID(Me)
-    End Function
-
     Public Function InsertTrain() As Integer
         Return Me.TraDao.Insert(Me)
     End Function

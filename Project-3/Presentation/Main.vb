@@ -1,6 +1,4 @@
 ﻿Public Class Main
-    Private n_Train_types As Integer
-
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
     End Sub
@@ -20,15 +18,14 @@
         Dim train As Train = New Train
         Dim price As Prices = New Prices
         Dim product As Product = New Product
-        Dim train_type As TrainTypes = New TrainTypes
+        Dim train_type As TrainType = New TrainType
         Dim trip As Trips = New Trips
-        n_Train_types = 0
 
         Try
             train.ReadAllTrain(OfdPath.FileName)
             price.ReadAllPrices(OfdPath.FileName)
             product.ReadAllProduct(OfdPath.FileName)
-            train_type.ReadAllTrainTypes(OfdPath.FileName)
+            train_type.ReadAllTrainType(OfdPath.FileName)
             trip.ReadAllTrips(OfdPath.FileName)
 
             MessageBox.Show("Correctly Connected Data Base")
@@ -71,13 +68,12 @@
 
         'Load TRAIN TYPES in List and combos
         Dim itemTypes As ListViewItem
-        For Each type As TrainTypes In train_type.TypDao.TrainTypes
-
+        For Each type As TrainType In train_type.TypDao.TrainType
+            type.ReadTrainTypeDescription()
             itemTypes = New ListViewItem(type.TrainTypeID)
             itemTypes.SubItems.Add(type.TrainTypeDescription)
             itemTypes.SubItems.Add(type.MaxCapacity)
             lstViewTrainTypes.Items.Add(itemTypes)
-            n_Train_types += 1
         Next
 
         'Initialize the cbox in the train section
@@ -150,7 +146,6 @@
                     Dim item As New ListViewItem(pro.ProductID)
                     item.SubItems.Add(pro.ProductDescription)
                     lstViewProducts.Items.Add(item)
-
                     MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly inserted.")
                     txtProductDescription.Text = String.Empty
 
@@ -167,7 +162,7 @@
     Private Sub btnDeleteProduct_Click(sender As Object, e As EventArgs) Handles btnDeleteProduct.Click
         Dim pro As New Product
 
-        If Not Me.lstViewProducts.SelectedItems(0).SubItems(0).Text = "" Then
+        If Not Me.lstViewProducts.SelectedItems(0).SubItems(0).Text Is Nothing Then
             If MessageBox.Show("Are yoou sure to remove this? " & lstViewProducts.SelectedItems(0).SubItems(1).Text, "Por favor, confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 pro = New Product(Me.txtProductDescription.Text)
                 pro.ReadProductDescription()
@@ -359,7 +354,7 @@
     'Button Add in TRAIN
     Private Sub btnAddTrain_Click(sender As Object, e As EventArgs) Handles btnAddTrain.Click
         Dim t As New Train
-        Dim type As New TrainTypes
+        Dim type As New TrainType
         If Me.txtTrainID.Text <> String.Empty And Me.cboxTrain.Text <> Nothing Then
             t = New Train(Me.txtTrainID.Text)
             t.TrainID = Me.txtTrainID.Text
@@ -475,70 +470,80 @@
 
     'Button Add in TRAIN TYPES
     Private Sub btnAddTrainType_Click(sender As Object, e As EventArgs) Handles btnAddTrainType.Click
-        Dim ty As TrainTypes
+        Dim ty As TrainType
 
-        If Me.txtTrainTypeDescription.Text <> Nothing Then
-            ty = New TrainTypes()
-            ty.TrainTypeDescription = txtTrainTypeDescription.Text
-            ty.MaxCapacity = nudMaxCapacity.Value
-            ty.TrainTypeID = n_Train_types
+        If Me.txtTrainTypeDescription.Text <> String.Empty And Me.nudMaxCapacity.Value > 0 Then
+            ty = New TrainType(Me.txtTrainTypeDescription.Text)
+            ty.ReadTrainTypeDescription()
+            ty.MaxCapacity = Me.nudMaxCapacity.Value
 
-            Try
-                If ty.InsertTrainType() <> 1 Then
-                    MessageBox.Show("Error inserting traintype.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If (ty.isType = 0) Then
+                Try
+                    If ty.InsertTrainType() <> 1 Then
+                        MessageBox.Show("Error inserting traintype.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+                    ty.ReadTrainTypeDescription()
+                    Dim item As New ListViewItem(ty.TrainTypeID)
+                    item.SubItems.Add(ty.TrainTypeDescription)
+                    item.SubItems.Add(ty.MaxCapacity)
+                    lstViewTrainTypes.Items.Add(item)
 
-                End If
+                    MessageBox.Show("ID: " & ty.TrainTypeID & " as '" & ty.TrainTypeDescription.ToString & "' description, with: " & ty.MaxCapacity &
+                        " tons maximum.", "Correctly inserted.")
+                    txtTrainTypeDescription.Text = String.Empty
+                    nudMaxCapacity.Value = 0
 
-                Dim item As New ListViewItem(ty.TrainTypeID)
-                item.SubItems.Add(ty.TrainTypeDescription)
-                item.SubItems.Add(ty.MaxCapacity)
-                lstViewTrainTypes.Items.Add(item)
-
-                MessageBox.Show(ty.TrainTypeDescription.ToString & " Correctly inserted.")
-                n_Train_types += 1
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End Try
+            Else
+                MessageBox.Show("This type of train already exists.")
                 Exit Sub
-            End Try
+            End If
+        ElseIf Me.nudMaxCapacity.Value <= 0 Then
+            MessageBox.Show("Please, select the maximum capacity of this train type.")
+            Exit Sub
+        ElseIf Me.txtTrainTypeDescription.Text Is String.Empty Then
+            MessageBox.Show("Please, write a description for this train type.")
+            Exit Sub
         End If
     End Sub
 
     'Button Delete in TRAIN TYPES
     Private Sub btnDeleteTrainType_Click(sender As Object, e As EventArgs) Handles btnDeleteTrainType.Click
-        Dim ty As TrainTypes
-        Dim id As Integer
+        Dim ty As TrainType
         If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
-            If MessageBox.Show("Are you sure to remove this traintype?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                id = Convert.ToInt32(Val(lstViewTrainTypes.SelectedItems(0).SubItems(0).Text))
-                ty = New TrainTypes(id)
+            If MessageBox.Show(" " & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to remove this traintype?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                ty = New TrainType(Me.txtTrainTypeDescription.Text)
+                ty.ReadTrainTypeDescription()
 
                 Try
                     If ty.DeleteTrainType() <> 1 Then
-                        MessageBox.Show("Error removing this price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("Error removing this Train Type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
 
                     lstViewTrainTypes.Items.Remove(lstViewTrainTypes.SelectedItems(0))
-                    MessageBox.Show(ty.TrainTypeID & " was correctly deleted.")
-
+                    MessageBox.Show("ID: " & ty.TrainTypeID & " Description: " & ty.TrainTypeDescription.ToString & " was correctly deleted.")
+                    txtTrainTypeDescription.Text = String.Empty
+                    nudMaxCapacity.Value = 0
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
             End If
         End If
-
     End Sub
 
-    'Button Update in TRAIN TYPES
+    'Button Update In TRAIN TYPES
     Private Sub btnUpdateTrainType_Click(sender As Object, e As EventArgs) Handles btnUpdateTrainType.Click
-        Dim ty As TrainTypes
-        Dim id As Integer
+        Dim ty As TrainType
         If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
-            If MessageBox.Show("Are you sure to update this traintype?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-
+            If MessageBox.Show("Are you sure to update this Train Type?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, vbCrLf & "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 Try
-                    id = Convert.ToInt32(Val(lstViewTrainTypes.SelectedItems(0).SubItems(0).Text))
-                    ty = New TrainTypes(id)
+                    ty = New TrainType(Me.txtTrainTypeDescription.Text)
+                    ty.TrainTypeID = Integer.Parse(lstViewTrainTypes.SelectedItems(0).Text)
                     ty.MaxCapacity = nudMaxCapacity.Value
                     ty.TrainTypeDescription = txtTrainTypeDescription.Text
 
@@ -549,10 +554,9 @@
 
                     lstViewTrainTypes.SelectedItems(0).SubItems(1).Text = ty.TrainTypeDescription
                     lstViewTrainTypes.SelectedItems(0).SubItems(2).Text = ty.MaxCapacity.ToString
-                    MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly update.")
+                    MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly updated.")
                     txtTrainTypeDescription.Text = String.Empty
                     nudMaxCapacity.Value = 0
-
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub

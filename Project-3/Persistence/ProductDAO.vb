@@ -26,7 +26,7 @@
 
     Public Sub ReadDescription(ByRef p As Product) 'This method allows us to know if a product description is registered in the database
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductDescription='" & p.ProductDescription & "';")
+        col = DBBroker.GetBroker.Read("SELECT ProductID FROM Products WHERE ProductDescription='" & p.ProductDescription & "';")
         For Each aux In col
             p.ProductID = aux(1).ToString
         Next
@@ -34,7 +34,7 @@
 
     Public Function isDescription(ByRef p As Product) As Integer 'This method is similar to ReadDescription, but returns an int value which allows us to work with it like a boolean
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Products WHERE ProductDescription='" & p.ProductDescription & "';")
+        col = DBBroker.GetBroker.Read("SELECT ProductID FROM Products WHERE ProductDescription='" & p.ProductDescription & "';")
         For Each aux In col
             p.ProductID = aux(1).ToString
         Next
