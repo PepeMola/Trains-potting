@@ -44,7 +44,6 @@
             itemTrain = New ListViewItem(t.TrainID)
             itemTrain.SubItems.Add(ty.TrainTypeDescription)
             lstViewTrains.Items.Add(itemTrain)
-
         Next
 
         'Load PRICES in List View and Combos
@@ -352,6 +351,7 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
+            Me.txtTrainID.Enabled = False
             btnAddTrain.Enabled = False
             btnCleanTrain.Enabled = True
             btnUpdateTrain.Enabled = True
@@ -394,29 +394,37 @@
                 Exit Sub
             End If
         Else
-            MessageBox.Show("Please fill the boxes to add a new Train.")
-
+            MessageBox.Show("Please fill all the boxes to add a new Train.")
+            Me.txtTrainID.Text = String.Empty
+            Me.cboxTrain.Text = String.Empty
         End If
     End Sub
 
     'Button Delete in TRAIN
     Private Sub btnDeleteTrain_Click(sender As Object, e As EventArgs) Handles btnDeleteTrain.Click
         Dim t As New Train
-
+        Dim type As TrainType
         If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = "" Then
             If MessageBox.Show("Are you sure to remove this? " & lstViewTrains.SelectedItems(0).SubItems(1).Text, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                type = New TrainType(Me.cboxTrain.Text)
+                type.ReadTrainTypeDescription()
                 t = New Train(Me.txtTrainID.Text)
+                t.TrainType = type.TrainTypeID
+
                 Try
                     If t.DeleteTrain() <> 1 Then
                         MessageBox.Show("Error removing train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
+
                     lstViewTrains.Items.Remove(lstViewTrains.SelectedItems(0))
-                    MessageBox.Show("'" & t.TrainID.ToString & "' correctly removed.")
-                    txtTrainID.Text = String.Empty
-                    cboxTrain.Text = String.Empty
+                    MessageBox.Show("ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " correctly removed.")
+                    Me.txtTrainID.Text = String.Empty
+                    Me.cboxTrain.Text = String.Empty
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Me.txtTrainID.Text = String.Empty
+                    Me.cboxTrain.Text = String.Empty
                     Exit Sub
                 End Try
             End If
@@ -427,26 +435,34 @@
     'ya funciona lo de trains, la cosa es que para el update, segun la sentencia se tiene que mantener el traintype, que hace la referencia a la tabla, solo permite cambia el id
     Private Sub btnUpdateTrain_Click(sender As Object, e As EventArgs) Handles btnUpdateTrain.Click
         Dim t As New Train
+        Dim type As TrainType
+        If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = String.Empty Then
+            If MessageBox.Show("Are you sure to update this?" & vbCrLf & " ID: " & lstViewTrains.SelectedItems(0).Text & " as " & lstViewTrains.SelectedItems(0).SubItems(1).Text & vbCrLf, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                type = New TrainType(Me.cboxTrain.Text)
+                type.ReadTrainTypeDescription()
+                t = New Train(lstViewTrains.SelectedItems(0).Text)
+                t.TrainType = type.TrainTypeID
 
-        If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = "" Then
-            If MessageBox.Show("Are you sure to update this? " & lstViewTrains.SelectedItems(0).SubItems(1).Text, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                t = New Train()
-                t.TrainID = txtTrainID.Text
-                t.TrainType = Convert.ToInt32(cboxTrain.Text)
                 Try
                     If t.UpdateTrain() <> 1 Then
                         MessageBox.Show("Error updating train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
                     lstViewTrains.SelectedItems(0).SubItems(0).Text = t.TrainID
-                    lstViewTrains.SelectedItems(0).SubItems(1).Text = t.TrainType
-                    MessageBox.Show("'" & t.TrainID.ToString & "' correctly update.")
+                    lstViewTrains.SelectedItems(0).SubItems(1).Text = type.TrainTypeDescription
+                    MessageBox.Show("ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " correctly updated.")
                     txtTrainID.Text = String.Empty
                     cboxTrain.Text = String.Empty
+                    btnAddTrain.Enabled = True
+                    btnCleanTrain.Enabled = False
+                    btnUpdateTrain.Enabled = False
+                    btnDeleteTrain.Enabled = False
+                    Me.txtTrainID.Enabled = True
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End Try
+
             End If
         End If
 
@@ -460,6 +476,7 @@
         btnCleanTrain.Enabled = False
         btnUpdateTrain.Enabled = False
         btnDeleteTrain.Enabled = False
+        Me.txtTrainID.Enabled = True
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------

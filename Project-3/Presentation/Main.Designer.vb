@@ -25,6 +25,7 @@ Partial Class Main
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
         Me.btnSelect = New System.Windows.Forms.Button()
+        Me.iconList = New System.Windows.Forms.ImageList(Me.components)
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.tabControl = New System.Windows.Forms.TabControl()
         Me.tabProduct = New System.Windows.Forms.TabPage()
@@ -100,7 +101,6 @@ Partial Class Main
         Me.btnExit = New System.Windows.Forms.Button()
         Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
-        Me.iconList = New System.Windows.Forms.ImageList(Me.components)
         Me.tabControl.SuspendLayout()
         Me.tabProduct.SuspendLayout()
         Me.gbProductsList.SuspendLayout()
@@ -133,6 +133,23 @@ Partial Class Main
         Me.btnSelect.TabIndex = 0
         Me.btnSelect.Text = "Select DB"
         Me.btnSelect.UseVisualStyleBackColor = True
+        '
+        'iconList
+        '
+        Me.iconList.ImageStream = CType(resources.GetObject("iconList.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.iconList.TransparentColor = System.Drawing.Color.Transparent
+        Me.iconList.Images.SetKeyName(0, "productTab.png")
+        Me.iconList.Images.SetKeyName(1, "trainTab.png")
+        Me.iconList.Images.SetKeyName(2, "trainTypeTab.png")
+        Me.iconList.Images.SetKeyName(3, "priceTab.png")
+        Me.iconList.Images.SetKeyName(4, "tripTab.png")
+        Me.iconList.Images.SetKeyName(5, "queryTab.png")
+        Me.iconList.Images.SetKeyName(6, "addButton.png")
+        Me.iconList.Images.SetKeyName(7, "cleanButton.png")
+        Me.iconList.Images.SetKeyName(8, "deleteButton.png")
+        Me.iconList.Images.SetKeyName(9, "updateButton.png")
+        Me.iconList.Images.SetKeyName(10, "selectButton.png")
+        Me.iconList.Images.SetKeyName(11, "dbIcon.png")
         '
         'btnConnect
         '
@@ -352,13 +369,13 @@ Partial Class Main
         'idTrains
         '
         Me.idTrains.Text = "ID"
-        Me.idTrains.Width = 40
+        Me.idTrains.Width = 125
         '
         'trainTypeTrains
         '
         Me.trainTypeTrains.Text = "Train Type"
         Me.trainTypeTrains.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.trainTypeTrains.Width = 265
+        Me.trainTypeTrains.Width = 200
         '
         'gbTrainsBoxes
         '
@@ -912,23 +929,6 @@ Partial Class Main
         Me.gbDatabase.TabIndex = 5
         Me.gbDatabase.TabStop = False
         Me.gbDatabase.Text = "Database"
-        '
-        'iconList
-        '
-        Me.iconList.ImageStream = CType(resources.GetObject("iconList.ImageStream"), System.Windows.Forms.ImageListStreamer)
-        Me.iconList.TransparentColor = System.Drawing.Color.Transparent
-        Me.iconList.Images.SetKeyName(0, "productTab.png")
-        Me.iconList.Images.SetKeyName(1, "trainTab.png")
-        Me.iconList.Images.SetKeyName(2, "trainTypeTab.png")
-        Me.iconList.Images.SetKeyName(3, "priceTab.png")
-        Me.iconList.Images.SetKeyName(4, "tripTab.png")
-        Me.iconList.Images.SetKeyName(5, "queryTab.png")
-        Me.iconList.Images.SetKeyName(6, "addButton.png")
-        Me.iconList.Images.SetKeyName(7, "cleanButton.png")
-        Me.iconList.Images.SetKeyName(8, "deleteButton.png")
-        Me.iconList.Images.SetKeyName(9, "updateButton.png")
-        Me.iconList.Images.SetKeyName(10, "selectButton.png")
-        Me.iconList.Images.SetKeyName(11, "dbIcon.png")
         '
         'Main
         '
