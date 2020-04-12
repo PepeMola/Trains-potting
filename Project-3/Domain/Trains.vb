@@ -25,6 +25,10 @@
         Me.TraDao.Read(Me)
     End Sub
 
+    Public Function isTrain() As Integer
+        Return Me.TraDao.isTrainID(Me)
+    End Function
+
     Public Sub ReadTrainType()
         Me.TraDao.ReadTrainType(Me)
     End Sub

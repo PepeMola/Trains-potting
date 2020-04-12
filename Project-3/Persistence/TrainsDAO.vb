@@ -18,7 +18,7 @@
 
     Public Sub Read(ByRef t As Train)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Trains WHERE TrainID=" & t.TrainID & ";")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Trains WHERE TrainID='" & t.TrainID & "';")
         For Each aux In col
             t.TrainType = aux(2).ToString
         Next
@@ -26,7 +26,7 @@
 
     Public Sub ReadTrainType(ByRef t As Train)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Trains WHERE TrainType='" & t.TrainType & "';")
+        col = DBBroker.GetBroker.Read("SELECT TrainID FROM Trains WHERE TrainID='" & t.TrainID & "';")
         For Each aux In col
             t.TrainID = aux(1).ToString
         Next
@@ -34,16 +34,19 @@
 
     Public Function isTrainID(ByRef t As Train) As Integer
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Trains WHERE TrainType='" & t.TrainType & "';")
-        For Each aux In col
-            t.TrainID = aux(1).ToString
-        Next
+        col = DBBroker.GetBroker.Read("SELECT * FROM Trains WHERE TrainID='" & t.TrainID & "';")
 
-        Return t.TrainID <> 0
+        For Each aux In col
+            If (t.TrainID = aux(1).ToString) Then
+                Return -1
+            ElseIf (t.TrainID <> aux(1).ToString) Then
+                Return 0
+            End If
+        Next
     End Function
 
     Public Function Insert(ByVal t As Train) As Integer
-        Return DBBroker.GetBroker.Change("INSERT INTO Trains VALUES ('" & t.TrainID & "', " & t.TrainType & " );")
+        Return DBBroker.GetBroker.Change("INSERT INTO Trains (TrainID, TrainType) VALUES ('" & t.TrainID & "', " & t.TrainType & " );")
     End Function
 
     Public Function Change(ByVal t As Train) As Integer

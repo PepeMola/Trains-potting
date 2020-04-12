@@ -36,10 +36,15 @@
 
         'Load Train in List and Combo
         Dim itemTrain As ListViewItem
+        Dim ty As TrainType
+
         For Each t As Train In train.TraDao.Train
+            ty = New TrainType(t.TrainType)
+            ty.ReadTrainType()
             itemTrain = New ListViewItem(t.TrainID)
-            itemTrain.SubItems.Add(t.TrainType)
+            itemTrain.SubItems.Add(ty.TrainTypeDescription)
             lstViewTrains.Items.Add(itemTrain)
+
         Next
 
         'Load PRICES in List View and Combos
@@ -54,8 +59,8 @@
             itemPrices.SubItems.Add(pri.PriceDate)
             itemPrices.SubItems.Add(pri.EurosPerTon)
             lstViewPrices.Items.Add(itemPrices)
-
         Next
+
 
         'Load Product in List and txtBox
         Dim itemProduct As ListViewItem
@@ -64,6 +69,7 @@
             itemProduct = New ListViewItem(p.ProductID)
             itemProduct.SubItems.Add(p.ProductDescription)
             lstViewProducts.Items.Add(itemProduct)
+            Me.cboxProductPrices.Items.Add(p.ProductDescription)
         Next
 
         'Load TRAIN TYPES in List and combos
@@ -74,6 +80,7 @@
             itemTypes.SubItems.Add(type.TrainTypeDescription)
             itemTypes.SubItems.Add(type.MaxCapacity)
             lstViewTrainTypes.Items.Add(itemTypes)
+            Me.cboxTrain.Items.Add(type.TrainTypeDescription)
         Next
 
         'Initialize the cbox in the train section
@@ -248,6 +255,7 @@
             pri.PriceDate = dtpDatePrices.Text
             pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ",", "."))
 
+
             Try
                 If pri.InsertPrice() <> 1 Then
                     MessageBox.Show("Error inserting price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -354,30 +362,37 @@
     'Button Add in TRAIN
     Private Sub btnAddTrain_Click(sender As Object, e As EventArgs) Handles btnAddTrain.Click
         Dim t As New Train
-        Dim type As New TrainType
+        Dim type As TrainType
         If Me.txtTrainID.Text <> String.Empty And Me.cboxTrain.Text <> Nothing Then
+            type = New TrainType(Me.cboxTrain.Text)
+            type.ReadTrainTypeDescription()
             t = New Train(Me.txtTrainID.Text)
-            t.TrainID = Me.txtTrainID.Text
-            t.TrainType = Convert.ToInt32(Me.cboxTrain.Text)
+            t.TrainType = type.TrainTypeID
 
-            Try
-                If t.InsertTrain() <> 1 Then 'If the train is correctly inserted the method insert() return us the value: 1
-                    MessageBox.Show("Error inserting Train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If (t.isTrain = 0) Then
+                Try
+                    If t.InsertTrain() <> 1 Then 'If the train is correctly inserted the method insert() return us the value: 1
+                        MessageBox.Show("Error inserting Train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    Dim item As New ListViewItem(t.TrainID)
+                    item.SubItems.Add(type.TrainTypeDescription)
+                    lstViewTrains.Items.Add(item)
+
+                    MessageBox.Show(" ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " type." & vbCrLf & " Correctly inserted.")
+                    txtTrainID.Text = String.Empty
+                    cboxTrain.Text = String.Empty
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
-                End If
-                'With this new call to the method we obtain its ID and now we can add the ID to the list view 
-                Dim item As New ListViewItem(t.TrainID)
-                item.SubItems.Add(t.TrainType)
-                lstViewTrains.Items.Add(item)
-
-                MessageBox.Show("'" & t.TrainID.ToString & t.TrainType.ToString & "' correctly inserted.")
-                txtTrainID.Text = String.Empty
-                cboxTrain.Text = String.Empty
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            ElseIf (t.isTrain <> 0) Then
+                MessageBox.Show("This train already exists, you can not add this.")
+                Me.txtTrainID.Text = String.Empty
+                Me.cboxTrain.Text = String.Empty
                 Exit Sub
-            End Try
-
+            End If
         Else
             MessageBox.Show("Please fill the boxes to add a new Train.")
 
