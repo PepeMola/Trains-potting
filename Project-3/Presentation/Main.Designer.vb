@@ -64,6 +64,7 @@ Partial Class Main
         Me.descriptionTrainTypes = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.capacityTrainTypes = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.gbTrainTypeBoxes = New System.Windows.Forms.GroupBox()
+        Me.lblTonsTrainType = New System.Windows.Forms.Label()
         Me.nudMaxCapacity = New System.Windows.Forms.NumericUpDown()
         Me.lblTrainType = New System.Windows.Forms.Label()
         Me.txtTrainTypeDescription = New System.Windows.Forms.TextBox()
@@ -96,6 +97,26 @@ Partial Class Main
         Me.cboxProductPrices = New System.Windows.Forms.ComboBox()
         Me.lblPricesList = New System.Windows.Forms.Label()
         Me.tabTrips = New System.Windows.Forms.TabPage()
+        Me.gbControlTrip = New System.Windows.Forms.GroupBox()
+        Me.btnAddTrip = New System.Windows.Forms.Button()
+        Me.btnCleanTrip = New System.Windows.Forms.Button()
+        Me.btnDeleteTrip = New System.Windows.Forms.Button()
+        Me.btnUpdateTrip = New System.Windows.Forms.Button()
+        Me.gbSelectionTrip = New System.Windows.Forms.GroupBox()
+        Me.nudTonsTrip = New System.Windows.Forms.NumericUpDown()
+        Me.cboxProductTrip = New System.Windows.Forms.ComboBox()
+        Me.cboxTrainTrip = New System.Windows.Forms.ComboBox()
+        Me.lblTonsTrip = New System.Windows.Forms.Label()
+        Me.lblTrainTrip = New System.Windows.Forms.Label()
+        Me.lblProductTrip = New System.Windows.Forms.Label()
+        Me.lblDateTrip = New System.Windows.Forms.Label()
+        Me.dtpTrip = New System.Windows.Forms.DateTimePicker()
+        Me.gbTripList = New System.Windows.Forms.GroupBox()
+        Me.lstViewTrip = New System.Windows.Forms.ListView()
+        Me.dateTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.trainTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.productTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.tonsTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery = New System.Windows.Forms.TabPage()
         Me.txtPath = New System.Windows.Forms.TextBox()
         Me.btnExit = New System.Windows.Forms.Button()
@@ -119,6 +140,11 @@ Partial Class Main
         Me.gbPriceList.SuspendLayout()
         Me.gbControlPrices.SuspendLayout()
         Me.gbPrices.SuspendLayout()
+        Me.tabTrips.SuspendLayout()
+        Me.gbControlTrip.SuspendLayout()
+        Me.gbSelectionTrip.SuspendLayout()
+        CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbTripList.SuspendLayout()
         Me.gbDatabase.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -369,13 +395,13 @@ Partial Class Main
         'idTrains
         '
         Me.idTrains.Text = "ID"
-        Me.idTrains.Width = 125
+        Me.idTrains.Width = 130
         '
         'trainTypeTrains
         '
         Me.trainTypeTrains.Text = "Train Type"
         Me.trainTypeTrains.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.trainTypeTrains.Width = 200
+        Me.trainTypeTrains.Width = 175
         '
         'gbTrainsBoxes
         '
@@ -394,11 +420,11 @@ Partial Class Main
         'lblTrainDescription
         '
         Me.lblTrainDescription.AutoSize = True
-        Me.lblTrainDescription.Location = New System.Drawing.Point(1, 45)
+        Me.lblTrainDescription.Location = New System.Drawing.Point(6, 49)
         Me.lblTrainDescription.Name = "lblTrainDescription"
-        Me.lblTrainDescription.Size = New System.Drawing.Size(61, 17)
+        Me.lblTrainDescription.Size = New System.Drawing.Size(65, 17)
         Me.lblTrainDescription.TabIndex = 15
-        Me.lblTrainDescription.Text = "Train ID"
+        Me.lblTrainDescription.Text = "Train ID:"
         '
         'txtTrainID
         '
@@ -410,6 +436,7 @@ Partial Class Main
         '
         'cboxTrain
         '
+        Me.cboxTrain.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxTrain.FormattingEnabled = True
         Me.cboxTrain.Location = New System.Drawing.Point(82, 109)
         Me.cboxTrain.Name = "cboxTrain"
@@ -419,11 +446,11 @@ Partial Class Main
         'lblTypeTrain
         '
         Me.lblTypeTrain.AutoSize = True
-        Me.lblTypeTrain.Location = New System.Drawing.Point(23, 112)
+        Me.lblTypeTrain.Location = New System.Drawing.Point(27, 112)
         Me.lblTypeTrain.Name = "lblTypeTrain"
-        Me.lblTypeTrain.Size = New System.Drawing.Size(40, 17)
+        Me.lblTypeTrain.Size = New System.Drawing.Size(44, 17)
         Me.lblTypeTrain.TabIndex = 16
-        Me.lblTypeTrain.Text = "Type"
+        Me.lblTypeTrain.Text = "Type:"
         '
         'gbControlTrains
         '
@@ -545,6 +572,7 @@ Partial Class Main
         '
         'gbTrainTypeBoxes
         '
+        Me.gbTrainTypeBoxes.Controls.Add(Me.lblTonsTrainType)
         Me.gbTrainTypeBoxes.Controls.Add(Me.nudMaxCapacity)
         Me.gbTrainTypeBoxes.Controls.Add(Me.lblTrainType)
         Me.gbTrainTypeBoxes.Controls.Add(Me.txtTrainTypeDescription)
@@ -557,12 +585,22 @@ Partial Class Main
         Me.gbTrainTypeBoxes.TabStop = False
         Me.gbTrainTypeBoxes.Text = "Selection Train Type Panel"
         '
+        'lblTonsTrainType
+        '
+        Me.lblTonsTrainType.AutoSize = True
+        Me.lblTonsTrainType.Location = New System.Drawing.Point(236, 151)
+        Me.lblTonsTrainType.Name = "lblTonsTrainType"
+        Me.lblTonsTrainType.Size = New System.Drawing.Size(40, 17)
+        Me.lblTonsTrainType.TabIndex = 19
+        Me.lblTonsTrainType.Text = "Tons"
+        '
         'nudMaxCapacity
         '
         Me.nudMaxCapacity.Location = New System.Drawing.Point(159, 149)
         Me.nudMaxCapacity.Name = "nudMaxCapacity"
         Me.nudMaxCapacity.Size = New System.Drawing.Size(71, 25)
         Me.nudMaxCapacity.TabIndex = 18
+        Me.nudMaxCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblTrainType
         '
@@ -708,7 +746,7 @@ Partial Class Main
         '
         Me.ProductDescription.Text = "Product"
         Me.ProductDescription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.ProductDescription.Width = 80
+        Me.ProductDescription.Width = 90
         '
         'PriceDate
         '
@@ -731,7 +769,7 @@ Partial Class Main
         Me.gbControlPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbControlPrices.Location = New System.Drawing.Point(339, 6)
         Me.gbControlPrices.Name = "gbControlPrices"
-        Me.gbControlPrices.Size = New System.Drawing.Size(338, 152)
+        Me.gbControlPrices.Size = New System.Drawing.Size(349, 152)
         Me.gbControlPrices.TabIndex = 34
         Me.gbControlPrices.TabStop = False
         Me.gbControlPrices.Text = "Control Panel"
@@ -794,9 +832,9 @@ Partial Class Main
         Me.gbPrices.Controls.Add(Me.dtpDatePrices)
         Me.gbPrices.Controls.Add(Me.cboxProductPrices)
         Me.gbPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbPrices.Location = New System.Drawing.Point(339, 224)
+        Me.gbPrices.Location = New System.Drawing.Point(339, 243)
         Me.gbPrices.Name = "gbPrices"
-        Me.gbPrices.Size = New System.Drawing.Size(338, 191)
+        Me.gbPrices.Size = New System.Drawing.Size(349, 172)
         Me.gbPrices.TabIndex = 33
         Me.gbPrices.TabStop = False
         Me.gbPrices.Text = "Prices Selection"
@@ -804,26 +842,27 @@ Partial Class Main
         'lblEuroSymbol
         '
         Me.lblEuroSymbol.AutoSize = True
-        Me.lblEuroSymbol.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEuroSymbol.Location = New System.Drawing.Point(263, 131)
+        Me.lblEuroSymbol.Font = New System.Drawing.Font("Segoe UI Historic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEuroSymbol.Location = New System.Drawing.Point(176, 123)
         Me.lblEuroSymbol.Name = "lblEuroSymbol"
-        Me.lblEuroSymbol.Size = New System.Drawing.Size(16, 17)
+        Me.lblEuroSymbol.Size = New System.Drawing.Size(23, 25)
         Me.lblEuroSymbol.TabIndex = 33
         Me.lblEuroSymbol.Text = "€"
         '
         'txtEurosPrices
         '
-        Me.txtEurosPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEurosPrices.Location = New System.Drawing.Point(94, 126)
+        Me.txtEurosPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEurosPrices.Location = New System.Drawing.Point(81, 123)
         Me.txtEurosPrices.Name = "txtEurosPrices"
-        Me.txtEurosPrices.Size = New System.Drawing.Size(163, 25)
+        Me.txtEurosPrices.Size = New System.Drawing.Size(89, 25)
         Me.txtEurosPrices.TabIndex = 32
+        Me.txtEurosPrices.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblProductPrices
         '
         Me.lblProductPrices.AutoSize = True
         Me.lblProductPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProductPrices.Location = New System.Drawing.Point(19, 30)
+        Me.lblProductPrices.Location = New System.Drawing.Point(6, 31)
         Me.lblProductPrices.Name = "lblProductPrices"
         Me.lblProductPrices.Size = New System.Drawing.Size(69, 17)
         Me.lblProductPrices.TabIndex = 27
@@ -833,7 +872,7 @@ Partial Class Main
         '
         Me.lblDate.AutoSize = True
         Me.lblDate.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDate.Location = New System.Drawing.Point(25, 83)
+        Me.lblDate.Location = New System.Drawing.Point(15, 83)
         Me.lblDate.Name = "lblDate"
         Me.lblDate.Size = New System.Drawing.Size(43, 17)
         Me.lblDate.TabIndex = 30
@@ -843,7 +882,7 @@ Partial Class Main
         '
         Me.lblPrice.AutoSize = True
         Me.lblPrice.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrice.Location = New System.Drawing.Point(25, 129)
+        Me.lblPrice.Location = New System.Drawing.Point(13, 129)
         Me.lblPrice.Name = "lblPrice"
         Me.lblPrice.Size = New System.Drawing.Size(45, 17)
         Me.lblPrice.TabIndex = 31
@@ -851,19 +890,19 @@ Partial Class Main
         '
         'dtpDatePrices
         '
-        Me.dtpDatePrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtpDatePrices.Location = New System.Drawing.Point(94, 77)
+        Me.dtpDatePrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpDatePrices.Location = New System.Drawing.Point(81, 77)
         Me.dtpDatePrices.Name = "dtpDatePrices"
-        Me.dtpDatePrices.Size = New System.Drawing.Size(236, 25)
+        Me.dtpDatePrices.Size = New System.Drawing.Size(262, 25)
         Me.dtpDatePrices.TabIndex = 29
         '
         'cboxProductPrices
         '
-        Me.cboxProductPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxProductPrices.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxProductPrices.FormattingEnabled = True
-        Me.cboxProductPrices.Location = New System.Drawing.Point(94, 27)
+        Me.cboxProductPrices.Location = New System.Drawing.Point(81, 27)
         Me.cboxProductPrices.Name = "cboxProductPrices"
-        Me.cboxProductPrices.Size = New System.Drawing.Size(236, 25)
+        Me.cboxProductPrices.Size = New System.Drawing.Size(262, 25)
         Me.cboxProductPrices.TabIndex = 28
         '
         'lblPricesList
@@ -876,6 +915,9 @@ Partial Class Main
         '
         'tabTrips
         '
+        Me.tabTrips.Controls.Add(Me.gbControlTrip)
+        Me.tabTrips.Controls.Add(Me.gbSelectionTrip)
+        Me.tabTrips.Controls.Add(Me.gbTripList)
         Me.tabTrips.ImageIndex = 4
         Me.tabTrips.Location = New System.Drawing.Point(4, 26)
         Me.tabTrips.Name = "tabTrips"
@@ -884,6 +926,201 @@ Partial Class Main
         Me.tabTrips.TabIndex = 0
         Me.tabTrips.Text = "Trips"
         Me.tabTrips.UseVisualStyleBackColor = True
+        '
+        'gbControlTrip
+        '
+        Me.gbControlTrip.Controls.Add(Me.btnAddTrip)
+        Me.gbControlTrip.Controls.Add(Me.btnCleanTrip)
+        Me.gbControlTrip.Controls.Add(Me.btnDeleteTrip)
+        Me.gbControlTrip.Controls.Add(Me.btnUpdateTrip)
+        Me.gbControlTrip.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbControlTrip.Location = New System.Drawing.Point(356, 6)
+        Me.gbControlTrip.Name = "gbControlTrip"
+        Me.gbControlTrip.Size = New System.Drawing.Size(338, 152)
+        Me.gbControlTrip.TabIndex = 35
+        Me.gbControlTrip.TabStop = False
+        Me.gbControlTrip.Text = "Control Panel"
+        '
+        'btnAddTrip
+        '
+        Me.btnAddTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAddTrip.ImageIndex = 6
+        Me.btnAddTrip.ImageList = Me.iconList
+        Me.btnAddTrip.Location = New System.Drawing.Point(28, 31)
+        Me.btnAddTrip.Name = "btnAddTrip"
+        Me.btnAddTrip.Size = New System.Drawing.Size(115, 42)
+        Me.btnAddTrip.TabIndex = 23
+        Me.btnAddTrip.Text = "Add"
+        Me.btnAddTrip.UseVisualStyleBackColor = True
+        '
+        'btnCleanTrip
+        '
+        Me.btnCleanTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnCleanTrip.ImageIndex = 7
+        Me.btnCleanTrip.ImageList = Me.iconList
+        Me.btnCleanTrip.Location = New System.Drawing.Point(28, 88)
+        Me.btnCleanTrip.Name = "btnCleanTrip"
+        Me.btnCleanTrip.Size = New System.Drawing.Size(115, 42)
+        Me.btnCleanTrip.TabIndex = 24
+        Me.btnCleanTrip.Text = "Clean"
+        Me.btnCleanTrip.UseVisualStyleBackColor = True
+        '
+        'btnDeleteTrip
+        '
+        Me.btnDeleteTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnDeleteTrip.ImageIndex = 8
+        Me.btnDeleteTrip.ImageList = Me.iconList
+        Me.btnDeleteTrip.Location = New System.Drawing.Point(202, 88)
+        Me.btnDeleteTrip.Name = "btnDeleteTrip"
+        Me.btnDeleteTrip.Size = New System.Drawing.Size(115, 42)
+        Me.btnDeleteTrip.TabIndex = 25
+        Me.btnDeleteTrip.Text = "Delete"
+        Me.btnDeleteTrip.UseVisualStyleBackColor = True
+        '
+        'btnUpdateTrip
+        '
+        Me.btnUpdateTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnUpdateTrip.ImageIndex = 9
+        Me.btnUpdateTrip.ImageList = Me.iconList
+        Me.btnUpdateTrip.Location = New System.Drawing.Point(202, 31)
+        Me.btnUpdateTrip.Name = "btnUpdateTrip"
+        Me.btnUpdateTrip.Size = New System.Drawing.Size(115, 42)
+        Me.btnUpdateTrip.TabIndex = 26
+        Me.btnUpdateTrip.Text = "Update"
+        Me.btnUpdateTrip.UseVisualStyleBackColor = True
+        '
+        'gbSelectionTrip
+        '
+        Me.gbSelectionTrip.Controls.Add(Me.nudTonsTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.cboxProductTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.cboxTrainTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.lblTonsTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.lblTrainTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.lblProductTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.lblDateTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.dtpTrip)
+        Me.gbSelectionTrip.Location = New System.Drawing.Point(356, 164)
+        Me.gbSelectionTrip.Name = "gbSelectionTrip"
+        Me.gbSelectionTrip.Size = New System.Drawing.Size(338, 255)
+        Me.gbSelectionTrip.TabIndex = 2
+        Me.gbSelectionTrip.TabStop = False
+        Me.gbSelectionTrip.Text = "Trip Selection Panel"
+        '
+        'nudTonsTrip
+        '
+        Me.nudTonsTrip.Location = New System.Drawing.Point(77, 193)
+        Me.nudTonsTrip.Name = "nudTonsTrip"
+        Me.nudTonsTrip.Size = New System.Drawing.Size(71, 25)
+        Me.nudTonsTrip.TabIndex = 7
+        Me.nudTonsTrip.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'cboxProductTrip
+        '
+        Me.cboxProductTrip.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxProductTrip.FormattingEnabled = True
+        Me.cboxProductTrip.Location = New System.Drawing.Point(77, 138)
+        Me.cboxProductTrip.Name = "cboxProductTrip"
+        Me.cboxProductTrip.Size = New System.Drawing.Size(255, 25)
+        Me.cboxProductTrip.TabIndex = 6
+        '
+        'cboxTrainTrip
+        '
+        Me.cboxTrainTrip.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboxTrainTrip.FormattingEnabled = True
+        Me.cboxTrainTrip.Location = New System.Drawing.Point(77, 79)
+        Me.cboxTrainTrip.Name = "cboxTrainTrip"
+        Me.cboxTrainTrip.Size = New System.Drawing.Size(255, 25)
+        Me.cboxTrainTrip.TabIndex = 5
+        '
+        'lblTonsTrip
+        '
+        Me.lblTonsTrip.AutoSize = True
+        Me.lblTonsTrip.Location = New System.Drawing.Point(25, 195)
+        Me.lblTonsTrip.Name = "lblTonsTrip"
+        Me.lblTonsTrip.Size = New System.Drawing.Size(44, 17)
+        Me.lblTonsTrip.TabIndex = 4
+        Me.lblTonsTrip.Text = "Tons:"
+        Me.lblTonsTrip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'lblTrainTrip
+        '
+        Me.lblTrainTrip.AutoSize = True
+        Me.lblTrainTrip.Location = New System.Drawing.Point(21, 82)
+        Me.lblTrainTrip.Name = "lblTrainTrip"
+        Me.lblTrainTrip.Size = New System.Drawing.Size(46, 17)
+        Me.lblTrainTrip.TabIndex = 3
+        Me.lblTrainTrip.Text = "Train:"
+        '
+        'lblProductTrip
+        '
+        Me.lblProductTrip.AutoSize = True
+        Me.lblProductTrip.Location = New System.Drawing.Point(6, 141)
+        Me.lblProductTrip.Name = "lblProductTrip"
+        Me.lblProductTrip.Size = New System.Drawing.Size(64, 17)
+        Me.lblProductTrip.TabIndex = 2
+        Me.lblProductTrip.Text = "Product:"
+        '
+        'lblDateTrip
+        '
+        Me.lblDateTrip.AutoSize = True
+        Me.lblDateTrip.Location = New System.Drawing.Point(24, 30)
+        Me.lblDateTrip.Name = "lblDateTrip"
+        Me.lblDateTrip.Size = New System.Drawing.Size(43, 17)
+        Me.lblDateTrip.TabIndex = 1
+        Me.lblDateTrip.Text = "Date:"
+        '
+        'dtpTrip
+        '
+        Me.dtpTrip.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpTrip.Location = New System.Drawing.Point(77, 24)
+        Me.dtpTrip.Name = "dtpTrip"
+        Me.dtpTrip.Size = New System.Drawing.Size(255, 25)
+        Me.dtpTrip.TabIndex = 0
+        '
+        'gbTripList
+        '
+        Me.gbTripList.Controls.Add(Me.lstViewTrip)
+        Me.gbTripList.Location = New System.Drawing.Point(6, 6)
+        Me.gbTripList.Name = "gbTripList"
+        Me.gbTripList.Size = New System.Drawing.Size(344, 413)
+        Me.gbTripList.TabIndex = 0
+        Me.gbTripList.TabStop = False
+        Me.gbTripList.Text = "Trips List"
+        '
+        'lstViewTrip
+        '
+        Me.lstViewTrip.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.dateTrip, Me.trainTrip, Me.productTrip, Me.tonsTrip})
+        Me.lstViewTrip.FullRowSelect = True
+        Me.lstViewTrip.HideSelection = False
+        Me.lstViewTrip.Location = New System.Drawing.Point(9, 15)
+        Me.lstViewTrip.MultiSelect = False
+        Me.lstViewTrip.Name = "lstViewTrip"
+        Me.lstViewTrip.Size = New System.Drawing.Size(329, 383)
+        Me.lstViewTrip.TabIndex = 1
+        Me.lstViewTrip.UseCompatibleStateImageBehavior = False
+        Me.lstViewTrip.View = System.Windows.Forms.View.Details
+        '
+        'dateTrip
+        '
+        Me.dateTrip.Text = "Date"
+        Me.dateTrip.Width = 90
+        '
+        'trainTrip
+        '
+        Me.trainTrip.Text = "Train"
+        Me.trainTrip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.trainTrip.Width = 90
+        '
+        'productTrip
+        '
+        Me.productTrip.Text = "Product"
+        Me.productTrip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.productTrip.Width = 90
+        '
+        'tonsTrip
+        '
+        Me.tonsTrip.Text = "Tons"
+        Me.tonsTrip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tabQuery
         '
@@ -906,7 +1143,7 @@ Partial Class Main
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(840, 48)
+        Me.btnExit.Location = New System.Drawing.Point(841, 38)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(87, 23)
         Me.btnExit.TabIndex = 4
@@ -964,6 +1201,12 @@ Partial Class Main
         Me.gbControlPrices.ResumeLayout(False)
         Me.gbPrices.ResumeLayout(False)
         Me.gbPrices.PerformLayout()
+        Me.tabTrips.ResumeLayout(False)
+        Me.gbControlTrip.ResumeLayout(False)
+        Me.gbSelectionTrip.ResumeLayout(False)
+        Me.gbSelectionTrip.PerformLayout()
+        CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbTripList.ResumeLayout(False)
         Me.gbDatabase.ResumeLayout(False)
         Me.gbDatabase.PerformLayout()
         Me.ResumeLayout(False)
@@ -1047,4 +1290,25 @@ Partial Class Main
     Friend WithEvents capacityTrainTypes As ColumnHeader
     Friend WithEvents tabQuery As TabPage
     Friend WithEvents iconList As ImageList
+    Friend WithEvents gbSelectionTrip As GroupBox
+    Friend WithEvents gbTripList As GroupBox
+    Friend WithEvents gbControlTrip As GroupBox
+    Friend WithEvents btnAddTrip As Button
+    Friend WithEvents btnCleanTrip As Button
+    Friend WithEvents btnDeleteTrip As Button
+    Friend WithEvents btnUpdateTrip As Button
+    Friend WithEvents lblTonsTrainType As Label
+    Friend WithEvents nudTonsTrip As NumericUpDown
+    Friend WithEvents cboxProductTrip As ComboBox
+    Friend WithEvents cboxTrainTrip As ComboBox
+    Friend WithEvents lblTonsTrip As Label
+    Friend WithEvents lblTrainTrip As Label
+    Friend WithEvents lblProductTrip As Label
+    Friend WithEvents lblDateTrip As Label
+    Friend WithEvents dtpTrip As DateTimePicker
+    Friend WithEvents lstViewTrip As ListView
+    Friend WithEvents dateTrip As ColumnHeader
+    Friend WithEvents trainTrip As ColumnHeader
+    Friend WithEvents productTrip As ColumnHeader
+    Friend WithEvents tonsTrip As ColumnHeader
 End Class

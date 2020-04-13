@@ -1,4 +1,9 @@
 ﻿Public Class Main
+
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        tabControl.Enabled = False
+    End Sub
+
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         End
     End Sub
@@ -19,14 +24,14 @@
         Dim price As Prices = New Prices
         Dim product As Product = New Product
         Dim train_type As TrainType = New TrainType
-        Dim trip As Trips = New Trips
+        Dim trip As Trip = New Trip
 
         Try
             train.ReadAllTrain(OfdPath.FileName)
             price.ReadAllPrices(OfdPath.FileName)
             product.ReadAllProduct(OfdPath.FileName)
             train_type.ReadAllTrainType(OfdPath.FileName)
-            trip.ReadAllTrips(OfdPath.FileName)
+            trip.ReadAllTrip(OfdPath.FileName)
 
             MessageBox.Show("Correctly Connected Data Base")
         Catch ex As Exception
@@ -44,6 +49,7 @@
             itemTrain = New ListViewItem(t.TrainID)
             itemTrain.SubItems.Add(ty.TrainTypeDescription)
             lstViewTrains.Items.Add(itemTrain)
+            Me.cboxTrainTrip.Items.Add(t.TrainID)
         Next
 
         'Load PRICES in List View and Combos
@@ -68,10 +74,11 @@
             itemProduct = New ListViewItem(p.ProductID)
             itemProduct.SubItems.Add(p.ProductDescription)
             lstViewProducts.Items.Add(itemProduct)
-            Me.cboxProductPrices.Items.Add(p.ProductDescription)
+            Me.cboxProductPrices.Items.Add(p.ProductDescription) 'Adding each product to the combobox in prices tab
+            Me.cboxProductTrip.Items.Add(p.ProductDescription)
         Next
 
-        'Load TRAIN TYPES in List and combos
+        'Load TRAIN TYPES in List
         Dim itemTypes As ListViewItem
         For Each type As TrainType In train_type.TypDao.TrainType
             type.ReadTrainTypeDescription()
@@ -79,38 +86,59 @@
             itemTypes.SubItems.Add(type.TrainTypeDescription)
             itemTypes.SubItems.Add(type.MaxCapacity)
             lstViewTrainTypes.Items.Add(itemTypes)
-            Me.cboxTrain.Items.Add(type.TrainTypeDescription)
+            Me.cboxTrain.Items.Add(type.TrainTypeDescription) 'Adding each train type to the combobox in train tab
+        Next
+
+        'Load TRIP in list
+        Dim itemTrip As ListViewItem
+        Dim pr As Product
+        For Each tri As Trip In trip.TrDao.Trip
+            pr = New Product(tri.Product)
+            pr.ReadProduct()
+            itemTrip = New ListViewItem(tri.TripDate)
+            itemTrip.SubItems.Add(tri.Train)
+            itemTrip.SubItems.Add(pr.ProductDescription)
+            itemTrip.SubItems.Add(tri.TonsTransported)
+            lstViewTrip.Items.Add(itemTrip)
         Next
 
         'Initialize the cbox in the train section
         tabControl.Enabled = True
+
         'Disable DB buttons
         Me.btnConnect.Enabled = False
         Me.btnSelect.Enabled = False
+
         'Add Buttons
         btnAddPrices.Enabled = True
         btnAddTrain.Enabled = True
         btnAddProduct.Enabled = True
         btnAddTrainType.Enabled = True
+        btnAddTrip.Enabled = True
+
         'Clean Buttons
         btnCleanPrices.Enabled = False
         btnCleanTrain.Enabled = False
         btnCleanProduct.Enabled = False
         btnCleanTrainType.Enabled = False
+        btnCleanTrip.Enabled = False
+
         'Update Buttons
         btnUpdatePrices.Enabled = False
         btnUpdateTrain.Enabled = False
         btnUpdateProduct.Enabled = False
         btnUpdateTrainType.Enabled = False
+        btnUpdateTrip.Enabled = False
+
         'Delete Buttons
         btnDeletePrices.Enabled = False
         btnDeleteTrain.Enabled = False
         btnDeleteProduct.Enabled = False
         btnDeleteTrainType.Enabled = False
+        btnDeleteTrip.Enabled = False
 
-        'Falta por imlementar el tabQuery y el tabTrips
-        'Faltan los botones de esos dos tabs
-        'Faltan inicializar los botones y listview que tendran
+        'Falta diseñar el tab de queries
+        'Faltan inicializar los botones y listview de queriestab
 
     End Sub
 
@@ -154,6 +182,8 @@
                     lstViewProducts.Items.Add(item)
                     MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly inserted.")
                     txtProductDescription.Text = String.Empty
+                    Me.cboxProductPrices.Items.Add(pro.ProductDescription) 'Adding each product to the combobox in prices tab
+                    Me.cboxProductTrip.Items.Add(pro.ProductDescription)
 
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -185,6 +215,11 @@
                     Exit Sub
                 End Try
             End If
+            Me.txtProductDescription.Text = String.Empty
+            btnAddProduct.Enabled = True
+            btnCleanProduct.Enabled = False
+            btnUpdateProduct.Enabled = False
+            btnDeleteProduct.Enabled = False
         End If
     End Sub
 
@@ -207,6 +242,11 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+            Me.txtProductDescription.Text = String.Empty
+            btnAddProduct.Enabled = True
+            btnCleanProduct.Enabled = False
+            btnUpdateProduct.Enabled = False
+            btnDeleteProduct.Enabled = False
         End If
 
     End Sub
@@ -336,17 +376,16 @@
         btnDeletePrices.Enabled = False
     End Sub
 
-
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    '---------------------------------------BUTTONS OF Train TAB-----------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF Train TAB------------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
     'List View in Train
     Private Sub lstViewTrain_Click(sender As Object, e As EventArgs) Handles lstViewTrains.Click
         If Not Me.lstViewTrains.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewTrains.FocusedItem.Index 'Select the afected row
             Try
-                txtTrainID.Text = lstViewTrains.Items(i).SubItems(0).Text
-                cboxTrain.Text = lstViewTrains.Items(i).SubItems(1).Text
+                Me.txtTrainID.Text = lstViewTrains.Items(i).SubItems(0).Text
+                Me.cboxTrain.Text = lstViewTrains.Items(i).SubItems(1).Text
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -380,9 +419,16 @@
                     item.SubItems.Add(type.TrainTypeDescription)
                     lstViewTrains.Items.Add(item)
 
+                    Me.cboxTrainTrip.Items.Add(t.TrainID)
+
                     MessageBox.Show(" ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " type." & vbCrLf & " Correctly inserted.")
-                    txtTrainID.Text = String.Empty
-                    cboxTrain.Text = String.Empty
+                    Me.txtTrainID.Text = String.Empty
+                    Me.cboxTrain.Text = String.Empty
+                    btnAddTrain.Enabled = True
+                    btnCleanTrain.Enabled = False
+                    btnUpdateTrain.Enabled = False
+                    btnDeleteTrain.Enabled = False
+                    Me.txtTrainID.Enabled = True
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -391,12 +437,22 @@
                 MessageBox.Show("This train already exists, you can not add this.")
                 Me.txtTrainID.Text = String.Empty
                 Me.cboxTrain.Text = String.Empty
+                btnAddTrain.Enabled = True
+                btnCleanTrain.Enabled = False
+                btnUpdateTrain.Enabled = False
+                btnDeleteTrain.Enabled = False
+                Me.txtTrainID.Enabled = True
                 Exit Sub
             End If
         Else
             MessageBox.Show("Please fill all the boxes to add a new Train.")
             Me.txtTrainID.Text = String.Empty
             Me.cboxTrain.Text = String.Empty
+            btnAddTrain.Enabled = True
+            btnCleanTrain.Enabled = False
+            btnUpdateTrain.Enabled = False
+            btnDeleteTrain.Enabled = False
+            Me.txtTrainID.Enabled = True
         End If
     End Sub
 
@@ -405,7 +461,7 @@
         Dim t As New Train
         Dim type As TrainType
         If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = "" Then
-            If MessageBox.Show("Are you sure to remove this? " & lstViewTrains.SelectedItems(0).SubItems(1).Text, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If MessageBox.Show("Are you sure to update this?" & vbCrLf & " ID: " & lstViewTrains.SelectedItems(0).Text & " as " & lstViewTrains.SelectedItems(0).SubItems(1).Text & vbCrLf, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 type = New TrainType(Me.cboxTrain.Text)
                 type.ReadTrainTypeDescription()
                 t = New Train(Me.txtTrainID.Text)
@@ -421,10 +477,20 @@
                     MessageBox.Show("ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " correctly removed.")
                     Me.txtTrainID.Text = String.Empty
                     Me.cboxTrain.Text = String.Empty
+                    btnAddTrain.Enabled = True
+                    btnCleanTrain.Enabled = False
+                    btnUpdateTrain.Enabled = False
+                    btnDeleteTrain.Enabled = False
+                    Me.txtTrainID.Enabled = True
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Me.txtTrainID.Text = String.Empty
                     Me.cboxTrain.Text = String.Empty
+                    btnAddTrain.Enabled = True
+                    btnCleanTrain.Enabled = False
+                    btnUpdateTrain.Enabled = False
+                    btnDeleteTrain.Enabled = False
+                    Me.txtTrainID.Enabled = True
                     Exit Sub
                 End Try
             End If
@@ -432,7 +498,6 @@
     End Sub
 
     'Button Update in TRAIN
-    'ya funciona lo de trains, la cosa es que para el update, segun la sentencia se tiene que mantener el traintype, que hace la referencia a la tabla, solo permite cambia el id
     Private Sub btnUpdateTrain_Click(sender As Object, e As EventArgs) Handles btnUpdateTrain.Click
         Dim t As New Train
         Dim type As TrainType
@@ -451,8 +516,8 @@
                     lstViewTrains.SelectedItems(0).SubItems(0).Text = t.TrainID
                     lstViewTrains.SelectedItems(0).SubItems(1).Text = type.TrainTypeDescription
                     MessageBox.Show("ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " correctly updated.")
-                    txtTrainID.Text = String.Empty
-                    cboxTrain.Text = String.Empty
+                    Me.txtTrainID.Text = String.Empty
+                    Me.cboxTrain.Text = String.Empty
                     btnAddTrain.Enabled = True
                     btnCleanTrain.Enabled = False
                     btnUpdateTrain.Enabled = False
@@ -470,8 +535,8 @@
 
     'Button Clean in TRAIN
     Private Sub btnCleanTrain_Click(sender As Object, e As EventArgs) Handles btnCleanTrain.Click
-        txtTrainID.Text = String.Empty
-        cboxTrain.Text = String.Empty
+        Me.txtTrainID.Text = String.Empty
+        Me.cboxTrain.Text = String.Empty
         btnAddTrain.Enabled = True
         btnCleanTrain.Enabled = False
         btnUpdateTrain.Enabled = False
@@ -482,7 +547,7 @@
     '-----------------------------------------------------------------------------------------------------------------------------------------
     '---------------------------------------BUTTONS OF TRAIN TYPES TAB------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    'List View in Train Types
+    'List View in TRAIN TYPES
     Private Sub lstViewTrainTypes_Click(sender As Object, e As EventArgs) Handles lstViewTrainTypes.Click
         If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewTrainTypes.FocusedItem.Index 'Select the afected row
@@ -520,11 +585,12 @@
                     item.SubItems.Add(ty.TrainTypeDescription)
                     item.SubItems.Add(ty.MaxCapacity)
                     lstViewTrainTypes.Items.Add(item)
+                    Me.cboxTrain.Items.Add(ty.TrainTypeDescription) 'Adding each train type to the combobox in train tab
 
                     MessageBox.Show("ID: " & ty.TrainTypeID & " as '" & ty.TrainTypeDescription.ToString & "' description, with: " & ty.MaxCapacity &
                         " tons maximum.", "Correctly inserted.")
-                    txtTrainTypeDescription.Text = String.Empty
-                    nudMaxCapacity.Value = 0
+                    Me.txtTrainTypeDescription.Text = String.Empty
+                    Me.nudMaxCapacity.Value = 0
 
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -607,8 +673,132 @@
         btnDeleteTrainType.Enabled = False
     End Sub
 
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        tabControl.Enabled = False
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF TRIP TAB------------------------------------------------------------------------
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    'List View in Trip
+    Private Sub lstViewTrip_Click(sender As Object, e As EventArgs) Handles lstViewTrip.Click
+        If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
+            Dim i As Integer = lstViewTrip.FocusedItem.Index 'Select the afected row
+            Try
+                Me.dtpTrip.Text = lstViewTrip.Items(i).SubItems(0).Text
+                Me.cboxTrainTrip.Text = lstViewTrip.Items(i).SubItems(1).Text
+                Me.cboxProductTrip.Text = lstViewTrip.Items(i).SubItems(2).Text
+                Me.nudTonsTrip.Text = lstViewTrip.Items(i).SubItems(3).Text
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End Try
+            btnAddTrip.Enabled = False
+            btnCleanTrip.Enabled = True
+            btnUpdateTrip.Enabled = True
+            btnDeleteTrip.Enabled = True
+        End If
+    End Sub
+
+    'Button Add in Trip 
+    Private Sub btnAddTrip_Click(sender As Object, e As EventArgs) Handles btnAddTrip.Click
+        Dim tri As Trip : Dim pro As Product : Dim t As Train : Dim ty As TrainType
+
+        If Not Me.dtpTrip.Text <= DateTime.Now Then
+            If Me.cboxTrainTrip.Text <> Nothing And Me.cboxProductTrip.Text <> Nothing Then
+
+                pro = New Product(Me.cboxProductTrip.Text)
+                pro.ReadProductDescription()
+                t = New Train(Me.cboxTrainTrip.Text)
+                t.ReadTrainType()
+                ty = New TrainType(t.TrainID)
+                ty.ReadTrainTypeDescription()
+
+                If Me.nudTonsTrip.Value > 0 And Me.nudTonsTrip.Value < ty.MaxCapacity Then
+
+                    tri = New Trip(Me.dtpTrip.Text)
+                    tri.Train = t.TrainID
+                    tri.Product = pro.ProductID
+                    tri.TonsTransported = Me.nudTonsTrip.Value
+
+                    If (tri.isTrip = 0) Then
+                        Try
+                            If tri.InsertTrip <> 1 Then 'If the trip is correctly inserted the method insert() return us the value: 1
+                                MessageBox.Show("Error inserting Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            End If
+
+                            Dim item As New ListViewItem(tri.TripDate)
+                            item.SubItems.Add(t.TrainID)
+                            item.SubItems.Add(pro.ProductDescription)
+                            item.SubItems.Add(tri.TonsTransported)
+                            lstViewTrip.Items.Add(item)
+
+                            Me.dtpTrip.ResetText()
+                            Me.cboxTrainTrip.Text = String.Empty
+                            Me.cboxProductTrip.Text = String.Empty
+                            Me.nudTonsTrip.Value = 0
+                            btnAddTrip.Enabled = True
+                            btnDeleteTrip.Enabled = False
+                            btnUpdateTrip.Enabled = False
+                            btnCleanTrip.Enabled = False
+
+                        Catch ex As Exception
+                            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End Try
+                    Else
+                        MessageBox.Show("This trip already exists.")
+                        Exit Sub
+                        Me.dtpTrip.ResetText()
+                        Me.cboxTrainTrip.Text = String.Empty
+                        Me.cboxProductTrip.Text = String.Empty
+                        Me.nudTonsTrip.Value = 0
+                        btnAddTrip.Enabled = True
+                        btnDeleteTrip.Enabled = False
+                        btnUpdateTrip.Enabled = False
+                        btnCleanTrip.Enabled = False
+                    End If
+                Else
+                    MessageBox.Show("Please type a number of tons between 1 and the Maximum capacity of the selected train.")
+                    Exit Sub
+                    Me.nudTonsTrip.Value = 0
+                    btnAddTrip.Enabled = True
+                    btnDeleteTrip.Enabled = False
+                    btnUpdateTrip.Enabled = False
+                    btnCleanTrip.Enabled = True
+                End If
+            Else
+                MessageBox.Show("Please select a train or product to continue.")
+                Exit Sub
+                btnAddTrip.Enabled = True
+                btnDeleteTrip.Enabled = False
+                btnUpdateTrip.Enabled = False
+                btnCleanTrip.Enabled = False
+            End If
+        Else
+            MessageBox.Show("The date entered is before the current date, please enter a valid date.")
+            Me.dtpTrip.ResetText()
+            Me.cboxProductTrip.Text = String.Empty
+            Me.cboxTrainTrip.Text = String.Empty
+            Me.nudTonsTrip.Value = 0
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub btnDeleteTrip_Click(sender As Object, e As EventArgs) Handles btnDeleteTrip.Click
+
+    End Sub
+
+    Private Sub btnUpdateTrip_Click(sender As Object, e As EventArgs) Handles btnUpdateTrip.Click
+
+    End Sub
+
+    Private Sub btnCleanTrip_Click(sender As Object, e As EventArgs) Handles btnCleanTrip.Click
+        Me.dtpTrip.ResetText()
+        Me.cboxTrainTrip.Text = String.Empty
+        Me.cboxProductTrip.Text = String.Empty
+        Me.nudTonsTrip.Value = 0
+        btnAddTrip.Enabled = True
+        btnDeleteTrip.Enabled = False
+        btnUpdateTrip.Enabled = False
+        btnCleanTrip.Enabled = False
     End Sub
 
 End Class
