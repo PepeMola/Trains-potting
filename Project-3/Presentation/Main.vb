@@ -266,7 +266,7 @@
                 item.SubItems.Add(pri.PriceDate)
                 item.SubItems.Add(pri.EurosPerTon)
                 lstViewPrices.Items.Add(item)
-
+                cboxProductPrices.Items.Add(pri.PriceDate)
                 MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & " Correctly inserted.")
 
             Catch ex As Exception
@@ -525,7 +525,7 @@
                         " tons maximum.", "Correctly inserted.")
                     txtTrainTypeDescription.Text = String.Empty
                     nudMaxCapacity.Value = 0
-
+                    cboxTrain.Items.Add(ty.TrainTypeDescription)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -610,5 +610,4 @@
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         tabControl.Enabled = False
     End Sub
-
 End Class
