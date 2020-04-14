@@ -115,6 +115,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\Main.en-GB.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentation\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>

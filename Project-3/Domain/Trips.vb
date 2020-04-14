@@ -14,6 +14,12 @@
         Me.TripDate = tDate
     End Sub
 
+    Public Sub New(tDate As Date, tr As String)
+        Me.TrDao = New TripDAO
+        Me.TripDate = tDate
+        Me.Train = tr
+    End Sub
+
     Public Sub ReadAllTrip(path As String)
         Me.TrDao.ReadAll(path)
     End Sub

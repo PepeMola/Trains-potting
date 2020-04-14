@@ -20,7 +20,17 @@
 
     Public Sub Read(ByRef tr As Trip)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Trips WHERE TripDate=#" & tr.TripDate & "#;")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "';")
+        For Each aux In col
+            tr.Train = aux(2).ToString
+            tr.Product = aux(3).ToString
+            tr.TonsTransported = aux(4).ToString
+        Next
+    End Sub
+
+    Public Sub ReadTrip(ByRef tr As Trip)
+        Dim col As Collection : Dim aux As Collection
+        col = DBBroker.GetBroker.Read("SELECT TripDate, Train, Product FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "';")
         For Each aux In col
             tr.Train = aux(2).ToString
             tr.Product = aux(3).ToString
@@ -49,6 +59,7 @@
     End Function
 
     Public Function Delete(ByVal tr As Trip) As Integer
+        MessageBox.Show(tr.TripDate & " " & tr.Train & " " & tr.Product)
         Return DBBroker.GetBroker.Change("DELETE FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "' AND Product=" & tr.Product & ";")
     End Function
 End Class

@@ -1,7 +1,8 @@
 ﻿Public Class Main
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        tabControl.Enabled = False
+        Me.tabControl.Enabled = False
+        Me.btnConnect.Enabled = False
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
@@ -13,7 +14,8 @@
         If (Me.OfdPath.ShowDialog() = DialogResult.OK) Then
             Me.txtPath.Text = Me.OfdPath.FileName
             Me.btnConnect.Enabled = True
-            tabControl.Enabled = False
+            Me.tabControl.Enabled = False
+            Me.btnSelect.Enabled = False
         End If
 
     End Sub
@@ -103,7 +105,7 @@
             lstViewTrip.Items.Add(itemTrip)
         Next
 
-        'Initialize the cbox in the train section
+
         tabControl.Enabled = True
 
         'Disable DB buttons
@@ -696,6 +698,7 @@
     'List View in TRIP
     Private Sub lstViewTrip_Click(sender As Object, e As EventArgs) Handles lstViewTrip.Click
         If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
+            Me.lstboxProductTrip.Items.Clear()
             Dim i As Integer = lstViewTrip.FocusedItem.Index 'Select the afected row
             Try
                 Me.dtpTrip.Text = lstViewTrip.Items(i).SubItems(0).Text
@@ -703,6 +706,7 @@
                 Me.lstboxProductTrip.Items.Add(lstViewTrip.Items(i).SubItems(2).Text)
                 'Me.cboxProductTrip.Text = lstViewTrip.Items(i).SubItems(2).Text
                 Me.nudTonsTrip.Text = lstViewTrip.Items(i).SubItems(3).Text
+
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -716,82 +720,79 @@
 
     'Button Add in TRIP 
     Private Sub btnAddTrip_Click(sender As Object, e As EventArgs) Handles btnAddTrip.Click
-        Dim tri As Trip : Dim pro As Product : Dim t As Train : Dim ty As TrainType
+        Dim tri As New Trip : Dim pro As Product : Dim t As Train : Dim ty As TrainType
 
         If Not Me.dtpTrip.Text <= DateTime.Now Then
-            If Me.cboxTrainTrip.Text <> Nothing And Me.cboxProductTrip.Text <> Nothing Then
 
-                pro = New Product(Me.cboxProductTrip.Text)
-                pro.ReadProductDescription()
+            If Me.cboxTrainTrip.Text <> Nothing Then
                 t = New Train(Me.cboxTrainTrip.Text)
-                t.ReadTrainType()
-                ty = New TrainType(t.TrainID)
-                ty.ReadTrainTypeDescription()
+                t.ReadTrain()
+                ty = New TrainType(t.TrainType)
+                ty.ReadTrainType()
 
                 If Me.nudTonsTrip.Value > 0 And Me.nudTonsTrip.Value < ty.MaxCapacity Then
 
-                    tri = New Trip(Me.dtpTrip.Text)
-                    tri.Train = t.TrainID
-                    tri.Product = pro.ProductID
-                    tri.TonsTransported = Me.nudTonsTrip.Value
+                    For Each p As String In Me.lstboxProductTrip.SelectedItems
+                        pro = New Product(p)
+                        pro.ReadProductDescription()
+                        tri = New Trip(Me.dtpTrip.Value)
+                        tri.Train = t.TrainID
+                        tri.Product = pro.ProductID
+                        tri.TonsTransported = Me.nudTonsTrip.Value
 
-                    If (tri.isTrip = 0) Then
-                        Try
-                            If tri.InsertTrip <> 1 Then 'If the trip is correctly inserted the method insert() return us the value: 1
-                                MessageBox.Show("Error inserting Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        If (tri.isTrip = 0) Then
+                            Try
+                                If tri.InsertTrip <> 1 Then 'If the trip is correctly inserted the method insert() return us the value: 1
+                                    MessageBox.Show("Error inserting Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    Exit Sub
+                                End If
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
-                            End If
-
-                            Dim item As New ListViewItem(tri.TripDate)
-                            item.SubItems.Add(t.TrainID)
-                            item.SubItems.Add(pro.ProductDescription)
-                            item.SubItems.Add(tri.TonsTransported)
-                            lstViewTrip.Items.Add(item)
-
-                            Me.dtpTrip.ResetText()
-                            Me.cboxTrainTrip.Text = String.Empty
-                            'Me.cboxProductTrip.Text = String.Empty
-                            Me.nudTonsTrip.Value = 0
-                            btnAddTrip.Enabled = True
-                            btnDeleteTrip.Enabled = False
-                            btnUpdateTrip.Enabled = False
-                            btnCleanTrip.Enabled = False
-                            Me.lstboxProductTrip.Items.Clear()
-                            restoreLstBoxProductTrip()
-                        Catch ex As Exception
-                            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End Try
+                        Else
+                            MessageBox.Show("This trip already exists.")
                             Exit Sub
-                        End Try
-                    Else
-                        MessageBox.Show("This trip already exists.")
-                        Exit Sub
-                        Me.dtpTrip.ResetText()
-                        Me.cboxTrainTrip.Text = String.Empty
-                        'Me.cboxProductTrip.Text = String.Empty
-                        Me.nudTonsTrip.Value = 0
-                        btnAddTrip.Enabled = True
-                        btnDeleteTrip.Enabled = False
-                        btnUpdateTrip.Enabled = False
-                        btnCleanTrip.Enabled = False
-                        Me.lstboxProductTrip.Items.Clear()
-                        restoreLstBoxProductTrip()
-                    End If
-                Else
-                    MessageBox.Show("Please type a number of tons between 1 and the Maximum capacity of the selected train.")
-                    Exit Sub
+                        End If
+                        Dim item As New ListViewItem(tri.TripDate)
+                        item.SubItems.Add(t.TrainID)
+                        item.SubItems.Add(pro.ProductDescription)
+                        item.SubItems.Add(tri.TonsTransported)
+                        lstViewTrip.Items.Add(item)
+                    Next
+
+
+                    Me.dtpTrip.ResetText()
+                    Me.cboxTrainTrip.Text = String.Empty
+                    Me.cboxProductTrip.Text = String.Empty
                     Me.nudTonsTrip.Value = 0
                     btnAddTrip.Enabled = True
                     btnDeleteTrip.Enabled = False
                     btnUpdateTrip.Enabled = False
-                    btnCleanTrip.Enabled = True
+                    btnCleanTrip.Enabled = False
+                    Me.lstboxProductTrip.Items.Clear()
+                    restoreLstBoxProductTrip()
+                Else
+                    MessageBox.Show("Please type a number of tons between 1 and the Maximum capacity of the selected train.")
+                    Exit Sub
+                    Me.dtpTrip.ResetText()
+                    Me.cboxTrainTrip.Text = String.Empty
+                    Me.cboxProductTrip.Text = String.Empty
+                    Me.nudTonsTrip.Value = 0
+                    btnAddTrip.Enabled = True
+                    btnDeleteTrip.Enabled = False
+                    btnUpdateTrip.Enabled = False
+                    btnCleanTrip.Enabled = False
+                    Me.lstboxProductTrip.Items.Clear()
+                    restoreLstBoxProductTrip()
                 End If
             Else
-                MessageBox.Show("Please select a train or product to continue.")
-                Exit Sub
+                MessageBox.Show("Please select a train to continue.")
                 btnAddTrip.Enabled = True
                 btnDeleteTrip.Enabled = False
                 btnUpdateTrip.Enabled = False
                 btnCleanTrip.Enabled = False
+                Exit Sub
             End If
         Else
             MessageBox.Show("The date entered is before the current date, please enter a valid date.")
@@ -805,7 +806,35 @@
 
     'Button Delete in TRIP
     Private Sub btnDeleteTrip_Click(sender As Object, e As EventArgs) Handles btnDeleteTrip.Click
+        Dim trip As Trip
+        If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
+            If MessageBox.Show(" Trip Date: " & lstViewTrip.SelectedItems(0).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to remove this Trip?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
 
+                trip = New Trip(Me.dtpTrip.Value, Me.cboxTrainTrip.Text)
+                trip.ReadTrip()
+                Try
+                    If trip.DeleteTrip() <> 1 Then
+                        MessageBox.Show("Error removing this Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    Me.lstViewTrip.Items.Remove(Me.lstViewTrip.SelectedItems(0))
+                    MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Products: " & trip.Product & vbCrLf & " was correctly deleted.")
+                    Me.dtpTrip.ResetText()
+                    Me.cboxTrainTrip.Text = String.Empty
+                    Me.cboxProductTrip.Text = String.Empty
+                    Me.nudTonsTrip.Value = 0
+                    btnAddTrip.Enabled = True
+                    btnDeleteTrip.Enabled = False
+                    btnUpdateTrip.Enabled = False
+                    btnCleanTrip.Enabled = False
+                    Me.lstboxProductTrip.Items.Clear()
+                    restoreLstBoxProductTrip()
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End If
     End Sub
 
     'Button Update in TRIP
