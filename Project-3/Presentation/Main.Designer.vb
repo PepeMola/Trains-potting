@@ -122,6 +122,7 @@ Partial Class Main
         Me.btnExit = New System.Windows.Forms.Button()
         Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
+        Me.lstboxProductTrip = New System.Windows.Forms.ListBox()
         Me.tabControl.SuspendLayout()
         Me.tabProduct.SuspendLayout()
         Me.gbProductsList.SuspendLayout()
@@ -936,7 +937,7 @@ Partial Class Main
         Me.gbControlTrip.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbControlTrip.Location = New System.Drawing.Point(356, 6)
         Me.gbControlTrip.Name = "gbControlTrip"
-        Me.gbControlTrip.Size = New System.Drawing.Size(338, 152)
+        Me.gbControlTrip.Size = New System.Drawing.Size(338, 125)
         Me.gbControlTrip.TabIndex = 35
         Me.gbControlTrip.TabStop = False
         Me.gbControlTrip.Text = "Control Panel"
@@ -946,7 +947,7 @@ Partial Class Main
         Me.btnAddTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAddTrip.ImageIndex = 6
         Me.btnAddTrip.ImageList = Me.iconList
-        Me.btnAddTrip.Location = New System.Drawing.Point(28, 31)
+        Me.btnAddTrip.Location = New System.Drawing.Point(7, 24)
         Me.btnAddTrip.Name = "btnAddTrip"
         Me.btnAddTrip.Size = New System.Drawing.Size(115, 42)
         Me.btnAddTrip.TabIndex = 23
@@ -958,7 +959,7 @@ Partial Class Main
         Me.btnCleanTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCleanTrip.ImageIndex = 7
         Me.btnCleanTrip.ImageList = Me.iconList
-        Me.btnCleanTrip.Location = New System.Drawing.Point(28, 88)
+        Me.btnCleanTrip.Location = New System.Drawing.Point(7, 72)
         Me.btnCleanTrip.Name = "btnCleanTrip"
         Me.btnCleanTrip.Size = New System.Drawing.Size(115, 42)
         Me.btnCleanTrip.TabIndex = 24
@@ -970,7 +971,7 @@ Partial Class Main
         Me.btnDeleteTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnDeleteTrip.ImageIndex = 8
         Me.btnDeleteTrip.ImageList = Me.iconList
-        Me.btnDeleteTrip.Location = New System.Drawing.Point(202, 88)
+        Me.btnDeleteTrip.Location = New System.Drawing.Point(217, 72)
         Me.btnDeleteTrip.Name = "btnDeleteTrip"
         Me.btnDeleteTrip.Size = New System.Drawing.Size(115, 42)
         Me.btnDeleteTrip.TabIndex = 25
@@ -982,7 +983,7 @@ Partial Class Main
         Me.btnUpdateTrip.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnUpdateTrip.ImageIndex = 9
         Me.btnUpdateTrip.ImageList = Me.iconList
-        Me.btnUpdateTrip.Location = New System.Drawing.Point(202, 31)
+        Me.btnUpdateTrip.Location = New System.Drawing.Point(217, 24)
         Me.btnUpdateTrip.Name = "btnUpdateTrip"
         Me.btnUpdateTrip.Size = New System.Drawing.Size(115, 42)
         Me.btnUpdateTrip.TabIndex = 26
@@ -991,6 +992,7 @@ Partial Class Main
         '
         'gbSelectionTrip
         '
+        Me.gbSelectionTrip.Controls.Add(Me.lstboxProductTrip)
         Me.gbSelectionTrip.Controls.Add(Me.nudTonsTrip)
         Me.gbSelectionTrip.Controls.Add(Me.cboxProductTrip)
         Me.gbSelectionTrip.Controls.Add(Me.cboxTrainTrip)
@@ -999,16 +1001,16 @@ Partial Class Main
         Me.gbSelectionTrip.Controls.Add(Me.lblProductTrip)
         Me.gbSelectionTrip.Controls.Add(Me.lblDateTrip)
         Me.gbSelectionTrip.Controls.Add(Me.dtpTrip)
-        Me.gbSelectionTrip.Location = New System.Drawing.Point(356, 164)
+        Me.gbSelectionTrip.Location = New System.Drawing.Point(356, 137)
         Me.gbSelectionTrip.Name = "gbSelectionTrip"
-        Me.gbSelectionTrip.Size = New System.Drawing.Size(338, 255)
+        Me.gbSelectionTrip.Size = New System.Drawing.Size(338, 282)
         Me.gbSelectionTrip.TabIndex = 2
         Me.gbSelectionTrip.TabStop = False
         Me.gbSelectionTrip.Text = "Trip Selection Panel"
         '
         'nudTonsTrip
         '
-        Me.nudTonsTrip.Location = New System.Drawing.Point(77, 193)
+        Me.nudTonsTrip.Location = New System.Drawing.Point(261, 24)
         Me.nudTonsTrip.Name = "nudTonsTrip"
         Me.nudTonsTrip.Size = New System.Drawing.Size(71, 25)
         Me.nudTonsTrip.TabIndex = 7
@@ -1018,16 +1020,16 @@ Partial Class Main
         '
         Me.cboxProductTrip.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxProductTrip.FormattingEnabled = True
-        Me.cboxProductTrip.Location = New System.Drawing.Point(77, 138)
+        Me.cboxProductTrip.Location = New System.Drawing.Point(194, 27)
         Me.cboxProductTrip.Name = "cboxProductTrip"
-        Me.cboxProductTrip.Size = New System.Drawing.Size(255, 25)
+        Me.cboxProductTrip.Size = New System.Drawing.Size(10, 25)
         Me.cboxProductTrip.TabIndex = 6
         '
         'cboxTrainTrip
         '
         Me.cboxTrainTrip.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboxTrainTrip.FormattingEnabled = True
-        Me.cboxTrainTrip.Location = New System.Drawing.Point(77, 79)
+        Me.cboxTrainTrip.Location = New System.Drawing.Point(77, 63)
         Me.cboxTrainTrip.Name = "cboxTrainTrip"
         Me.cboxTrainTrip.Size = New System.Drawing.Size(255, 25)
         Me.cboxTrainTrip.TabIndex = 5
@@ -1035,7 +1037,7 @@ Partial Class Main
         'lblTonsTrip
         '
         Me.lblTonsTrip.AutoSize = True
-        Me.lblTonsTrip.Location = New System.Drawing.Point(25, 195)
+        Me.lblTonsTrip.Location = New System.Drawing.Point(211, 30)
         Me.lblTonsTrip.Name = "lblTonsTrip"
         Me.lblTonsTrip.Size = New System.Drawing.Size(44, 17)
         Me.lblTonsTrip.TabIndex = 4
@@ -1045,7 +1047,7 @@ Partial Class Main
         'lblTrainTrip
         '
         Me.lblTrainTrip.AutoSize = True
-        Me.lblTrainTrip.Location = New System.Drawing.Point(21, 82)
+        Me.lblTrainTrip.Location = New System.Drawing.Point(23, 66)
         Me.lblTrainTrip.Name = "lblTrainTrip"
         Me.lblTrainTrip.Size = New System.Drawing.Size(46, 17)
         Me.lblTrainTrip.TabIndex = 3
@@ -1054,7 +1056,7 @@ Partial Class Main
         'lblProductTrip
         '
         Me.lblProductTrip.AutoSize = True
-        Me.lblProductTrip.Location = New System.Drawing.Point(6, 141)
+        Me.lblProductTrip.Location = New System.Drawing.Point(5, 99)
         Me.lblProductTrip.Name = "lblProductTrip"
         Me.lblProductTrip.Size = New System.Drawing.Size(64, 17)
         Me.lblProductTrip.TabIndex = 2
@@ -1072,9 +1074,10 @@ Partial Class Main
         'dtpTrip
         '
         Me.dtpTrip.Font = New System.Drawing.Font("Segoe UI Historic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtpTrip.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpTrip.Location = New System.Drawing.Point(77, 24)
         Me.dtpTrip.Name = "dtpTrip"
-        Me.dtpTrip.Size = New System.Drawing.Size(255, 25)
+        Me.dtpTrip.Size = New System.Drawing.Size(111, 25)
         Me.dtpTrip.TabIndex = 0
         '
         'gbTripList
@@ -1166,6 +1169,17 @@ Partial Class Main
         Me.gbDatabase.TabIndex = 5
         Me.gbDatabase.TabStop = False
         Me.gbDatabase.Text = "Database"
+        '
+        'lstboxProductTrip
+        '
+        Me.lstboxProductTrip.FormattingEnabled = True
+        Me.lstboxProductTrip.ItemHeight = 17
+        Me.lstboxProductTrip.Location = New System.Drawing.Point(8, 119)
+        Me.lstboxProductTrip.MultiColumn = True
+        Me.lstboxProductTrip.Name = "lstboxProductTrip"
+        Me.lstboxProductTrip.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
+        Me.lstboxProductTrip.Size = New System.Drawing.Size(325, 157)
+        Me.lstboxProductTrip.TabIndex = 8
         '
         'Main
         '
@@ -1311,4 +1325,5 @@ Partial Class Main
     Friend WithEvents trainTrip As ColumnHeader
     Friend WithEvents productTrip As ColumnHeader
     Friend WithEvents tonsTrip As ColumnHeader
+    Friend WithEvents lstboxProductTrip As ListBox
 End Class

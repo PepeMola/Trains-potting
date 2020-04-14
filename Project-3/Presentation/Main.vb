@@ -76,6 +76,7 @@
             lstViewProducts.Items.Add(itemProduct)
             Me.cboxProductPrices.Items.Add(p.ProductDescription) 'Adding each product to the combobox in prices tab
             Me.cboxProductTrip.Items.Add(p.ProductDescription)
+            Me.lstboxProductTrip.Items.Add(p.ProductDescription)
         Next
 
         'Load TRAIN TYPES in List
@@ -184,7 +185,7 @@
                     txtProductDescription.Text = String.Empty
                     Me.cboxProductPrices.Items.Add(pro.ProductDescription) 'Adding each product to the combobox in prices tab
                     Me.cboxProductTrip.Items.Add(pro.ProductDescription)
-
+                    Me.lstboxProductTrip.Items.Add(pro.ProductDescription)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
@@ -674,16 +675,33 @@
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    '---------------------------------------BUTTONS OF TRIP TAB------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF TRIP TAB-------------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    'List View in Trip
+    'ListBox of Products in TRIP
+    Private Sub restoreLstBoxProductTrip()
+        Dim product As New Product
+        Try
+            product.ReadAllProduct(OfdPath.FileName)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+
+        For Each p As Product In product.ProDao.Product
+            p.ReadProductDescription()
+            lstboxProductTrip.Items.Add(p.ProductDescription)
+        Next
+    End Sub
+
+    'List View in TRIP
     Private Sub lstViewTrip_Click(sender As Object, e As EventArgs) Handles lstViewTrip.Click
         If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewTrip.FocusedItem.Index 'Select the afected row
             Try
                 Me.dtpTrip.Text = lstViewTrip.Items(i).SubItems(0).Text
                 Me.cboxTrainTrip.Text = lstViewTrip.Items(i).SubItems(1).Text
-                Me.cboxProductTrip.Text = lstViewTrip.Items(i).SubItems(2).Text
+                Me.lstboxProductTrip.Items.Add(lstViewTrip.Items(i).SubItems(2).Text)
+                'Me.cboxProductTrip.Text = lstViewTrip.Items(i).SubItems(2).Text
                 Me.nudTonsTrip.Text = lstViewTrip.Items(i).SubItems(3).Text
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -696,7 +714,7 @@
         End If
     End Sub
 
-    'Button Add in Trip 
+    'Button Add in TRIP 
     Private Sub btnAddTrip_Click(sender As Object, e As EventArgs) Handles btnAddTrip.Click
         Dim tri As Trip : Dim pro As Product : Dim t As Train : Dim ty As TrainType
 
@@ -732,13 +750,14 @@
 
                             Me.dtpTrip.ResetText()
                             Me.cboxTrainTrip.Text = String.Empty
-                            Me.cboxProductTrip.Text = String.Empty
+                            'Me.cboxProductTrip.Text = String.Empty
                             Me.nudTonsTrip.Value = 0
                             btnAddTrip.Enabled = True
                             btnDeleteTrip.Enabled = False
                             btnUpdateTrip.Enabled = False
                             btnCleanTrip.Enabled = False
-
+                            Me.lstboxProductTrip.Items.Clear()
+                            restoreLstBoxProductTrip()
                         Catch ex As Exception
                             MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                             Exit Sub
@@ -748,12 +767,14 @@
                         Exit Sub
                         Me.dtpTrip.ResetText()
                         Me.cboxTrainTrip.Text = String.Empty
-                        Me.cboxProductTrip.Text = String.Empty
+                        'Me.cboxProductTrip.Text = String.Empty
                         Me.nudTonsTrip.Value = 0
                         btnAddTrip.Enabled = True
                         btnDeleteTrip.Enabled = False
                         btnUpdateTrip.Enabled = False
                         btnCleanTrip.Enabled = False
+                        Me.lstboxProductTrip.Items.Clear()
+                        restoreLstBoxProductTrip()
                     End If
                 Else
                     MessageBox.Show("Please type a number of tons between 1 and the Maximum capacity of the selected train.")
@@ -782,14 +803,17 @@
         End If
     End Sub
 
+    'Button Delete in TRIP
     Private Sub btnDeleteTrip_Click(sender As Object, e As EventArgs) Handles btnDeleteTrip.Click
 
     End Sub
 
+    'Button Update in TRIP
     Private Sub btnUpdateTrip_Click(sender As Object, e As EventArgs) Handles btnUpdateTrip.Click
 
     End Sub
 
+    'Button Clean in TRIP
     Private Sub btnCleanTrip_Click(sender As Object, e As EventArgs) Handles btnCleanTrip.Click
         Me.dtpTrip.ResetText()
         Me.cboxTrainTrip.Text = String.Empty
@@ -799,6 +823,8 @@
         btnDeleteTrip.Enabled = False
         btnUpdateTrip.Enabled = False
         btnCleanTrip.Enabled = False
+        Me.lstboxProductTrip.Items.Clear()
+        restoreLstBoxProductTrip()
     End Sub
 
 End Class
