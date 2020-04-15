@@ -59,7 +59,6 @@
     End Function
 
     Public Function Delete(ByVal tr As Trip) As Integer
-        MessageBox.Show(tr.TripDate & " " & tr.Train & " " & tr.Product)
-        Return DBBroker.GetBroker.Change("DELETE FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "' AND Product=" & tr.Product & ";")
+        Return DBBroker.GetBroker.Change("DELETE FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "';")
     End Function
 End Class
