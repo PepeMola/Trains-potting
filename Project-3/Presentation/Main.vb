@@ -105,7 +105,6 @@
             lstViewTrip.Items.Add(itemTrip)
         Next
 
-
         tabControl.Enabled = True
 
         'Disable DB buttons
@@ -745,7 +744,7 @@
                 ty = New TrainType(t.TrainType)
                 ty.ReadTrainType()
                 capacity = ty.MaxCapacity
-                If Me.nudTonsTrip.Value > 0 And Me.nudTonsTrip.Value < ty.MaxCapacity Then
+                If Me.nudTonsTrip.Value > 0 And Me.nudTonsTrip.Value <= ty.MaxCapacity Then
                     For Each p As String In Me.lstboxProductTrip.SelectedItems
                         pro = New Product(p)
                         pro.ReadProductDescription()
@@ -786,7 +785,7 @@
                         item.SubItems.Add(tri.TonsTransported)
                         lstViewTrip.Items.Add(item)
                     Next
-                    MessageBox.Show(" Date: " & tri.TripDate & vbCrLf & " Train: " & tri.Train & vbCrLf & " Products: " & tri.Product & vbCrLf & " was correctly addeded.")
+                    MessageBox.Show(" Date: " & tri.TripDate & vbCrLf & " Train: " & tri.Train & vbCrLf & " was correctly addeded.")
 
                     Me.dtpTrip.ResetText()
                     Me.cboxTrainTrip.Text = String.Empty
@@ -799,8 +798,8 @@
                     Me.lstboxProductTrip.Items.Clear()
                     restoreLstBoxProductTrip()
                 Else
-                    MessageBox.Show("Please type a number of tons between 1 and " & ty.MaxCapacity & vbCrLf &
-                                        "The actually capacity for the selected train is: ")
+                    MessageBox.Show("Please type a number of tons between 1 and " & ty.MaxCapacity & " included." & vbCrLf &
+                                        "The actually capacity for the selected train is: " & capacity)
                     Exit Sub
                     Me.dtpTrip.ResetText()
                     Me.cboxTrainTrip.Text = String.Empty
@@ -833,7 +832,8 @@
 
     'Button Delete in TRIP 'Falta retocar el remove de la list view
     Private Sub btnDeleteTrip_Click(sender As Object, e As EventArgs) Handles btnDeleteTrip.Click
-        Dim trip As Trip
+        Dim trip As Trip : Dim t As Trip = New Trip
+
         If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
             If MessageBox.Show(" Trip Date: " & lstViewTrip.SelectedItems(0).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to remove this Trip?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
 
@@ -843,12 +843,11 @@
                 Try
                     If trip.DeleteTrip() = 0 Then
                         MessageBox.Show("Error removing this Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        MessageBox.Show(trip.DeleteTrip.ToString & "Valor del delete dentro del if")
                         Exit Sub
                     End If
+                    resetListViewTrip()
+                    MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Was correctly deleted.")
 
-                    Me.lstViewTrip.Items.Remove(Me.lstViewTrip.SelectedItems(0))
-                    MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Products: " & trip.Product & vbCrLf & " was correctly deleted.")
                     Me.dtpTrip.ResetText()
                     Me.cboxTrainTrip.Text = String.Empty
                     Me.cboxProductTrip.Text = String.Empty
@@ -861,7 +860,6 @@
                     restoreLstBoxProductTrip()
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                    MessageBox.Show("catch")
                 End Try
             End If
         End If
@@ -869,35 +867,22 @@
 
     'Button Update in TRIP 'Faltan cosillas
     Private Sub btnUpdateTrip_Click(sender As Object, e As EventArgs) Handles btnUpdateTrip.Click
-        Dim trip As Trip : Dim pro As Product
+
         If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
             If MessageBox.Show(" Trip Date: " & lstViewTrip.SelectedItems(0).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to change this Trip?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
 
-                trip = New Trip(Me.dtpTrip.Value, Me.cboxTrainTrip.Text)
-                trip.TonsTransported = nudTonsTrip.Value
-                pro = New Product(lstboxProductTrip.SelectedItem(0).ToString)
-                pro.ReadProductDescription()
-                trip.Product = pro.ProductID
+
                 Try
-                    If trip.UpdateTrip() <> 1 Then 'puede que sea como en delete
-                        MessageBox.Show("Error updating this Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    ' If trip.UpdateTrip() <> 1 Then 'puede que sea como en delete
+                    MessageBox.Show("Error updating this Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
-                    End If
+                    'End If
 
-                    Me.lstViewTrip.Items.Remove(Me.lstViewTrip.SelectedItems(0))
+                    ' Me.lstViewTrip.Items.Remove(Me.lstViewTrip.SelectedItems(0))
 
-                    Me.lstViewTrip.Items.Add()
-                    MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Products: " & trip.Product & vbCrLf & " was correctly .")
-                    Me.dtpTrip.ResetText()
-                    Me.cboxTrainTrip.Text = String.Empty
-                    Me.cboxProductTrip.Text = String.Empty
-                    Me.nudTonsTrip.Value = 0
-                    btnAddTrip.Enabled = True
-                    btnDeleteTrip.Enabled = False
-                    btnUpdateTrip.Enabled = False
-                    btnCleanTrip.Enabled = False
-                    Me.lstboxProductTrip.Items.Clear()
-                    restoreLstBoxProductTrip()
+
+                    ' MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Products: " & trip.Product & vbCrLf & " was correctly .")
+
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
@@ -919,4 +904,25 @@
         restoreLstBoxProductTrip()
     End Sub
 
+    'This method clean the list view after delete
+    Private Sub resetListViewTrip()
+        Dim t As New Trip : Dim pr As Product : Dim itemTrip As ListViewItem
+        Me.lstViewTrip.Items.Clear()
+        Try
+            t.ReadAllTrip(OfdPath.FileName)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+
+        For Each tri As Trip In t.TrDao.Trip
+            pr = New Product(tri.Product)
+            pr.ReadProduct()
+            itemTrip = New ListViewItem(tri.TripDate)
+            itemTrip.SubItems.Add(tri.Train)
+            itemTrip.SubItems.Add(pr.ProductDescription)
+            itemTrip.SubItems.Add(tri.TonsTransported)
+            lstViewTrip.Items.Add(itemTrip)
+        Next
+    End Sub
 End Class
