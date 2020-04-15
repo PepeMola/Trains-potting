@@ -279,7 +279,7 @@
 
             End Try
         End If
-        btnAddPrices.Enabled = False
+        btnAddPrices.Enabled = True
         btnCleanPrices.Enabled = True
         btnUpdatePrices.Enabled = True
         btnDeletePrices.Enabled = True
