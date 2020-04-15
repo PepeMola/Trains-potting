@@ -18,7 +18,7 @@
 
     Public Sub Read(ByRef p As Prices)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT * FROM Prices WHERE Product=" & p.ProductID & ", PriceDate =#" & p.PriceDate & "#;")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Prices WHERE Product=" & p.ProductID & ";")
         For Each aux In col
             p.PriceDate = aux(2).ToString
             p.EurosPerTon = aux(3).ToString
@@ -34,6 +34,6 @@
     End Function
 
     Public Function Delete(ByVal p As Prices) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Prices WHERE ProductID=" & p.ProductID & " AND PriceDate= #" & p.PriceDate & "#;")
+        Return DBBroker.GetBroker.Change("DELETE FROM Prices WHERE Product=" & p.ProductID & " AND PriceDate =#" & p.PriceDate & "#;")
     End Function
 End Class

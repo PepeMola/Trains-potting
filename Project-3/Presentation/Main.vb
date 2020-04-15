@@ -354,6 +354,7 @@
                 pro = New Product(cboxProductPrices.Text)
                 pro.ReadProductDescription()
                 pri = New Prices(pro.ProductID, dtpDatePrices.Text)
+                pri.ReadPrice()
                 Try
                     If pri.DeletePrice() <> 1 Then
                         MessageBox.Show("Error removing this price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
