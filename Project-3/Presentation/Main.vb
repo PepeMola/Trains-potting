@@ -60,7 +60,7 @@
 
         For Each pri As Prices In price.PriDao.Prices
             pro = New Product(pri.ProductID)
-            pro.ReadProductDescription()
+            pro.ReadProduct()
             itemPrices = New ListViewItem(pri.ProductID)
             itemPrices.SubItems.Add(pro.ProductDescription)
             itemPrices.SubItems.Add(pri.PriceDate)
@@ -351,7 +351,7 @@
 
         If Not Me.lstViewPrices.SelectedItems(0) Is Nothing Then
             If MessageBox.Show("Are you sure to remove this? " & lstViewPrices.SelectedItems(0).SubItems(1).Text, " Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                pro = New Product(cboxProductPrices.SelectedItem.ToString)
+                pro = New Product(cboxProductPrices.Text)
                 pro.ReadProductDescription()
                 pri = New Prices(pro.ProductID, dtpDatePrices.Text)
                 Try
@@ -773,7 +773,7 @@
                     Me.lstboxProductTrip.Items.Clear()
                     restoreLstBoxProductTrip()
                 Else
-                    MessageBox.Show("Please type a number of tons between 1 and the Maximum capacity of the selected train.")
+                    MessageBox.Show("Please type a number of tons between 1 and " & ty.MaxCapacity)
                     Exit Sub
                     Me.dtpTrip.ResetText()
                     Me.cboxTrainTrip.Text = String.Empty
@@ -839,7 +839,37 @@
 
     'Button Update in TRIP
     Private Sub btnUpdateTrip_Click(sender As Object, e As EventArgs) Handles btnUpdateTrip.Click
+        Dim trip As Trip
+        If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
+            If MessageBox.Show(" Trip Date: " & lstViewTrip.SelectedItems(0).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to change this Trip?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
 
+                trip = New Trip(Me.dtpTrip.Value, Me.cboxTrainTrip.Text)
+                trip.TonsTransported = nudTonsTrip.Value
+                trip.Product = Convert.ToInt32(lstboxProductTrip.SelectedItem(0).ToString)
+
+                Try
+                If trip.UpdateTrip() <> 1 Then
+                        MessageBox.Show("Error updating this Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Sub
+                    End If
+
+                    Me.lstViewTrip.Items.Remove(Me.lstViewTrip.SelectedItems(0))
+                    MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Products: " & trip.Product & vbCrLf & " was correctly .")
+                    Me.dtpTrip.ResetText()
+                    Me.cboxTrainTrip.Text = String.Empty
+                    Me.cboxProductTrip.Text = String.Empty
+                    Me.nudTonsTrip.Value = 0
+                    btnAddTrip.Enabled = True
+                    btnDeleteTrip.Enabled = False
+                    btnUpdateTrip.Enabled = False
+                    btnCleanTrip.Enabled = False
+                    Me.lstboxProductTrip.Items.Clear()
+                    restoreLstBoxProductTrip()
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        End If
     End Sub
 
     'Button Clean in TRIP
@@ -854,6 +884,10 @@
         btnCleanTrip.Enabled = False
         Me.lstboxProductTrip.Items.Clear()
         restoreLstBoxProductTrip()
+    End Sub
+
+    Private Sub tabPrices_Click(sender As Object, e As EventArgs) Handles tabPrices.Click
+
     End Sub
 
 End Class

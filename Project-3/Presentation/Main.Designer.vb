@@ -182,40 +182,40 @@ Partial Class Main
         '
         'tabControl
         '
-        resources.ApplyResources(Me.tabControl, "tabControl")
         Me.tabControl.Controls.Add(Me.tabProduct)
         Me.tabControl.Controls.Add(Me.tabTrains)
         Me.tabControl.Controls.Add(Me.tabTrainTypes)
         Me.tabControl.Controls.Add(Me.tabPrices)
         Me.tabControl.Controls.Add(Me.tabTrips)
         Me.tabControl.Controls.Add(Me.tabQuery)
+        resources.ApplyResources(Me.tabControl, "tabControl")
         Me.tabControl.ImageList = Me.iconList
         Me.tabControl.Name = "tabControl"
         Me.tabControl.SelectedIndex = 0
         '
         'tabProduct
         '
-        resources.ApplyResources(Me.tabProduct, "tabProduct")
         Me.tabProduct.Controls.Add(Me.gbProductsList)
         Me.tabProduct.Controls.Add(Me.gbProductsBoxes)
         Me.tabProduct.Controls.Add(Me.gbControlProducts)
         Me.tabProduct.Controls.Add(Me.lblProductList)
+        resources.ApplyResources(Me.tabProduct, "tabProduct")
         Me.tabProduct.Name = "tabProduct"
         Me.tabProduct.UseVisualStyleBackColor = True
         '
         'gbProductsList
         '
-        resources.ApplyResources(Me.gbProductsList, "gbProductsList")
         Me.gbProductsList.Controls.Add(Me.lstViewProducts)
+        resources.ApplyResources(Me.gbProductsList, "gbProductsList")
         Me.gbProductsList.Name = "gbProductsList"
         Me.gbProductsList.TabStop = False
         '
         'lstViewProducts
         '
-        resources.ApplyResources(Me.lstViewProducts, "lstViewProducts")
         Me.lstViewProducts.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ID, Me.Description})
         Me.lstViewProducts.FullRowSelect = True
         Me.lstViewProducts.HideSelection = False
+        resources.ApplyResources(Me.lstViewProducts, "lstViewProducts")
         Me.lstViewProducts.MultiSelect = False
         Me.lstViewProducts.Name = "lstViewProducts"
         Me.lstViewProducts.UseCompatibleStateImageBehavior = False
@@ -231,9 +231,9 @@ Partial Class Main
         '
         'gbProductsBoxes
         '
-        resources.ApplyResources(Me.gbProductsBoxes, "gbProductsBoxes")
         Me.gbProductsBoxes.Controls.Add(Me.txtProductDescription)
         Me.gbProductsBoxes.Controls.Add(Me.lblProductDescription)
+        resources.ApplyResources(Me.gbProductsBoxes, "gbProductsBoxes")
         Me.gbProductsBoxes.Name = "gbProductsBoxes"
         Me.gbProductsBoxes.TabStop = False
         '
@@ -249,11 +249,11 @@ Partial Class Main
         '
         'gbControlProducts
         '
-        resources.ApplyResources(Me.gbControlProducts, "gbControlProducts")
         Me.gbControlProducts.Controls.Add(Me.btnAddProduct)
         Me.gbControlProducts.Controls.Add(Me.btnCleanProduct)
         Me.gbControlProducts.Controls.Add(Me.btnDeleteProduct)
         Me.gbControlProducts.Controls.Add(Me.btnUpdateProduct)
+        resources.ApplyResources(Me.gbControlProducts, "gbControlProducts")
         Me.gbControlProducts.Name = "gbControlProducts"
         Me.gbControlProducts.TabStop = False
         '
@@ -292,26 +292,26 @@ Partial Class Main
         '
         'tabTrains
         '
-        resources.ApplyResources(Me.tabTrains, "tabTrains")
         Me.tabTrains.Controls.Add(Me.gbTrainsList)
         Me.tabTrains.Controls.Add(Me.gbTrainsBoxes)
         Me.tabTrains.Controls.Add(Me.gbControlTrains)
+        resources.ApplyResources(Me.tabTrains, "tabTrains")
         Me.tabTrains.Name = "tabTrains"
         Me.tabTrains.UseVisualStyleBackColor = True
         '
         'gbTrainsList
         '
-        resources.ApplyResources(Me.gbTrainsList, "gbTrainsList")
         Me.gbTrainsList.Controls.Add(Me.lstViewTrains)
+        resources.ApplyResources(Me.gbTrainsList, "gbTrainsList")
         Me.gbTrainsList.Name = "gbTrainsList"
         Me.gbTrainsList.TabStop = False
         '
         'lstViewTrains
         '
-        resources.ApplyResources(Me.lstViewTrains, "lstViewTrains")
         Me.lstViewTrains.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idTrains, Me.trainTypeTrains})
         Me.lstViewTrains.FullRowSelect = True
         Me.lstViewTrains.HideSelection = False
+        resources.ApplyResources(Me.lstViewTrains, "lstViewTrains")
         Me.lstViewTrains.MultiSelect = False
         Me.lstViewTrains.Name = "lstViewTrains"
         Me.lstViewTrains.UseCompatibleStateImageBehavior = False
@@ -327,11 +327,11 @@ Partial Class Main
         '
         'gbTrainsBoxes
         '
-        resources.ApplyResources(Me.gbTrainsBoxes, "gbTrainsBoxes")
         Me.gbTrainsBoxes.Controls.Add(Me.lblTrainDescription)
         Me.gbTrainsBoxes.Controls.Add(Me.txtTrainID)
         Me.gbTrainsBoxes.Controls.Add(Me.cboxTrain)
         Me.gbTrainsBoxes.Controls.Add(Me.lblTypeTrain)
+        resources.ApplyResources(Me.gbTrainsBoxes, "gbTrainsBoxes")
         Me.gbTrainsBoxes.Name = "gbTrainsBoxes"
         Me.gbTrainsBoxes.TabStop = False
         '
@@ -358,11 +358,11 @@ Partial Class Main
         '
         'gbControlTrains
         '
-        resources.ApplyResources(Me.gbControlTrains, "gbControlTrains")
         Me.gbControlTrains.Controls.Add(Me.btnAddTrain)
         Me.gbControlTrains.Controls.Add(Me.btnUpdateTrain)
         Me.gbControlTrains.Controls.Add(Me.btnCleanTrain)
         Me.gbControlTrains.Controls.Add(Me.btnDeleteTrain)
+        resources.ApplyResources(Me.gbControlTrains, "gbControlTrains")
         Me.gbControlTrains.Name = "gbControlTrains"
         Me.gbControlTrains.TabStop = False
         '
@@ -396,25 +396,25 @@ Partial Class Main
         '
         'tabTrainTypes
         '
-        resources.ApplyResources(Me.tabTrainTypes, "tabTrainTypes")
         Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeList)
         Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeBoxes)
         Me.tabTrainTypes.Controls.Add(Me.gbControlTrainType)
         Me.tabTrainTypes.Controls.Add(Me.lblTrainTypeList)
+        resources.ApplyResources(Me.tabTrainTypes, "tabTrainTypes")
         Me.tabTrainTypes.Name = "tabTrainTypes"
         Me.tabTrainTypes.UseVisualStyleBackColor = True
         '
         'gbTrainTypeList
         '
-        resources.ApplyResources(Me.gbTrainTypeList, "gbTrainTypeList")
         Me.gbTrainTypeList.Controls.Add(Me.lstViewTrainTypes)
+        resources.ApplyResources(Me.gbTrainTypeList, "gbTrainTypeList")
         Me.gbTrainTypeList.Name = "gbTrainTypeList"
         Me.gbTrainTypeList.TabStop = False
         '
         'lstViewTrainTypes
         '
-        resources.ApplyResources(Me.lstViewTrainTypes, "lstViewTrainTypes")
         Me.lstViewTrainTypes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idTrainTypes, Me.descriptionTrainTypes, Me.capacityTrainTypes})
+        resources.ApplyResources(Me.lstViewTrainTypes, "lstViewTrainTypes")
         Me.lstViewTrainTypes.FullRowSelect = True
         Me.lstViewTrainTypes.HideSelection = False
         Me.lstViewTrainTypes.MultiSelect = False
@@ -436,12 +436,12 @@ Partial Class Main
         '
         'gbTrainTypeBoxes
         '
-        resources.ApplyResources(Me.gbTrainTypeBoxes, "gbTrainTypeBoxes")
         Me.gbTrainTypeBoxes.Controls.Add(Me.lblTonsTrainType)
         Me.gbTrainTypeBoxes.Controls.Add(Me.nudMaxCapacity)
         Me.gbTrainTypeBoxes.Controls.Add(Me.lblTrainType)
         Me.gbTrainTypeBoxes.Controls.Add(Me.txtTrainTypeDescription)
         Me.gbTrainTypeBoxes.Controls.Add(Me.lblCapacity)
+        resources.ApplyResources(Me.gbTrainTypeBoxes, "gbTrainTypeBoxes")
         Me.gbTrainTypeBoxes.Name = "gbTrainTypeBoxes"
         Me.gbTrainTypeBoxes.TabStop = False
         '
@@ -472,11 +472,11 @@ Partial Class Main
         '
         'gbControlTrainType
         '
-        resources.ApplyResources(Me.gbControlTrainType, "gbControlTrainType")
         Me.gbControlTrainType.Controls.Add(Me.btnAddTrainType)
         Me.gbControlTrainType.Controls.Add(Me.btnCleanTrainType)
         Me.gbControlTrainType.Controls.Add(Me.btnUpdateTrainType)
         Me.gbControlTrainType.Controls.Add(Me.btnDeleteTrainType)
+        resources.ApplyResources(Me.gbControlTrainType, "gbControlTrainType")
         Me.gbControlTrainType.Name = "gbControlTrainType"
         Me.gbControlTrainType.TabStop = False
         '
@@ -515,27 +515,27 @@ Partial Class Main
         '
         'tabPrices
         '
-        resources.ApplyResources(Me.tabPrices, "tabPrices")
         Me.tabPrices.Controls.Add(Me.gbPriceList)
         Me.tabPrices.Controls.Add(Me.gbControlPrices)
         Me.tabPrices.Controls.Add(Me.gbPrices)
         Me.tabPrices.Controls.Add(Me.lblPricesList)
+        resources.ApplyResources(Me.tabPrices, "tabPrices")
         Me.tabPrices.Name = "tabPrices"
         Me.tabPrices.UseVisualStyleBackColor = True
         '
         'gbPriceList
         '
-        resources.ApplyResources(Me.gbPriceList, "gbPriceList")
         Me.gbPriceList.Controls.Add(Me.lstViewPrices)
+        resources.ApplyResources(Me.gbPriceList, "gbPriceList")
         Me.gbPriceList.Name = "gbPriceList"
         Me.gbPriceList.TabStop = False
         '
         'lstViewPrices
         '
-        resources.ApplyResources(Me.lstViewPrices, "lstViewPrices")
         Me.lstViewPrices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ProductID, Me.ProductDescription, Me.PriceDate, Me.PricePerTon})
         Me.lstViewPrices.FullRowSelect = True
         Me.lstViewPrices.HideSelection = False
+        resources.ApplyResources(Me.lstViewPrices, "lstViewPrices")
         Me.lstViewPrices.MultiSelect = False
         Me.lstViewPrices.Name = "lstViewPrices"
         Me.lstViewPrices.UseCompatibleStateImageBehavior = False
@@ -559,11 +559,11 @@ Partial Class Main
         '
         'gbControlPrices
         '
-        resources.ApplyResources(Me.gbControlPrices, "gbControlPrices")
         Me.gbControlPrices.Controls.Add(Me.btnAddPrices)
         Me.gbControlPrices.Controls.Add(Me.btnCleanPrices)
         Me.gbControlPrices.Controls.Add(Me.btnDeletePrices)
         Me.gbControlPrices.Controls.Add(Me.btnUpdatePrices)
+        resources.ApplyResources(Me.gbControlPrices, "gbControlPrices")
         Me.gbControlPrices.Name = "gbControlPrices"
         Me.gbControlPrices.TabStop = False
         '
@@ -597,7 +597,6 @@ Partial Class Main
         '
         'gbPrices
         '
-        resources.ApplyResources(Me.gbPrices, "gbPrices")
         Me.gbPrices.Controls.Add(Me.lblEuroSymbol)
         Me.gbPrices.Controls.Add(Me.txtEurosPrices)
         Me.gbPrices.Controls.Add(Me.lblProductPrices)
@@ -605,6 +604,7 @@ Partial Class Main
         Me.gbPrices.Controls.Add(Me.lblPrice)
         Me.gbPrices.Controls.Add(Me.dtpDatePrices)
         Me.gbPrices.Controls.Add(Me.cboxProductPrices)
+        resources.ApplyResources(Me.gbPrices, "gbPrices")
         Me.gbPrices.Name = "gbPrices"
         Me.gbPrices.TabStop = False
         '
@@ -651,20 +651,20 @@ Partial Class Main
         '
         'tabTrips
         '
-        resources.ApplyResources(Me.tabTrips, "tabTrips")
         Me.tabTrips.Controls.Add(Me.gbControlTrip)
         Me.tabTrips.Controls.Add(Me.gbSelectionTrip)
         Me.tabTrips.Controls.Add(Me.gbTripList)
+        resources.ApplyResources(Me.tabTrips, "tabTrips")
         Me.tabTrips.Name = "tabTrips"
         Me.tabTrips.UseVisualStyleBackColor = True
         '
         'gbControlTrip
         '
-        resources.ApplyResources(Me.gbControlTrip, "gbControlTrip")
         Me.gbControlTrip.Controls.Add(Me.btnAddTrip)
         Me.gbControlTrip.Controls.Add(Me.btnCleanTrip)
         Me.gbControlTrip.Controls.Add(Me.btnDeleteTrip)
         Me.gbControlTrip.Controls.Add(Me.btnUpdateTrip)
+        resources.ApplyResources(Me.gbControlTrip, "gbControlTrip")
         Me.gbControlTrip.Name = "gbControlTrip"
         Me.gbControlTrip.TabStop = False
         '
@@ -698,7 +698,6 @@ Partial Class Main
         '
         'gbSelectionTrip
         '
-        resources.ApplyResources(Me.gbSelectionTrip, "gbSelectionTrip")
         Me.gbSelectionTrip.Controls.Add(Me.lstboxProductTrip)
         Me.gbSelectionTrip.Controls.Add(Me.nudTonsTrip)
         Me.gbSelectionTrip.Controls.Add(Me.cboxProductTrip)
@@ -708,13 +707,14 @@ Partial Class Main
         Me.gbSelectionTrip.Controls.Add(Me.lblProductTrip)
         Me.gbSelectionTrip.Controls.Add(Me.lblDateTrip)
         Me.gbSelectionTrip.Controls.Add(Me.dtpTrip)
+        resources.ApplyResources(Me.gbSelectionTrip, "gbSelectionTrip")
         Me.gbSelectionTrip.Name = "gbSelectionTrip"
         Me.gbSelectionTrip.TabStop = False
         '
         'lstboxProductTrip
         '
-        resources.ApplyResources(Me.lstboxProductTrip, "lstboxProductTrip")
         Me.lstboxProductTrip.FormattingEnabled = True
+        resources.ApplyResources(Me.lstboxProductTrip, "lstboxProductTrip")
         Me.lstboxProductTrip.MultiColumn = True
         Me.lstboxProductTrip.Name = "lstboxProductTrip"
         Me.lstboxProductTrip.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
@@ -764,17 +764,17 @@ Partial Class Main
         '
         'gbTripList
         '
-        resources.ApplyResources(Me.gbTripList, "gbTripList")
         Me.gbTripList.Controls.Add(Me.lstViewTrip)
+        resources.ApplyResources(Me.gbTripList, "gbTripList")
         Me.gbTripList.Name = "gbTripList"
         Me.gbTripList.TabStop = False
         '
         'lstViewTrip
         '
-        resources.ApplyResources(Me.lstViewTrip, "lstViewTrip")
         Me.lstViewTrip.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.dateTrip, Me.trainTrip, Me.productTrip, Me.tonsTrip})
         Me.lstViewTrip.FullRowSelect = True
         Me.lstViewTrip.HideSelection = False
+        resources.ApplyResources(Me.lstViewTrip, "lstViewTrip")
         Me.lstViewTrip.MultiSelect = False
         Me.lstViewTrip.Name = "lstViewTrip"
         Me.lstViewTrip.UseCompatibleStateImageBehavior = False
@@ -816,14 +816,13 @@ Partial Class Main
         'OfdPath
         '
         Me.OfdPath.FileName = "OfdPath"
-        resources.ApplyResources(Me.OfdPath, "OfdPath")
         '
         'gbDatabase
         '
-        resources.ApplyResources(Me.gbDatabase, "gbDatabase")
         Me.gbDatabase.Controls.Add(Me.btnSelect)
         Me.gbDatabase.Controls.Add(Me.btnConnect)
         Me.gbDatabase.Controls.Add(Me.txtPath)
+        resources.ApplyResources(Me.gbDatabase, "gbDatabase")
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
         '
