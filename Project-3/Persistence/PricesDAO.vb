@@ -34,6 +34,6 @@
     End Function
 
     Public Function Delete(ByVal p As Prices) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Prices WHERE ProductID=" & p.ProductID & " AND PriceDate= #" & p.PriceDate & "#;")
+        Return DBBroker.GetBroker.Change("DELETE FROM Prices WHERE ProductID=" & p.ProductID & " AND PriceDate= #" & p.PriceDate.GetDateTimeFormats() & "#;")
     End Function
 End Class
