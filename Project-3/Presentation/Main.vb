@@ -757,7 +757,7 @@
 
     'Button Add in TRIP
     Private Sub btnAddTrip_Click(sender As Object, e As EventArgs) Handles btnAddTrip.Click
-        Dim tri As New Trip : Dim pro As Product : Dim t As Train : Dim ty As TrainType : Dim capacity As Integer : Dim tons As Integer
+        Dim tri As New Trip : Dim pro As Product : Dim t As Train : Dim ty As TrainType : Dim capacity As Integer = 0 : Dim tons As Integer
         If Not Me.dtpTrip.Text <= DateTime.Now Then
             If Me.cboxTrainTrip.Text <> Nothing Then
                 t = New Train(Me.cboxTrainTrip.Text)
@@ -773,32 +773,35 @@
                     tri.Train = t.TrainID
                     tri.Product = pro.ProductID
                     If (tri.isTrip = 0) Then
-                        While Integer.TryParse(InputBox("Tons for " & pro.ProductDescription & ": ", "Tons per product").ToString, tons) <> True
-                            If tons > 0 And tons <= capacity Then
-                                tri.TonsTransported = tons
-                                capacity = capacity - tons
 
-                                Try
-                                    If tri.InsertTrip <> 1 Then 'If the trip is correctly inserted the method insert() return us the value: 1
-                                        MessageBox.Show("Error inserting Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                        Exit Sub
-                                    End If
-                                Catch ex As Exception
-                                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        tons = isNumber(pro, tons)
+
+                        If tons <= capacity Then
+                            tri.TonsTransported = tons
+                            capacity = capacity - tons
+                            Try
+                                If tri.InsertTrip <> 1 Then 'If the trip is correctly inserted the method insert() return us the value: 1
+                                    MessageBox.Show("Error inserting Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                                     Exit Sub
-                                End Try
+                                End If
+                                MessageBox.Show(" Date: " & tri.TripDate & vbCrLf & " Train: " & tri.Train & vbCrLf & " was correctly addeded.")
 
-                                Dim item As New ListViewItem(tri.TripDate)
-                                item.SubItems.Add(t.TrainID)
-                                item.SubItems.Add(pro.ProductDescription)
-                                item.SubItems.Add(tri.TonsTransported)
-                                lstViewTrip.Items.Add(item)
-                                Continue For
-                            Else
-                                MessageBox.Show("Sorry, you reach the maximum capacity of the train." & vbCrLf & "You can not add more products nor tons to this trip.")
-                                Exit For
-                            End If
-                        End While
+                            Catch ex As Exception
+                                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                Exit Sub
+                            End Try
+
+                            Dim item As New ListViewItem(tri.TripDate)
+                            item.SubItems.Add(t.TrainID)
+                            item.SubItems.Add(pro.ProductDescription)
+                            item.SubItems.Add(tri.TonsTransported)
+                            lstViewTrip.Items.Add(item)
+
+                        Else
+                            MessageBox.Show("Sorry, you reach the maximum capacity of the train." & vbCrLf & "You can not add more products nor tons to this trip.")
+                            Exit For
+                            Exit Sub
+                        End If
                     Else
                         MessageBox.Show("This trip already exists.")
                         Me.dtpTrip.ResetText()
@@ -811,9 +814,9 @@
                         Me.lstboxProductTrip.Items.Clear()
                         restoreLstBoxProductTrip()
                         Exit Sub
+                        Exit For
                     End If
                 Next
-                MessageBox.Show(" Date: " & tri.TripDate & vbCrLf & " Train: " & tri.Train & vbCrLf & " was correctly addeded.")
                 Me.dtpTrip.ResetText()
                 Me.cboxTrainTrip.Text = String.Empty
                 Me.nudTonsTrip.Value = 0
@@ -886,17 +889,14 @@
         If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
             If MessageBox.Show(" Trip Date: " & lstViewTrip.SelectedItems(0).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to change this Trip?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
 
-                trip = New Trip(Me.dtpTrip.Text, Me.cboxTrainTrip.Text)
                 pro = New Product(Me.lstboxProductTrip.Items.Item(0).ToString)
                 pro.ReadProductDescription()
-                trip.Product = pro.ProductID
+                trip = New Trip(Me.dtpTrip.Text, Me.cboxTrainTrip.Text, pro.ProductID)
                 trip.ReadTripProduct()
                 train = New Train(trip.Train)
                 train.ReadTrain()
                 type = New TrainType(train.TrainType)
                 type.ReadTrainType()
-
-                tons = trip.sum - trip.TonsTransported 'Here we substract to the tons transported in the trip the tons of the product which we want to update
 
                 If Me.nudTonsTrip.Value > 0 And (tons + Me.nudTonsTrip.Value) <= type.MaxCapacity Then
                     trip.TonsTransported = Me.nudTonsTrip.Value
@@ -977,4 +977,13 @@
         Next
     End Sub
 
+    Private Function isNumber(p As Product, tons As Integer) As Integer
+
+        If Integer.TryParse(InputBox("Tons for " & p.ProductDescription & ": ", "Tons per product").ToString, tons) = True And tons > 0 Then
+            Return tons
+        Else
+            MessageBox.Show("Introduce a correct value of tons up to 0.")
+            isNumber(p, tons)
+        End If
+    End Function
 End Class
