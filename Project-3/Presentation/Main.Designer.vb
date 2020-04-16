@@ -347,6 +347,7 @@ Partial Class Main
         '
         'cboxTrain
         '
+        Me.cboxTrain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.cboxTrain, "cboxTrain")
         Me.cboxTrain.FormattingEnabled = True
         Me.cboxTrain.Name = "cboxTrain"
@@ -640,6 +641,7 @@ Partial Class Main
         '
         'cboxProductPrices
         '
+        Me.cboxProductPrices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.cboxProductPrices, "cboxProductPrices")
         Me.cboxProductPrices.FormattingEnabled = True
         Me.cboxProductPrices.Name = "cboxProductPrices"
@@ -732,6 +734,7 @@ Partial Class Main
         '
         'cboxTrainTrip
         '
+        Me.cboxTrainTrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.cboxTrainTrip, "cboxTrainTrip")
         Me.cboxTrainTrip.FormattingEnabled = True
         Me.cboxTrainTrip.Name = "cboxTrainTrip"
