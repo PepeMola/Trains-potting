@@ -290,12 +290,19 @@
         Dim pro As Product
 
         If Me.txtEurosPrices.Text <> Nothing Then
-            pro = New Product(cboxProductPrices.SelectedItem.ToString)
-            pro.ReadProductDescription()
-            pri.ProductID = pro.ProductID
-            pri.PriceDate = dtpDatePrices.Text
-            pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ",", "."))
-
+            'Checking if the data introduce is right or not
+            Try
+                pro = New Product(cboxProductPrices.SelectedItem.ToString)
+                pro.ReadProductDescription()
+                pri.ProductID = pro.ProductID
+                pri.PriceDate = dtpDatePrices.Text
+                pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
+            Catch ex As Exception
+                MessageBox.Show("Be careful with the data you have introduce", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                txtEurosPrices.Text = String.Empty
+                dtpDatePrices.Text = String.Empty
+                Exit Sub
+            End Try
 
             Try
                 If pri.InsertPrice() <> 1 Then
@@ -313,8 +320,10 @@
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
             End Try
         End If
+
     End Sub
 
     'Button Update in PRICES
@@ -323,10 +332,20 @@
         Dim pro As Product
 
         If Me.txtEurosPrices.Text <> Nothing Then
-            pro = New Product(cboxProductPrices.SelectedItem.ToString)
-            pro.ReadProductDescription()
-            pri = New Prices(pro.ProductID, dtpDatePrices.Text)
-            pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ",", "."))
+
+            'Checking if the data introduce is right or not
+            Try
+                pro = New Product(cboxProductPrices.SelectedItem.ToString)
+                pro.ReadProductDescription()
+                pri.ProductID = pro.ProductID
+                pri.PriceDate = dtpDatePrices.Text
+                pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
+            Catch ex As Exception
+                MessageBox.Show("Be careful with the data you have introduce", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                txtEurosPrices.Text = String.Empty
+                dtpDatePrices.Text = String.Empty
+                Exit Sub
+            End Try
 
             Try
                 If pri.UpdatePrice() <> 1 Then
@@ -647,6 +666,7 @@
                     Me.cboxTrain.Items.Remove(ty.TrainTypeDescription)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
                 End Try
             End If
         End If
