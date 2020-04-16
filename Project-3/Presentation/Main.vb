@@ -332,6 +332,7 @@
         Dim pro As Product
 
         If Me.txtEurosPrices.Text <> Nothing Then
+
             'Checking if the data introduce is right or not
             Try
                 pro = New Product(cboxProductPrices.SelectedItem.ToString)
@@ -665,6 +666,7 @@
                     Me.cboxTrain.Items.Remove(ty.TrainTypeDescription)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
                 End Try
             End If
         End If
