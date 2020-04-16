@@ -28,8 +28,16 @@
         Me.TrDao.Read(Me)
     End Sub
 
+    Public Sub ReadTripProduct()
+        Me.TrDao.ReadTrip(Me)
+    End Sub
+
     Public Function isTrip() As Integer
         Return Me.TrDao.existTrip(Me)
+    End Function
+
+    Public Function sum() As Integer
+        Return Me.TrDao.sumTons(Me)
     End Function
 
     Public Function InsertTrip() As Integer

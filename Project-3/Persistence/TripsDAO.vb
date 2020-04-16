@@ -30,7 +30,7 @@
 
     Public Sub ReadTrip(ByRef tr As Trip)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT TripDate, Train, Product FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "';")
+        col = DBBroker.GetBroker.Read("SELECT * FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "' AND Product=" & tr.Product & ";")
         For Each aux In col
             tr.Train = aux(2).ToString
             tr.Product = aux(3).ToString
@@ -50,12 +50,22 @@
         Next
     End Function
 
+    Public Function sumTons(ByRef tr As Trip) As Integer 'This method return us the tons per trip, which is the sum of all tons per product in the train
+        Dim col As Collection : Dim aux As Collection : Dim t As Integer = 0
+        col = DBBroker.GetBroker.Read("SELECT * FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "';")
+        For Each aux In col
+            tr.TonsTransported = aux(4).ToString
+            t += tr.TonsTransported
+        Next
+        Return t
+    End Function
+
     Public Function Insert(ByVal tr As Trip) As Integer
         Return DBBroker.GetBroker.Change("INSERT INTO Trips (TripDate, Train, Product, TonsTransported) VALUES (#" & tr.TripDate & "#, '" & tr.Train & "', " & tr.Product & ", " & tr.TonsTransported & ");")
     End Function
 
     Public Function Change(ByVal tr As Trip) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Trips SET Train='" & tr.Train & "' AND Product=" & tr.Product & " AND TonsTransported=" & tr.TonsTransported & " WHERE TripDate=#" & tr.TripDate & "#;")
+        Return DBBroker.GetBroker.Change("UPDATE Trips SET TonsTransported=" & tr.TonsTransported & " WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "' AND Product=" & tr.Product & ";")
     End Function
 
     Public Function Delete(ByVal tr As Trip) As Integer

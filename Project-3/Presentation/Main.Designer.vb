@@ -105,7 +105,6 @@ Partial Class Main
         Me.gbSelectionTrip = New System.Windows.Forms.GroupBox()
         Me.lstboxProductTrip = New System.Windows.Forms.ListBox()
         Me.nudTonsTrip = New System.Windows.Forms.NumericUpDown()
-        Me.cboxProductTrip = New System.Windows.Forms.ComboBox()
         Me.cboxTrainTrip = New System.Windows.Forms.ComboBox()
         Me.lblTonsTrip = New System.Windows.Forms.Label()
         Me.lblTrainTrip = New System.Windows.Forms.Label()
@@ -702,7 +701,6 @@ Partial Class Main
         '
         Me.gbSelectionTrip.Controls.Add(Me.lstboxProductTrip)
         Me.gbSelectionTrip.Controls.Add(Me.nudTonsTrip)
-        Me.gbSelectionTrip.Controls.Add(Me.cboxProductTrip)
         Me.gbSelectionTrip.Controls.Add(Me.cboxTrainTrip)
         Me.gbSelectionTrip.Controls.Add(Me.lblTonsTrip)
         Me.gbSelectionTrip.Controls.Add(Me.lblTrainTrip)
@@ -725,12 +723,6 @@ Partial Class Main
         '
         resources.ApplyResources(Me.nudTonsTrip, "nudTonsTrip")
         Me.nudTonsTrip.Name = "nudTonsTrip"
-        '
-        'cboxProductTrip
-        '
-        resources.ApplyResources(Me.cboxProductTrip, "cboxProductTrip")
-        Me.cboxProductTrip.FormattingEnabled = True
-        Me.cboxProductTrip.Name = "cboxProductTrip"
         '
         'cboxTrainTrip
         '
@@ -812,6 +804,10 @@ Partial Class Main
         '
         'btnExit
         '
+        Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnExit.FlatAppearance.BorderSize = 2
+        Me.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray
         resources.ApplyResources(Me.btnExit, "btnExit")
         Me.btnExit.Name = "btnExit"
         Me.btnExit.UseVisualStyleBackColor = True
@@ -957,7 +953,6 @@ Partial Class Main
     Friend WithEvents btnUpdateTrip As Button
     Friend WithEvents lblTonsTrainType As Label
     Friend WithEvents nudTonsTrip As NumericUpDown
-    Friend WithEvents cboxProductTrip As ComboBox
     Friend WithEvents cboxTrainTrip As ComboBox
     Friend WithEvents lblTonsTrip As Label
     Friend WithEvents lblTrainTrip As Label

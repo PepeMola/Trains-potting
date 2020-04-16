@@ -77,7 +77,6 @@
             itemProduct.SubItems.Add(p.ProductDescription)
             lstViewProducts.Items.Add(itemProduct)
             Me.cboxProductPrices.Items.Add(p.ProductDescription) 'Adding each product to the combobox in prices tab
-            Me.cboxProductTrip.Items.Add(p.ProductDescription)
             Me.lstboxProductTrip.Items.Add(p.ProductDescription)
         Next
 
@@ -187,7 +186,6 @@
                     MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly inserted.")
                     txtProductDescription.Text = String.Empty
                     Me.cboxProductPrices.Items.Add(pro.ProductDescription) 'Adding each product to the combobox in prices tab
-                    Me.cboxProductTrip.Items.Add(pro.ProductDescription)
                     Me.lstboxProductTrip.Items.Add(pro.ProductDescription)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -741,7 +739,6 @@
                 Me.dtpTrip.Text = lstViewTrip.Items(i).SubItems(0).Text
                 Me.cboxTrainTrip.Text = lstViewTrip.Items(i).SubItems(1).Text
                 Me.lstboxProductTrip.Items.Add(lstViewTrip.Items(i).SubItems(2).Text)
-                'Me.cboxProductTrip.Text = lstViewTrip.Items(i).SubItems(2).Text
                 Me.nudTonsTrip.Text = lstViewTrip.Items(i).SubItems(3).Text
 
             Catch ex As Exception
@@ -753,16 +750,14 @@
             btnUpdateTrip.Enabled = True
             btnDeleteTrip.Enabled = True
             Me.dtpTrip.Enabled = False
-            Me.cboxProductTrip.Enabled = False
             Me.lstboxProductTrip.Enabled = False
-            Me.nudTonsTrip.Enabled = False
+            Me.nudTonsTrip.Enabled = True
         End If
     End Sub
 
-    'Button Add in TRIP 'Falta poder añadir toneladas por producto
+    'Button Add in TRIP
     Private Sub btnAddTrip_Click(sender As Object, e As EventArgs) Handles btnAddTrip.Click
         Dim tri As New Trip : Dim pro As Product : Dim t As Train : Dim ty As TrainType : Dim capacity As Integer : Dim tons As Integer
-        Dim aux As String
         If Not Me.dtpTrip.Text <= DateTime.Now Then
             If Me.cboxTrainTrip.Text <> Nothing Then
                 t = New Train(Me.cboxTrainTrip.Text)
@@ -778,7 +773,7 @@
                     tri.Train = t.TrainID
                     tri.Product = pro.ProductID
                     If (tri.isTrip = 0) Then
-                        While Integer.TryParse(InputBox("Tons for " & pro.ProductDescription & ": ", "Tons per product").ToString, tons)
+                        While Integer.TryParse(InputBox("Tons for " & pro.ProductDescription & ": ", "Tons per product").ToString, tons) <> True
                             If tons > 0 And tons <= capacity Then
                                 tri.TonsTransported = tons
                                 capacity = capacity - tons
@@ -801,13 +796,13 @@
                                 Continue For
                             Else
                                 MessageBox.Show("Sorry, you reach the maximum capacity of the train." & vbCrLf & "You can not add more products nor tons to this trip.")
+                                Exit For
                             End If
                         End While
                     Else
                         MessageBox.Show("This trip already exists.")
                         Me.dtpTrip.ResetText()
                         Me.cboxTrainTrip.Text = String.Empty
-                        Me.cboxProductTrip.Text = String.Empty
                         Me.nudTonsTrip.Value = 0
                         btnAddTrip.Enabled = True
                         btnDeleteTrip.Enabled = False
@@ -821,7 +816,6 @@
                 MessageBox.Show(" Date: " & tri.TripDate & vbCrLf & " Train: " & tri.Train & vbCrLf & " was correctly addeded.")
                 Me.dtpTrip.ResetText()
                 Me.cboxTrainTrip.Text = String.Empty
-                Me.cboxProductTrip.Text = String.Empty
                 Me.nudTonsTrip.Value = 0
                 btnAddTrip.Enabled = True
                 btnDeleteTrip.Enabled = False
@@ -841,7 +835,6 @@
         Else
             MessageBox.Show("The date entered is before the current date, please enter a valid date.")
             Me.dtpTrip.ResetText()
-            Me.cboxProductTrip.Text = String.Empty
             Me.cboxTrainTrip.Text = String.Empty
             Me.nudTonsTrip.Value = 0
             Exit Sub
@@ -876,9 +869,8 @@
                     Me.lstboxProductTrip.Items.Clear()
                     restoreLstBoxProductTrip()
                     Me.dtpTrip.Enabled = True
-                    Me.cboxProductTrip.Enabled = True
                     Me.lstboxProductTrip.Enabled = True
-                    Me.nudTonsTrip.Enabled = False
+                    Me.nudTonsTrip.Enabled = True
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
@@ -886,27 +878,63 @@
         End If
     End Sub
 
-    'Button Update in TRIP 'Faltan cosillas
+    'Button Update in TRIP
     Private Sub btnUpdateTrip_Click(sender As Object, e As EventArgs) Handles btnUpdateTrip.Click
+        Dim trip As Trip : Dim train As Train : Dim type As TrainType : Dim tons As Integer = 0
+        Dim pro As Product
 
         If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
             If MessageBox.Show(" Trip Date: " & lstViewTrip.SelectedItems(0).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to change this Trip?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
 
+                trip = New Trip(Me.dtpTrip.Text, Me.cboxTrainTrip.Text)
+                pro = New Product(Me.lstboxProductTrip.Items.Item(0).ToString)
+                pro.ReadProductDescription()
+                trip.Product = pro.ProductID
+                trip.ReadTripProduct()
+                train = New Train(trip.Train)
+                train.ReadTrain()
+                type = New TrainType(train.TrainType)
+                type.ReadTrainType()
 
-                Try
-                    ' If trip.UpdateTrip() <> 1 Then 'puede que sea como en delete
-                    MessageBox.Show("Error updating this Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        Exit Sub
-                    'End If
+                tons = trip.sum - trip.TonsTransported 'Here we substract to the tons transported in the trip the tons of the product which we want to update
 
-                    ' Me.lstViewTrip.Items.Remove(Me.lstViewTrip.SelectedItems(0))
+                If Me.nudTonsTrip.Value > 0 And (tons + Me.nudTonsTrip.Value) <= type.MaxCapacity Then
+                    trip.TonsTransported = Me.nudTonsTrip.Value
+                    Try
+                        If trip.UpdateTrip() <> 1 Then
+                            MessageBox.Show("Error updating this Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            Exit Sub
+                        End If
 
+                        Me.lstViewTrip.Items.Remove(Me.lstViewTrip.SelectedItems(0))
 
-                    ' MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Products: " & trip.Product & vbCrLf & " was correctly .")
+                        Dim item As New ListViewItem(trip.TripDate)
+                        item.SubItems.Add(train.TrainID)
+                        item.SubItems.Add(pro.ProductDescription)
+                        item.SubItems.Add(trip.TonsTransported)
+                        lstViewTrip.Items.Add(item)
 
-                Catch ex As Exception
-                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
+                        MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Product: " & pro.ProductDescription & vbCrLf & " Tons: " & trip.TonsTransported & vbCrLf & " was correctly updated.")
+
+                    Catch ex As Exception
+                        MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End Try
+                Else
+                    MessageBox.Show("The tons selected execed the Maximum capacity of the train or it is 0." & vbCrLf & "Remember that the maximum tons of " & train.TrainID &
+                                " is: " & type.MaxCapacity & " tons.")
+                    Me.dtpTrip.ResetText()
+                    Me.cboxTrainTrip.ResetText()
+                    Me.nudTonsTrip.Value = 0
+                    btnAddTrip.Enabled = True
+                    btnDeleteTrip.Enabled = False
+                    btnUpdateTrip.Enabled = False
+                    btnCleanTrip.Enabled = False
+                    Me.lstboxProductTrip.Items.Clear()
+                    restoreLstBoxProductTrip()
+                    Me.dtpTrip.Enabled = True
+                    Me.lstboxProductTrip.Enabled = True
+                    Me.nudTonsTrip.Enabled = True
+                End If
             End If
         End If
     End Sub
@@ -915,7 +943,6 @@
     Private Sub btnCleanTrip_Click(sender As Object, e As EventArgs) Handles btnCleanTrip.Click
         Me.dtpTrip.ResetText()
         Me.cboxTrainTrip.Text = String.Empty
-        Me.cboxProductTrip.Text = String.Empty
         Me.nudTonsTrip.Value = 0
         btnAddTrip.Enabled = True
         btnDeleteTrip.Enabled = False
@@ -924,9 +951,8 @@
         Me.lstboxProductTrip.Items.Clear()
         restoreLstBoxProductTrip()
         Me.dtpTrip.Enabled = True
-        Me.cboxProductTrip.Enabled = True
         Me.lstboxProductTrip.Enabled = True
-        Me.nudTonsTrip.Enabled = False
+        Me.nudTonsTrip.Enabled = True
     End Sub
 
     'This method clean the list view after delete
