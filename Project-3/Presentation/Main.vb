@@ -244,6 +244,8 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+            resetcboxProductPrices()
+            resetlstViewPrices()
             Me.txtProductDescription.Text = String.Empty
             btnAddProduct.Enabled = True
             btnCleanProduct.Enabled = False
@@ -261,6 +263,8 @@
         btnUpdateProduct.Enabled = False
         btnDeleteProduct.Enabled = False
     End Sub
+
+
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
     '---------------------------------------BUTTONS OF PRICES TAB-----------------------------------------------------------------------------
@@ -405,7 +409,40 @@
         btnUpdatePrices.Enabled = False
         btnDeletePrices.Enabled = False
     End Sub
+    Private Sub resetcboxProductPrices()
+        Dim Pro As New Product
+        Me.cboxProductPrices.Items.Clear()
 
+        Pro.ReadAllProduct(OfdPath.FileName)
+        For Each aux As Product In Pro.ProDao.Product
+            Pro = New Product(aux.ProductDescription)
+            Pro.ReadProduct()
+            Me.cboxProductPrices.Items.Add(Pro.ProductDescription)
+        Next
+    End Sub
+
+    Private Sub resetlstViewPrices()
+        Dim itemPrices As ListViewItem
+        Dim pro As Product
+        Dim price As Prices = New Prices
+        Try
+            Me.lstViewPrices.Items.Clear()
+            price.ReadAllPrices(OfdPath.FileName)
+
+            For Each pri As Prices In price.PriDao.Prices
+                pro = New Product(pri.ProductID)
+                pro.ReadProduct()
+                itemPrices = New ListViewItem(pri.ProductID)
+                itemPrices.SubItems.Add(pro.ProductDescription)
+                itemPrices.SubItems.Add(pri.PriceDate)
+                itemPrices.SubItems.Add(pri.EurosPerTon)
+                lstViewPrices.Items.Add(itemPrices)
+            Next
+        Catch ex As Exception
+            Exit Sub
+        End Try
+
+    End Sub
     '-----------------------------------------------------------------------------------------------------------------------------------------
     '---------------------------------------BUTTONS OF Train TAB------------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -420,8 +457,8 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
-            Me.txtTrainID.Enabled = False
-            btnAddTrain.Enabled = False
+            Me.txtTrainID.Enabled = True
+            btnAddTrain.Enabled = True
             btnCleanTrain.Enabled = True
             btnUpdateTrain.Enabled = True
             btnDeleteTrain.Enabled = True
@@ -437,7 +474,6 @@
             type.ReadTrainTypeDescription()
             t = New Train(Me.txtTrainID.Text)
             t.TrainType = type.TrainTypeID
-
             If (t.isTrain = 0) Then
                 Try
                     If t.InsertTrain() <> 1 Then 'If the train is correctly inserted the method insert() return us the value: 1
@@ -562,9 +598,9 @@
             Me.txtTrainID.Text = String.Empty
             Me.cboxTrain.Text = String.Empty
             btnAddTrain.Enabled = True
-            btnCleanTrain.Enabled = False
-            btnUpdateTrain.Enabled = False
-            btnDeleteTrain.Enabled = False
+            btnCleanTrain.Enabled = True
+            btnUpdateTrain.Enabled = True
+            btnDeleteTrain.Enabled = True
             Me.txtTrainID.Enabled = True
         End If
     End Sub
@@ -693,6 +729,8 @@
                     MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly updated.")
                     txtTrainTypeDescription.Text = String.Empty
                     nudMaxCapacity.Value = 0
+                    LoadTrainTypesInCbox()
+                    resetListViewTrain()
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -709,6 +747,40 @@
         btnCleanTrainType.Enabled = False
         btnUpdateTrainType.Enabled = False
         btnDeleteTrainType.Enabled = False
+    End Sub
+    Public Sub LoadTrainTypesInCbox()
+        Dim ty As TrainType = New TrainType
+        ty.ReadAllTrainType(OfdPath.FileName)
+        Me.cboxTrain.Items.Clear()
+
+        For Each t As TrainType In ty.TypDao.TrainType
+            ty = New TrainType(t.TrainTypeDescription)
+            ty.ReadTrainType()
+            Me.cboxTrain.Items.Add(ty.TrainTypeDescription)
+        Next
+    End Sub
+
+    Private Sub resetListViewTrain()
+        Dim itemTypes As ListViewItem
+        Dim t As New Train
+        Dim ty As New TrainType
+        Me.lstViewTrains.Items.Clear()
+
+        Try
+            t.ReadAllTrain(OfdPath.FileName)
+            For Each aux As Train In t.TraDao.Train
+                ty = New TrainType(aux.TrainType)
+                ty.ReadTrainType()
+                itemTypes = New ListViewItem(aux.TrainID)
+                itemTypes.SubItems.Add(ty.TrainTypeDescription)
+                lstViewTrains.Items.Add(itemTypes)
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+
+
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -1003,4 +1075,5 @@
             Return tons
         End If
     End Function
+
 End Class
