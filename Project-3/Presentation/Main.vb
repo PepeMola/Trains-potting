@@ -420,8 +420,8 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
-            Me.txtTrainID.Enabled = False
-            btnAddTrain.Enabled = False
+            Me.txtTrainID.Enabled = True
+            btnAddTrain.Enabled = True
             btnCleanTrain.Enabled = True
             btnUpdateTrain.Enabled = True
             btnDeleteTrain.Enabled = True
@@ -562,9 +562,9 @@
             Me.txtTrainID.Text = String.Empty
             Me.cboxTrain.Text = String.Empty
             btnAddTrain.Enabled = True
-            btnCleanTrain.Enabled = False
-            btnUpdateTrain.Enabled = False
-            btnDeleteTrain.Enabled = False
+            btnCleanTrain.Enabled = True
+            btnUpdateTrain.Enabled = True
+            btnDeleteTrain.Enabled = True
             Me.txtTrainID.Enabled = True
         End If
     End Sub
@@ -693,6 +693,8 @@
                     MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly updated.")
                     txtTrainTypeDescription.Text = String.Empty
                     nudMaxCapacity.Value = 0
+                    LoadTrainTypesInCbox()
+                    resetListViewTrain()
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
@@ -709,6 +711,40 @@
         btnCleanTrainType.Enabled = False
         btnUpdateTrainType.Enabled = False
         btnDeleteTrainType.Enabled = False
+    End Sub
+    Public Sub LoadTrainTypesInCbox()
+        Dim ty As TrainType = New TrainType
+        ty.ReadAllTrainType(OfdPath.FileName)
+        Me.cboxTrain.Items.Clear()
+
+        For Each t As TrainType In ty.TypDao.TrainType
+            ty = New TrainType(t.TrainTypeDescription)
+            ty.ReadTrainType()
+            Me.cboxTrain.Items.Add(ty.TrainTypeDescription)
+        Next
+    End Sub
+
+    Private Sub resetListViewTrain()
+        Dim itemTypes As ListViewItem
+        Dim t As New Train
+        Dim ty As New TrainType
+        Me.lstViewTrains.Items.Clear()
+
+        Try
+            t.ReadAllTrain(OfdPath.FileName)
+            For Each aux As Train In t.TraDao.Train
+                ty = New TrainType(aux.TrainType)
+                ty.ReadTrainType()
+                itemTypes = New ListViewItem(aux.TrainID)
+                itemTypes.SubItems.Add(ty.TrainTypeDescription)
+                lstViewTrains.Items.Add(itemTypes)
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+
+
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -986,4 +1022,5 @@
             isNumber(p, tons)
         End If
     End Function
+
 End Class

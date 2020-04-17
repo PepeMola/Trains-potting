@@ -48,7 +48,7 @@
     End Function
 
     Public Function Change(ByVal typ As TrainType) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE TrainTypes SET TrainTypeDescription='" & typ.TrainTypeDescription & "' AND MaxCapacity=" & typ.MaxCapacity & " WHERE TrainTypeID=" & typ.TrainTypeID & ";")
+        Return DBBroker.GetBroker.Change("UPDATE TrainTypes SET TrainTypeDescription='" & typ.TrainTypeDescription & "', MaxCapacity=" & typ.MaxCapacity & " WHERE TrainTypeID=" & typ.TrainTypeID & ";")
     End Function
 
     Public Function Delete(ByVal typ As TrainType) As Integer
