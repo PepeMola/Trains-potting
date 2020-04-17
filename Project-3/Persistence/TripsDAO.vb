@@ -32,7 +32,7 @@
         Dim col As Collection : Dim aux As Collection
         col = DBBroker.GetBroker.Read("SELECT * FROM Trips WHERE TripDate=#" & tr.TripDate & "# AND Train='" & tr.Train & "' AND Product=" & tr.Product & ";")
         For Each aux In col
-            tr.TonsTransported = aux(4).ToString
+            tr.TonsTransported = Convert.ToInt64(aux(4).ToString)
         Next
     End Sub
 
