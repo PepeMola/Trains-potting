@@ -244,6 +244,8 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+            resetcboxProductPrices()
+            resetlstViewPrices()
             Me.txtProductDescription.Text = String.Empty
             btnAddProduct.Enabled = True
             btnCleanProduct.Enabled = False
@@ -261,6 +263,8 @@
         btnUpdateProduct.Enabled = False
         btnDeleteProduct.Enabled = False
     End Sub
+
+
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
     '---------------------------------------BUTTONS OF PRICES TAB-----------------------------------------------------------------------------
@@ -405,7 +409,40 @@
         btnUpdatePrices.Enabled = False
         btnDeletePrices.Enabled = False
     End Sub
+    Private Sub resetcboxProductPrices()
+        Dim Pro As New Product
+        Me.cboxProductPrices.Items.Clear()
 
+        Pro.ReadAllProduct(OfdPath.FileName)
+        For Each aux As Product In Pro.ProDao.Product
+            Pro = New Product(aux.ProductDescription)
+            Pro.ReadProduct()
+            Me.cboxProductPrices.Items.Add(Pro.ProductDescription)
+        Next
+    End Sub
+
+    Private Sub resetlstViewPrices()
+        Dim itemPrices As ListViewItem
+        Dim pro As Product
+        Dim price As Prices = New Prices
+        Try
+            Me.lstViewPrices.Items.Clear()
+            price.ReadAllPrices(OfdPath.FileName)
+
+            For Each pri As Prices In price.PriDao.Prices
+                pro = New Product(pri.ProductID)
+                pro.ReadProduct()
+                itemPrices = New ListViewItem(pri.ProductID)
+                itemPrices.SubItems.Add(pro.ProductDescription)
+                itemPrices.SubItems.Add(pri.PriceDate)
+                itemPrices.SubItems.Add(pri.EurosPerTon)
+                lstViewPrices.Items.Add(itemPrices)
+            Next
+        Catch ex As Exception
+            Exit Sub
+        End Try
+
+    End Sub
     '-----------------------------------------------------------------------------------------------------------------------------------------
     '---------------------------------------BUTTONS OF Train TAB------------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -437,7 +474,6 @@
             type.ReadTrainTypeDescription()
             t = New Train(Me.txtTrainID.Text)
             t.TrainType = type.TrainTypeID
-
             If (t.isTrain = 0) Then
                 Try
                     If t.InsertTrain() <> 1 Then 'If the train is correctly inserted the method insert() return us the value: 1
