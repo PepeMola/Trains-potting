@@ -965,15 +965,14 @@
                 pro.ReadProductDescription()
                 trip = New Trip(Me.dtpTrip.Text, Me.cboxTrainTrip.Text, pro.ProductID)
                 trip.ReadTripProduct()
-                tons = trip.sum - trip.TonsTransported
-
+                tons = trip.sum - trip.TonsTransported 'Esto hay que arreglarlo
                 train = New Train(trip.Train)
                 train.ReadTrain()
                 type = New TrainType(train.TrainType)
                 type.ReadTrainType()
 
                 MessageBox.Show(tons & " " & tons + Me.nudTonsTrip.Value)
-                If Me.nudTonsTrip.Value > 0 And (tons + Me.nudTonsTrip.Value) < type.MaxCapacity Then
+                If Me.nudTonsTrip.Value > 0 And (tons + Me.nudTonsTrip.Value) <= type.MaxCapacity Then
                     trip.TonsTransported = Me.nudTonsTrip.Value
                     Try
                         If trip.UpdateTrip() <> 1 Then
