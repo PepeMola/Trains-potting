@@ -246,6 +246,8 @@
             End Try
             resetcboxProductPrices()
             resetlstViewPrices()
+            resetlstcboxProducts()
+            resetListViewTrip()
             Me.txtProductDescription.Text = String.Empty
             btnAddProduct.Enabled = True
             btnCleanProduct.Enabled = False
@@ -1046,6 +1048,18 @@
             itemTrip.SubItems.Add(pr.ProductDescription)
             itemTrip.SubItems.Add(tri.TonsTransported)
             lstViewTrip.Items.Add(itemTrip)
+        Next
+    End Sub
+
+    Private Sub resetlstcboxProducts()
+        Dim Pro As New Product
+        Me.lstboxProductTrip.Items.Clear()
+
+        Pro.ReadAllProduct(OfdPath.FileName)
+        For Each aux As Product In Pro.ProDao.Product
+            Pro = New Product(aux.ProductDescription)
+            Pro.ReadProduct()
+            Me.lstboxProductTrip.Items.Add(Pro.ProductDescription)
         Next
     End Sub
 
