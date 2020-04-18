@@ -246,8 +246,6 @@
             End Try
             resetcboxProductPrices()
             resetlstViewPrices()
-            resetlstcboxProducts()
-            resetListViewTrip()
             Me.txtProductDescription.Text = String.Empty
             btnAddProduct.Enabled = True
             btnCleanProduct.Enabled = False
@@ -848,7 +846,7 @@
                     tri.Product = pro.ProductID
                     If (tri.isTrip = 0) Then
 
-                        tons = isNumber(pro, tons)
+                        tons = isNumber(pro)
 
                         If tons <= capacity Then
                             tri.TonsTransported = tons
@@ -967,12 +965,15 @@
                 pro.ReadProductDescription()
                 trip = New Trip(Me.dtpTrip.Text, Me.cboxTrainTrip.Text, pro.ProductID)
                 trip.ReadTripProduct()
+                tons = trip.sum - trip.TonsTransported
+
                 train = New Train(trip.Train)
                 train.ReadTrain()
                 type = New TrainType(train.TrainType)
                 type.ReadTrainType()
 
-                If Me.nudTonsTrip.Value > 0 And (tons + Me.nudTonsTrip.Value) <= type.MaxCapacity Then
+                MessageBox.Show(tons & " " & tons + Me.nudTonsTrip.Value)
+                If Me.nudTonsTrip.Value > 0 And (tons + Me.nudTonsTrip.Value) < type.MaxCapacity Then
                     trip.TonsTransported = Me.nudTonsTrip.Value
                     Try
                         If trip.UpdateTrip() <> 1 Then
@@ -989,7 +990,18 @@
                         lstViewTrip.Items.Add(item)
 
                         MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Product: " & pro.ProductDescription & vbCrLf & " Tons: " & trip.TonsTransported & vbCrLf & " was correctly updated.")
-
+                        Me.dtpTrip.ResetText()
+                        Me.cboxTrainTrip.ResetText()
+                        Me.nudTonsTrip.Value = 0
+                        btnAddTrip.Enabled = True
+                        btnDeleteTrip.Enabled = False
+                        btnUpdateTrip.Enabled = False
+                        btnCleanTrip.Enabled = False
+                        Me.lstboxProductTrip.Items.Clear()
+                        restoreLstBoxProductTrip()
+                        Me.dtpTrip.Enabled = True
+                        Me.lstboxProductTrip.Enabled = True
+                        Me.nudTonsTrip.Enabled = False
                     Catch ex As Exception
                         MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End Try
@@ -1051,25 +1063,16 @@
         Next
     End Sub
 
-    Private Sub resetlstcboxProducts()
-        Dim Pro As New Product
-        Me.lstboxProductTrip.Items.Clear()
-
-        Pro.ReadAllProduct(OfdPath.FileName)
-        For Each aux As Product In Pro.ProDao.Product
-            Pro = New Product(aux.ProductDescription)
-            Pro.ReadProduct()
-            Me.lstboxProductTrip.Items.Add(Pro.ProductDescription)
-        Next
-    End Sub
-
-    Private Function isNumber(p As Product, tons As Integer) As Integer
+    Private Function isNumber(p As Product) As Integer
+        Dim tons As Integer
 
         If Integer.TryParse(InputBox("Tons for " & p.ProductDescription & ": ", "Tons per product").ToString, tons) = True And tons > 0 Then
+            MessageBox.Show(tons)
             Return tons
         Else
             MessageBox.Show("Introduce a correct value of tons up to 0.")
-            isNumber(p, tons)
+            tons = isNumber(p)
+            Return tons
         End If
     End Function
 
