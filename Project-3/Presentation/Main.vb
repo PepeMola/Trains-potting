@@ -27,6 +27,7 @@
         Dim product As Product = New Product
         Dim train_type As TrainType = New TrainType
         Dim trip As Trip = New Trip
+        Dim query As Query1 = New Query1
 
         Try
             train.ReadAllTrain(OfdPath.FileName)
@@ -1075,4 +1076,18 @@
         End If
     End Function
 
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF QUERIES TAB------------------------------------------------------------------------
+    '-----------------------------------------------------------------------------------------------------------------------------------------
+
+    Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecute.Click
+        If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
+            Try
+                Dim q As New Query1(Me.dtpDateStartQuery.Value, Me.dtpDateEndQuery.Value, Me.cboxTrainIdQuery.Text)
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End Try
+        End If
+    End Sub
 End Class

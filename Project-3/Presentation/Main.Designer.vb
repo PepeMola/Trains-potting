@@ -118,10 +118,18 @@ Partial Class Main
         Me.productTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tonsTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery = New System.Windows.Forms.TabPage()
+        Me.lblTrainIdQuery = New System.Windows.Forms.Label()
+        Me.cboxTrainIdQuery = New System.Windows.Forms.ComboBox()
+        Me.lblDateEnd = New System.Windows.Forms.Label()
+        Me.lblDateStartQuery = New System.Windows.Forms.Label()
+        Me.dtpDateEndQuery = New System.Windows.Forms.DateTimePicker()
+        Me.dtpDateStartQuery = New System.Windows.Forms.DateTimePicker()
+        Me.btnExecute = New System.Windows.Forms.Button()
         Me.txtPath = New System.Windows.Forms.TextBox()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
+        Me.lstQuery1 = New System.Windows.Forms.ListBox()
         Me.tabControl.SuspendLayout()
         Me.tabProduct.SuspendLayout()
         Me.gbProductsList.SuspendLayout()
@@ -145,6 +153,7 @@ Partial Class Main
         Me.gbSelectionTrip.SuspendLayout()
         CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbTripList.SuspendLayout()
+        Me.tabQuery.SuspendLayout()
         Me.gbDatabase.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -793,9 +802,54 @@ Partial Class Main
         '
         'tabQuery
         '
+        Me.tabQuery.Controls.Add(Me.lstQuery1)
+        Me.tabQuery.Controls.Add(Me.lblTrainIdQuery)
+        Me.tabQuery.Controls.Add(Me.cboxTrainIdQuery)
+        Me.tabQuery.Controls.Add(Me.lblDateEnd)
+        Me.tabQuery.Controls.Add(Me.lblDateStartQuery)
+        Me.tabQuery.Controls.Add(Me.dtpDateEndQuery)
+        Me.tabQuery.Controls.Add(Me.dtpDateStartQuery)
+        Me.tabQuery.Controls.Add(Me.btnExecute)
         resources.ApplyResources(Me.tabQuery, "tabQuery")
         Me.tabQuery.Name = "tabQuery"
         Me.tabQuery.UseVisualStyleBackColor = True
+        '
+        'lblTrainIdQuery
+        '
+        resources.ApplyResources(Me.lblTrainIdQuery, "lblTrainIdQuery")
+        Me.lblTrainIdQuery.Name = "lblTrainIdQuery"
+        '
+        'cboxTrainIdQuery
+        '
+        Me.cboxTrainIdQuery.FormattingEnabled = True
+        resources.ApplyResources(Me.cboxTrainIdQuery, "cboxTrainIdQuery")
+        Me.cboxTrainIdQuery.Name = "cboxTrainIdQuery"
+        '
+        'lblDateEnd
+        '
+        resources.ApplyResources(Me.lblDateEnd, "lblDateEnd")
+        Me.lblDateEnd.Name = "lblDateEnd"
+        '
+        'lblDateStartQuery
+        '
+        resources.ApplyResources(Me.lblDateStartQuery, "lblDateStartQuery")
+        Me.lblDateStartQuery.Name = "lblDateStartQuery"
+        '
+        'dtpDateEndQuery
+        '
+        resources.ApplyResources(Me.dtpDateEndQuery, "dtpDateEndQuery")
+        Me.dtpDateEndQuery.Name = "dtpDateEndQuery"
+        '
+        'dtpDateStartQuery
+        '
+        resources.ApplyResources(Me.dtpDateStartQuery, "dtpDateStartQuery")
+        Me.dtpDateStartQuery.Name = "dtpDateStartQuery"
+        '
+        'btnExecute
+        '
+        resources.ApplyResources(Me.btnExecute, "btnExecute")
+        Me.btnExecute.Name = "btnExecute"
+        Me.btnExecute.UseVisualStyleBackColor = True
         '
         'txtPath
         '
@@ -824,6 +878,12 @@ Partial Class Main
         resources.ApplyResources(Me.gbDatabase, "gbDatabase")
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
+        '
+        'lstQuery1
+        '
+        Me.lstQuery1.FormattingEnabled = True
+        resources.ApplyResources(Me.lstQuery1, "lstQuery1")
+        Me.lstQuery1.Name = "lstQuery1"
         '
         'Main
         '
@@ -861,6 +921,8 @@ Partial Class Main
         Me.gbSelectionTrip.PerformLayout()
         CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbTripList.ResumeLayout(False)
+        Me.tabQuery.ResumeLayout(False)
+        Me.tabQuery.PerformLayout()
         Me.gbDatabase.ResumeLayout(False)
         Me.gbDatabase.PerformLayout()
         Me.ResumeLayout(False)
@@ -965,4 +1027,12 @@ Partial Class Main
     Friend WithEvents productTrip As ColumnHeader
     Friend WithEvents tonsTrip As ColumnHeader
     Friend WithEvents lstboxProductTrip As ListBox
+    Friend WithEvents btnExecute As Button
+    Friend WithEvents lblTrainIdQuery As Label
+    Friend WithEvents cboxTrainIdQuery As ComboBox
+    Friend WithEvents lblDateEnd As Label
+    Friend WithEvents lblDateStartQuery As Label
+    Friend WithEvents dtpDateEndQuery As DateTimePicker
+    Friend WithEvents dtpDateStartQuery As DateTimePicker
+    Friend WithEvents lstQuery1 As ListBox
 End Class
