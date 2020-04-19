@@ -118,6 +118,7 @@ Partial Class Main
         Me.productTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tonsTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery = New System.Windows.Forms.TabPage()
+        Me.lstQuery1 = New System.Windows.Forms.ListBox()
         Me.lblTrainIdQuery = New System.Windows.Forms.Label()
         Me.cboxTrainIdQuery = New System.Windows.Forms.ComboBox()
         Me.lblDateEnd = New System.Windows.Forms.Label()
@@ -129,7 +130,6 @@ Partial Class Main
         Me.btnExit = New System.Windows.Forms.Button()
         Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
-        Me.lstQuery1 = New System.Windows.Forms.ListBox()
         Me.tabControl.SuspendLayout()
         Me.tabProduct.SuspendLayout()
         Me.gbProductsList.SuspendLayout()
@@ -814,6 +814,12 @@ Partial Class Main
         Me.tabQuery.Name = "tabQuery"
         Me.tabQuery.UseVisualStyleBackColor = True
         '
+        'lstQuery1
+        '
+        Me.lstQuery1.FormattingEnabled = True
+        resources.ApplyResources(Me.lstQuery1, "lstQuery1")
+        Me.lstQuery1.Name = "lstQuery1"
+        '
         'lblTrainIdQuery
         '
         resources.ApplyResources(Me.lblTrainIdQuery, "lblTrainIdQuery")
@@ -878,12 +884,6 @@ Partial Class Main
         resources.ApplyResources(Me.gbDatabase, "gbDatabase")
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
-        '
-        'lstQuery1
-        '
-        Me.lstQuery1.FormattingEnabled = True
-        resources.ApplyResources(Me.lstQuery1, "lstQuery1")
-        Me.lstQuery1.Name = "lstQuery1"
         '
         'Main
         '

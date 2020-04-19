@@ -890,6 +890,7 @@
                         Exit For
                     End If
                 Next
+                cboxTrainIdQuery.Items.Add(tri.Train)
                 Me.dtpTrip.ResetText()
                 Me.cboxTrainTrip.Text = String.Empty
                 Me.nudTonsTrip.Value = 0
@@ -899,6 +900,7 @@
                 btnCleanTrip.Enabled = False
                 Me.lstboxProductTrip.Items.Clear()
                 restoreLstBoxProductTrip()
+
 
             Else
                 MessageBox.Show("Please select a train to continue.")
@@ -1090,4 +1092,5 @@
             End Try
         End If
     End Sub
+
 End Class
