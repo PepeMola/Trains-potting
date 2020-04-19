@@ -51,8 +51,9 @@
             ty.ReadTrainType()
             itemTrain = New ListViewItem(t.TrainID)
             itemTrain.SubItems.Add(ty.TrainTypeDescription)
-            lstViewTrains.Items.Add(itemTrain)
-            Me.cboxTrainTrip.Items.Add(t.TrainID)
+            lstViewTrains.Items.Add(itemTrain) 'Add the train in the list view of TRAINS
+            Me.cboxTrainTrip.Items.Add(t.TrainID) 'Add the train in the combobox of Trips
+            Me.cboxTrainIdQuery1.Items.Add(t.TrainID) 'Add the train in the combobox of Query 1
         Next
 
         'Load PRICES in List View and Combos
@@ -266,7 +267,6 @@
     End Sub
 
 
-
     '-----------------------------------------------------------------------------------------------------------------------------------------
     '---------------------------------------BUTTONS OF PRICES TAB-----------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -410,6 +410,7 @@
         btnUpdatePrices.Enabled = False
         btnDeletePrices.Enabled = False
     End Sub
+
     Private Sub resetcboxProductPrices()
         Dim Pro As New Product
         Me.cboxProductPrices.Items.Clear()
@@ -487,6 +488,7 @@
                     lstViewTrains.Items.Add(item)
 
                     Me.cboxTrainTrip.Items.Add(t.TrainID)
+                    Me.cboxTrainIdQuery1.Items.Add(t.TrainID)
 
                     MessageBox.Show(" ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " type." & vbCrLf & " Correctly inserted.")
                     Me.txtTrainID.Text = String.Empty
@@ -550,6 +552,7 @@
                     btnDeleteTrain.Enabled = False
                     Me.txtTrainID.Enabled = True
                     Me.cboxTrainTrip.Items.Remove(t.TrainID)
+                    Me.cboxTrainIdQuery1.Items.Remove(t.TrainID)
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Me.txtTrainID.Text = String.Empty
@@ -890,7 +893,6 @@
                         Exit For
                     End If
                 Next
-                cboxTrainIdQuery.Items.Add(tri.Train)
                 Me.dtpTrip.ResetText()
                 Me.cboxTrainTrip.Text = String.Empty
                 Me.nudTonsTrip.Value = 0
@@ -1082,10 +1084,21 @@
     '---------------------------------------BUTTONS OF QUERIES TAB------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
 
-    Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecute.Click
-        If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
+    Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery1.Click
+        If Not Me.cboxTrainIdQuery1.SelectedItem Is Nothing Then
             Try
-                Dim q As New Query1(Me.dtpDateStartQuery.Value, Me.dtpDateEndQuery.Value, Me.cboxTrainIdQuery.Text)
+                Dim q As New Query1(Me.dtpDateStartQuery1.Value, Me.dtpDateEndQuery1.Value, Me.cboxTrainIdQuery1.SelectedItem.ToString)
+                q.Read()
+
+                For Each row As DataRow In q.query1Dao.solution.Rows
+                    Dim item As New ListViewItem(row(0).ToString)
+                    item.SubItems.Add(row(1).ToString)
+                    item.SubItems.Add(row(2).ToString)
+                    Me.lstViewQuery1.Items.Add(item)
+                Next
+
+                Me.txtNumberTripsQuery1.Text = q.query1Dao.query(1).ToString
+
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub

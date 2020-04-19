@@ -21,7 +21,7 @@
         Me.TrainID = TrainID
     End Sub
 
-    Public Sub ReadPrice()
+    Public Sub Read()
         Me.query1Dao.ReadQuery(Me)
     End Sub
 End Class
