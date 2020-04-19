@@ -30,10 +30,10 @@
     End Function
 
     Public Function Change(ByVal p As Prices) As Integer
-        Return DBBroker.GetBroker.Change("UPDATE Prices SET EurosPerTon='" & p.EurosPerTon & "' WHERE Product=" & p.ProductID & " AND PriceDate= #" & p.PriceDate & "#;")
+        Return DBBroker.GetBroker.Change("UPDATE Prices SET EurosPerTon=" & p.EurosPerTon & " WHERE Product=" & p.ProductID & " AND PriceDate= #" & p.PriceDate & "#;")
     End Function
 
     Public Function Delete(ByVal p As Prices) As Integer
-        Return DBBroker.GetBroker.Change("DELETE FROM Prices WHERE Product=" & p.ProductID & " AND PriceDate =#" & p.PriceDate & "#;")
+        Return DBBroker.GetBroker.Change("DELETE FROM Prices WHERE Product=" & p.ProductID & " AND PriceDate =#" & p.PriceDate & "# AND PriceDate =#" & p.PriceDate & "#;")
     End Function
 End Class

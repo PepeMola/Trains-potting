@@ -118,32 +118,32 @@ Partial Class Main
         Me.productTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tonsTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery = New System.Windows.Forms.TabPage()
-        Me.lblTrainIdQuery = New System.Windows.Forms.Label()
-        Me.cboxTrainIdQuery1 = New System.Windows.Forms.ComboBox()
-        Me.lblDateEnd = New System.Windows.Forms.Label()
-        Me.lblDateStartQuery = New System.Windows.Forms.Label()
-        Me.dtpDateEndQuery1 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpDateStartQuery1 = New System.Windows.Forms.DateTimePicker()
-        Me.btnExecuteQuery1 = New System.Windows.Forms.Button()
-        Me.txtPath = New System.Windows.Forms.TextBox()
-        Me.btnExit = New System.Windows.Forms.Button()
-        Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
-        Me.gbDatabase = New System.Windows.Forms.GroupBox()
         Me.tbpQuerie = New System.Windows.Forms.TabControl()
         Me.tabQuery1 = New System.Windows.Forms.TabPage()
-        Me.tabQuery2 = New System.Windows.Forms.TabPage()
-        Me.tabQuery3 = New System.Windows.Forms.TabPage()
-        Me.tabQuery4 = New System.Windows.Forms.TabPage()
+        Me.gbSolutionQuery1 = New System.Windows.Forms.GroupBox()
+        Me.lblTripsSolution = New System.Windows.Forms.Label()
+        Me.txtNumberTripsQuery1 = New System.Windows.Forms.TextBox()
+        Me.lblNumberTripsQuery1 = New System.Windows.Forms.Label()
+        Me.gbLstViewQuery1 = New System.Windows.Forms.GroupBox()
         Me.lstViewQuery1 = New System.Windows.Forms.ListView()
         Me.tripDateQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.trainQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.productQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.gbSlectionQuery1 = New System.Windows.Forms.GroupBox()
-        Me.gbLstViewQuery1 = New System.Windows.Forms.GroupBox()
-        Me.gbSolutionQuery1 = New System.Windows.Forms.GroupBox()
-        Me.lblNumberTripsQuery1 = New System.Windows.Forms.Label()
-        Me.txtNumberTripsQuery1 = New System.Windows.Forms.TextBox()
-        Me.lblTripsSolution = New System.Windows.Forms.Label()
+        Me.dtpDateEndQuery1 = New System.Windows.Forms.DateTimePicker()
+        Me.lblDateStartQuery = New System.Windows.Forms.Label()
+        Me.lblDateEnd = New System.Windows.Forms.Label()
+        Me.lblTrainIdQuery = New System.Windows.Forms.Label()
+        Me.dtpDateStartQuery1 = New System.Windows.Forms.DateTimePicker()
+        Me.cboxTrainIdQuery1 = New System.Windows.Forms.ComboBox()
+        Me.btnExecuteQuery1 = New System.Windows.Forms.Button()
+        Me.tabQuery2 = New System.Windows.Forms.TabPage()
+        Me.tabQuery3 = New System.Windows.Forms.TabPage()
+        Me.tabQuery4 = New System.Windows.Forms.TabPage()
+        Me.txtPath = New System.Windows.Forms.TextBox()
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
+        Me.gbDatabase = New System.Windows.Forms.GroupBox()
         Me.tabControl.SuspendLayout()
         Me.tabProduct.SuspendLayout()
         Me.gbProductsList.SuspendLayout()
@@ -168,12 +168,12 @@ Partial Class Main
         CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbTripList.SuspendLayout()
         Me.tabQuery.SuspendLayout()
-        Me.gbDatabase.SuspendLayout()
         Me.tbpQuerie.SuspendLayout()
         Me.tabQuery1.SuspendLayout()
-        Me.gbSlectionQuery1.SuspendLayout()
-        Me.gbLstViewQuery1.SuspendLayout()
         Me.gbSolutionQuery1.SuspendLayout()
+        Me.gbLstViewQuery1.SuspendLayout()
+        Me.gbSlectionQuery1.SuspendLayout()
+        Me.gbDatabase.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnSelect
@@ -826,73 +826,6 @@ Partial Class Main
         Me.tabQuery.Name = "tabQuery"
         Me.tabQuery.UseVisualStyleBackColor = True
         '
-        'lblTrainIdQuery
-        '
-        resources.ApplyResources(Me.lblTrainIdQuery, "lblTrainIdQuery")
-        Me.lblTrainIdQuery.Name = "lblTrainIdQuery"
-        '
-        'cboxTrainIdQuery1
-        '
-        resources.ApplyResources(Me.cboxTrainIdQuery1, "cboxTrainIdQuery1")
-        Me.cboxTrainIdQuery1.FormattingEnabled = True
-        Me.cboxTrainIdQuery1.Name = "cboxTrainIdQuery1"
-        '
-        'lblDateEnd
-        '
-        resources.ApplyResources(Me.lblDateEnd, "lblDateEnd")
-        Me.lblDateEnd.Name = "lblDateEnd"
-        '
-        'lblDateStartQuery
-        '
-        resources.ApplyResources(Me.lblDateStartQuery, "lblDateStartQuery")
-        Me.lblDateStartQuery.Name = "lblDateStartQuery"
-        '
-        'dtpDateEndQuery1
-        '
-        resources.ApplyResources(Me.dtpDateEndQuery1, "dtpDateEndQuery1")
-        Me.dtpDateEndQuery1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDateEndQuery1.Name = "dtpDateEndQuery1"
-        '
-        'dtpDateStartQuery1
-        '
-        resources.ApplyResources(Me.dtpDateStartQuery1, "dtpDateStartQuery1")
-        Me.dtpDateStartQuery1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDateStartQuery1.Name = "dtpDateStartQuery1"
-        '
-        'btnExecuteQuery1
-        '
-        resources.ApplyResources(Me.btnExecuteQuery1, "btnExecuteQuery1")
-        Me.btnExecuteQuery1.Name = "btnExecuteQuery1"
-        Me.btnExecuteQuery1.UseVisualStyleBackColor = True
-        '
-        'txtPath
-        '
-        resources.ApplyResources(Me.txtPath, "txtPath")
-        Me.txtPath.Name = "txtPath"
-        '
-        'btnExit
-        '
-        Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnExit.FlatAppearance.BorderSize = 2
-        Me.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray
-        resources.ApplyResources(Me.btnExit, "btnExit")
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.UseVisualStyleBackColor = True
-        '
-        'OfdPath
-        '
-        Me.OfdPath.FileName = "OfdPath"
-        '
-        'gbDatabase
-        '
-        Me.gbDatabase.Controls.Add(Me.btnSelect)
-        Me.gbDatabase.Controls.Add(Me.btnConnect)
-        Me.gbDatabase.Controls.Add(Me.txtPath)
-        resources.ApplyResources(Me.gbDatabase, "gbDatabase")
-        Me.gbDatabase.Name = "gbDatabase"
-        Me.gbDatabase.TabStop = False
-        '
         'tbpQuerie
         '
         resources.ApplyResources(Me.tbpQuerie, "tbpQuerie")
@@ -914,23 +847,36 @@ Partial Class Main
         Me.tabQuery1.Name = "tabQuery1"
         Me.tabQuery1.UseVisualStyleBackColor = True
         '
-        'tabQuery2
+        'gbSolutionQuery1
         '
-        resources.ApplyResources(Me.tabQuery2, "tabQuery2")
-        Me.tabQuery2.Name = "tabQuery2"
-        Me.tabQuery2.UseVisualStyleBackColor = True
+        Me.gbSolutionQuery1.Controls.Add(Me.lblTripsSolution)
+        Me.gbSolutionQuery1.Controls.Add(Me.txtNumberTripsQuery1)
+        Me.gbSolutionQuery1.Controls.Add(Me.lblNumberTripsQuery1)
+        resources.ApplyResources(Me.gbSolutionQuery1, "gbSolutionQuery1")
+        Me.gbSolutionQuery1.Name = "gbSolutionQuery1"
+        Me.gbSolutionQuery1.TabStop = False
         '
-        'tabQuery3
+        'lblTripsSolution
         '
-        resources.ApplyResources(Me.tabQuery3, "tabQuery3")
-        Me.tabQuery3.Name = "tabQuery3"
-        Me.tabQuery3.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.lblTripsSolution, "lblTripsSolution")
+        Me.lblTripsSolution.Name = "lblTripsSolution"
         '
-        'tabQuery4
+        'txtNumberTripsQuery1
         '
-        resources.ApplyResources(Me.tabQuery4, "tabQuery4")
-        Me.tabQuery4.Name = "tabQuery4"
-        Me.tabQuery4.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.txtNumberTripsQuery1, "txtNumberTripsQuery1")
+        Me.txtNumberTripsQuery1.Name = "txtNumberTripsQuery1"
+        '
+        'lblNumberTripsQuery1
+        '
+        resources.ApplyResources(Me.lblNumberTripsQuery1, "lblNumberTripsQuery1")
+        Me.lblNumberTripsQuery1.Name = "lblNumberTripsQuery1"
+        '
+        'gbLstViewQuery1
+        '
+        Me.gbLstViewQuery1.Controls.Add(Me.lstViewQuery1)
+        resources.ApplyResources(Me.gbLstViewQuery1, "gbLstViewQuery1")
+        Me.gbLstViewQuery1.Name = "gbLstViewQuery1"
+        Me.gbLstViewQuery1.TabStop = False
         '
         'lstViewQuery1
         '
@@ -967,36 +913,90 @@ Partial Class Main
         Me.gbSlectionQuery1.Name = "gbSlectionQuery1"
         Me.gbSlectionQuery1.TabStop = False
         '
-        'gbLstViewQuery1
+        'dtpDateEndQuery1
         '
-        Me.gbLstViewQuery1.Controls.Add(Me.lstViewQuery1)
-        resources.ApplyResources(Me.gbLstViewQuery1, "gbLstViewQuery1")
-        Me.gbLstViewQuery1.Name = "gbLstViewQuery1"
-        Me.gbLstViewQuery1.TabStop = False
+        resources.ApplyResources(Me.dtpDateEndQuery1, "dtpDateEndQuery1")
+        Me.dtpDateEndQuery1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDateEndQuery1.Name = "dtpDateEndQuery1"
         '
-        'gbSolutionQuery1
+        'lblDateStartQuery
         '
-        Me.gbSolutionQuery1.Controls.Add(Me.lblTripsSolution)
-        Me.gbSolutionQuery1.Controls.Add(Me.txtNumberTripsQuery1)
-        Me.gbSolutionQuery1.Controls.Add(Me.lblNumberTripsQuery1)
-        resources.ApplyResources(Me.gbSolutionQuery1, "gbSolutionQuery1")
-        Me.gbSolutionQuery1.Name = "gbSolutionQuery1"
-        Me.gbSolutionQuery1.TabStop = False
+        resources.ApplyResources(Me.lblDateStartQuery, "lblDateStartQuery")
+        Me.lblDateStartQuery.Name = "lblDateStartQuery"
         '
-        'lblNumberTripsQuery1
+        'lblDateEnd
         '
-        resources.ApplyResources(Me.lblNumberTripsQuery1, "lblNumberTripsQuery1")
-        Me.lblNumberTripsQuery1.Name = "lblNumberTripsQuery1"
+        resources.ApplyResources(Me.lblDateEnd, "lblDateEnd")
+        Me.lblDateEnd.Name = "lblDateEnd"
         '
-        'txtNumberTripsQuery1
+        'lblTrainIdQuery
         '
-        resources.ApplyResources(Me.txtNumberTripsQuery1, "txtNumberTripsQuery1")
-        Me.txtNumberTripsQuery1.Name = "txtNumberTripsQuery1"
+        resources.ApplyResources(Me.lblTrainIdQuery, "lblTrainIdQuery")
+        Me.lblTrainIdQuery.Name = "lblTrainIdQuery"
         '
-        'lblTripsSolution
+        'dtpDateStartQuery1
         '
-        resources.ApplyResources(Me.lblTripsSolution, "lblTripsSolution")
-        Me.lblTripsSolution.Name = "lblTripsSolution"
+        resources.ApplyResources(Me.dtpDateStartQuery1, "dtpDateStartQuery1")
+        Me.dtpDateStartQuery1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDateStartQuery1.Name = "dtpDateStartQuery1"
+        '
+        'cboxTrainIdQuery1
+        '
+        resources.ApplyResources(Me.cboxTrainIdQuery1, "cboxTrainIdQuery1")
+        Me.cboxTrainIdQuery1.FormattingEnabled = True
+        Me.cboxTrainIdQuery1.Name = "cboxTrainIdQuery1"
+        '
+        'btnExecuteQuery1
+        '
+        resources.ApplyResources(Me.btnExecuteQuery1, "btnExecuteQuery1")
+        Me.btnExecuteQuery1.Name = "btnExecuteQuery1"
+        Me.btnExecuteQuery1.UseVisualStyleBackColor = True
+        '
+        'tabQuery2
+        '
+        resources.ApplyResources(Me.tabQuery2, "tabQuery2")
+        Me.tabQuery2.Name = "tabQuery2"
+        Me.tabQuery2.UseVisualStyleBackColor = True
+        '
+        'tabQuery3
+        '
+        resources.ApplyResources(Me.tabQuery3, "tabQuery3")
+        Me.tabQuery3.Name = "tabQuery3"
+        Me.tabQuery3.UseVisualStyleBackColor = True
+        '
+        'tabQuery4
+        '
+        resources.ApplyResources(Me.tabQuery4, "tabQuery4")
+        Me.tabQuery4.Name = "tabQuery4"
+        Me.tabQuery4.UseVisualStyleBackColor = True
+        '
+        'txtPath
+        '
+        resources.ApplyResources(Me.txtPath, "txtPath")
+        Me.txtPath.Name = "txtPath"
+        '
+        'btnExit
+        '
+        Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnExit.FlatAppearance.BorderSize = 2
+        Me.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray
+        resources.ApplyResources(Me.btnExit, "btnExit")
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
+        'OfdPath
+        '
+        Me.OfdPath.FileName = "OfdPath"
+        '
+        'gbDatabase
+        '
+        Me.gbDatabase.Controls.Add(Me.btnSelect)
+        Me.gbDatabase.Controls.Add(Me.btnConnect)
+        Me.gbDatabase.Controls.Add(Me.txtPath)
+        resources.ApplyResources(Me.gbDatabase, "gbDatabase")
+        Me.gbDatabase.Name = "gbDatabase"
+        Me.gbDatabase.TabStop = False
         '
         'Main
         '
@@ -1035,15 +1035,15 @@ Partial Class Main
         CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbTripList.ResumeLayout(False)
         Me.tabQuery.ResumeLayout(False)
-        Me.gbDatabase.ResumeLayout(False)
-        Me.gbDatabase.PerformLayout()
         Me.tbpQuerie.ResumeLayout(False)
         Me.tabQuery1.ResumeLayout(False)
-        Me.gbSlectionQuery1.ResumeLayout(False)
-        Me.gbSlectionQuery1.PerformLayout()
-        Me.gbLstViewQuery1.ResumeLayout(False)
         Me.gbSolutionQuery1.ResumeLayout(False)
         Me.gbSolutionQuery1.PerformLayout()
+        Me.gbLstViewQuery1.ResumeLayout(False)
+        Me.gbSlectionQuery1.ResumeLayout(False)
+        Me.gbSlectionQuery1.PerformLayout()
+        Me.gbDatabase.ResumeLayout(False)
+        Me.gbDatabase.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

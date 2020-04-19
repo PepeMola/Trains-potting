@@ -288,7 +288,28 @@
         btnUpdatePrices.Enabled = True
         btnDeletePrices.Enabled = True
     End Sub
+    Private Sub checkRepetedElements(aux)
+        Dim price As Prices = New Prices
+        Dim itemPrices As ListViewItem
+        Dim pro As Product
 
+        Try
+            price.ReadAllPrices(OfdPath.FileName)
+        Catch ex As Exception
+            MessageBox.Show("Error in reading price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End Try
+
+        For Each pri As Prices In price.PriDao.Prices
+            pro = New Product(pri.ProductID)
+            pro.ReadProduct()
+            If pro.ProductID = aux.ProductID Then
+                MessageBox.Show("Try update the product", "Suggestion", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
+        Next
+
+    End Sub
     'Button Add in PRICES
     Private Sub btnAddPrices_Click(sender As Object, e As EventArgs) Handles btnAddPrices.Click
         Dim pri As New Prices
@@ -302,13 +323,19 @@
                 pri.ProductID = pro.ProductID
                 pri.PriceDate = dtpDatePrices.Text
                 pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
+                If pri.EurosPerTon <= 0 Then
+                    MessageBox.Show("Enter a valid value stupid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
+                End If
+
             Catch ex As Exception
                 MessageBox.Show("Be careful with the data you have introduce", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 txtEurosPrices.Text = String.Empty
                 dtpDatePrices.Text = String.Empty
                 Exit Sub
             End Try
-
+            'Metodo que devuelva algun numero para parar ejecucion
+            checkRepetedElements(pri)
             Try
                 If pri.InsertPrice() <> 1 Then
                     MessageBox.Show("Error inserting price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1105,5 +1132,4 @@
             End Try
         End If
     End Sub
-
 End Class
