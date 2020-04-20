@@ -17,7 +17,7 @@
         solution.Columns.Add("Product", GetType(String))
 
         For Each aux In col
-            solution.Rows.Add(aux(1).ToString, aux(2).ToString, aux(3).ToString)
+            solution.Rows.Add(FormatDateTime(aux(1), DateFormat.ShortDate).ToString, aux(2).ToString, aux(3).ToString)
         Next
 
         'Now we need the number of trips

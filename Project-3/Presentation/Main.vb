@@ -1113,23 +1113,40 @@
 
     Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery1.Click
         If Not Me.cboxTrainIdQuery1.SelectedItem Is Nothing Then
-            Try
-                Dim q As New Query1(Me.dtpDateStartQuery1.Value, Me.dtpDateEndQuery1.Value, Me.cboxTrainIdQuery1.SelectedItem.ToString)
-                q.Read()
+            If Me.dtpDateStartQuery1.Value >= DateTime.Now And Me.dtpDateEndQuery1.Value > Me.dtpDateStartQuery1.Value Then
+                Try
+                    Dim q As New Query1(Me.dtpDateStartQuery1.Value, Me.dtpDateEndQuery1.Value, Me.cboxTrainIdQuery1.SelectedItem.ToString)
+                    q.Read()
 
-                For Each row As DataRow In q.query1Dao.solution.Rows
-                    Dim item As New ListViewItem(row(0).ToString)
-                    item.SubItems.Add(row(1).ToString)
-                    item.SubItems.Add(row(2).ToString)
-                    Me.lstViewQuery1.Items.Add(item)
-                Next
+                    For Each row As DataRow In q.query1Dao.solution.Rows
+                        Dim item As New ListViewItem(row(0).ToString)
+                        item.SubItems.Add(row(1).ToString)
+                        item.SubItems.Add(row(2).ToString)
+                        Me.lstViewQuery1.Items.Add(item)
+                    Next
 
-                Me.txtNumberTripsQuery1.Text = q.query1Dao.query(1).ToString
+                    Me.txtNumberTripsQuery1.Text = q.query1Dao.query(1).ToString
 
-            Catch ex As Exception
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Me.dtpDateStartQuery1.Value = DateTime.Now
+                    Me.dtpDateEndQuery1.Value = DateTime.Now
+                    Me.cboxTrainIdQuery1.Text = String.Empty
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End Try
+            Else
+                MessageBox.Show("Sorry, the dates selected are not correct." & vbCrLf & "The Start date should be after than today and" &
+                    vbCrLf & "End date should be after than the selected Start date.")
+                Me.dtpDateStartQuery1.Value = DateTime.Now
+                Me.dtpDateEndQuery1.Value = DateTime.Now
+                Me.cboxTrainIdQuery1.Text = String.Empty
                 Exit Sub
-            End Try
+            End If
+        Else
+            MessageBox.Show("Please select a train to execute correctly the query.")
+            Me.dtpDateStartQuery1.Value = DateTime.Now
+            Me.dtpDateEndQuery1.Value = DateTime.Now
+            Exit Sub
         End If
     End Sub
 End Class
