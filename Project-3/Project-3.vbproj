@@ -77,6 +77,7 @@
     <Compile Include="Domain\Prices.vb" />
     <Compile Include="Domain\Product.vb" />
     <Compile Include="Domain\Query1.vb" />
+    <Compile Include="Domain\Query2.vb" />
     <Compile Include="Domain\Trains.vb" />
     <Compile Include="Domain\TrainTypes.vb" />
     <Compile Include="Domain\Trips.vb" />
@@ -84,6 +85,7 @@
     <Compile Include="Persistence\PricesDAO.vb" />
     <Compile Include="Persistence\ProductDAO.vb" />
     <Compile Include="Persistence\Query1DAO.vb" />
+    <Compile Include="Persistence\Query2DAO.vb" />
     <Compile Include="Persistence\TrainsDAO.vb" />
     <Compile Include="Persistence\TrainTypesDAO.vb" />
     <Compile Include="Persistence\TripsDAO.vb" />

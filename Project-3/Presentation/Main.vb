@@ -1108,8 +1108,10 @@
     End Function
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
-    '---------------------------------------BUTTONS OF QUERIES TAB------------------------------------------------------------------------
+    '---------------------------------------BUTTONS OF QUERIES TAB----------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
+
+    '------------------------------------------------QUERY 1----------------------------------------------------------------------------------
 
     Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery1.Click
         If Not Me.cboxTrainIdQuery1.SelectedItem Is Nothing Then
@@ -1150,15 +1152,45 @@
         End If
     End Sub
 
-    Private Sub lstViewQuery1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstViewQuery1.SelectedIndexChanged
-
+    Private Sub btnCleanQuery1_Click(sender As Object, e As EventArgs) Handles btnCleanQuery1.Click
+        Me.lstViewQuery1.Clear()
+        Me.txtNumberTripsQuery1.Text = String.Empty
     End Sub
 
-    Private Sub gbDatabase_Enter(sender As Object, e As EventArgs) Handles gbDatabase.Enter
+    '------------------------------------------------QUERY 2----------------------------------------------------------------------------------
 
+    Private Sub btnExecuteQuery2_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery2.Click
+        If Me.dtpStartDateQuery2.Value >= DateTime.Now And Me.dtpEndDateQuery2.Value > Me.dtpStartDateQuery2.Value Then
+            Try
+                Dim q As New Query2(Me.dtpStartDateQuery2.Value, Me.dtpEndDateQuery2.Value)
+                q.Read()
+
+                For Each row As DataRow In q.query2Dao.solution.Rows
+                    Dim item As New ListViewItem(row(0).ToString)
+                    item.SubItems.Add(row(1).ToString)
+                    item.SubItems.Add(row(2).ToString)
+                    Me.lstViewQuery2.Items.Add(item)
+                Next
+
+                Me.dtpStartDateQuery2.Value = DateTime.Now
+                Me.dtpEndDateQuery2.Value = DateTime.Now
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End Try
+        Else
+            MessageBox.Show("Sorry, the dates selected are not correct." & vbCrLf & "The Start date should be after than today and" &
+                vbCrLf & "End date should be after than the selected Start date.")
+            Me.dtpStartDateQuery2.Value = DateTime.Now
+            Me.dtpEndDateQuery2.Value = DateTime.Now
+            Exit Sub
+        End If
     End Sub
 
-    Private Sub lstViewProducts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstViewProducts.SelectedIndexChanged
-
+    Private Sub btnCleanQuery2_Click(sender As Object, e As EventArgs) Handles btnCleanQuery2.Click
+        Me.lstViewQuery2.Clear()
     End Sub
+
+
 End Class

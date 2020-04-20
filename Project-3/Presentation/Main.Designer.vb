@@ -47,6 +47,17 @@ Partial Class Main
         Me.cboxTrainIdQuery1 = New System.Windows.Forms.ComboBox()
         Me.btnExecuteQuery1 = New System.Windows.Forms.Button()
         Me.tabQuery2 = New System.Windows.Forms.TabPage()
+        Me.btnExecuteQuery2 = New System.Windows.Forms.Button()
+        Me.gbSelectionQuery2 = New System.Windows.Forms.GroupBox()
+        Me.lblEndDateQuery2 = New System.Windows.Forms.Label()
+        Me.lblStartDateQuery2 = New System.Windows.Forms.Label()
+        Me.dtpEndDateQuery2 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpStartDateQuery2 = New System.Windows.Forms.DateTimePicker()
+        Me.gbQuery2List = New System.Windows.Forms.GroupBox()
+        Me.lstViewQuery2 = New System.Windows.Forms.ListView()
+        Me.tripDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.trainType = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.totalTrips = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery3 = New System.Windows.Forms.TabPage()
         Me.tabQuery4 = New System.Windows.Forms.TabPage()
         Me.tabTrips = New System.Windows.Forms.TabPage()
@@ -144,12 +155,17 @@ Partial Class Main
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.btnSelect = New System.Windows.Forms.Button()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
+        Me.btnCleanQuery2 = New System.Windows.Forms.Button()
+        Me.btnCleanQuery1 = New System.Windows.Forms.Button()
         Me.tabQuery.SuspendLayout()
         Me.tbpQuerie.SuspendLayout()
         Me.tabQuery1.SuspendLayout()
         Me.gbSolutionQuery1.SuspendLayout()
         Me.gbLstViewQuery1.SuspendLayout()
         Me.gbSlectionQuery1.SuspendLayout()
+        Me.tabQuery2.SuspendLayout()
+        Me.gbSelectionQuery2.SuspendLayout()
+        Me.gbQuery2List.SuspendLayout()
         Me.tabTrips.SuspendLayout()
         Me.gbControlTrip.SuspendLayout()
         Me.gbSelectionTrip.SuspendLayout()
@@ -217,7 +233,8 @@ Partial Class Main
         '
         'tabQuery1
         '
-        Me.tabQuery1.BackColor = System.Drawing.Color.RoyalBlue
+        Me.tabQuery1.BackColor = System.Drawing.Color.Gray
+        Me.tabQuery1.Controls.Add(Me.btnCleanQuery1)
         Me.tabQuery1.Controls.Add(Me.gbSolutionQuery1)
         Me.tabQuery1.Controls.Add(Me.gbLstViewQuery1)
         Me.tabQuery1.Controls.Add(Me.gbSlectionQuery1)
@@ -227,6 +244,7 @@ Partial Class Main
         '
         'gbSolutionQuery1
         '
+        Me.gbSolutionQuery1.BackColor = System.Drawing.Color.LightSteelBlue
         Me.gbSolutionQuery1.Controls.Add(Me.lblTripsSolution)
         Me.gbSolutionQuery1.Controls.Add(Me.txtNumberTripsQuery1)
         Me.gbSolutionQuery1.Controls.Add(Me.lblNumberTripsQuery1)
@@ -251,6 +269,7 @@ Partial Class Main
         '
         'gbLstViewQuery1
         '
+        Me.gbLstViewQuery1.BackColor = System.Drawing.Color.SkyBlue
         Me.gbLstViewQuery1.Controls.Add(Me.lstViewQuery1)
         resources.ApplyResources(Me.gbLstViewQuery1, "gbLstViewQuery1")
         Me.gbLstViewQuery1.Name = "gbLstViewQuery1"
@@ -281,6 +300,7 @@ Partial Class Main
         '
         'gbSlectionQuery1
         '
+        Me.gbSlectionQuery1.BackColor = System.Drawing.Color.Silver
         Me.gbSlectionQuery1.Controls.Add(Me.dtpDateEndQuery1)
         Me.gbSlectionQuery1.Controls.Add(Me.lblDateStartQuery)
         Me.gbSlectionQuery1.Controls.Add(Me.lblDateEnd)
@@ -327,15 +347,88 @@ Partial Class Main
         '
         'btnExecuteQuery1
         '
+        Me.btnExecuteQuery1.BackColor = System.Drawing.SystemColors.ButtonHighlight
         resources.ApplyResources(Me.btnExecuteQuery1, "btnExecuteQuery1")
         Me.btnExecuteQuery1.Name = "btnExecuteQuery1"
-        Me.btnExecuteQuery1.UseVisualStyleBackColor = True
+        Me.btnExecuteQuery1.UseVisualStyleBackColor = False
         '
         'tabQuery2
         '
+        Me.tabQuery2.Controls.Add(Me.btnCleanQuery2)
+        Me.tabQuery2.Controls.Add(Me.btnExecuteQuery2)
+        Me.tabQuery2.Controls.Add(Me.gbSelectionQuery2)
+        Me.tabQuery2.Controls.Add(Me.gbQuery2List)
         resources.ApplyResources(Me.tabQuery2, "tabQuery2")
         Me.tabQuery2.Name = "tabQuery2"
         Me.tabQuery2.UseVisualStyleBackColor = True
+        '
+        'btnExecuteQuery2
+        '
+        resources.ApplyResources(Me.btnExecuteQuery2, "btnExecuteQuery2")
+        Me.btnExecuteQuery2.Name = "btnExecuteQuery2"
+        Me.btnExecuteQuery2.UseVisualStyleBackColor = True
+        '
+        'gbSelectionQuery2
+        '
+        Me.gbSelectionQuery2.Controls.Add(Me.lblEndDateQuery2)
+        Me.gbSelectionQuery2.Controls.Add(Me.lblStartDateQuery2)
+        Me.gbSelectionQuery2.Controls.Add(Me.dtpEndDateQuery2)
+        Me.gbSelectionQuery2.Controls.Add(Me.dtpStartDateQuery2)
+        resources.ApplyResources(Me.gbSelectionQuery2, "gbSelectionQuery2")
+        Me.gbSelectionQuery2.Name = "gbSelectionQuery2"
+        Me.gbSelectionQuery2.TabStop = False
+        '
+        'lblEndDateQuery2
+        '
+        resources.ApplyResources(Me.lblEndDateQuery2, "lblEndDateQuery2")
+        Me.lblEndDateQuery2.Name = "lblEndDateQuery2"
+        '
+        'lblStartDateQuery2
+        '
+        resources.ApplyResources(Me.lblStartDateQuery2, "lblStartDateQuery2")
+        Me.lblStartDateQuery2.Name = "lblStartDateQuery2"
+        '
+        'dtpEndDateQuery2
+        '
+        Me.dtpEndDateQuery2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        resources.ApplyResources(Me.dtpEndDateQuery2, "dtpEndDateQuery2")
+        Me.dtpEndDateQuery2.Name = "dtpEndDateQuery2"
+        '
+        'dtpStartDateQuery2
+        '
+        Me.dtpStartDateQuery2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        resources.ApplyResources(Me.dtpStartDateQuery2, "dtpStartDateQuery2")
+        Me.dtpStartDateQuery2.Name = "dtpStartDateQuery2"
+        '
+        'gbQuery2List
+        '
+        Me.gbQuery2List.Controls.Add(Me.lstViewQuery2)
+        resources.ApplyResources(Me.gbQuery2List, "gbQuery2List")
+        Me.gbQuery2List.Name = "gbQuery2List"
+        Me.gbQuery2List.TabStop = False
+        '
+        'lstViewQuery2
+        '
+        Me.lstViewQuery2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.tripDate, Me.trainType, Me.totalTrips})
+        resources.ApplyResources(Me.lstViewQuery2, "lstViewQuery2")
+        Me.lstViewQuery2.FullRowSelect = True
+        Me.lstViewQuery2.HideSelection = False
+        Me.lstViewQuery2.MultiSelect = False
+        Me.lstViewQuery2.Name = "lstViewQuery2"
+        Me.lstViewQuery2.UseCompatibleStateImageBehavior = False
+        Me.lstViewQuery2.View = System.Windows.Forms.View.Details
+        '
+        'tripDate
+        '
+        resources.ApplyResources(Me.tripDate, "tripDate")
+        '
+        'trainType
+        '
+        resources.ApplyResources(Me.trainType, "trainType")
+        '
+        'totalTrips
+        '
+        resources.ApplyResources(Me.totalTrips, "totalTrips")
         '
         'tabQuery3
         '
@@ -351,7 +444,7 @@ Partial Class Main
         '
         'tabTrips
         '
-        Me.tabTrips.BackColor = System.Drawing.Color.RoyalBlue
+        Me.tabTrips.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabTrips.Controls.Add(Me.gbControlTrip)
         Me.tabTrips.Controls.Add(Me.gbSelectionTrip)
         Me.tabTrips.Controls.Add(Me.gbTripList)
@@ -464,6 +557,7 @@ Partial Class Main
         '
         'gbTripList
         '
+        Me.gbTripList.BackColor = System.Drawing.Color.Transparent
         Me.gbTripList.Controls.Add(Me.lstViewTrip)
         resources.ApplyResources(Me.gbTripList, "gbTripList")
         Me.gbTripList.Name = "gbTripList"
@@ -878,7 +972,7 @@ Partial Class Main
         '
         'tabProduct
         '
-        Me.tabProduct.BackColor = System.Drawing.Color.RoyalBlue
+        Me.tabProduct.BackColor = System.Drawing.Color.Turquoise
         Me.tabProduct.Controls.Add(Me.gbProductsList)
         Me.tabProduct.Controls.Add(Me.gbProductsBoxes)
         Me.tabProduct.Controls.Add(Me.gbControlProducts)
@@ -1035,6 +1129,18 @@ Partial Class Main
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
         '
+        'btnCleanQuery2
+        '
+        resources.ApplyResources(Me.btnCleanQuery2, "btnCleanQuery2")
+        Me.btnCleanQuery2.Name = "btnCleanQuery2"
+        Me.btnCleanQuery2.UseVisualStyleBackColor = True
+        '
+        'btnCleanQuery1
+        '
+        resources.ApplyResources(Me.btnCleanQuery1, "btnCleanQuery1")
+        Me.btnCleanQuery1.Name = "btnCleanQuery1"
+        Me.btnCleanQuery1.UseVisualStyleBackColor = True
+        '
         'Main
         '
         resources.ApplyResources(Me, "$this")
@@ -1052,6 +1158,10 @@ Partial Class Main
         Me.gbLstViewQuery1.ResumeLayout(False)
         Me.gbSlectionQuery1.ResumeLayout(False)
         Me.gbSlectionQuery1.PerformLayout()
+        Me.tabQuery2.ResumeLayout(False)
+        Me.gbSelectionQuery2.ResumeLayout(False)
+        Me.gbSelectionQuery2.PerformLayout()
+        Me.gbQuery2List.ResumeLayout(False)
         Me.tabTrips.ResumeLayout(False)
         Me.gbControlTrip.ResumeLayout(False)
         Me.gbSelectionTrip.ResumeLayout(False)
@@ -1205,4 +1315,17 @@ Partial Class Main
     Friend WithEvents btnConnect As Button
     Friend WithEvents btnSelect As Button
     Friend WithEvents gbDatabase As GroupBox
+    Friend WithEvents btnExecuteQuery2 As Button
+    Friend WithEvents gbSelectionQuery2 As GroupBox
+    Friend WithEvents lblEndDateQuery2 As Label
+    Friend WithEvents lblStartDateQuery2 As Label
+    Friend WithEvents dtpEndDateQuery2 As DateTimePicker
+    Friend WithEvents dtpStartDateQuery2 As DateTimePicker
+    Friend WithEvents gbQuery2List As GroupBox
+    Friend WithEvents lstViewQuery2 As ListView
+    Friend WithEvents tripDate As ColumnHeader
+    Friend WithEvents trainType As ColumnHeader
+    Friend WithEvents totalTrips As ColumnHeader
+    Friend WithEvents btnCleanQuery2 As Button
+    Friend WithEvents btnCleanQuery1 As Button
 End Class

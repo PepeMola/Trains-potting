@@ -125,7 +125,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAACg
-        EgAAAk1TRnQBSQFMAgEBDAEAAaQBAAGkAQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
+        EgAAAk1TRnQBSQFMAgEBDAEAAbQBAAG0AQABEAEAARABAAT/AQkBAAj/AUIBTQE2AQQGAAE2AQQCAAEo
         AwABQAMAAUADAAEBAQABCAYAARAYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -210,256 +210,37 @@
   <metadata name="OfdPath.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="&gt;&gt;tbpQuerie.Name" xml:space="preserve">
-    <value>tbpQuerie</value>
-  </data>
-  <data name="&gt;&gt;tbpQuerie.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbpQuerie.Parent" xml:space="preserve">
-    <value>tabQuery</value>
-  </data>
-  <data name="&gt;&gt;tbpQuerie.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="tabQuery.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
-  </data>
-  <data name="tabQuery.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 425</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tabQuery.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="tabQuery.Text" xml:space="preserve">
-    <value>Queries</value>
-  </data>
-  <data name="&gt;&gt;tabQuery.Name" xml:space="preserve">
-    <value>tabQuery</value>
-  </data>
-  <data name="&gt;&gt;tabQuery.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabQuery.Parent" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;tabQuery.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tbpQuerie.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
     <value>Left</value>
   </data>
-  <data name="&gt;&gt;tabQuery1.Name" xml:space="preserve">
-    <value>tabQuery1</value>
+  <data name="btnCleanQuery1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;tabQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnCleanQuery1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>516, 309</value>
   </data>
-  <data name="&gt;&gt;tabQuery1.Parent" xml:space="preserve">
-    <value>tbpQuerie</value>
+  <data name="btnCleanQuery1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 23</value>
   </data>
-  <data name="&gt;&gt;tabQuery1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnCleanQuery1.TabIndex" type="System.Int32, mscorlib">
+    <value>46</value>
   </data>
-  <data name="&gt;&gt;tabQuery2.Name" xml:space="preserve">
-    <value>tabQuery2</value>
+  <data name="btnCleanQuery1.Text" xml:space="preserve">
+    <value>Clean List</value>
   </data>
-  <data name="&gt;&gt;tabQuery2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;btnCleanQuery1.Name" xml:space="preserve">
+    <value>btnCleanQuery1</value>
   </data>
-  <data name="&gt;&gt;tabQuery2.Parent" xml:space="preserve">
-    <value>tbpQuerie</value>
-  </data>
-  <data name="&gt;&gt;tabQuery2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tabQuery3.Name" xml:space="preserve">
-    <value>tabQuery3</value>
-  </data>
-  <data name="&gt;&gt;tabQuery3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabQuery3.Parent" xml:space="preserve">
-    <value>tbpQuerie</value>
-  </data>
-  <data name="&gt;&gt;tabQuery3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;tabQuery4.Name" xml:space="preserve">
-    <value>tabQuery4</value>
-  </data>
-  <data name="&gt;&gt;tabQuery4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabQuery4.Parent" xml:space="preserve">
-    <value>tbpQuerie</value>
-  </data>
-  <data name="&gt;&gt;tabQuery4.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tbpQuerie.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="tbpQuerie.Size" type="System.Drawing.Size, System.Drawing">
-    <value>694, 417</value>
-  </data>
-  <data name="tbpQuerie.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;tbpQuerie.Name" xml:space="preserve">
-    <value>tbpQuerie</value>
-  </data>
-  <data name="&gt;&gt;tbpQuerie.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbpQuerie.Parent" xml:space="preserve">
-    <value>tabQuery</value>
-  </data>
-  <data name="&gt;&gt;tbpQuerie.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;gbSolutionQuery1.Name" xml:space="preserve">
-    <value>gbSolutionQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbSolutionQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbSolutionQuery1.Parent" xml:space="preserve">
-    <value>tabQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbSolutionQuery1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;gbLstViewQuery1.Name" xml:space="preserve">
-    <value>gbLstViewQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbLstViewQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbLstViewQuery1.Parent" xml:space="preserve">
-    <value>tabQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbLstViewQuery1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;gbSlectionQuery1.Name" xml:space="preserve">
-    <value>gbSlectionQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbSlectionQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbSlectionQuery1.Parent" xml:space="preserve">
-    <value>tabQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbSlectionQuery1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnExecuteQuery1.Name" xml:space="preserve">
-    <value>btnExecuteQuery1</value>
-  </data>
-  <data name="&gt;&gt;btnExecuteQuery1.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnCleanQuery1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnExecuteQuery1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnCleanQuery1.Parent" xml:space="preserve">
     <value>tabQuery1</value>
   </data>
-  <data name="&gt;&gt;btnExecuteQuery1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabQuery1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Historic, 9.75pt</value>
-  </data>
-  <data name="tabQuery1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 4</value>
-  </data>
-  <data name="tabQuery1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabQuery1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>662, 409</value>
-  </data>
-  <data name="tabQuery1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="tabQuery1.Text" xml:space="preserve">
-    <value>Query 1</value>
-  </data>
-  <data name="&gt;&gt;tabQuery1.Name" xml:space="preserve">
-    <value>tabQuery1</value>
-  </data>
-  <data name="&gt;&gt;tabQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabQuery1.Parent" xml:space="preserve">
-    <value>tbpQuerie</value>
-  </data>
-  <data name="&gt;&gt;tabQuery1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblTripsSolution.Name" xml:space="preserve">
-    <value>lblTripsSolution</value>
-  </data>
-  <data name="&gt;&gt;lblTripsSolution.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTripsSolution.Parent" xml:space="preserve">
-    <value>gbSolutionQuery1</value>
-  </data>
-  <data name="&gt;&gt;lblTripsSolution.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtNumberTripsQuery1.Name" xml:space="preserve">
-    <value>txtNumberTripsQuery1</value>
-  </data>
-  <data name="&gt;&gt;txtNumberTripsQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtNumberTripsQuery1.Parent" xml:space="preserve">
-    <value>gbSolutionQuery1</value>
-  </data>
-  <data name="&gt;&gt;txtNumberTripsQuery1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblNumberTripsQuery1.Name" xml:space="preserve">
-    <value>lblNumberTripsQuery1</value>
-  </data>
-  <data name="&gt;&gt;lblNumberTripsQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNumberTripsQuery1.Parent" xml:space="preserve">
-    <value>gbSolutionQuery1</value>
-  </data>
-  <data name="&gt;&gt;lblNumberTripsQuery1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="gbSolutionQuery1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
-  </data>
-  <data name="gbSolutionQuery1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>465, 6</value>
-  </data>
-  <data name="gbSolutionQuery1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 142</value>
-  </data>
-  <data name="gbSolutionQuery1.TabIndex" type="System.Int32, mscorlib">
-    <value>45</value>
-  </data>
-  <data name="gbSolutionQuery1.Text" xml:space="preserve">
-    <value>Solution:</value>
-  </data>
-  <data name="&gt;&gt;gbSolutionQuery1.Name" xml:space="preserve">
-    <value>gbSolutionQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbSolutionQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbSolutionQuery1.Parent" xml:space="preserve">
-    <value>tabQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbSolutionQuery1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnCleanQuery1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="lblTripsSolution.AutoSize" type="System.Boolean, mscorlib">
@@ -546,6 +327,66 @@
   <data name="&gt;&gt;lblNumberTripsQuery1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="gbSolutionQuery1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gbSolutionQuery1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>465, 6</value>
+  </data>
+  <data name="gbSolutionQuery1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 142</value>
+  </data>
+  <data name="gbSolutionQuery1.TabIndex" type="System.Int32, mscorlib">
+    <value>45</value>
+  </data>
+  <data name="gbSolutionQuery1.Text" xml:space="preserve">
+    <value>Solution:</value>
+  </data>
+  <data name="&gt;&gt;gbSolutionQuery1.Name" xml:space="preserve">
+    <value>gbSolutionQuery1</value>
+  </data>
+  <data name="&gt;&gt;gbSolutionQuery1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSolutionQuery1.Parent" xml:space="preserve">
+    <value>tabQuery1</value>
+  </data>
+  <data name="&gt;&gt;gbSolutionQuery1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tripDateQuery1.Text" xml:space="preserve">
+    <value>Trip Date</value>
+  </data>
+  <data name="tripDateQuery1.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="trainQuery1.Text" xml:space="preserve">
+    <value>Train</value>
+  </data>
+  <data name="trainQuery1.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
+  <data name="productQuery1.Text" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="productQuery1.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="productQuery1.Width" type="System.Int32, mscorlib">
+    <value>135</value>
+  </data>
+  <data name="lstViewQuery1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lstViewQuery1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
+  </data>
+  <data name="lstViewQuery1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>444, 233</value>
+  </data>
+  <data name="lstViewQuery1.TabIndex" type="System.Int32, mscorlib">
+    <value>42</value>
+  </data>
   <data name="&gt;&gt;lstViewQuery1.Name" xml:space="preserve">
     <value>lstViewQuery1</value>
   </data>
@@ -583,150 +424,6 @@
     <value>tabQuery1</value>
   </data>
   <data name="&gt;&gt;gbLstViewQuery1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lstViewQuery1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
-  </data>
-  <data name="lstViewQuery1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 24</value>
-  </data>
-  <data name="lstViewQuery1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>444, 233</value>
-  </data>
-  <data name="lstViewQuery1.TabIndex" type="System.Int32, mscorlib">
-    <value>42</value>
-  </data>
-  <data name="&gt;&gt;lstViewQuery1.Name" xml:space="preserve">
-    <value>lstViewQuery1</value>
-  </data>
-  <data name="&gt;&gt;lstViewQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lstViewQuery1.Parent" xml:space="preserve">
-    <value>gbLstViewQuery1</value>
-  </data>
-  <data name="&gt;&gt;lstViewQuery1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tripDateQuery1.Text" xml:space="preserve">
-    <value>Trip Date</value>
-  </data>
-  <data name="tripDateQuery1.Width" type="System.Int32, mscorlib">
-    <value>150</value>
-  </data>
-  <data name="trainQuery1.Text" xml:space="preserve">
-    <value>Train</value>
-  </data>
-  <data name="trainQuery1.Width" type="System.Int32, mscorlib">
-    <value>150</value>
-  </data>
-  <data name="productQuery1.Text" xml:space="preserve">
-    <value>Product</value>
-  </data>
-  <data name="productQuery1.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Center</value>
-  </data>
-  <data name="productQuery1.Width" type="System.Int32, mscorlib">
-    <value>135</value>
-  </data>
-  <data name="&gt;&gt;dtpDateEndQuery1.Name" xml:space="preserve">
-    <value>dtpDateEndQuery1</value>
-  </data>
-  <data name="&gt;&gt;dtpDateEndQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtpDateEndQuery1.Parent" xml:space="preserve">
-    <value>gbSlectionQuery1</value>
-  </data>
-  <data name="&gt;&gt;dtpDateEndQuery1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblDateStartQuery.Name" xml:space="preserve">
-    <value>lblDateStartQuery</value>
-  </data>
-  <data name="&gt;&gt;lblDateStartQuery.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDateStartQuery.Parent" xml:space="preserve">
-    <value>gbSlectionQuery1</value>
-  </data>
-  <data name="&gt;&gt;lblDateStartQuery.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lblDateEnd.Name" xml:space="preserve">
-    <value>lblDateEnd</value>
-  </data>
-  <data name="&gt;&gt;lblDateEnd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDateEnd.Parent" xml:space="preserve">
-    <value>gbSlectionQuery1</value>
-  </data>
-  <data name="&gt;&gt;lblDateEnd.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblTrainIdQuery.Name" xml:space="preserve">
-    <value>lblTrainIdQuery</value>
-  </data>
-  <data name="&gt;&gt;lblTrainIdQuery.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTrainIdQuery.Parent" xml:space="preserve">
-    <value>gbSlectionQuery1</value>
-  </data>
-  <data name="&gt;&gt;lblTrainIdQuery.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;dtpDateStartQuery1.Name" xml:space="preserve">
-    <value>dtpDateStartQuery1</value>
-  </data>
-  <data name="&gt;&gt;dtpDateStartQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtpDateStartQuery1.Parent" xml:space="preserve">
-    <value>gbSlectionQuery1</value>
-  </data>
-  <data name="&gt;&gt;dtpDateStartQuery1.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;cboxTrainIdQuery1.Name" xml:space="preserve">
-    <value>cboxTrainIdQuery1</value>
-  </data>
-  <data name="&gt;&gt;cboxTrainIdQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cboxTrainIdQuery1.Parent" xml:space="preserve">
-    <value>gbSlectionQuery1</value>
-  </data>
-  <data name="&gt;&gt;cboxTrainIdQuery1.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="gbSlectionQuery1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
-  </data>
-  <data name="gbSlectionQuery1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 275</value>
-  </data>
-  <data name="gbSlectionQuery1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>456, 128</value>
-  </data>
-  <data name="gbSlectionQuery1.TabIndex" type="System.Int32, mscorlib">
-    <value>43</value>
-  </data>
-  <data name="gbSlectionQuery1.Text" xml:space="preserve">
-    <value>Selection Panel:</value>
-  </data>
-  <data name="&gt;&gt;gbSlectionQuery1.Name" xml:space="preserve">
-    <value>gbSlectionQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbSlectionQuery1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbSlectionQuery1.Parent" xml:space="preserve">
-    <value>tabQuery1</value>
-  </data>
-  <data name="&gt;&gt;gbSlectionQuery1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="dtpDateEndQuery1.Font" type="System.Drawing.Font, System.Drawing">
@@ -891,14 +588,41 @@
   <data name="&gt;&gt;cboxTrainIdQuery1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="gbSlectionQuery1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gbSlectionQuery1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 275</value>
+  </data>
+  <data name="gbSlectionQuery1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>456, 128</value>
+  </data>
+  <data name="gbSlectionQuery1.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="gbSlectionQuery1.Text" xml:space="preserve">
+    <value>Selection Panel:</value>
+  </data>
+  <data name="&gt;&gt;gbSlectionQuery1.Name" xml:space="preserve">
+    <value>gbSlectionQuery1</value>
+  </data>
+  <data name="&gt;&gt;gbSlectionQuery1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSlectionQuery1.Parent" xml:space="preserve">
+    <value>tabQuery1</value>
+  </data>
+  <data name="&gt;&gt;gbSlectionQuery1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="btnExecuteQuery1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnExecuteQuery1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 343</value>
+    <value>516, 343</value>
   </data>
   <data name="btnExecuteQuery1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 60</value>
+    <value>140, 60</value>
   </data>
   <data name="btnExecuteQuery1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -916,6 +640,282 @@
     <value>tabQuery1</value>
   </data>
   <data name="&gt;&gt;btnExecuteQuery1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tabQuery1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Historic, 9.75pt</value>
+  </data>
+  <data name="tabQuery1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 4</value>
+  </data>
+  <data name="tabQuery1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabQuery1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>662, 409</value>
+  </data>
+  <data name="tabQuery1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabQuery1.Text" xml:space="preserve">
+    <value>Query 1</value>
+  </data>
+  <data name="&gt;&gt;tabQuery1.Name" xml:space="preserve">
+    <value>tabQuery1</value>
+  </data>
+  <data name="&gt;&gt;tabQuery1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabQuery1.Parent" xml:space="preserve">
+    <value>tbpQuerie</value>
+  </data>
+  <data name="&gt;&gt;tabQuery1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnCleanQuery2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>510, 301</value>
+  </data>
+  <data name="btnCleanQuery2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 23</value>
+  </data>
+  <data name="btnCleanQuery2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnCleanQuery2.Text" xml:space="preserve">
+    <value>Clean List</value>
+  </data>
+  <data name="&gt;&gt;btnCleanQuery2.Name" xml:space="preserve">
+    <value>btnCleanQuery2</value>
+  </data>
+  <data name="&gt;&gt;btnCleanQuery2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCleanQuery2.Parent" xml:space="preserve">
+    <value>tabQuery2</value>
+  </data>
+  <data name="&gt;&gt;btnCleanQuery2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnExecuteQuery2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnExecuteQuery2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>510, 330</value>
+  </data>
+  <data name="btnExecuteQuery2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 64</value>
+  </data>
+  <data name="btnExecuteQuery2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnExecuteQuery2.Text" xml:space="preserve">
+    <value>Execute</value>
+  </data>
+  <data name="&gt;&gt;btnExecuteQuery2.Name" xml:space="preserve">
+    <value>btnExecuteQuery2</value>
+  </data>
+  <data name="&gt;&gt;btnExecuteQuery2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnExecuteQuery2.Parent" xml:space="preserve">
+    <value>tabQuery2</value>
+  </data>
+  <data name="&gt;&gt;btnExecuteQuery2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="lblEndDateQuery2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEndDateQuery2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEndDateQuery2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>284, 55</value>
+  </data>
+  <data name="lblEndDateQuery2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 17</value>
+  </data>
+  <data name="lblEndDateQuery2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lblEndDateQuery2.Text" xml:space="preserve">
+    <value>End Date:</value>
+  </data>
+  <data name="&gt;&gt;lblEndDateQuery2.Name" xml:space="preserve">
+    <value>lblEndDateQuery2</value>
+  </data>
+  <data name="&gt;&gt;lblEndDateQuery2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEndDateQuery2.Parent" xml:space="preserve">
+    <value>gbSelectionQuery2</value>
+  </data>
+  <data name="&gt;&gt;lblEndDateQuery2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblStartDateQuery2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblStartDateQuery2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>39, 55</value>
+  </data>
+  <data name="lblStartDateQuery2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 17</value>
+  </data>
+  <data name="lblStartDateQuery2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="lblStartDateQuery2.Text" xml:space="preserve">
+    <value>Start Date:</value>
+  </data>
+  <data name="&gt;&gt;lblStartDateQuery2.Name" xml:space="preserve">
+    <value>lblStartDateQuery2</value>
+  </data>
+  <data name="&gt;&gt;lblStartDateQuery2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblStartDateQuery2.Parent" xml:space="preserve">
+    <value>gbSelectionQuery2</value>
+  </data>
+  <data name="&gt;&gt;lblStartDateQuery2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dtpEndDateQuery2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>363, 49</value>
+  </data>
+  <data name="dtpEndDateQuery2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 25</value>
+  </data>
+  <data name="dtpEndDateQuery2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDateQuery2.Name" xml:space="preserve">
+    <value>dtpEndDateQuery2</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDateQuery2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDateQuery2.Parent" xml:space="preserve">
+    <value>gbSelectionQuery2</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDateQuery2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dtpStartDateQuery2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 49</value>
+  </data>
+  <data name="dtpStartDateQuery2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 25</value>
+  </data>
+  <data name="dtpStartDateQuery2.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;dtpStartDateQuery2.Name" xml:space="preserve">
+    <value>dtpStartDateQuery2</value>
+  </data>
+  <data name="&gt;&gt;dtpStartDateQuery2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpStartDateQuery2.Parent" xml:space="preserve">
+    <value>gbSelectionQuery2</value>
+  </data>
+  <data name="&gt;&gt;dtpStartDateQuery2.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="gbSelectionQuery2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 301</value>
+  </data>
+  <data name="gbSelectionQuery2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>498, 102</value>
+  </data>
+  <data name="gbSelectionQuery2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="gbSelectionQuery2.Text" xml:space="preserve">
+    <value>Selection Panel:</value>
+  </data>
+  <data name="&gt;&gt;gbSelectionQuery2.Name" xml:space="preserve">
+    <value>gbSelectionQuery2</value>
+  </data>
+  <data name="&gt;&gt;gbSelectionQuery2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSelectionQuery2.Parent" xml:space="preserve">
+    <value>tabQuery2</value>
+  </data>
+  <data name="&gt;&gt;gbSelectionQuery2.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tripDate.Text" xml:space="preserve">
+    <value>Trip Date</value>
+  </data>
+  <data name="tripDate.Width" type="System.Int32, mscorlib">
+    <value>210</value>
+  </data>
+  <data name="trainType.Text" xml:space="preserve">
+    <value>Train Type</value>
+  </data>
+  <data name="trainType.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="trainType.Width" type="System.Int32, mscorlib">
+    <value>210</value>
+  </data>
+  <data name="totalTrips.Text" xml:space="preserve">
+    <value>Total Trips</value>
+  </data>
+  <data name="totalTrips.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="totalTrips.Width" type="System.Int32, mscorlib">
+    <value>210</value>
+  </data>
+  <data name="lstViewQuery2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lstViewQuery2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
+  </data>
+  <data name="lstViewQuery2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>638, 259</value>
+  </data>
+  <data name="lstViewQuery2.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
+  <data name="&gt;&gt;lstViewQuery2.Name" xml:space="preserve">
+    <value>lstViewQuery2</value>
+  </data>
+  <data name="&gt;&gt;lstViewQuery2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lstViewQuery2.Parent" xml:space="preserve">
+    <value>gbQuery2List</value>
+  </data>
+  <data name="&gt;&gt;lstViewQuery2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gbQuery2List.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="gbQuery2List.Size" type="System.Drawing.Size, System.Drawing">
+    <value>650, 289</value>
+  </data>
+  <data name="gbQuery2List.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gbQuery2List.Text" xml:space="preserve">
+    <value>Query 2 Ranking:</value>
+  </data>
+  <data name="&gt;&gt;gbQuery2List.Name" xml:space="preserve">
+    <value>gbQuery2List</value>
+  </data>
+  <data name="&gt;&gt;gbQuery2List.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbQuery2List.Parent" xml:space="preserve">
+    <value>tabQuery2</value>
+  </data>
+  <data name="&gt;&gt;gbQuery2List.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="tabQuery2.Location" type="System.Drawing.Point, System.Drawing">
@@ -993,6 +993,75 @@
   <data name="&gt;&gt;tabQuery4.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="tbpQuerie.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="tbpQuerie.Size" type="System.Drawing.Size, System.Drawing">
+    <value>694, 417</value>
+  </data>
+  <data name="tbpQuerie.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;tbpQuerie.Name" xml:space="preserve">
+    <value>tbpQuerie</value>
+  </data>
+  <data name="&gt;&gt;tbpQuerie.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbpQuerie.Parent" xml:space="preserve">
+    <value>tabQuery</value>
+  </data>
+  <data name="&gt;&gt;tbpQuerie.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="tabQuery.ImageIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tabQuery.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="tabQuery.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 425</value>
+  </data>
+  <data name="tabQuery.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tabQuery.Text" xml:space="preserve">
+    <value>Queries</value>
+  </data>
+  <data name="&gt;&gt;tabQuery.Name" xml:space="preserve">
+    <value>tabQuery</value>
+  </data>
+  <data name="&gt;&gt;tabQuery.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabQuery.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabQuery.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnAddTrip.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnAddTrip.ImageIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnAddTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAddTrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 24</value>
+  </data>
+  <data name="btnAddTrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 42</value>
+  </data>
+  <data name="btnAddTrip.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="btnAddTrip.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="&gt;&gt;btnAddTrip.Name" xml:space="preserve">
     <value>btnAddTrip</value>
   </data>
@@ -1004,6 +1073,27 @@
   </data>
   <data name="&gt;&gt;btnAddTrip.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="btnCleanTrip.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnCleanTrip.ImageIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnCleanTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCleanTrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 72</value>
+  </data>
+  <data name="btnCleanTrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 42</value>
+  </data>
+  <data name="btnCleanTrip.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="btnCleanTrip.Text" xml:space="preserve">
+    <value>Clean</value>
   </data>
   <data name="&gt;&gt;btnCleanTrip.Name" xml:space="preserve">
     <value>btnCleanTrip</value>
@@ -1017,6 +1107,27 @@
   <data name="&gt;&gt;btnCleanTrip.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="btnDeleteTrip.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnDeleteTrip.ImageIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnDeleteTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDeleteTrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 72</value>
+  </data>
+  <data name="btnDeleteTrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 42</value>
+  </data>
+  <data name="btnDeleteTrip.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="btnDeleteTrip.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="&gt;&gt;btnDeleteTrip.Name" xml:space="preserve">
     <value>btnDeleteTrip</value>
   </data>
@@ -1028,6 +1139,27 @@
   </data>
   <data name="&gt;&gt;btnDeleteTrip.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="btnUpdateTrip.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnUpdateTrip.ImageIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnUpdateTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUpdateTrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>217, 24</value>
+  </data>
+  <data name="btnUpdateTrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 42</value>
+  </data>
+  <data name="btnUpdateTrip.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="btnUpdateTrip.Text" xml:space="preserve">
+    <value>Update</value>
   </data>
   <data name="&gt;&gt;btnUpdateTrip.Name" xml:space="preserve">
     <value>btnUpdateTrip</value>
@@ -1389,6 +1521,9 @@
   <data name="&gt;&gt;gbTripList.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="tabTrips.ImageIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="tabTrips.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 26</value>
   </data>
@@ -1415,138 +1550,6 @@
   </data>
   <data name="&gt;&gt;tabTrips.ZOrder" xml:space="preserve">
     <value>4</value>
-  </data>
-  <data name="btnAddTrip.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnAddTrip.ImageIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnAddTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnAddTrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 24</value>
-  </data>
-  <data name="btnAddTrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 42</value>
-  </data>
-  <data name="btnAddTrip.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="btnAddTrip.Text" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrip.Name" xml:space="preserve">
-    <value>btnAddTrip</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrip.Parent" xml:space="preserve">
-    <value>gbControlTrip</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrip.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnCleanTrip.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnCleanTrip.ImageIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="btnCleanTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnCleanTrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 72</value>
-  </data>
-  <data name="btnCleanTrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 42</value>
-  </data>
-  <data name="btnCleanTrip.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="btnCleanTrip.Text" xml:space="preserve">
-    <value>Clean</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrip.Name" xml:space="preserve">
-    <value>btnCleanTrip</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrip.Parent" xml:space="preserve">
-    <value>gbControlTrip</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrip.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnDeleteTrip.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnDeleteTrip.ImageIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="btnDeleteTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnDeleteTrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 72</value>
-  </data>
-  <data name="btnDeleteTrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 42</value>
-  </data>
-  <data name="btnDeleteTrip.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="btnDeleteTrip.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrip.Name" xml:space="preserve">
-    <value>btnDeleteTrip</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrip.Parent" xml:space="preserve">
-    <value>gbControlTrip</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrip.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnUpdateTrip.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnUpdateTrip.ImageIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="btnUpdateTrip.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnUpdateTrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>217, 24</value>
-  </data>
-  <data name="btnUpdateTrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 42</value>
-  </data>
-  <data name="btnUpdateTrip.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="btnUpdateTrip.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrip.Name" xml:space="preserve">
-    <value>btnUpdateTrip</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrip.Parent" xml:space="preserve">
-    <value>gbControlTrip</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrip.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="ProductID.Text" xml:space="preserve">
     <value>ID</value>
@@ -1632,6 +1635,27 @@
   <data name="&gt;&gt;gbPriceList.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btnAddPrices.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnAddPrices.ImageIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnAddPrices.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnAddPrices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 31</value>
+  </data>
+  <data name="btnAddPrices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 42</value>
+  </data>
+  <data name="btnAddPrices.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="btnAddPrices.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="&gt;&gt;btnAddPrices.Name" xml:space="preserve">
     <value>btnAddPrices</value>
   </data>
@@ -1643,6 +1667,27 @@
   </data>
   <data name="&gt;&gt;btnAddPrices.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="btnCleanPrices.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnCleanPrices.ImageIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnCleanPrices.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCleanPrices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>28, 88</value>
+  </data>
+  <data name="btnCleanPrices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 42</value>
+  </data>
+  <data name="btnCleanPrices.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="btnCleanPrices.Text" xml:space="preserve">
+    <value>Clean</value>
   </data>
   <data name="&gt;&gt;btnCleanPrices.Name" xml:space="preserve">
     <value>btnCleanPrices</value>
@@ -1656,6 +1701,27 @@
   <data name="&gt;&gt;btnCleanPrices.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="btnDeletePrices.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnDeletePrices.ImageIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnDeletePrices.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnDeletePrices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>202, 88</value>
+  </data>
+  <data name="btnDeletePrices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 42</value>
+  </data>
+  <data name="btnDeletePrices.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="btnDeletePrices.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="&gt;&gt;btnDeletePrices.Name" xml:space="preserve">
     <value>btnDeletePrices</value>
   </data>
@@ -1667,6 +1733,27 @@
   </data>
   <data name="&gt;&gt;btnDeletePrices.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="btnUpdatePrices.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnUpdatePrices.ImageIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnUpdatePrices.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnUpdatePrices.Location" type="System.Drawing.Point, System.Drawing">
+    <value>202, 31</value>
+  </data>
+  <data name="btnUpdatePrices.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 42</value>
+  </data>
+  <data name="btnUpdatePrices.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="btnUpdatePrices.Text" xml:space="preserve">
+    <value>Update</value>
   </data>
   <data name="&gt;&gt;btnUpdatePrices.Name" xml:space="preserve">
     <value>btnUpdatePrices</value>
@@ -1968,6 +2055,9 @@
   <data name="&gt;&gt;lblPricesList.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="tabPrices.ImageIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="tabPrices.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 26</value>
   </data>
@@ -1990,138 +2080,6 @@
     <value>tabControl</value>
   </data>
   <data name="&gt;&gt;tabPrices.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnAddPrices.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnAddPrices.ImageIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnAddPrices.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnAddPrices.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 31</value>
-  </data>
-  <data name="btnAddPrices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 42</value>
-  </data>
-  <data name="btnAddPrices.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
-  </data>
-  <data name="btnAddPrices.Text" xml:space="preserve">
-    <value>Add</value>
-  </data>
-  <data name="&gt;&gt;btnAddPrices.Name" xml:space="preserve">
-    <value>btnAddPrices</value>
-  </data>
-  <data name="&gt;&gt;btnAddPrices.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddPrices.Parent" xml:space="preserve">
-    <value>gbControlPrices</value>
-  </data>
-  <data name="&gt;&gt;btnAddPrices.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnCleanPrices.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnCleanPrices.ImageIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="btnCleanPrices.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnCleanPrices.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 88</value>
-  </data>
-  <data name="btnCleanPrices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 42</value>
-  </data>
-  <data name="btnCleanPrices.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="btnCleanPrices.Text" xml:space="preserve">
-    <value>Clean</value>
-  </data>
-  <data name="&gt;&gt;btnCleanPrices.Name" xml:space="preserve">
-    <value>btnCleanPrices</value>
-  </data>
-  <data name="&gt;&gt;btnCleanPrices.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCleanPrices.Parent" xml:space="preserve">
-    <value>gbControlPrices</value>
-  </data>
-  <data name="&gt;&gt;btnCleanPrices.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnDeletePrices.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnDeletePrices.ImageIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="btnDeletePrices.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnDeletePrices.Location" type="System.Drawing.Point, System.Drawing">
-    <value>202, 88</value>
-  </data>
-  <data name="btnDeletePrices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 42</value>
-  </data>
-  <data name="btnDeletePrices.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="btnDeletePrices.Text" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="&gt;&gt;btnDeletePrices.Name" xml:space="preserve">
-    <value>btnDeletePrices</value>
-  </data>
-  <data name="&gt;&gt;btnDeletePrices.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDeletePrices.Parent" xml:space="preserve">
-    <value>gbControlPrices</value>
-  </data>
-  <data name="&gt;&gt;btnDeletePrices.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnUpdatePrices.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnUpdatePrices.ImageIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="btnUpdatePrices.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnUpdatePrices.Location" type="System.Drawing.Point, System.Drawing">
-    <value>202, 31</value>
-  </data>
-  <data name="btnUpdatePrices.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 42</value>
-  </data>
-  <data name="btnUpdatePrices.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="btnUpdatePrices.Text" xml:space="preserve">
-    <value>Update</value>
-  </data>
-  <data name="&gt;&gt;btnUpdatePrices.Name" xml:space="preserve">
-    <value>btnUpdatePrices</value>
-  </data>
-  <data name="&gt;&gt;btnUpdatePrices.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdatePrices.Parent" xml:space="preserve">
-    <value>gbControlPrices</value>
-  </data>
-  <data name="&gt;&gt;btnUpdatePrices.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="idTrainTypes.Text" xml:space="preserve">
@@ -2364,132 +2322,6 @@
   <data name="&gt;&gt;gbTrainTypeBoxes.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;btnAddTrainType.Name" xml:space="preserve">
-    <value>btnAddTrainType</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrainType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrainType.Parent" xml:space="preserve">
-    <value>gbControlTrainType</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrainType.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrainType.Name" xml:space="preserve">
-    <value>btnCleanTrainType</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrainType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrainType.Parent" xml:space="preserve">
-    <value>gbControlTrainType</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrainType.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrainType.Name" xml:space="preserve">
-    <value>btnUpdateTrainType</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrainType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrainType.Parent" xml:space="preserve">
-    <value>gbControlTrainType</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrainType.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrainType.Name" xml:space="preserve">
-    <value>btnDeleteTrainType</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrainType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrainType.Parent" xml:space="preserve">
-    <value>gbControlTrainType</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrainType.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="gbControlTrainType.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
-  </data>
-  <data name="gbControlTrainType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 6</value>
-  </data>
-  <data name="gbControlTrainType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>349, 152</value>
-  </data>
-  <data name="gbControlTrainType.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="gbControlTrainType.Text" xml:space="preserve">
-    <value>Control Panel</value>
-  </data>
-  <data name="&gt;&gt;gbControlTrainType.Name" xml:space="preserve">
-    <value>gbControlTrainType</value>
-  </data>
-  <data name="&gt;&gt;gbControlTrainType.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbControlTrainType.Parent" xml:space="preserve">
-    <value>tabTrainTypes</value>
-  </data>
-  <data name="&gt;&gt;gbControlTrainType.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblTrainTypeList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblTrainTypeList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 13</value>
-  </data>
-  <data name="lblTrainTypeList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 15</value>
-  </data>
-  <data name="lblTrainTypeList.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="lblTrainTypeList.Text" xml:space="preserve">
-    <value>Train Type List</value>
-  </data>
-  <data name="&gt;&gt;lblTrainTypeList.Name" xml:space="preserve">
-    <value>lblTrainTypeList</value>
-  </data>
-  <data name="&gt;&gt;lblTrainTypeList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTrainTypeList.Parent" xml:space="preserve">
-    <value>tabTrainTypes</value>
-  </data>
-  <data name="&gt;&gt;lblTrainTypeList.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabTrainTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
-  </data>
-  <data name="tabTrainTypes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 425</value>
-  </data>
-  <data name="tabTrainTypes.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tabTrainTypes.Text" xml:space="preserve">
-    <value>Train Types</value>
-  </data>
-  <data name="&gt;&gt;tabTrainTypes.Name" xml:space="preserve">
-    <value>tabTrainTypes</value>
-  </data>
-  <data name="&gt;&gt;tabTrainTypes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabTrainTypes.Parent" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;tabTrainTypes.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <data name="btnAddTrainType.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>System</value>
   </data>
@@ -2625,6 +2457,87 @@
   <data name="&gt;&gt;btnDeleteTrainType.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="gbControlTrainType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gbControlTrainType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>339, 6</value>
+  </data>
+  <data name="gbControlTrainType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>349, 152</value>
+  </data>
+  <data name="gbControlTrainType.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="gbControlTrainType.Text" xml:space="preserve">
+    <value>Control Panel</value>
+  </data>
+  <data name="&gt;&gt;gbControlTrainType.Name" xml:space="preserve">
+    <value>gbControlTrainType</value>
+  </data>
+  <data name="&gt;&gt;gbControlTrainType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbControlTrainType.Parent" xml:space="preserve">
+    <value>tabTrainTypes</value>
+  </data>
+  <data name="&gt;&gt;gbControlTrainType.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblTrainTypeList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTrainTypeList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 13</value>
+  </data>
+  <data name="lblTrainTypeList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 15</value>
+  </data>
+  <data name="lblTrainTypeList.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblTrainTypeList.Text" xml:space="preserve">
+    <value>Train Type List</value>
+  </data>
+  <data name="&gt;&gt;lblTrainTypeList.Name" xml:space="preserve">
+    <value>lblTrainTypeList</value>
+  </data>
+  <data name="&gt;&gt;lblTrainTypeList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTrainTypeList.Parent" xml:space="preserve">
+    <value>tabTrainTypes</value>
+  </data>
+  <data name="&gt;&gt;lblTrainTypeList.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabTrainTypes.ImageIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabTrainTypes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="tabTrainTypes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 425</value>
+  </data>
+  <data name="tabTrainTypes.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabTrainTypes.Text" xml:space="preserve">
+    <value>Train Types</value>
+  </data>
+  <data name="&gt;&gt;tabTrainTypes.Name" xml:space="preserve">
+    <value>tabTrainTypes</value>
+  </data>
+  <data name="&gt;&gt;tabTrainTypes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabTrainTypes.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabTrainTypes.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="idTrains.Text" xml:space="preserve">
     <value>ID</value>
   </data>
@@ -2719,13 +2632,13 @@
     <value>0</value>
   </data>
   <data name="txtTrainID.Location" type="System.Drawing.Point, System.Drawing">
-    <value>85, 46</value>
+    <value>82, 46</value>
   </data>
   <data name="txtTrainID.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="txtTrainID.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 22</value>
+    <value>248, 22</value>
   </data>
   <data name="txtTrainID.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -2821,111 +2734,6 @@
     <value>tabTrains</value>
   </data>
   <data name="&gt;&gt;gbTrainsBoxes.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrain.Name" xml:space="preserve">
-    <value>btnAddTrain</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrain.Parent" xml:space="preserve">
-    <value>gbControlTrains</value>
-  </data>
-  <data name="&gt;&gt;btnAddTrain.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrain.Name" xml:space="preserve">
-    <value>btnUpdateTrain</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrain.Parent" xml:space="preserve">
-    <value>gbControlTrains</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateTrain.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrain.Name" xml:space="preserve">
-    <value>btnCleanTrain</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrain.Parent" xml:space="preserve">
-    <value>gbControlTrains</value>
-  </data>
-  <data name="&gt;&gt;btnCleanTrain.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrain.Name" xml:space="preserve">
-    <value>btnDeleteTrain</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrain.Parent" xml:space="preserve">
-    <value>gbControlTrains</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteTrain.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="gbControlTrains.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
-  </data>
-  <data name="gbControlTrains.Location" type="System.Drawing.Point, System.Drawing">
-    <value>339, 6</value>
-  </data>
-  <data name="gbControlTrains.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 152</value>
-  </data>
-  <data name="gbControlTrains.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="gbControlTrains.Text" xml:space="preserve">
-    <value>Control Panel</value>
-  </data>
-  <data name="&gt;&gt;gbControlTrains.Name" xml:space="preserve">
-    <value>gbControlTrains</value>
-  </data>
-  <data name="&gt;&gt;gbControlTrains.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbControlTrains.Parent" xml:space="preserve">
-    <value>tabTrains</value>
-  </data>
-  <data name="&gt;&gt;gbControlTrains.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabTrains.ImageKey" xml:space="preserve">
-    <value>trainTab.png</value>
-  </data>
-  <data name="tabTrains.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
-  </data>
-  <data name="tabTrains.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabTrains.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 425</value>
-  </data>
-  <data name="tabTrains.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabTrains.Text" xml:space="preserve">
-    <value>Trains</value>
-  </data>
-  <data name="&gt;&gt;tabTrains.Name" xml:space="preserve">
-    <value>tabTrains</value>
-  </data>
-  <data name="&gt;&gt;tabTrains.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabTrains.Parent" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;tabTrains.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="btnAddTrain.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
@@ -3059,6 +2867,63 @@
   </data>
   <data name="&gt;&gt;btnDeleteTrain.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="gbControlTrains.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gbControlTrains.Location" type="System.Drawing.Point, System.Drawing">
+    <value>339, 6</value>
+  </data>
+  <data name="gbControlTrains.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 152</value>
+  </data>
+  <data name="gbControlTrains.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="gbControlTrains.Text" xml:space="preserve">
+    <value>Control Panel</value>
+  </data>
+  <data name="&gt;&gt;gbControlTrains.Name" xml:space="preserve">
+    <value>gbControlTrains</value>
+  </data>
+  <data name="&gt;&gt;gbControlTrains.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbControlTrains.Parent" xml:space="preserve">
+    <value>tabTrains</value>
+  </data>
+  <data name="&gt;&gt;gbControlTrains.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabTrains.ImageKey" xml:space="preserve">
+    <value>trainTab.png</value>
+  </data>
+  <data name="tabTrains.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="tabTrains.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabTrains.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 425</value>
+  </data>
+  <data name="tabTrains.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabTrains.Text" xml:space="preserve">
+    <value>Trains</value>
+  </data>
+  <data name="&gt;&gt;tabTrains.Name" xml:space="preserve">
+    <value>tabTrains</value>
+  </data>
+  <data name="&gt;&gt;tabTrains.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabTrains.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabTrains.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="ID.Text" xml:space="preserve">
     <value>ID</value>
@@ -3204,135 +3069,6 @@
   <data name="&gt;&gt;gbProductsBoxes.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;btnAddProduct.Name" xml:space="preserve">
-    <value>btnAddProduct</value>
-  </data>
-  <data name="&gt;&gt;btnAddProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAddProduct.Parent" xml:space="preserve">
-    <value>gbControlProducts</value>
-  </data>
-  <data name="&gt;&gt;btnAddProduct.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnCleanProduct.Name" xml:space="preserve">
-    <value>btnCleanProduct</value>
-  </data>
-  <data name="&gt;&gt;btnCleanProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCleanProduct.Parent" xml:space="preserve">
-    <value>gbControlProducts</value>
-  </data>
-  <data name="&gt;&gt;btnCleanProduct.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteProduct.Name" xml:space="preserve">
-    <value>btnDeleteProduct</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteProduct.Parent" xml:space="preserve">
-    <value>gbControlProducts</value>
-  </data>
-  <data name="&gt;&gt;btnDeleteProduct.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateProduct.Name" xml:space="preserve">
-    <value>btnUpdateProduct</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateProduct.Parent" xml:space="preserve">
-    <value>gbControlProducts</value>
-  </data>
-  <data name="&gt;&gt;btnUpdateProduct.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="gbControlProducts.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
-  </data>
-  <data name="gbControlProducts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 6</value>
-  </data>
-  <data name="gbControlProducts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>338, 152</value>
-  </data>
-  <data name="gbControlProducts.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="gbControlProducts.Text" xml:space="preserve">
-    <value>Control Panel</value>
-  </data>
-  <data name="&gt;&gt;gbControlProducts.Name" xml:space="preserve">
-    <value>gbControlProducts</value>
-  </data>
-  <data name="&gt;&gt;gbControlProducts.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;gbControlProducts.Parent" xml:space="preserve">
-    <value>tabProduct</value>
-  </data>
-  <data name="&gt;&gt;gbControlProducts.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblProductList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblProductList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 24</value>
-  </data>
-  <data name="lblProductList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>153, 15</value>
-  </data>
-  <data name="lblProductList.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lblProductList.Text" xml:space="preserve">
-    <value>Product List</value>
-  </data>
-  <data name="&gt;&gt;lblProductList.Name" xml:space="preserve">
-    <value>lblProductList</value>
-  </data>
-  <data name="&gt;&gt;lblProductList.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblProductList.Parent" xml:space="preserve">
-    <value>tabProduct</value>
-  </data>
-  <data name="&gt;&gt;lblProductList.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="tabProduct.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
-  </data>
-  <data name="tabProduct.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabProduct.Size" type="System.Drawing.Size, System.Drawing">
-    <value>700, 425</value>
-  </data>
-  <data name="tabProduct.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="tabProduct.Text" xml:space="preserve">
-    <value>Products</value>
-  </data>
-  <data name="&gt;&gt;tabProduct.Name" xml:space="preserve">
-    <value>tabProduct</value>
-  </data>
-  <data name="&gt;&gt;tabProduct.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabProduct.Parent" xml:space="preserve">
-    <value>tabControl</value>
-  </data>
-  <data name="&gt;&gt;tabProduct.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="btnAddProduct.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -3464,6 +3200,90 @@
   </data>
   <data name="&gt;&gt;btnUpdateProduct.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="gbControlProducts.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Historic, 9.75pt, style=Bold</value>
+  </data>
+  <data name="gbControlProducts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 6</value>
+  </data>
+  <data name="gbControlProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>338, 152</value>
+  </data>
+  <data name="gbControlProducts.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="gbControlProducts.Text" xml:space="preserve">
+    <value>Control Panel</value>
+  </data>
+  <data name="&gt;&gt;gbControlProducts.Name" xml:space="preserve">
+    <value>gbControlProducts</value>
+  </data>
+  <data name="&gt;&gt;gbControlProducts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbControlProducts.Parent" xml:space="preserve">
+    <value>tabProduct</value>
+  </data>
+  <data name="&gt;&gt;gbControlProducts.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="lblProductList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblProductList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 24</value>
+  </data>
+  <data name="lblProductList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>153, 15</value>
+  </data>
+  <data name="lblProductList.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblProductList.Text" xml:space="preserve">
+    <value>Product List</value>
+  </data>
+  <data name="&gt;&gt;lblProductList.Name" xml:space="preserve">
+    <value>lblProductList</value>
+  </data>
+  <data name="&gt;&gt;lblProductList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblProductList.Parent" xml:space="preserve">
+    <value>tabProduct</value>
+  </data>
+  <data name="&gt;&gt;lblProductList.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabProduct.ImageIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabProduct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 26</value>
+  </data>
+  <data name="tabProduct.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabProduct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>700, 425</value>
+  </data>
+  <data name="tabProduct.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabProduct.Text" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="&gt;&gt;tabProduct.Name" xml:space="preserve">
+    <value>tabProduct</value>
+  </data>
+  <data name="&gt;&gt;tabProduct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabProduct.Parent" xml:space="preserve">
+    <value>tabControl</value>
+  </data>
+  <data name="&gt;&gt;tabProduct.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="tabControl.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Historic, 9.75pt, style=Bold</value>
@@ -3721,6 +3541,24 @@
     <value>productQuery1</value>
   </data>
   <data name="&gt;&gt;productQuery1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tripDate.Name" xml:space="preserve">
+    <value>tripDate</value>
+  </data>
+  <data name="&gt;&gt;tripDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;trainType.Name" xml:space="preserve">
+    <value>trainType</value>
+  </data>
+  <data name="&gt;&gt;trainType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;totalTrips.Name" xml:space="preserve">
+    <value>totalTrips</value>
+  </data>
+  <data name="&gt;&gt;totalTrips.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dateTrip.Name" xml:space="preserve">

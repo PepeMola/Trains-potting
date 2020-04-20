@@ -12,6 +12,7 @@
         col = DBBroker.GetBroker.Read("SELECT Trips.TripDate, Trips.Train, Products.ProductDescription FROM Products INNER JOIN Trips ON Products.ProductID = Trips.Product
                                        WHERE (((Trips.TripDate)>=#" & q.DateStart & "# And (Trips.TripDate)<=# " & q.DateEnd & "#) AND ((Trips.Train)='" & q.TrainID & "'));")
 
+        'Here we create the table format in which we store the info of the query
         solution.Columns.Add("Trip Date", GetType(String))
         solution.Columns.Add("Train", GetType(String))
         solution.Columns.Add("Product", GetType(String))
