@@ -217,13 +217,13 @@ Partial Class Main
         '
         'tabQuery1
         '
+        Me.tabQuery1.BackColor = System.Drawing.Color.RoyalBlue
         Me.tabQuery1.Controls.Add(Me.gbSolutionQuery1)
         Me.tabQuery1.Controls.Add(Me.gbLstViewQuery1)
         Me.tabQuery1.Controls.Add(Me.gbSlectionQuery1)
         Me.tabQuery1.Controls.Add(Me.btnExecuteQuery1)
         resources.ApplyResources(Me.tabQuery1, "tabQuery1")
         Me.tabQuery1.Name = "tabQuery1"
-        Me.tabQuery1.UseVisualStyleBackColor = True
         '
         'gbSolutionQuery1
         '
@@ -351,12 +351,12 @@ Partial Class Main
         '
         'tabTrips
         '
+        Me.tabTrips.BackColor = System.Drawing.Color.RoyalBlue
         Me.tabTrips.Controls.Add(Me.gbControlTrip)
         Me.tabTrips.Controls.Add(Me.gbSelectionTrip)
         Me.tabTrips.Controls.Add(Me.gbTripList)
         resources.ApplyResources(Me.tabTrips, "tabTrips")
         Me.tabTrips.Name = "tabTrips"
-        Me.tabTrips.UseVisualStyleBackColor = True
         '
         'gbControlTrip
         '
@@ -370,10 +370,11 @@ Partial Class Main
         '
         'btnAddTrip
         '
+        Me.btnAddTrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         resources.ApplyResources(Me.btnAddTrip, "btnAddTrip")
         Me.btnAddTrip.ImageList = Me.iconList
         Me.btnAddTrip.Name = "btnAddTrip"
-        Me.btnAddTrip.UseVisualStyleBackColor = True
+        Me.btnAddTrip.UseVisualStyleBackColor = False
         '
         'btnCleanTrip
         '
@@ -384,17 +385,19 @@ Partial Class Main
         '
         'btnDeleteTrip
         '
+        Me.btnDeleteTrip.BackColor = System.Drawing.Color.Firebrick
         resources.ApplyResources(Me.btnDeleteTrip, "btnDeleteTrip")
         Me.btnDeleteTrip.ImageList = Me.iconList
         Me.btnDeleteTrip.Name = "btnDeleteTrip"
-        Me.btnDeleteTrip.UseVisualStyleBackColor = True
+        Me.btnDeleteTrip.UseVisualStyleBackColor = False
         '
         'btnUpdateTrip
         '
+        Me.btnUpdateTrip.BackColor = System.Drawing.Color.Khaki
         resources.ApplyResources(Me.btnUpdateTrip, "btnUpdateTrip")
         Me.btnUpdateTrip.ImageList = Me.iconList
         Me.btnUpdateTrip.Name = "btnUpdateTrip"
-        Me.btnUpdateTrip.UseVisualStyleBackColor = True
+        Me.btnUpdateTrip.UseVisualStyleBackColor = False
         '
         'gbSelectionTrip
         '
@@ -412,6 +415,7 @@ Partial Class Main
         '
         'lstboxProductTrip
         '
+        Me.lstboxProductTrip.ForeColor = System.Drawing.Color.Black
         Me.lstboxProductTrip.FormattingEnabled = True
         resources.ApplyResources(Me.lstboxProductTrip, "lstboxProductTrip")
         Me.lstboxProductTrip.MultiColumn = True
@@ -420,6 +424,7 @@ Partial Class Main
         '
         'nudTonsTrip
         '
+        Me.nudTonsTrip.ForeColor = System.Drawing.Color.Black
         resources.ApplyResources(Me.nudTonsTrip, "nudTonsTrip")
         Me.nudTonsTrip.Name = "nudTonsTrip"
         '
@@ -427,6 +432,7 @@ Partial Class Main
         '
         Me.cboxTrainTrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.cboxTrainTrip, "cboxTrainTrip")
+        Me.cboxTrainTrip.ForeColor = System.Drawing.Color.Black
         Me.cboxTrainTrip.FormattingEnabled = True
         Me.cboxTrainTrip.Name = "cboxTrainTrip"
         '
@@ -466,6 +472,7 @@ Partial Class Main
         'lstViewTrip
         '
         Me.lstViewTrip.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.dateTrip, Me.trainTrip, Me.productTrip, Me.tonsTrip})
+        Me.lstViewTrip.ForeColor = System.Drawing.Color.Black
         Me.lstViewTrip.FullRowSelect = True
         Me.lstViewTrip.HideSelection = False
         resources.ApplyResources(Me.lstViewTrip, "lstViewTrip")
@@ -492,13 +499,13 @@ Partial Class Main
         '
         'tabPrices
         '
+        Me.tabPrices.BackColor = System.Drawing.Color.RoyalBlue
         Me.tabPrices.Controls.Add(Me.gbPriceList)
         Me.tabPrices.Controls.Add(Me.gbControlPrices)
         Me.tabPrices.Controls.Add(Me.gbPrices)
         Me.tabPrices.Controls.Add(Me.lblPricesList)
         resources.ApplyResources(Me.tabPrices, "tabPrices")
         Me.tabPrices.Name = "tabPrices"
-        Me.tabPrices.UseVisualStyleBackColor = True
         '
         'gbPriceList
         '
@@ -510,6 +517,7 @@ Partial Class Main
         'lstViewPrices
         '
         Me.lstViewPrices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ProductID, Me.ProductDescription, Me.PriceDate, Me.PricePerTon})
+        Me.lstViewPrices.ForeColor = System.Drawing.Color.Black
         Me.lstViewPrices.FullRowSelect = True
         Me.lstViewPrices.HideSelection = False
         resources.ApplyResources(Me.lstViewPrices, "lstViewPrices")
@@ -546,10 +554,11 @@ Partial Class Main
         '
         'btnAddPrices
         '
+        Me.btnAddPrices.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         resources.ApplyResources(Me.btnAddPrices, "btnAddPrices")
         Me.btnAddPrices.ImageList = Me.iconList
         Me.btnAddPrices.Name = "btnAddPrices"
-        Me.btnAddPrices.UseVisualStyleBackColor = True
+        Me.btnAddPrices.UseVisualStyleBackColor = False
         '
         'btnCleanPrices
         '
@@ -560,17 +569,19 @@ Partial Class Main
         '
         'btnDeletePrices
         '
+        Me.btnDeletePrices.BackColor = System.Drawing.Color.Firebrick
         resources.ApplyResources(Me.btnDeletePrices, "btnDeletePrices")
         Me.btnDeletePrices.ImageList = Me.iconList
         Me.btnDeletePrices.Name = "btnDeletePrices"
-        Me.btnDeletePrices.UseVisualStyleBackColor = True
+        Me.btnDeletePrices.UseVisualStyleBackColor = False
         '
         'btnUpdatePrices
         '
+        Me.btnUpdatePrices.BackColor = System.Drawing.Color.Khaki
         resources.ApplyResources(Me.btnUpdatePrices, "btnUpdatePrices")
         Me.btnUpdatePrices.ImageList = Me.iconList
         Me.btnUpdatePrices.Name = "btnUpdatePrices"
-        Me.btnUpdatePrices.UseVisualStyleBackColor = True
+        Me.btnUpdatePrices.UseVisualStyleBackColor = False
         '
         'gbPrices
         '
@@ -593,6 +604,7 @@ Partial Class Main
         'txtEurosPrices
         '
         resources.ApplyResources(Me.txtEurosPrices, "txtEurosPrices")
+        Me.txtEurosPrices.ForeColor = System.Drawing.Color.Black
         Me.txtEurosPrices.Name = "txtEurosPrices"
         '
         'lblProductPrices
@@ -619,6 +631,7 @@ Partial Class Main
         '
         Me.cboxProductPrices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.cboxProductPrices, "cboxProductPrices")
+        Me.cboxProductPrices.ForeColor = System.Drawing.Color.Black
         Me.cboxProductPrices.FormattingEnabled = True
         Me.cboxProductPrices.Name = "cboxProductPrices"
         '
@@ -629,13 +642,13 @@ Partial Class Main
         '
         'tabTrainTypes
         '
+        Me.tabTrainTypes.BackColor = System.Drawing.Color.RoyalBlue
         Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeList)
         Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeBoxes)
         Me.tabTrainTypes.Controls.Add(Me.gbControlTrainType)
         Me.tabTrainTypes.Controls.Add(Me.lblTrainTypeList)
         resources.ApplyResources(Me.tabTrainTypes, "tabTrainTypes")
         Me.tabTrainTypes.Name = "tabTrainTypes"
-        Me.tabTrainTypes.UseVisualStyleBackColor = True
         '
         'gbTrainTypeList
         '
@@ -648,6 +661,7 @@ Partial Class Main
         '
         Me.lstViewTrainTypes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idTrainTypes, Me.descriptionTrainTypes, Me.capacityTrainTypes})
         resources.ApplyResources(Me.lstViewTrainTypes, "lstViewTrainTypes")
+        Me.lstViewTrainTypes.ForeColor = System.Drawing.Color.Black
         Me.lstViewTrainTypes.FullRowSelect = True
         Me.lstViewTrainTypes.HideSelection = False
         Me.lstViewTrainTypes.MultiSelect = False
@@ -685,6 +699,7 @@ Partial Class Main
         '
         'nudMaxCapacity
         '
+        Me.nudMaxCapacity.ForeColor = System.Drawing.Color.Black
         resources.ApplyResources(Me.nudMaxCapacity, "nudMaxCapacity")
         Me.nudMaxCapacity.Name = "nudMaxCapacity"
         '
@@ -695,6 +710,7 @@ Partial Class Main
         '
         'txtTrainTypeDescription
         '
+        Me.txtTrainTypeDescription.ForeColor = System.Drawing.Color.Black
         resources.ApplyResources(Me.txtTrainTypeDescription, "txtTrainTypeDescription")
         Me.txtTrainTypeDescription.Name = "txtTrainTypeDescription"
         '
@@ -715,10 +731,11 @@ Partial Class Main
         '
         'btnAddTrainType
         '
+        Me.btnAddTrainType.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         resources.ApplyResources(Me.btnAddTrainType, "btnAddTrainType")
         Me.btnAddTrainType.ImageList = Me.iconList
         Me.btnAddTrainType.Name = "btnAddTrainType"
-        Me.btnAddTrainType.UseVisualStyleBackColor = True
+        Me.btnAddTrainType.UseVisualStyleBackColor = False
         '
         'btnCleanTrainType
         '
@@ -729,17 +746,19 @@ Partial Class Main
         '
         'btnUpdateTrainType
         '
+        Me.btnUpdateTrainType.BackColor = System.Drawing.Color.Khaki
         resources.ApplyResources(Me.btnUpdateTrainType, "btnUpdateTrainType")
         Me.btnUpdateTrainType.ImageList = Me.iconList
         Me.btnUpdateTrainType.Name = "btnUpdateTrainType"
-        Me.btnUpdateTrainType.UseVisualStyleBackColor = True
+        Me.btnUpdateTrainType.UseVisualStyleBackColor = False
         '
         'btnDeleteTrainType
         '
+        Me.btnDeleteTrainType.BackColor = System.Drawing.Color.Firebrick
         resources.ApplyResources(Me.btnDeleteTrainType, "btnDeleteTrainType")
         Me.btnDeleteTrainType.ImageList = Me.iconList
         Me.btnDeleteTrainType.Name = "btnDeleteTrainType"
-        Me.btnDeleteTrainType.UseVisualStyleBackColor = True
+        Me.btnDeleteTrainType.UseVisualStyleBackColor = False
         '
         'lblTrainTypeList
         '
@@ -748,12 +767,12 @@ Partial Class Main
         '
         'tabTrains
         '
+        Me.tabTrains.BackColor = System.Drawing.Color.RoyalBlue
         Me.tabTrains.Controls.Add(Me.gbTrainsList)
         Me.tabTrains.Controls.Add(Me.gbTrainsBoxes)
         Me.tabTrains.Controls.Add(Me.gbControlTrains)
         resources.ApplyResources(Me.tabTrains, "tabTrains")
         Me.tabTrains.Name = "tabTrains"
-        Me.tabTrains.UseVisualStyleBackColor = True
         '
         'gbTrainsList
         '
@@ -765,6 +784,7 @@ Partial Class Main
         'lstViewTrains
         '
         Me.lstViewTrains.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idTrains, Me.trainTypeTrains})
+        Me.lstViewTrains.ForeColor = System.Drawing.Color.Black
         Me.lstViewTrains.FullRowSelect = True
         Me.lstViewTrains.HideSelection = False
         resources.ApplyResources(Me.lstViewTrains, "lstViewTrains")
@@ -798,6 +818,7 @@ Partial Class Main
         '
         'txtTrainID
         '
+        Me.txtTrainID.ForeColor = System.Drawing.Color.Black
         resources.ApplyResources(Me.txtTrainID, "txtTrainID")
         Me.txtTrainID.Name = "txtTrainID"
         '
@@ -805,6 +826,7 @@ Partial Class Main
         '
         Me.cboxTrain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.cboxTrain, "cboxTrain")
+        Me.cboxTrain.ForeColor = System.Drawing.Color.Black
         Me.cboxTrain.FormattingEnabled = True
         Me.cboxTrain.Name = "cboxTrain"
         '
@@ -825,17 +847,19 @@ Partial Class Main
         '
         'btnAddTrain
         '
+        Me.btnAddTrain.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         resources.ApplyResources(Me.btnAddTrain, "btnAddTrain")
         Me.btnAddTrain.ImageList = Me.iconList
         Me.btnAddTrain.Name = "btnAddTrain"
-        Me.btnAddTrain.UseVisualStyleBackColor = True
+        Me.btnAddTrain.UseVisualStyleBackColor = False
         '
         'btnUpdateTrain
         '
+        Me.btnUpdateTrain.BackColor = System.Drawing.Color.Khaki
         resources.ApplyResources(Me.btnUpdateTrain, "btnUpdateTrain")
         Me.btnUpdateTrain.ImageList = Me.iconList
         Me.btnUpdateTrain.Name = "btnUpdateTrain"
-        Me.btnUpdateTrain.UseVisualStyleBackColor = True
+        Me.btnUpdateTrain.UseVisualStyleBackColor = False
         '
         'btnCleanTrain
         '
@@ -846,14 +870,15 @@ Partial Class Main
         '
         'btnDeleteTrain
         '
+        Me.btnDeleteTrain.BackColor = System.Drawing.Color.Firebrick
         resources.ApplyResources(Me.btnDeleteTrain, "btnDeleteTrain")
         Me.btnDeleteTrain.ImageList = Me.iconList
         Me.btnDeleteTrain.Name = "btnDeleteTrain"
-        Me.btnDeleteTrain.UseVisualStyleBackColor = True
+        Me.btnDeleteTrain.UseVisualStyleBackColor = False
         '
         'tabProduct
         '
-        Me.tabProduct.BackColor = System.Drawing.Color.Gray
+        Me.tabProduct.BackColor = System.Drawing.Color.RoyalBlue
         Me.tabProduct.Controls.Add(Me.gbProductsList)
         Me.tabProduct.Controls.Add(Me.gbProductsBoxes)
         Me.tabProduct.Controls.Add(Me.gbControlProducts)
@@ -870,9 +895,9 @@ Partial Class Main
         '
         'lstViewProducts
         '
-        Me.lstViewProducts.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.lstViewProducts.BackColor = System.Drawing.SystemColors.ButtonHighlight
         Me.lstViewProducts.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ID, Me.Description})
-        Me.lstViewProducts.ForeColor = System.Drawing.Color.White
+        Me.lstViewProducts.ForeColor = System.Drawing.Color.Black
         Me.lstViewProducts.FullRowSelect = True
         Me.lstViewProducts.HideSelection = False
         resources.ApplyResources(Me.lstViewProducts, "lstViewProducts")
@@ -899,8 +924,8 @@ Partial Class Main
         '
         'txtProductDescription
         '
-        Me.txtProductDescription.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.txtProductDescription.ForeColor = System.Drawing.Color.White
+        Me.txtProductDescription.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.txtProductDescription.ForeColor = System.Drawing.Color.Black
         resources.ApplyResources(Me.txtProductDescription, "txtProductDescription")
         Me.txtProductDescription.Name = "txtProductDescription"
         '
@@ -921,10 +946,11 @@ Partial Class Main
         '
         'btnAddProduct
         '
+        Me.btnAddProduct.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         resources.ApplyResources(Me.btnAddProduct, "btnAddProduct")
         Me.btnAddProduct.ImageList = Me.iconList
         Me.btnAddProduct.Name = "btnAddProduct"
-        Me.btnAddProduct.UseVisualStyleBackColor = True
+        Me.btnAddProduct.UseVisualStyleBackColor = False
         '
         'btnCleanProduct
         '
@@ -935,17 +961,19 @@ Partial Class Main
         '
         'btnDeleteProduct
         '
+        Me.btnDeleteProduct.BackColor = System.Drawing.Color.Firebrick
         resources.ApplyResources(Me.btnDeleteProduct, "btnDeleteProduct")
         Me.btnDeleteProduct.ImageList = Me.iconList
         Me.btnDeleteProduct.Name = "btnDeleteProduct"
-        Me.btnDeleteProduct.UseVisualStyleBackColor = True
+        Me.btnDeleteProduct.UseVisualStyleBackColor = False
         '
         'btnUpdateProduct
         '
+        Me.btnUpdateProduct.BackColor = System.Drawing.Color.Khaki
         resources.ApplyResources(Me.btnUpdateProduct, "btnUpdateProduct")
         Me.btnUpdateProduct.ImageList = Me.iconList
         Me.btnUpdateProduct.Name = "btnUpdateProduct"
-        Me.btnUpdateProduct.UseVisualStyleBackColor = True
+        Me.btnUpdateProduct.UseVisualStyleBackColor = False
         '
         'lblProductList
         '
@@ -978,9 +1006,9 @@ Partial Class Main
         '
         'txtPath
         '
-        Me.txtPath.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.txtPath.BackColor = System.Drawing.SystemColors.ButtonHighlight
         resources.ApplyResources(Me.txtPath, "txtPath")
-        Me.txtPath.ForeColor = System.Drawing.Color.White
+        Me.txtPath.ForeColor = System.Drawing.Color.Black
         Me.txtPath.Name = "txtPath"
         '
         'btnConnect
@@ -1011,7 +1039,7 @@ Partial Class Main
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.CornflowerBlue
         Me.Controls.Add(Me.gbDatabase)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.tabControl)
