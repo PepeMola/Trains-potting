@@ -1149,4 +1149,16 @@
             Exit Sub
         End If
     End Sub
+
+    Private Sub lstViewQuery1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstViewQuery1.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub gbDatabase_Enter(sender As Object, e As EventArgs) Handles gbDatabase.Enter
+
+    End Sub
+
+    Private Sub lstViewProducts_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lstViewProducts.SelectedIndexChanged
+
+    End Sub
 End Class
