@@ -290,7 +290,6 @@
     End Sub
     Private Sub checkRepetedElements(aux)
         Dim price As Prices = New Prices
-        Dim itemPrices As ListViewItem
         Dim pro As Product
 
         Try
@@ -335,7 +334,7 @@
                 Exit Sub
             End Try
             'Metodo que devuelva algun numero para parar ejecucion
-            checkRepetedElements(pri)
+            'checkRepetedElements(pri)
             Try
                 If pri.InsertPrice() <> 1 Then
                     MessageBox.Show("Error inserting price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1131,5 +1130,9 @@
                 Exit Sub
             End Try
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
     End Sub
 End Class
