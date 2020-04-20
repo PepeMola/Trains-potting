@@ -144,23 +144,6 @@ Partial Class Main
         Me.btnExit = New System.Windows.Forms.Button()
         Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.tabControl.SuspendLayout()
         Me.tabProduct.SuspendLayout()
         Me.gbProductsList.SuspendLayout()
@@ -190,11 +173,7 @@ Partial Class Main
         Me.gbSolutionQuery1.SuspendLayout()
         Me.gbLstViewQuery1.SuspendLayout()
         Me.gbSlectionQuery1.SuspendLayout()
-        Me.tabQuery2.SuspendLayout()
         Me.gbDatabase.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnSelect
@@ -975,10 +954,6 @@ Partial Class Main
         '
         'tabQuery2
         '
-        Me.tabQuery2.Controls.Add(Me.Button1)
-        Me.tabQuery2.Controls.Add(Me.GroupBox3)
-        Me.tabQuery2.Controls.Add(Me.GroupBox2)
-        Me.tabQuery2.Controls.Add(Me.GroupBox1)
         resources.ApplyResources(Me.tabQuery2, "tabQuery2")
         Me.tabQuery2.Name = "tabQuery2"
         Me.tabQuery2.UseVisualStyleBackColor = True
@@ -1022,111 +997,6 @@ Partial Class Main
         resources.ApplyResources(Me.gbDatabase, "gbDatabase")
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.DateTimePicker2)
-        Me.GroupBox1.Controls.Add(Me.ComboBox1)
-        resources.ApplyResources(Me.GroupBox1, "GroupBox1")
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.TabStop = False
-        '
-        'DateTimePicker1
-        '
-        resources.ApplyResources(Me.DateTimePicker1, "DateTimePicker1")
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        '
-        'Label1
-        '
-        resources.ApplyResources(Me.Label1, "Label1")
-        Me.Label1.Name = "Label1"
-        '
-        'Label2
-        '
-        resources.ApplyResources(Me.Label2, "Label2")
-        Me.Label2.Name = "Label2"
-        '
-        'Label3
-        '
-        resources.ApplyResources(Me.Label3, "Label3")
-        Me.Label3.Name = "Label3"
-        '
-        'DateTimePicker2
-        '
-        resources.ApplyResources(Me.DateTimePicker2, "DateTimePicker2")
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        '
-        'ComboBox1
-        '
-        resources.ApplyResources(Me.ComboBox1, "ComboBox1")
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Name = "ComboBox1"
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.ListView1)
-        resources.ApplyResources(Me.GroupBox2, "GroupBox2")
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.TabStop = False
-        '
-        'ListView1
-        '
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3})
-        resources.ApplyResources(Me.ListView1, "ListView1")
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.HideSelection = False
-        Me.ListView1.MultiSelect = False
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Details
-        '
-        'ColumnHeader1
-        '
-        resources.ApplyResources(Me.ColumnHeader1, "ColumnHeader1")
-        '
-        'ColumnHeader2
-        '
-        resources.ApplyResources(Me.ColumnHeader2, "ColumnHeader2")
-        '
-        'ColumnHeader3
-        '
-        resources.ApplyResources(Me.ColumnHeader3, "ColumnHeader3")
-        '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.Label4)
-        Me.GroupBox3.Controls.Add(Me.TextBox1)
-        Me.GroupBox3.Controls.Add(Me.Label5)
-        resources.ApplyResources(Me.GroupBox3, "GroupBox3")
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.TabStop = False
-        '
-        'Label4
-        '
-        resources.ApplyResources(Me.Label4, "Label4")
-        Me.Label4.Name = "Label4"
-        '
-        'TextBox1
-        '
-        resources.ApplyResources(Me.TextBox1, "TextBox1")
-        Me.TextBox1.Name = "TextBox1"
-        '
-        'Label5
-        '
-        resources.ApplyResources(Me.Label5, "Label5")
-        Me.Label5.Name = "Label5"
-        '
-        'Button1
-        '
-        resources.ApplyResources(Me.Button1, "Button1")
-        Me.Button1.Name = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'Main
         '
@@ -1172,14 +1042,8 @@ Partial Class Main
         Me.gbLstViewQuery1.ResumeLayout(False)
         Me.gbSlectionQuery1.ResumeLayout(False)
         Me.gbSlectionQuery1.PerformLayout()
-        Me.tabQuery2.ResumeLayout(False)
         Me.gbDatabase.ResumeLayout(False)
         Me.gbDatabase.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1304,21 +1168,4 @@ Partial Class Main
     Friend WithEvents lblTripsSolution As Label
     Friend WithEvents txtNumberTripsQuery1 As TextBox
     Friend WithEvents lblNumberTripsQuery1 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents ListView1 As ListView
-    Friend WithEvents ColumnHeader1 As ColumnHeader
-    Friend WithEvents ColumnHeader2 As ColumnHeader
-    Friend WithEvents ColumnHeader3 As ColumnHeader
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents DateTimePicker2 As DateTimePicker
-    Friend WithEvents ComboBox1 As ComboBox
 End Class
