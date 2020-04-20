@@ -24,164 +24,157 @@ Partial Class Main
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Main))
-        Me.btnSelect = New System.Windows.Forms.Button()
         Me.iconList = New System.Windows.Forms.ImageList(Me.components)
-        Me.btnConnect = New System.Windows.Forms.Button()
-        Me.tabControl = New System.Windows.Forms.TabControl()
-        Me.tabProduct = New System.Windows.Forms.TabPage()
-        Me.gbProductsList = New System.Windows.Forms.GroupBox()
-        Me.lstViewProducts = New System.Windows.Forms.ListView()
-        Me.ID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.Description = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.gbProductsBoxes = New System.Windows.Forms.GroupBox()
-        Me.txtProductDescription = New System.Windows.Forms.TextBox()
-        Me.lblProductDescription = New System.Windows.Forms.Label()
-        Me.gbControlProducts = New System.Windows.Forms.GroupBox()
-        Me.btnAddProduct = New System.Windows.Forms.Button()
-        Me.btnCleanProduct = New System.Windows.Forms.Button()
-        Me.btnDeleteProduct = New System.Windows.Forms.Button()
-        Me.btnUpdateProduct = New System.Windows.Forms.Button()
-        Me.lblProductList = New System.Windows.Forms.Label()
-        Me.tabTrains = New System.Windows.Forms.TabPage()
-        Me.gbTrainsList = New System.Windows.Forms.GroupBox()
-        Me.lstViewTrains = New System.Windows.Forms.ListView()
-        Me.idTrains = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.trainTypeTrains = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.gbTrainsBoxes = New System.Windows.Forms.GroupBox()
-        Me.lblTrainDescription = New System.Windows.Forms.Label()
-        Me.txtTrainID = New System.Windows.Forms.TextBox()
-        Me.cboxTrain = New System.Windows.Forms.ComboBox()
-        Me.lblTypeTrain = New System.Windows.Forms.Label()
-        Me.gbControlTrains = New System.Windows.Forms.GroupBox()
-        Me.btnAddTrain = New System.Windows.Forms.Button()
-        Me.btnUpdateTrain = New System.Windows.Forms.Button()
-        Me.btnCleanTrain = New System.Windows.Forms.Button()
-        Me.btnDeleteTrain = New System.Windows.Forms.Button()
-        Me.tabTrainTypes = New System.Windows.Forms.TabPage()
-        Me.gbTrainTypeList = New System.Windows.Forms.GroupBox()
-        Me.lstViewTrainTypes = New System.Windows.Forms.ListView()
-        Me.idTrainTypes = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.descriptionTrainTypes = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.capacityTrainTypes = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.gbTrainTypeBoxes = New System.Windows.Forms.GroupBox()
-        Me.lblTonsTrainType = New System.Windows.Forms.Label()
-        Me.nudMaxCapacity = New System.Windows.Forms.NumericUpDown()
-        Me.lblTrainType = New System.Windows.Forms.Label()
-        Me.txtTrainTypeDescription = New System.Windows.Forms.TextBox()
-        Me.lblCapacity = New System.Windows.Forms.Label()
-        Me.gbControlTrainType = New System.Windows.Forms.GroupBox()
-        Me.btnAddTrainType = New System.Windows.Forms.Button()
-        Me.btnCleanTrainType = New System.Windows.Forms.Button()
-        Me.btnUpdateTrainType = New System.Windows.Forms.Button()
-        Me.btnDeleteTrainType = New System.Windows.Forms.Button()
-        Me.lblTrainTypeList = New System.Windows.Forms.Label()
-        Me.tabPrices = New System.Windows.Forms.TabPage()
-        Me.gbPriceList = New System.Windows.Forms.GroupBox()
-        Me.lstViewPrices = New System.Windows.Forms.ListView()
-        Me.ProductID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.ProductDescription = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PriceDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PricePerTon = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.gbControlPrices = New System.Windows.Forms.GroupBox()
-        Me.btnAddPrices = New System.Windows.Forms.Button()
-        Me.btnCleanPrices = New System.Windows.Forms.Button()
-        Me.btnDeletePrices = New System.Windows.Forms.Button()
-        Me.btnUpdatePrices = New System.Windows.Forms.Button()
-        Me.gbPrices = New System.Windows.Forms.GroupBox()
-        Me.lblEuroSymbol = New System.Windows.Forms.Label()
-        Me.txtEurosPrices = New System.Windows.Forms.TextBox()
-        Me.lblProductPrices = New System.Windows.Forms.Label()
-        Me.lblDate = New System.Windows.Forms.Label()
-        Me.lblPrice = New System.Windows.Forms.Label()
-        Me.dtpDatePrices = New System.Windows.Forms.DateTimePicker()
-        Me.cboxProductPrices = New System.Windows.Forms.ComboBox()
-        Me.lblPricesList = New System.Windows.Forms.Label()
+        Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
+        Me.tabQuery = New System.Windows.Forms.TabPage()
+        Me.tbpQuerie = New System.Windows.Forms.TabControl()
+        Me.tabQuery4 = New System.Windows.Forms.TabPage()
+        Me.tabQuery3 = New System.Windows.Forms.TabPage()
+        Me.tabQuery2 = New System.Windows.Forms.TabPage()
+        Me.tabQuery1 = New System.Windows.Forms.TabPage()
+        Me.btnExecuteQuery1 = New System.Windows.Forms.Button()
+        Me.gbSlectionQuery1 = New System.Windows.Forms.GroupBox()
+        Me.cboxTrainIdQuery1 = New System.Windows.Forms.ComboBox()
+        Me.dtpDateStartQuery1 = New System.Windows.Forms.DateTimePicker()
+        Me.lblTrainIdQuery = New System.Windows.Forms.Label()
+        Me.lblDateEnd = New System.Windows.Forms.Label()
+        Me.lblDateStartQuery = New System.Windows.Forms.Label()
+        Me.dtpDateEndQuery1 = New System.Windows.Forms.DateTimePicker()
+        Me.gbLstViewQuery1 = New System.Windows.Forms.GroupBox()
+        Me.lstViewQuery1 = New System.Windows.Forms.ListView()
+        Me.tripDateQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.trainQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.productQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.gbSolutionQuery1 = New System.Windows.Forms.GroupBox()
+        Me.lblNumberTripsQuery1 = New System.Windows.Forms.Label()
+        Me.txtNumberTripsQuery1 = New System.Windows.Forms.TextBox()
+        Me.lblTripsSolution = New System.Windows.Forms.Label()
         Me.tabTrips = New System.Windows.Forms.TabPage()
-        Me.gbControlTrip = New System.Windows.Forms.GroupBox()
-        Me.btnAddTrip = New System.Windows.Forms.Button()
-        Me.btnCleanTrip = New System.Windows.Forms.Button()
-        Me.btnDeleteTrip = New System.Windows.Forms.Button()
-        Me.btnUpdateTrip = New System.Windows.Forms.Button()
-        Me.gbSelectionTrip = New System.Windows.Forms.GroupBox()
-        Me.lstboxProductTrip = New System.Windows.Forms.ListBox()
-        Me.nudTonsTrip = New System.Windows.Forms.NumericUpDown()
-        Me.cboxTrainTrip = New System.Windows.Forms.ComboBox()
-        Me.lblTonsTrip = New System.Windows.Forms.Label()
-        Me.lblTrainTrip = New System.Windows.Forms.Label()
-        Me.lblProductTrip = New System.Windows.Forms.Label()
-        Me.lblDateTrip = New System.Windows.Forms.Label()
-        Me.dtpTrip = New System.Windows.Forms.DateTimePicker()
         Me.gbTripList = New System.Windows.Forms.GroupBox()
         Me.lstViewTrip = New System.Windows.Forms.ListView()
         Me.dateTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.trainTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.productTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tonsTrip = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.tabQuery = New System.Windows.Forms.TabPage()
-        Me.tbpQuerie = New System.Windows.Forms.TabControl()
-        Me.tabQuery1 = New System.Windows.Forms.TabPage()
-        Me.gbSolutionQuery1 = New System.Windows.Forms.GroupBox()
-        Me.lblTripsSolution = New System.Windows.Forms.Label()
-        Me.txtNumberTripsQuery1 = New System.Windows.Forms.TextBox()
-        Me.lblNumberTripsQuery1 = New System.Windows.Forms.Label()
-        Me.gbLstViewQuery1 = New System.Windows.Forms.GroupBox()
-        Me.lstViewQuery1 = New System.Windows.Forms.ListView()
-        Me.tripDateQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.trainQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.productQuery1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.gbSlectionQuery1 = New System.Windows.Forms.GroupBox()
-        Me.dtpDateEndQuery1 = New System.Windows.Forms.DateTimePicker()
-        Me.lblDateStartQuery = New System.Windows.Forms.Label()
-        Me.lblDateEnd = New System.Windows.Forms.Label()
-        Me.lblTrainIdQuery = New System.Windows.Forms.Label()
-        Me.dtpDateStartQuery1 = New System.Windows.Forms.DateTimePicker()
-        Me.cboxTrainIdQuery1 = New System.Windows.Forms.ComboBox()
-        Me.btnExecuteQuery1 = New System.Windows.Forms.Button()
-        Me.tabQuery2 = New System.Windows.Forms.TabPage()
-        Me.tabQuery3 = New System.Windows.Forms.TabPage()
-        Me.tabQuery4 = New System.Windows.Forms.TabPage()
-        Me.txtPath = New System.Windows.Forms.TextBox()
+        Me.gbSelectionTrip = New System.Windows.Forms.GroupBox()
+        Me.dtpTrip = New System.Windows.Forms.DateTimePicker()
+        Me.lblDateTrip = New System.Windows.Forms.Label()
+        Me.lblProductTrip = New System.Windows.Forms.Label()
+        Me.lblTrainTrip = New System.Windows.Forms.Label()
+        Me.lblTonsTrip = New System.Windows.Forms.Label()
+        Me.cboxTrainTrip = New System.Windows.Forms.ComboBox()
+        Me.nudTonsTrip = New System.Windows.Forms.NumericUpDown()
+        Me.lstboxProductTrip = New System.Windows.Forms.ListBox()
+        Me.gbControlTrip = New System.Windows.Forms.GroupBox()
+        Me.btnUpdateTrip = New System.Windows.Forms.Button()
+        Me.btnDeleteTrip = New System.Windows.Forms.Button()
+        Me.btnCleanTrip = New System.Windows.Forms.Button()
+        Me.btnAddTrip = New System.Windows.Forms.Button()
+        Me.tabPrices = New System.Windows.Forms.TabPage()
+        Me.lblPricesList = New System.Windows.Forms.Label()
+        Me.gbPrices = New System.Windows.Forms.GroupBox()
+        Me.cboxProductPrices = New System.Windows.Forms.ComboBox()
+        Me.dtpDatePrices = New System.Windows.Forms.DateTimePicker()
+        Me.lblPrice = New System.Windows.Forms.Label()
+        Me.lblDate = New System.Windows.Forms.Label()
+        Me.lblProductPrices = New System.Windows.Forms.Label()
+        Me.txtEurosPrices = New System.Windows.Forms.TextBox()
+        Me.lblEuroSymbol = New System.Windows.Forms.Label()
+        Me.gbControlPrices = New System.Windows.Forms.GroupBox()
+        Me.btnUpdatePrices = New System.Windows.Forms.Button()
+        Me.btnDeletePrices = New System.Windows.Forms.Button()
+        Me.btnCleanPrices = New System.Windows.Forms.Button()
+        Me.btnAddPrices = New System.Windows.Forms.Button()
+        Me.gbPriceList = New System.Windows.Forms.GroupBox()
+        Me.lstViewPrices = New System.Windows.Forms.ListView()
+        Me.ProductID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ProductDescription = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PriceDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.PricePerTon = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.tabTrainTypes = New System.Windows.Forms.TabPage()
+        Me.lblTrainTypeList = New System.Windows.Forms.Label()
+        Me.gbControlTrainType = New System.Windows.Forms.GroupBox()
+        Me.btnDeleteTrainType = New System.Windows.Forms.Button()
+        Me.btnUpdateTrainType = New System.Windows.Forms.Button()
+        Me.btnCleanTrainType = New System.Windows.Forms.Button()
+        Me.btnAddTrainType = New System.Windows.Forms.Button()
+        Me.gbTrainTypeBoxes = New System.Windows.Forms.GroupBox()
+        Me.lblCapacity = New System.Windows.Forms.Label()
+        Me.txtTrainTypeDescription = New System.Windows.Forms.TextBox()
+        Me.lblTrainType = New System.Windows.Forms.Label()
+        Me.nudMaxCapacity = New System.Windows.Forms.NumericUpDown()
+        Me.lblTonsTrainType = New System.Windows.Forms.Label()
+        Me.gbTrainTypeList = New System.Windows.Forms.GroupBox()
+        Me.lstViewTrainTypes = New System.Windows.Forms.ListView()
+        Me.idTrainTypes = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.descriptionTrainTypes = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.capacityTrainTypes = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.tabTrains = New System.Windows.Forms.TabPage()
+        Me.gbControlTrains = New System.Windows.Forms.GroupBox()
+        Me.btnDeleteTrain = New System.Windows.Forms.Button()
+        Me.btnCleanTrain = New System.Windows.Forms.Button()
+        Me.btnUpdateTrain = New System.Windows.Forms.Button()
+        Me.btnAddTrain = New System.Windows.Forms.Button()
+        Me.gbTrainsBoxes = New System.Windows.Forms.GroupBox()
+        Me.lblTypeTrain = New System.Windows.Forms.Label()
+        Me.cboxTrain = New System.Windows.Forms.ComboBox()
+        Me.txtTrainID = New System.Windows.Forms.TextBox()
+        Me.lblTrainDescription = New System.Windows.Forms.Label()
+        Me.gbTrainsList = New System.Windows.Forms.GroupBox()
+        Me.lstViewTrains = New System.Windows.Forms.ListView()
+        Me.idTrains = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.trainTypeTrains = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.tabProduct = New System.Windows.Forms.TabPage()
+        Me.lblProductList = New System.Windows.Forms.Label()
+        Me.gbControlProducts = New System.Windows.Forms.GroupBox()
+        Me.btnUpdateProduct = New System.Windows.Forms.Button()
+        Me.btnDeleteProduct = New System.Windows.Forms.Button()
+        Me.btnCleanProduct = New System.Windows.Forms.Button()
+        Me.btnAddProduct = New System.Windows.Forms.Button()
+        Me.gbProductsBoxes = New System.Windows.Forms.GroupBox()
+        Me.lblProductDescription = New System.Windows.Forms.Label()
+        Me.txtProductDescription = New System.Windows.Forms.TextBox()
+        Me.gbProductsList = New System.Windows.Forms.GroupBox()
+        Me.lstViewProducts = New System.Windows.Forms.ListView()
+        Me.ID = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Description = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.tabControl = New System.Windows.Forms.TabControl()
         Me.btnExit = New System.Windows.Forms.Button()
-        Me.OfdPath = New System.Windows.Forms.OpenFileDialog()
+        Me.txtPath = New System.Windows.Forms.TextBox()
+        Me.btnConnect = New System.Windows.Forms.Button()
+        Me.btnSelect = New System.Windows.Forms.Button()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
-        Me.tabControl.SuspendLayout()
-        Me.tabProduct.SuspendLayout()
-        Me.gbProductsList.SuspendLayout()
-        Me.gbProductsBoxes.SuspendLayout()
-        Me.gbControlProducts.SuspendLayout()
-        Me.tabTrains.SuspendLayout()
-        Me.gbTrainsList.SuspendLayout()
-        Me.gbTrainsBoxes.SuspendLayout()
-        Me.gbControlTrains.SuspendLayout()
-        Me.tabTrainTypes.SuspendLayout()
-        Me.gbTrainTypeList.SuspendLayout()
-        Me.gbTrainTypeBoxes.SuspendLayout()
-        CType(Me.nudMaxCapacity, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbControlTrainType.SuspendLayout()
-        Me.tabPrices.SuspendLayout()
-        Me.gbPriceList.SuspendLayout()
-        Me.gbControlPrices.SuspendLayout()
-        Me.gbPrices.SuspendLayout()
-        Me.tabTrips.SuspendLayout()
-        Me.gbControlTrip.SuspendLayout()
-        Me.gbSelectionTrip.SuspendLayout()
-        CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.gbTripList.SuspendLayout()
         Me.tabQuery.SuspendLayout()
         Me.tbpQuerie.SuspendLayout()
         Me.tabQuery1.SuspendLayout()
-        Me.gbSolutionQuery1.SuspendLayout()
-        Me.gbLstViewQuery1.SuspendLayout()
         Me.gbSlectionQuery1.SuspendLayout()
+        Me.gbLstViewQuery1.SuspendLayout()
+        Me.gbSolutionQuery1.SuspendLayout()
+        Me.tabTrips.SuspendLayout()
+        Me.gbTripList.SuspendLayout()
+        Me.gbSelectionTrip.SuspendLayout()
+        CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbControlTrip.SuspendLayout()
+        Me.tabPrices.SuspendLayout()
+        Me.gbPrices.SuspendLayout()
+        Me.gbControlPrices.SuspendLayout()
+        Me.gbPriceList.SuspendLayout()
+        Me.tabTrainTypes.SuspendLayout()
+        Me.gbControlTrainType.SuspendLayout()
+        Me.gbTrainTypeBoxes.SuspendLayout()
+        CType(Me.nudMaxCapacity, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.gbTrainTypeList.SuspendLayout()
+        Me.tabTrains.SuspendLayout()
+        Me.gbControlTrains.SuspendLayout()
+        Me.gbTrainsBoxes.SuspendLayout()
+        Me.gbTrainsList.SuspendLayout()
+        Me.tabProduct.SuspendLayout()
+        Me.gbControlProducts.SuspendLayout()
+        Me.gbProductsBoxes.SuspendLayout()
+        Me.gbProductsList.SuspendLayout()
+        Me.tabControl.SuspendLayout()
         Me.gbDatabase.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnSelect
-        '
-        resources.ApplyResources(Me.btnSelect, "btnSelect")
-        Me.btnSelect.ImageList = Me.iconList
-        Me.btnSelect.Name = "btnSelect"
-        Me.btnSelect.UseVisualStyleBackColor = True
         '
         'iconList
         '
@@ -200,483 +193,161 @@ Partial Class Main
         Me.iconList.Images.SetKeyName(10, "selectButton.png")
         Me.iconList.Images.SetKeyName(11, "dbIcon.png")
         '
-        'btnConnect
+        'OfdPath
         '
-        resources.ApplyResources(Me.btnConnect, "btnConnect")
-        Me.btnConnect.ImageList = Me.iconList
-        Me.btnConnect.Name = "btnConnect"
-        Me.btnConnect.UseVisualStyleBackColor = True
+        Me.OfdPath.FileName = "OfdPath"
         '
-        'tabControl
+        'tabQuery
         '
-        Me.tabControl.Controls.Add(Me.tabProduct)
-        Me.tabControl.Controls.Add(Me.tabTrains)
-        Me.tabControl.Controls.Add(Me.tabTrainTypes)
-        Me.tabControl.Controls.Add(Me.tabPrices)
-        Me.tabControl.Controls.Add(Me.tabTrips)
-        Me.tabControl.Controls.Add(Me.tabQuery)
-        resources.ApplyResources(Me.tabControl, "tabControl")
-        Me.tabControl.ImageList = Me.iconList
-        Me.tabControl.Name = "tabControl"
-        Me.tabControl.SelectedIndex = 0
+        Me.tabQuery.Controls.Add(Me.tbpQuerie)
+        resources.ApplyResources(Me.tabQuery, "tabQuery")
+        Me.tabQuery.Name = "tabQuery"
+        Me.tabQuery.UseVisualStyleBackColor = True
         '
-        'tabProduct
+        'tbpQuerie
         '
-        Me.tabProduct.Controls.Add(Me.gbProductsList)
-        Me.tabProduct.Controls.Add(Me.gbProductsBoxes)
-        Me.tabProduct.Controls.Add(Me.gbControlProducts)
-        Me.tabProduct.Controls.Add(Me.lblProductList)
-        resources.ApplyResources(Me.tabProduct, "tabProduct")
-        Me.tabProduct.Name = "tabProduct"
-        Me.tabProduct.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.tbpQuerie, "tbpQuerie")
+        Me.tbpQuerie.Controls.Add(Me.tabQuery1)
+        Me.tbpQuerie.Controls.Add(Me.tabQuery2)
+        Me.tbpQuerie.Controls.Add(Me.tabQuery3)
+        Me.tbpQuerie.Controls.Add(Me.tabQuery4)
+        Me.tbpQuerie.Multiline = True
+        Me.tbpQuerie.Name = "tbpQuerie"
+        Me.tbpQuerie.SelectedIndex = 0
         '
-        'gbProductsList
+        'tabQuery4
         '
-        Me.gbProductsList.Controls.Add(Me.lstViewProducts)
-        resources.ApplyResources(Me.gbProductsList, "gbProductsList")
-        Me.gbProductsList.Name = "gbProductsList"
-        Me.gbProductsList.TabStop = False
+        resources.ApplyResources(Me.tabQuery4, "tabQuery4")
+        Me.tabQuery4.Name = "tabQuery4"
+        Me.tabQuery4.UseVisualStyleBackColor = True
         '
-        'lstViewProducts
+        'tabQuery3
         '
-        Me.lstViewProducts.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ID, Me.Description})
-        Me.lstViewProducts.FullRowSelect = True
-        Me.lstViewProducts.HideSelection = False
-        resources.ApplyResources(Me.lstViewProducts, "lstViewProducts")
-        Me.lstViewProducts.MultiSelect = False
-        Me.lstViewProducts.Name = "lstViewProducts"
-        Me.lstViewProducts.UseCompatibleStateImageBehavior = False
-        Me.lstViewProducts.View = System.Windows.Forms.View.Details
+        resources.ApplyResources(Me.tabQuery3, "tabQuery3")
+        Me.tabQuery3.Name = "tabQuery3"
+        Me.tabQuery3.UseVisualStyleBackColor = True
         '
-        'ID
+        'tabQuery2
         '
-        resources.ApplyResources(Me.ID, "ID")
+        resources.ApplyResources(Me.tabQuery2, "tabQuery2")
+        Me.tabQuery2.Name = "tabQuery2"
+        Me.tabQuery2.UseVisualStyleBackColor = True
         '
-        'Description
+        'tabQuery1
         '
-        resources.ApplyResources(Me.Description, "Description")
+        Me.tabQuery1.Controls.Add(Me.gbSolutionQuery1)
+        Me.tabQuery1.Controls.Add(Me.gbLstViewQuery1)
+        Me.tabQuery1.Controls.Add(Me.gbSlectionQuery1)
+        Me.tabQuery1.Controls.Add(Me.btnExecuteQuery1)
+        resources.ApplyResources(Me.tabQuery1, "tabQuery1")
+        Me.tabQuery1.Name = "tabQuery1"
+        Me.tabQuery1.UseVisualStyleBackColor = True
         '
-        'gbProductsBoxes
+        'btnExecuteQuery1
         '
-        Me.gbProductsBoxes.Controls.Add(Me.txtProductDescription)
-        Me.gbProductsBoxes.Controls.Add(Me.lblProductDescription)
-        resources.ApplyResources(Me.gbProductsBoxes, "gbProductsBoxes")
-        Me.gbProductsBoxes.Name = "gbProductsBoxes"
-        Me.gbProductsBoxes.TabStop = False
+        resources.ApplyResources(Me.btnExecuteQuery1, "btnExecuteQuery1")
+        Me.btnExecuteQuery1.Name = "btnExecuteQuery1"
+        Me.btnExecuteQuery1.UseVisualStyleBackColor = True
         '
-        'txtProductDescription
+        'gbSlectionQuery1
         '
-        resources.ApplyResources(Me.txtProductDescription, "txtProductDescription")
-        Me.txtProductDescription.Name = "txtProductDescription"
+        Me.gbSlectionQuery1.Controls.Add(Me.dtpDateEndQuery1)
+        Me.gbSlectionQuery1.Controls.Add(Me.lblDateStartQuery)
+        Me.gbSlectionQuery1.Controls.Add(Me.lblDateEnd)
+        Me.gbSlectionQuery1.Controls.Add(Me.lblTrainIdQuery)
+        Me.gbSlectionQuery1.Controls.Add(Me.dtpDateStartQuery1)
+        Me.gbSlectionQuery1.Controls.Add(Me.cboxTrainIdQuery1)
+        resources.ApplyResources(Me.gbSlectionQuery1, "gbSlectionQuery1")
+        Me.gbSlectionQuery1.Name = "gbSlectionQuery1"
+        Me.gbSlectionQuery1.TabStop = False
         '
-        'lblProductDescription
+        'cboxTrainIdQuery1
         '
-        resources.ApplyResources(Me.lblProductDescription, "lblProductDescription")
-        Me.lblProductDescription.Name = "lblProductDescription"
+        Me.cboxTrainIdQuery1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cboxTrainIdQuery1, "cboxTrainIdQuery1")
+        Me.cboxTrainIdQuery1.FormattingEnabled = True
+        Me.cboxTrainIdQuery1.Name = "cboxTrainIdQuery1"
         '
-        'gbControlProducts
+        'dtpDateStartQuery1
         '
-        Me.gbControlProducts.Controls.Add(Me.btnAddProduct)
-        Me.gbControlProducts.Controls.Add(Me.btnCleanProduct)
-        Me.gbControlProducts.Controls.Add(Me.btnDeleteProduct)
-        Me.gbControlProducts.Controls.Add(Me.btnUpdateProduct)
-        resources.ApplyResources(Me.gbControlProducts, "gbControlProducts")
-        Me.gbControlProducts.Name = "gbControlProducts"
-        Me.gbControlProducts.TabStop = False
+        resources.ApplyResources(Me.dtpDateStartQuery1, "dtpDateStartQuery1")
+        Me.dtpDateStartQuery1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDateStartQuery1.Name = "dtpDateStartQuery1"
         '
-        'btnAddProduct
+        'lblTrainIdQuery
         '
-        resources.ApplyResources(Me.btnAddProduct, "btnAddProduct")
-        Me.btnAddProduct.ImageList = Me.iconList
-        Me.btnAddProduct.Name = "btnAddProduct"
-        Me.btnAddProduct.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.lblTrainIdQuery, "lblTrainIdQuery")
+        Me.lblTrainIdQuery.Name = "lblTrainIdQuery"
         '
-        'btnCleanProduct
+        'lblDateEnd
         '
-        resources.ApplyResources(Me.btnCleanProduct, "btnCleanProduct")
-        Me.btnCleanProduct.ImageList = Me.iconList
-        Me.btnCleanProduct.Name = "btnCleanProduct"
-        Me.btnCleanProduct.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.lblDateEnd, "lblDateEnd")
+        Me.lblDateEnd.Name = "lblDateEnd"
         '
-        'btnDeleteProduct
+        'lblDateStartQuery
         '
-        resources.ApplyResources(Me.btnDeleteProduct, "btnDeleteProduct")
-        Me.btnDeleteProduct.ImageList = Me.iconList
-        Me.btnDeleteProduct.Name = "btnDeleteProduct"
-        Me.btnDeleteProduct.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.lblDateStartQuery, "lblDateStartQuery")
+        Me.lblDateStartQuery.Name = "lblDateStartQuery"
         '
-        'btnUpdateProduct
+        'dtpDateEndQuery1
         '
-        resources.ApplyResources(Me.btnUpdateProduct, "btnUpdateProduct")
-        Me.btnUpdateProduct.ImageList = Me.iconList
-        Me.btnUpdateProduct.Name = "btnUpdateProduct"
-        Me.btnUpdateProduct.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.dtpDateEndQuery1, "dtpDateEndQuery1")
+        Me.dtpDateEndQuery1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpDateEndQuery1.Name = "dtpDateEndQuery1"
         '
-        'lblProductList
+        'gbLstViewQuery1
         '
-        resources.ApplyResources(Me.lblProductList, "lblProductList")
-        Me.lblProductList.Name = "lblProductList"
+        Me.gbLstViewQuery1.Controls.Add(Me.lstViewQuery1)
+        resources.ApplyResources(Me.gbLstViewQuery1, "gbLstViewQuery1")
+        Me.gbLstViewQuery1.Name = "gbLstViewQuery1"
+        Me.gbLstViewQuery1.TabStop = False
         '
-        'tabTrains
+        'lstViewQuery1
         '
-        Me.tabTrains.Controls.Add(Me.gbTrainsList)
-        Me.tabTrains.Controls.Add(Me.gbTrainsBoxes)
-        Me.tabTrains.Controls.Add(Me.gbControlTrains)
-        resources.ApplyResources(Me.tabTrains, "tabTrains")
-        Me.tabTrains.Name = "tabTrains"
-        Me.tabTrains.UseVisualStyleBackColor = True
+        Me.lstViewQuery1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.tripDateQuery1, Me.trainQuery1, Me.productQuery1})
+        resources.ApplyResources(Me.lstViewQuery1, "lstViewQuery1")
+        Me.lstViewQuery1.FullRowSelect = True
+        Me.lstViewQuery1.HideSelection = False
+        Me.lstViewQuery1.MultiSelect = False
+        Me.lstViewQuery1.Name = "lstViewQuery1"
+        Me.lstViewQuery1.UseCompatibleStateImageBehavior = False
+        Me.lstViewQuery1.View = System.Windows.Forms.View.Details
         '
-        'gbTrainsList
+        'tripDateQuery1
         '
-        Me.gbTrainsList.Controls.Add(Me.lstViewTrains)
-        resources.ApplyResources(Me.gbTrainsList, "gbTrainsList")
-        Me.gbTrainsList.Name = "gbTrainsList"
-        Me.gbTrainsList.TabStop = False
+        resources.ApplyResources(Me.tripDateQuery1, "tripDateQuery1")
         '
-        'lstViewTrains
+        'trainQuery1
         '
-        Me.lstViewTrains.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idTrains, Me.trainTypeTrains})
-        Me.lstViewTrains.FullRowSelect = True
-        Me.lstViewTrains.HideSelection = False
-        resources.ApplyResources(Me.lstViewTrains, "lstViewTrains")
-        Me.lstViewTrains.MultiSelect = False
-        Me.lstViewTrains.Name = "lstViewTrains"
-        Me.lstViewTrains.UseCompatibleStateImageBehavior = False
-        Me.lstViewTrains.View = System.Windows.Forms.View.Details
+        resources.ApplyResources(Me.trainQuery1, "trainQuery1")
         '
-        'idTrains
+        'productQuery1
         '
-        resources.ApplyResources(Me.idTrains, "idTrains")
+        resources.ApplyResources(Me.productQuery1, "productQuery1")
         '
-        'trainTypeTrains
+        'gbSolutionQuery1
         '
-        resources.ApplyResources(Me.trainTypeTrains, "trainTypeTrains")
+        Me.gbSolutionQuery1.Controls.Add(Me.lblTripsSolution)
+        Me.gbSolutionQuery1.Controls.Add(Me.txtNumberTripsQuery1)
+        Me.gbSolutionQuery1.Controls.Add(Me.lblNumberTripsQuery1)
+        resources.ApplyResources(Me.gbSolutionQuery1, "gbSolutionQuery1")
+        Me.gbSolutionQuery1.Name = "gbSolutionQuery1"
+        Me.gbSolutionQuery1.TabStop = False
         '
-        'gbTrainsBoxes
+        'lblNumberTripsQuery1
         '
-        Me.gbTrainsBoxes.Controls.Add(Me.lblTrainDescription)
-        Me.gbTrainsBoxes.Controls.Add(Me.txtTrainID)
-        Me.gbTrainsBoxes.Controls.Add(Me.cboxTrain)
-        Me.gbTrainsBoxes.Controls.Add(Me.lblTypeTrain)
-        resources.ApplyResources(Me.gbTrainsBoxes, "gbTrainsBoxes")
-        Me.gbTrainsBoxes.Name = "gbTrainsBoxes"
-        Me.gbTrainsBoxes.TabStop = False
+        resources.ApplyResources(Me.lblNumberTripsQuery1, "lblNumberTripsQuery1")
+        Me.lblNumberTripsQuery1.Name = "lblNumberTripsQuery1"
         '
-        'lblTrainDescription
+        'txtNumberTripsQuery1
         '
-        resources.ApplyResources(Me.lblTrainDescription, "lblTrainDescription")
-        Me.lblTrainDescription.Name = "lblTrainDescription"
+        resources.ApplyResources(Me.txtNumberTripsQuery1, "txtNumberTripsQuery1")
+        Me.txtNumberTripsQuery1.Name = "txtNumberTripsQuery1"
         '
-        'txtTrainID
+        'lblTripsSolution
         '
-        resources.ApplyResources(Me.txtTrainID, "txtTrainID")
-        Me.txtTrainID.Name = "txtTrainID"
-        '
-        'cboxTrain
-        '
-        Me.cboxTrain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        resources.ApplyResources(Me.cboxTrain, "cboxTrain")
-        Me.cboxTrain.FormattingEnabled = True
-        Me.cboxTrain.Name = "cboxTrain"
-        '
-        'lblTypeTrain
-        '
-        resources.ApplyResources(Me.lblTypeTrain, "lblTypeTrain")
-        Me.lblTypeTrain.Name = "lblTypeTrain"
-        '
-        'gbControlTrains
-        '
-        Me.gbControlTrains.Controls.Add(Me.btnAddTrain)
-        Me.gbControlTrains.Controls.Add(Me.btnUpdateTrain)
-        Me.gbControlTrains.Controls.Add(Me.btnCleanTrain)
-        Me.gbControlTrains.Controls.Add(Me.btnDeleteTrain)
-        resources.ApplyResources(Me.gbControlTrains, "gbControlTrains")
-        Me.gbControlTrains.Name = "gbControlTrains"
-        Me.gbControlTrains.TabStop = False
-        '
-        'btnAddTrain
-        '
-        resources.ApplyResources(Me.btnAddTrain, "btnAddTrain")
-        Me.btnAddTrain.ImageList = Me.iconList
-        Me.btnAddTrain.Name = "btnAddTrain"
-        Me.btnAddTrain.UseVisualStyleBackColor = True
-        '
-        'btnUpdateTrain
-        '
-        resources.ApplyResources(Me.btnUpdateTrain, "btnUpdateTrain")
-        Me.btnUpdateTrain.ImageList = Me.iconList
-        Me.btnUpdateTrain.Name = "btnUpdateTrain"
-        Me.btnUpdateTrain.UseVisualStyleBackColor = True
-        '
-        'btnCleanTrain
-        '
-        resources.ApplyResources(Me.btnCleanTrain, "btnCleanTrain")
-        Me.btnCleanTrain.ImageList = Me.iconList
-        Me.btnCleanTrain.Name = "btnCleanTrain"
-        Me.btnCleanTrain.UseVisualStyleBackColor = True
-        '
-        'btnDeleteTrain
-        '
-        resources.ApplyResources(Me.btnDeleteTrain, "btnDeleteTrain")
-        Me.btnDeleteTrain.ImageList = Me.iconList
-        Me.btnDeleteTrain.Name = "btnDeleteTrain"
-        Me.btnDeleteTrain.UseVisualStyleBackColor = True
-        '
-        'tabTrainTypes
-        '
-        Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeList)
-        Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeBoxes)
-        Me.tabTrainTypes.Controls.Add(Me.gbControlTrainType)
-        Me.tabTrainTypes.Controls.Add(Me.lblTrainTypeList)
-        resources.ApplyResources(Me.tabTrainTypes, "tabTrainTypes")
-        Me.tabTrainTypes.Name = "tabTrainTypes"
-        Me.tabTrainTypes.UseVisualStyleBackColor = True
-        '
-        'gbTrainTypeList
-        '
-        Me.gbTrainTypeList.Controls.Add(Me.lstViewTrainTypes)
-        resources.ApplyResources(Me.gbTrainTypeList, "gbTrainTypeList")
-        Me.gbTrainTypeList.Name = "gbTrainTypeList"
-        Me.gbTrainTypeList.TabStop = False
-        '
-        'lstViewTrainTypes
-        '
-        Me.lstViewTrainTypes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idTrainTypes, Me.descriptionTrainTypes, Me.capacityTrainTypes})
-        resources.ApplyResources(Me.lstViewTrainTypes, "lstViewTrainTypes")
-        Me.lstViewTrainTypes.FullRowSelect = True
-        Me.lstViewTrainTypes.HideSelection = False
-        Me.lstViewTrainTypes.MultiSelect = False
-        Me.lstViewTrainTypes.Name = "lstViewTrainTypes"
-        Me.lstViewTrainTypes.UseCompatibleStateImageBehavior = False
-        Me.lstViewTrainTypes.View = System.Windows.Forms.View.Details
-        '
-        'idTrainTypes
-        '
-        resources.ApplyResources(Me.idTrainTypes, "idTrainTypes")
-        '
-        'descriptionTrainTypes
-        '
-        resources.ApplyResources(Me.descriptionTrainTypes, "descriptionTrainTypes")
-        '
-        'capacityTrainTypes
-        '
-        resources.ApplyResources(Me.capacityTrainTypes, "capacityTrainTypes")
-        '
-        'gbTrainTypeBoxes
-        '
-        Me.gbTrainTypeBoxes.Controls.Add(Me.lblTonsTrainType)
-        Me.gbTrainTypeBoxes.Controls.Add(Me.nudMaxCapacity)
-        Me.gbTrainTypeBoxes.Controls.Add(Me.lblTrainType)
-        Me.gbTrainTypeBoxes.Controls.Add(Me.txtTrainTypeDescription)
-        Me.gbTrainTypeBoxes.Controls.Add(Me.lblCapacity)
-        resources.ApplyResources(Me.gbTrainTypeBoxes, "gbTrainTypeBoxes")
-        Me.gbTrainTypeBoxes.Name = "gbTrainTypeBoxes"
-        Me.gbTrainTypeBoxes.TabStop = False
-        '
-        'lblTonsTrainType
-        '
-        resources.ApplyResources(Me.lblTonsTrainType, "lblTonsTrainType")
-        Me.lblTonsTrainType.Name = "lblTonsTrainType"
-        '
-        'nudMaxCapacity
-        '
-        resources.ApplyResources(Me.nudMaxCapacity, "nudMaxCapacity")
-        Me.nudMaxCapacity.Name = "nudMaxCapacity"
-        '
-        'lblTrainType
-        '
-        resources.ApplyResources(Me.lblTrainType, "lblTrainType")
-        Me.lblTrainType.Name = "lblTrainType"
-        '
-        'txtTrainTypeDescription
-        '
-        resources.ApplyResources(Me.txtTrainTypeDescription, "txtTrainTypeDescription")
-        Me.txtTrainTypeDescription.Name = "txtTrainTypeDescription"
-        '
-        'lblCapacity
-        '
-        resources.ApplyResources(Me.lblCapacity, "lblCapacity")
-        Me.lblCapacity.Name = "lblCapacity"
-        '
-        'gbControlTrainType
-        '
-        Me.gbControlTrainType.Controls.Add(Me.btnAddTrainType)
-        Me.gbControlTrainType.Controls.Add(Me.btnCleanTrainType)
-        Me.gbControlTrainType.Controls.Add(Me.btnUpdateTrainType)
-        Me.gbControlTrainType.Controls.Add(Me.btnDeleteTrainType)
-        resources.ApplyResources(Me.gbControlTrainType, "gbControlTrainType")
-        Me.gbControlTrainType.Name = "gbControlTrainType"
-        Me.gbControlTrainType.TabStop = False
-        '
-        'btnAddTrainType
-        '
-        resources.ApplyResources(Me.btnAddTrainType, "btnAddTrainType")
-        Me.btnAddTrainType.ImageList = Me.iconList
-        Me.btnAddTrainType.Name = "btnAddTrainType"
-        Me.btnAddTrainType.UseVisualStyleBackColor = True
-        '
-        'btnCleanTrainType
-        '
-        resources.ApplyResources(Me.btnCleanTrainType, "btnCleanTrainType")
-        Me.btnCleanTrainType.ImageList = Me.iconList
-        Me.btnCleanTrainType.Name = "btnCleanTrainType"
-        Me.btnCleanTrainType.UseVisualStyleBackColor = True
-        '
-        'btnUpdateTrainType
-        '
-        resources.ApplyResources(Me.btnUpdateTrainType, "btnUpdateTrainType")
-        Me.btnUpdateTrainType.ImageList = Me.iconList
-        Me.btnUpdateTrainType.Name = "btnUpdateTrainType"
-        Me.btnUpdateTrainType.UseVisualStyleBackColor = True
-        '
-        'btnDeleteTrainType
-        '
-        resources.ApplyResources(Me.btnDeleteTrainType, "btnDeleteTrainType")
-        Me.btnDeleteTrainType.ImageList = Me.iconList
-        Me.btnDeleteTrainType.Name = "btnDeleteTrainType"
-        Me.btnDeleteTrainType.UseVisualStyleBackColor = True
-        '
-        'lblTrainTypeList
-        '
-        resources.ApplyResources(Me.lblTrainTypeList, "lblTrainTypeList")
-        Me.lblTrainTypeList.Name = "lblTrainTypeList"
-        '
-        'tabPrices
-        '
-        Me.tabPrices.Controls.Add(Me.gbPriceList)
-        Me.tabPrices.Controls.Add(Me.gbControlPrices)
-        Me.tabPrices.Controls.Add(Me.gbPrices)
-        Me.tabPrices.Controls.Add(Me.lblPricesList)
-        resources.ApplyResources(Me.tabPrices, "tabPrices")
-        Me.tabPrices.Name = "tabPrices"
-        Me.tabPrices.UseVisualStyleBackColor = True
-        '
-        'gbPriceList
-        '
-        Me.gbPriceList.Controls.Add(Me.lstViewPrices)
-        resources.ApplyResources(Me.gbPriceList, "gbPriceList")
-        Me.gbPriceList.Name = "gbPriceList"
-        Me.gbPriceList.TabStop = False
-        '
-        'lstViewPrices
-        '
-        Me.lstViewPrices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ProductID, Me.ProductDescription, Me.PriceDate, Me.PricePerTon})
-        Me.lstViewPrices.FullRowSelect = True
-        Me.lstViewPrices.HideSelection = False
-        resources.ApplyResources(Me.lstViewPrices, "lstViewPrices")
-        Me.lstViewPrices.MultiSelect = False
-        Me.lstViewPrices.Name = "lstViewPrices"
-        Me.lstViewPrices.UseCompatibleStateImageBehavior = False
-        Me.lstViewPrices.View = System.Windows.Forms.View.Details
-        '
-        'ProductID
-        '
-        resources.ApplyResources(Me.ProductID, "ProductID")
-        '
-        'ProductDescription
-        '
-        resources.ApplyResources(Me.ProductDescription, "ProductDescription")
-        '
-        'PriceDate
-        '
-        resources.ApplyResources(Me.PriceDate, "PriceDate")
-        '
-        'PricePerTon
-        '
-        resources.ApplyResources(Me.PricePerTon, "PricePerTon")
-        '
-        'gbControlPrices
-        '
-        Me.gbControlPrices.Controls.Add(Me.btnAddPrices)
-        Me.gbControlPrices.Controls.Add(Me.btnCleanPrices)
-        Me.gbControlPrices.Controls.Add(Me.btnDeletePrices)
-        Me.gbControlPrices.Controls.Add(Me.btnUpdatePrices)
-        resources.ApplyResources(Me.gbControlPrices, "gbControlPrices")
-        Me.gbControlPrices.Name = "gbControlPrices"
-        Me.gbControlPrices.TabStop = False
-        '
-        'btnAddPrices
-        '
-        resources.ApplyResources(Me.btnAddPrices, "btnAddPrices")
-        Me.btnAddPrices.ImageList = Me.iconList
-        Me.btnAddPrices.Name = "btnAddPrices"
-        Me.btnAddPrices.UseVisualStyleBackColor = True
-        '
-        'btnCleanPrices
-        '
-        resources.ApplyResources(Me.btnCleanPrices, "btnCleanPrices")
-        Me.btnCleanPrices.ImageList = Me.iconList
-        Me.btnCleanPrices.Name = "btnCleanPrices"
-        Me.btnCleanPrices.UseVisualStyleBackColor = True
-        '
-        'btnDeletePrices
-        '
-        resources.ApplyResources(Me.btnDeletePrices, "btnDeletePrices")
-        Me.btnDeletePrices.ImageList = Me.iconList
-        Me.btnDeletePrices.Name = "btnDeletePrices"
-        Me.btnDeletePrices.UseVisualStyleBackColor = True
-        '
-        'btnUpdatePrices
-        '
-        resources.ApplyResources(Me.btnUpdatePrices, "btnUpdatePrices")
-        Me.btnUpdatePrices.ImageList = Me.iconList
-        Me.btnUpdatePrices.Name = "btnUpdatePrices"
-        Me.btnUpdatePrices.UseVisualStyleBackColor = True
-        '
-        'gbPrices
-        '
-        Me.gbPrices.Controls.Add(Me.lblEuroSymbol)
-        Me.gbPrices.Controls.Add(Me.txtEurosPrices)
-        Me.gbPrices.Controls.Add(Me.lblProductPrices)
-        Me.gbPrices.Controls.Add(Me.lblDate)
-        Me.gbPrices.Controls.Add(Me.lblPrice)
-        Me.gbPrices.Controls.Add(Me.dtpDatePrices)
-        Me.gbPrices.Controls.Add(Me.cboxProductPrices)
-        resources.ApplyResources(Me.gbPrices, "gbPrices")
-        Me.gbPrices.Name = "gbPrices"
-        Me.gbPrices.TabStop = False
-        '
-        'lblEuroSymbol
-        '
-        resources.ApplyResources(Me.lblEuroSymbol, "lblEuroSymbol")
-        Me.lblEuroSymbol.Name = "lblEuroSymbol"
-        '
-        'txtEurosPrices
-        '
-        resources.ApplyResources(Me.txtEurosPrices, "txtEurosPrices")
-        Me.txtEurosPrices.Name = "txtEurosPrices"
-        '
-        'lblProductPrices
-        '
-        resources.ApplyResources(Me.lblProductPrices, "lblProductPrices")
-        Me.lblProductPrices.Name = "lblProductPrices"
-        '
-        'lblDate
-        '
-        resources.ApplyResources(Me.lblDate, "lblDate")
-        Me.lblDate.Name = "lblDate"
-        '
-        'lblPrice
-        '
-        resources.ApplyResources(Me.lblPrice, "lblPrice")
-        Me.lblPrice.Name = "lblPrice"
-        '
-        'dtpDatePrices
-        '
-        resources.ApplyResources(Me.dtpDatePrices, "dtpDatePrices")
-        Me.dtpDatePrices.Name = "dtpDatePrices"
-        '
-        'cboxProductPrices
-        '
-        Me.cboxProductPrices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        resources.ApplyResources(Me.cboxProductPrices, "cboxProductPrices")
-        Me.cboxProductPrices.FormattingEnabled = True
-        Me.cboxProductPrices.Name = "cboxProductPrices"
-        '
-        'lblPricesList
-        '
-        resources.ApplyResources(Me.lblPricesList, "lblPricesList")
-        Me.lblPricesList.Name = "lblPricesList"
+        resources.ApplyResources(Me.lblTripsSolution, "lblTripsSolution")
+        Me.lblTripsSolution.Name = "lblTripsSolution"
         '
         'tabTrips
         '
@@ -686,104 +357,6 @@ Partial Class Main
         resources.ApplyResources(Me.tabTrips, "tabTrips")
         Me.tabTrips.Name = "tabTrips"
         Me.tabTrips.UseVisualStyleBackColor = True
-        '
-        'gbControlTrip
-        '
-        Me.gbControlTrip.Controls.Add(Me.btnAddTrip)
-        Me.gbControlTrip.Controls.Add(Me.btnCleanTrip)
-        Me.gbControlTrip.Controls.Add(Me.btnDeleteTrip)
-        Me.gbControlTrip.Controls.Add(Me.btnUpdateTrip)
-        resources.ApplyResources(Me.gbControlTrip, "gbControlTrip")
-        Me.gbControlTrip.Name = "gbControlTrip"
-        Me.gbControlTrip.TabStop = False
-        '
-        'btnAddTrip
-        '
-        resources.ApplyResources(Me.btnAddTrip, "btnAddTrip")
-        Me.btnAddTrip.ImageList = Me.iconList
-        Me.btnAddTrip.Name = "btnAddTrip"
-        Me.btnAddTrip.UseVisualStyleBackColor = True
-        '
-        'btnCleanTrip
-        '
-        resources.ApplyResources(Me.btnCleanTrip, "btnCleanTrip")
-        Me.btnCleanTrip.ImageList = Me.iconList
-        Me.btnCleanTrip.Name = "btnCleanTrip"
-        Me.btnCleanTrip.UseVisualStyleBackColor = True
-        '
-        'btnDeleteTrip
-        '
-        resources.ApplyResources(Me.btnDeleteTrip, "btnDeleteTrip")
-        Me.btnDeleteTrip.ImageList = Me.iconList
-        Me.btnDeleteTrip.Name = "btnDeleteTrip"
-        Me.btnDeleteTrip.UseVisualStyleBackColor = True
-        '
-        'btnUpdateTrip
-        '
-        resources.ApplyResources(Me.btnUpdateTrip, "btnUpdateTrip")
-        Me.btnUpdateTrip.ImageList = Me.iconList
-        Me.btnUpdateTrip.Name = "btnUpdateTrip"
-        Me.btnUpdateTrip.UseVisualStyleBackColor = True
-        '
-        'gbSelectionTrip
-        '
-        Me.gbSelectionTrip.Controls.Add(Me.lstboxProductTrip)
-        Me.gbSelectionTrip.Controls.Add(Me.nudTonsTrip)
-        Me.gbSelectionTrip.Controls.Add(Me.cboxTrainTrip)
-        Me.gbSelectionTrip.Controls.Add(Me.lblTonsTrip)
-        Me.gbSelectionTrip.Controls.Add(Me.lblTrainTrip)
-        Me.gbSelectionTrip.Controls.Add(Me.lblProductTrip)
-        Me.gbSelectionTrip.Controls.Add(Me.lblDateTrip)
-        Me.gbSelectionTrip.Controls.Add(Me.dtpTrip)
-        resources.ApplyResources(Me.gbSelectionTrip, "gbSelectionTrip")
-        Me.gbSelectionTrip.Name = "gbSelectionTrip"
-        Me.gbSelectionTrip.TabStop = False
-        '
-        'lstboxProductTrip
-        '
-        Me.lstboxProductTrip.FormattingEnabled = True
-        resources.ApplyResources(Me.lstboxProductTrip, "lstboxProductTrip")
-        Me.lstboxProductTrip.MultiColumn = True
-        Me.lstboxProductTrip.Name = "lstboxProductTrip"
-        Me.lstboxProductTrip.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
-        '
-        'nudTonsTrip
-        '
-        resources.ApplyResources(Me.nudTonsTrip, "nudTonsTrip")
-        Me.nudTonsTrip.Name = "nudTonsTrip"
-        '
-        'cboxTrainTrip
-        '
-        Me.cboxTrainTrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        resources.ApplyResources(Me.cboxTrainTrip, "cboxTrainTrip")
-        Me.cboxTrainTrip.FormattingEnabled = True
-        Me.cboxTrainTrip.Name = "cboxTrainTrip"
-        '
-        'lblTonsTrip
-        '
-        resources.ApplyResources(Me.lblTonsTrip, "lblTonsTrip")
-        Me.lblTonsTrip.Name = "lblTonsTrip"
-        '
-        'lblTrainTrip
-        '
-        resources.ApplyResources(Me.lblTrainTrip, "lblTrainTrip")
-        Me.lblTrainTrip.Name = "lblTrainTrip"
-        '
-        'lblProductTrip
-        '
-        resources.ApplyResources(Me.lblProductTrip, "lblProductTrip")
-        Me.lblProductTrip.Name = "lblProductTrip"
-        '
-        'lblDateTrip
-        '
-        resources.ApplyResources(Me.lblDateTrip, "lblDateTrip")
-        Me.lblDateTrip.Name = "lblDateTrip"
-        '
-        'dtpTrip
-        '
-        resources.ApplyResources(Me.dtpTrip, "dtpTrip")
-        Me.dtpTrip.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpTrip.Name = "dtpTrip"
         '
         'gbTripList
         '
@@ -819,161 +392,574 @@ Partial Class Main
         '
         resources.ApplyResources(Me.tonsTrip, "tonsTrip")
         '
-        'tabQuery
+        'gbSelectionTrip
         '
-        Me.tabQuery.Controls.Add(Me.tbpQuerie)
-        resources.ApplyResources(Me.tabQuery, "tabQuery")
-        Me.tabQuery.Name = "tabQuery"
-        Me.tabQuery.UseVisualStyleBackColor = True
+        Me.gbSelectionTrip.Controls.Add(Me.lstboxProductTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.nudTonsTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.cboxTrainTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.lblTonsTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.lblTrainTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.lblProductTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.lblDateTrip)
+        Me.gbSelectionTrip.Controls.Add(Me.dtpTrip)
+        resources.ApplyResources(Me.gbSelectionTrip, "gbSelectionTrip")
+        Me.gbSelectionTrip.Name = "gbSelectionTrip"
+        Me.gbSelectionTrip.TabStop = False
         '
-        'tbpQuerie
+        'dtpTrip
         '
-        resources.ApplyResources(Me.tbpQuerie, "tbpQuerie")
-        Me.tbpQuerie.Controls.Add(Me.tabQuery1)
-        Me.tbpQuerie.Controls.Add(Me.tabQuery2)
-        Me.tbpQuerie.Controls.Add(Me.tabQuery3)
-        Me.tbpQuerie.Controls.Add(Me.tabQuery4)
-        Me.tbpQuerie.Multiline = True
-        Me.tbpQuerie.Name = "tbpQuerie"
-        Me.tbpQuerie.SelectedIndex = 0
+        resources.ApplyResources(Me.dtpTrip, "dtpTrip")
+        Me.dtpTrip.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpTrip.Name = "dtpTrip"
         '
-        'tabQuery1
+        'lblDateTrip
         '
-        Me.tabQuery1.Controls.Add(Me.gbSolutionQuery1)
-        Me.tabQuery1.Controls.Add(Me.gbLstViewQuery1)
-        Me.tabQuery1.Controls.Add(Me.gbSlectionQuery1)
-        Me.tabQuery1.Controls.Add(Me.btnExecuteQuery1)
-        resources.ApplyResources(Me.tabQuery1, "tabQuery1")
-        Me.tabQuery1.Name = "tabQuery1"
-        Me.tabQuery1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.lblDateTrip, "lblDateTrip")
+        Me.lblDateTrip.Name = "lblDateTrip"
         '
-        'gbSolutionQuery1
+        'lblProductTrip
         '
-        Me.gbSolutionQuery1.Controls.Add(Me.lblTripsSolution)
-        Me.gbSolutionQuery1.Controls.Add(Me.txtNumberTripsQuery1)
-        Me.gbSolutionQuery1.Controls.Add(Me.lblNumberTripsQuery1)
-        resources.ApplyResources(Me.gbSolutionQuery1, "gbSolutionQuery1")
-        Me.gbSolutionQuery1.Name = "gbSolutionQuery1"
-        Me.gbSolutionQuery1.TabStop = False
+        resources.ApplyResources(Me.lblProductTrip, "lblProductTrip")
+        Me.lblProductTrip.Name = "lblProductTrip"
         '
-        'lblTripsSolution
+        'lblTrainTrip
         '
-        resources.ApplyResources(Me.lblTripsSolution, "lblTripsSolution")
-        Me.lblTripsSolution.Name = "lblTripsSolution"
+        resources.ApplyResources(Me.lblTrainTrip, "lblTrainTrip")
+        Me.lblTrainTrip.Name = "lblTrainTrip"
         '
-        'txtNumberTripsQuery1
+        'lblTonsTrip
         '
-        resources.ApplyResources(Me.txtNumberTripsQuery1, "txtNumberTripsQuery1")
-        Me.txtNumberTripsQuery1.Name = "txtNumberTripsQuery1"
+        resources.ApplyResources(Me.lblTonsTrip, "lblTonsTrip")
+        Me.lblTonsTrip.Name = "lblTonsTrip"
         '
-        'lblNumberTripsQuery1
+        'cboxTrainTrip
         '
-        resources.ApplyResources(Me.lblNumberTripsQuery1, "lblNumberTripsQuery1")
-        Me.lblNumberTripsQuery1.Name = "lblNumberTripsQuery1"
+        Me.cboxTrainTrip.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cboxTrainTrip, "cboxTrainTrip")
+        Me.cboxTrainTrip.FormattingEnabled = True
+        Me.cboxTrainTrip.Name = "cboxTrainTrip"
         '
-        'gbLstViewQuery1
+        'nudTonsTrip
         '
-        Me.gbLstViewQuery1.Controls.Add(Me.lstViewQuery1)
-        resources.ApplyResources(Me.gbLstViewQuery1, "gbLstViewQuery1")
-        Me.gbLstViewQuery1.Name = "gbLstViewQuery1"
-        Me.gbLstViewQuery1.TabStop = False
+        resources.ApplyResources(Me.nudTonsTrip, "nudTonsTrip")
+        Me.nudTonsTrip.Name = "nudTonsTrip"
         '
-        'lstViewQuery1
+        'lstboxProductTrip
         '
-        Me.lstViewQuery1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.tripDateQuery1, Me.trainQuery1, Me.productQuery1})
-        resources.ApplyResources(Me.lstViewQuery1, "lstViewQuery1")
-        Me.lstViewQuery1.FullRowSelect = True
-        Me.lstViewQuery1.HideSelection = False
-        Me.lstViewQuery1.MultiSelect = False
-        Me.lstViewQuery1.Name = "lstViewQuery1"
-        Me.lstViewQuery1.UseCompatibleStateImageBehavior = False
-        Me.lstViewQuery1.View = System.Windows.Forms.View.Details
+        Me.lstboxProductTrip.FormattingEnabled = True
+        resources.ApplyResources(Me.lstboxProductTrip, "lstboxProductTrip")
+        Me.lstboxProductTrip.MultiColumn = True
+        Me.lstboxProductTrip.Name = "lstboxProductTrip"
+        Me.lstboxProductTrip.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple
         '
-        'tripDateQuery1
+        'gbControlTrip
         '
-        resources.ApplyResources(Me.tripDateQuery1, "tripDateQuery1")
+        Me.gbControlTrip.Controls.Add(Me.btnAddTrip)
+        Me.gbControlTrip.Controls.Add(Me.btnCleanTrip)
+        Me.gbControlTrip.Controls.Add(Me.btnDeleteTrip)
+        Me.gbControlTrip.Controls.Add(Me.btnUpdateTrip)
+        resources.ApplyResources(Me.gbControlTrip, "gbControlTrip")
+        Me.gbControlTrip.Name = "gbControlTrip"
+        Me.gbControlTrip.TabStop = False
         '
-        'trainQuery1
+        'btnUpdateTrip
         '
-        resources.ApplyResources(Me.trainQuery1, "trainQuery1")
+        resources.ApplyResources(Me.btnUpdateTrip, "btnUpdateTrip")
+        Me.btnUpdateTrip.ImageList = Me.iconList
+        Me.btnUpdateTrip.Name = "btnUpdateTrip"
+        Me.btnUpdateTrip.UseVisualStyleBackColor = True
         '
-        'productQuery1
+        'btnDeleteTrip
         '
-        resources.ApplyResources(Me.productQuery1, "productQuery1")
+        resources.ApplyResources(Me.btnDeleteTrip, "btnDeleteTrip")
+        Me.btnDeleteTrip.ImageList = Me.iconList
+        Me.btnDeleteTrip.Name = "btnDeleteTrip"
+        Me.btnDeleteTrip.UseVisualStyleBackColor = True
         '
-        'gbSlectionQuery1
+        'btnCleanTrip
         '
-        Me.gbSlectionQuery1.Controls.Add(Me.dtpDateEndQuery1)
-        Me.gbSlectionQuery1.Controls.Add(Me.lblDateStartQuery)
-        Me.gbSlectionQuery1.Controls.Add(Me.lblDateEnd)
-        Me.gbSlectionQuery1.Controls.Add(Me.lblTrainIdQuery)
-        Me.gbSlectionQuery1.Controls.Add(Me.dtpDateStartQuery1)
-        Me.gbSlectionQuery1.Controls.Add(Me.cboxTrainIdQuery1)
-        resources.ApplyResources(Me.gbSlectionQuery1, "gbSlectionQuery1")
-        Me.gbSlectionQuery1.Name = "gbSlectionQuery1"
-        Me.gbSlectionQuery1.TabStop = False
+        resources.ApplyResources(Me.btnCleanTrip, "btnCleanTrip")
+        Me.btnCleanTrip.ImageList = Me.iconList
+        Me.btnCleanTrip.Name = "btnCleanTrip"
+        Me.btnCleanTrip.UseVisualStyleBackColor = True
         '
-        'dtpDateEndQuery1
+        'btnAddTrip
         '
-        resources.ApplyResources(Me.dtpDateEndQuery1, "dtpDateEndQuery1")
-        Me.dtpDateEndQuery1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDateEndQuery1.Name = "dtpDateEndQuery1"
+        resources.ApplyResources(Me.btnAddTrip, "btnAddTrip")
+        Me.btnAddTrip.ImageList = Me.iconList
+        Me.btnAddTrip.Name = "btnAddTrip"
+        Me.btnAddTrip.UseVisualStyleBackColor = True
         '
-        'lblDateStartQuery
+        'tabPrices
         '
-        resources.ApplyResources(Me.lblDateStartQuery, "lblDateStartQuery")
-        Me.lblDateStartQuery.Name = "lblDateStartQuery"
+        Me.tabPrices.Controls.Add(Me.gbPriceList)
+        Me.tabPrices.Controls.Add(Me.gbControlPrices)
+        Me.tabPrices.Controls.Add(Me.gbPrices)
+        Me.tabPrices.Controls.Add(Me.lblPricesList)
+        resources.ApplyResources(Me.tabPrices, "tabPrices")
+        Me.tabPrices.Name = "tabPrices"
+        Me.tabPrices.UseVisualStyleBackColor = True
         '
-        'lblDateEnd
+        'lblPricesList
         '
-        resources.ApplyResources(Me.lblDateEnd, "lblDateEnd")
-        Me.lblDateEnd.Name = "lblDateEnd"
+        resources.ApplyResources(Me.lblPricesList, "lblPricesList")
+        Me.lblPricesList.Name = "lblPricesList"
         '
-        'lblTrainIdQuery
+        'gbPrices
         '
-        resources.ApplyResources(Me.lblTrainIdQuery, "lblTrainIdQuery")
-        Me.lblTrainIdQuery.Name = "lblTrainIdQuery"
+        Me.gbPrices.Controls.Add(Me.lblEuroSymbol)
+        Me.gbPrices.Controls.Add(Me.txtEurosPrices)
+        Me.gbPrices.Controls.Add(Me.lblProductPrices)
+        Me.gbPrices.Controls.Add(Me.lblDate)
+        Me.gbPrices.Controls.Add(Me.lblPrice)
+        Me.gbPrices.Controls.Add(Me.dtpDatePrices)
+        Me.gbPrices.Controls.Add(Me.cboxProductPrices)
+        resources.ApplyResources(Me.gbPrices, "gbPrices")
+        Me.gbPrices.Name = "gbPrices"
+        Me.gbPrices.TabStop = False
         '
-        'dtpDateStartQuery1
+        'cboxProductPrices
         '
-        resources.ApplyResources(Me.dtpDateStartQuery1, "dtpDateStartQuery1")
-        Me.dtpDateStartQuery1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpDateStartQuery1.Name = "dtpDateStartQuery1"
+        Me.cboxProductPrices.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cboxProductPrices, "cboxProductPrices")
+        Me.cboxProductPrices.FormattingEnabled = True
+        Me.cboxProductPrices.Name = "cboxProductPrices"
         '
-        'cboxTrainIdQuery1
+        'dtpDatePrices
         '
-        resources.ApplyResources(Me.cboxTrainIdQuery1, "cboxTrainIdQuery1")
-        Me.cboxTrainIdQuery1.FormattingEnabled = True
-        Me.cboxTrainIdQuery1.Name = "cboxTrainIdQuery1"
+        resources.ApplyResources(Me.dtpDatePrices, "dtpDatePrices")
+        Me.dtpDatePrices.Name = "dtpDatePrices"
         '
-        'btnExecuteQuery1
+        'lblPrice
         '
-        resources.ApplyResources(Me.btnExecuteQuery1, "btnExecuteQuery1")
-        Me.btnExecuteQuery1.Name = "btnExecuteQuery1"
-        Me.btnExecuteQuery1.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.lblPrice, "lblPrice")
+        Me.lblPrice.Name = "lblPrice"
         '
-        'tabQuery2
+        'lblDate
         '
-        resources.ApplyResources(Me.tabQuery2, "tabQuery2")
-        Me.tabQuery2.Name = "tabQuery2"
-        Me.tabQuery2.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.lblDate, "lblDate")
+        Me.lblDate.Name = "lblDate"
         '
-        'tabQuery3
+        'lblProductPrices
         '
-        resources.ApplyResources(Me.tabQuery3, "tabQuery3")
-        Me.tabQuery3.Name = "tabQuery3"
-        Me.tabQuery3.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.lblProductPrices, "lblProductPrices")
+        Me.lblProductPrices.Name = "lblProductPrices"
         '
-        'tabQuery4
+        'txtEurosPrices
         '
-        resources.ApplyResources(Me.tabQuery4, "tabQuery4")
-        Me.tabQuery4.Name = "tabQuery4"
-        Me.tabQuery4.UseVisualStyleBackColor = True
+        resources.ApplyResources(Me.txtEurosPrices, "txtEurosPrices")
+        Me.txtEurosPrices.Name = "txtEurosPrices"
         '
-        'txtPath
+        'lblEuroSymbol
         '
-        resources.ApplyResources(Me.txtPath, "txtPath")
-        Me.txtPath.Name = "txtPath"
+        resources.ApplyResources(Me.lblEuroSymbol, "lblEuroSymbol")
+        Me.lblEuroSymbol.Name = "lblEuroSymbol"
+        '
+        'gbControlPrices
+        '
+        Me.gbControlPrices.Controls.Add(Me.btnAddPrices)
+        Me.gbControlPrices.Controls.Add(Me.btnCleanPrices)
+        Me.gbControlPrices.Controls.Add(Me.btnDeletePrices)
+        Me.gbControlPrices.Controls.Add(Me.btnUpdatePrices)
+        resources.ApplyResources(Me.gbControlPrices, "gbControlPrices")
+        Me.gbControlPrices.Name = "gbControlPrices"
+        Me.gbControlPrices.TabStop = False
+        '
+        'btnUpdatePrices
+        '
+        resources.ApplyResources(Me.btnUpdatePrices, "btnUpdatePrices")
+        Me.btnUpdatePrices.ImageList = Me.iconList
+        Me.btnUpdatePrices.Name = "btnUpdatePrices"
+        Me.btnUpdatePrices.UseVisualStyleBackColor = True
+        '
+        'btnDeletePrices
+        '
+        resources.ApplyResources(Me.btnDeletePrices, "btnDeletePrices")
+        Me.btnDeletePrices.ImageList = Me.iconList
+        Me.btnDeletePrices.Name = "btnDeletePrices"
+        Me.btnDeletePrices.UseVisualStyleBackColor = True
+        '
+        'btnCleanPrices
+        '
+        resources.ApplyResources(Me.btnCleanPrices, "btnCleanPrices")
+        Me.btnCleanPrices.ImageList = Me.iconList
+        Me.btnCleanPrices.Name = "btnCleanPrices"
+        Me.btnCleanPrices.UseVisualStyleBackColor = True
+        '
+        'btnAddPrices
+        '
+        resources.ApplyResources(Me.btnAddPrices, "btnAddPrices")
+        Me.btnAddPrices.ImageList = Me.iconList
+        Me.btnAddPrices.Name = "btnAddPrices"
+        Me.btnAddPrices.UseVisualStyleBackColor = True
+        '
+        'gbPriceList
+        '
+        Me.gbPriceList.Controls.Add(Me.lstViewPrices)
+        resources.ApplyResources(Me.gbPriceList, "gbPriceList")
+        Me.gbPriceList.Name = "gbPriceList"
+        Me.gbPriceList.TabStop = False
+        '
+        'lstViewPrices
+        '
+        Me.lstViewPrices.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ProductID, Me.ProductDescription, Me.PriceDate, Me.PricePerTon})
+        Me.lstViewPrices.FullRowSelect = True
+        Me.lstViewPrices.HideSelection = False
+        resources.ApplyResources(Me.lstViewPrices, "lstViewPrices")
+        Me.lstViewPrices.MultiSelect = False
+        Me.lstViewPrices.Name = "lstViewPrices"
+        Me.lstViewPrices.UseCompatibleStateImageBehavior = False
+        Me.lstViewPrices.View = System.Windows.Forms.View.Details
+        '
+        'ProductID
+        '
+        resources.ApplyResources(Me.ProductID, "ProductID")
+        '
+        'ProductDescription
+        '
+        resources.ApplyResources(Me.ProductDescription, "ProductDescription")
+        '
+        'PriceDate
+        '
+        resources.ApplyResources(Me.PriceDate, "PriceDate")
+        '
+        'PricePerTon
+        '
+        resources.ApplyResources(Me.PricePerTon, "PricePerTon")
+        '
+        'tabTrainTypes
+        '
+        Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeList)
+        Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeBoxes)
+        Me.tabTrainTypes.Controls.Add(Me.gbControlTrainType)
+        Me.tabTrainTypes.Controls.Add(Me.lblTrainTypeList)
+        resources.ApplyResources(Me.tabTrainTypes, "tabTrainTypes")
+        Me.tabTrainTypes.Name = "tabTrainTypes"
+        Me.tabTrainTypes.UseVisualStyleBackColor = True
+        '
+        'lblTrainTypeList
+        '
+        resources.ApplyResources(Me.lblTrainTypeList, "lblTrainTypeList")
+        Me.lblTrainTypeList.Name = "lblTrainTypeList"
+        '
+        'gbControlTrainType
+        '
+        Me.gbControlTrainType.Controls.Add(Me.btnAddTrainType)
+        Me.gbControlTrainType.Controls.Add(Me.btnCleanTrainType)
+        Me.gbControlTrainType.Controls.Add(Me.btnUpdateTrainType)
+        Me.gbControlTrainType.Controls.Add(Me.btnDeleteTrainType)
+        resources.ApplyResources(Me.gbControlTrainType, "gbControlTrainType")
+        Me.gbControlTrainType.Name = "gbControlTrainType"
+        Me.gbControlTrainType.TabStop = False
+        '
+        'btnDeleteTrainType
+        '
+        resources.ApplyResources(Me.btnDeleteTrainType, "btnDeleteTrainType")
+        Me.btnDeleteTrainType.ImageList = Me.iconList
+        Me.btnDeleteTrainType.Name = "btnDeleteTrainType"
+        Me.btnDeleteTrainType.UseVisualStyleBackColor = True
+        '
+        'btnUpdateTrainType
+        '
+        resources.ApplyResources(Me.btnUpdateTrainType, "btnUpdateTrainType")
+        Me.btnUpdateTrainType.ImageList = Me.iconList
+        Me.btnUpdateTrainType.Name = "btnUpdateTrainType"
+        Me.btnUpdateTrainType.UseVisualStyleBackColor = True
+        '
+        'btnCleanTrainType
+        '
+        resources.ApplyResources(Me.btnCleanTrainType, "btnCleanTrainType")
+        Me.btnCleanTrainType.ImageList = Me.iconList
+        Me.btnCleanTrainType.Name = "btnCleanTrainType"
+        Me.btnCleanTrainType.UseVisualStyleBackColor = True
+        '
+        'btnAddTrainType
+        '
+        resources.ApplyResources(Me.btnAddTrainType, "btnAddTrainType")
+        Me.btnAddTrainType.ImageList = Me.iconList
+        Me.btnAddTrainType.Name = "btnAddTrainType"
+        Me.btnAddTrainType.UseVisualStyleBackColor = True
+        '
+        'gbTrainTypeBoxes
+        '
+        Me.gbTrainTypeBoxes.Controls.Add(Me.lblTonsTrainType)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.nudMaxCapacity)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.lblTrainType)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.txtTrainTypeDescription)
+        Me.gbTrainTypeBoxes.Controls.Add(Me.lblCapacity)
+        resources.ApplyResources(Me.gbTrainTypeBoxes, "gbTrainTypeBoxes")
+        Me.gbTrainTypeBoxes.Name = "gbTrainTypeBoxes"
+        Me.gbTrainTypeBoxes.TabStop = False
+        '
+        'lblCapacity
+        '
+        resources.ApplyResources(Me.lblCapacity, "lblCapacity")
+        Me.lblCapacity.Name = "lblCapacity"
+        '
+        'txtTrainTypeDescription
+        '
+        resources.ApplyResources(Me.txtTrainTypeDescription, "txtTrainTypeDescription")
+        Me.txtTrainTypeDescription.Name = "txtTrainTypeDescription"
+        '
+        'lblTrainType
+        '
+        resources.ApplyResources(Me.lblTrainType, "lblTrainType")
+        Me.lblTrainType.Name = "lblTrainType"
+        '
+        'nudMaxCapacity
+        '
+        resources.ApplyResources(Me.nudMaxCapacity, "nudMaxCapacity")
+        Me.nudMaxCapacity.Name = "nudMaxCapacity"
+        '
+        'lblTonsTrainType
+        '
+        resources.ApplyResources(Me.lblTonsTrainType, "lblTonsTrainType")
+        Me.lblTonsTrainType.Name = "lblTonsTrainType"
+        '
+        'gbTrainTypeList
+        '
+        Me.gbTrainTypeList.Controls.Add(Me.lstViewTrainTypes)
+        resources.ApplyResources(Me.gbTrainTypeList, "gbTrainTypeList")
+        Me.gbTrainTypeList.Name = "gbTrainTypeList"
+        Me.gbTrainTypeList.TabStop = False
+        '
+        'lstViewTrainTypes
+        '
+        Me.lstViewTrainTypes.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idTrainTypes, Me.descriptionTrainTypes, Me.capacityTrainTypes})
+        resources.ApplyResources(Me.lstViewTrainTypes, "lstViewTrainTypes")
+        Me.lstViewTrainTypes.FullRowSelect = True
+        Me.lstViewTrainTypes.HideSelection = False
+        Me.lstViewTrainTypes.MultiSelect = False
+        Me.lstViewTrainTypes.Name = "lstViewTrainTypes"
+        Me.lstViewTrainTypes.UseCompatibleStateImageBehavior = False
+        Me.lstViewTrainTypes.View = System.Windows.Forms.View.Details
+        '
+        'idTrainTypes
+        '
+        resources.ApplyResources(Me.idTrainTypes, "idTrainTypes")
+        '
+        'descriptionTrainTypes
+        '
+        resources.ApplyResources(Me.descriptionTrainTypes, "descriptionTrainTypes")
+        '
+        'capacityTrainTypes
+        '
+        resources.ApplyResources(Me.capacityTrainTypes, "capacityTrainTypes")
+        '
+        'tabTrains
+        '
+        Me.tabTrains.Controls.Add(Me.gbTrainsList)
+        Me.tabTrains.Controls.Add(Me.gbTrainsBoxes)
+        Me.tabTrains.Controls.Add(Me.gbControlTrains)
+        resources.ApplyResources(Me.tabTrains, "tabTrains")
+        Me.tabTrains.Name = "tabTrains"
+        Me.tabTrains.UseVisualStyleBackColor = True
+        '
+        'gbControlTrains
+        '
+        Me.gbControlTrains.Controls.Add(Me.btnAddTrain)
+        Me.gbControlTrains.Controls.Add(Me.btnUpdateTrain)
+        Me.gbControlTrains.Controls.Add(Me.btnCleanTrain)
+        Me.gbControlTrains.Controls.Add(Me.btnDeleteTrain)
+        resources.ApplyResources(Me.gbControlTrains, "gbControlTrains")
+        Me.gbControlTrains.Name = "gbControlTrains"
+        Me.gbControlTrains.TabStop = False
+        '
+        'btnDeleteTrain
+        '
+        resources.ApplyResources(Me.btnDeleteTrain, "btnDeleteTrain")
+        Me.btnDeleteTrain.ImageList = Me.iconList
+        Me.btnDeleteTrain.Name = "btnDeleteTrain"
+        Me.btnDeleteTrain.UseVisualStyleBackColor = True
+        '
+        'btnCleanTrain
+        '
+        resources.ApplyResources(Me.btnCleanTrain, "btnCleanTrain")
+        Me.btnCleanTrain.ImageList = Me.iconList
+        Me.btnCleanTrain.Name = "btnCleanTrain"
+        Me.btnCleanTrain.UseVisualStyleBackColor = True
+        '
+        'btnUpdateTrain
+        '
+        resources.ApplyResources(Me.btnUpdateTrain, "btnUpdateTrain")
+        Me.btnUpdateTrain.ImageList = Me.iconList
+        Me.btnUpdateTrain.Name = "btnUpdateTrain"
+        Me.btnUpdateTrain.UseVisualStyleBackColor = True
+        '
+        'btnAddTrain
+        '
+        resources.ApplyResources(Me.btnAddTrain, "btnAddTrain")
+        Me.btnAddTrain.ImageList = Me.iconList
+        Me.btnAddTrain.Name = "btnAddTrain"
+        Me.btnAddTrain.UseVisualStyleBackColor = True
+        '
+        'gbTrainsBoxes
+        '
+        Me.gbTrainsBoxes.Controls.Add(Me.lblTrainDescription)
+        Me.gbTrainsBoxes.Controls.Add(Me.txtTrainID)
+        Me.gbTrainsBoxes.Controls.Add(Me.cboxTrain)
+        Me.gbTrainsBoxes.Controls.Add(Me.lblTypeTrain)
+        resources.ApplyResources(Me.gbTrainsBoxes, "gbTrainsBoxes")
+        Me.gbTrainsBoxes.Name = "gbTrainsBoxes"
+        Me.gbTrainsBoxes.TabStop = False
+        '
+        'lblTypeTrain
+        '
+        resources.ApplyResources(Me.lblTypeTrain, "lblTypeTrain")
+        Me.lblTypeTrain.Name = "lblTypeTrain"
+        '
+        'cboxTrain
+        '
+        Me.cboxTrain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        resources.ApplyResources(Me.cboxTrain, "cboxTrain")
+        Me.cboxTrain.FormattingEnabled = True
+        Me.cboxTrain.Name = "cboxTrain"
+        '
+        'txtTrainID
+        '
+        resources.ApplyResources(Me.txtTrainID, "txtTrainID")
+        Me.txtTrainID.Name = "txtTrainID"
+        '
+        'lblTrainDescription
+        '
+        resources.ApplyResources(Me.lblTrainDescription, "lblTrainDescription")
+        Me.lblTrainDescription.Name = "lblTrainDescription"
+        '
+        'gbTrainsList
+        '
+        Me.gbTrainsList.Controls.Add(Me.lstViewTrains)
+        resources.ApplyResources(Me.gbTrainsList, "gbTrainsList")
+        Me.gbTrainsList.Name = "gbTrainsList"
+        Me.gbTrainsList.TabStop = False
+        '
+        'lstViewTrains
+        '
+        Me.lstViewTrains.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idTrains, Me.trainTypeTrains})
+        Me.lstViewTrains.FullRowSelect = True
+        Me.lstViewTrains.HideSelection = False
+        resources.ApplyResources(Me.lstViewTrains, "lstViewTrains")
+        Me.lstViewTrains.MultiSelect = False
+        Me.lstViewTrains.Name = "lstViewTrains"
+        Me.lstViewTrains.UseCompatibleStateImageBehavior = False
+        Me.lstViewTrains.View = System.Windows.Forms.View.Details
+        '
+        'idTrains
+        '
+        resources.ApplyResources(Me.idTrains, "idTrains")
+        '
+        'trainTypeTrains
+        '
+        resources.ApplyResources(Me.trainTypeTrains, "trainTypeTrains")
+        '
+        'tabProduct
+        '
+        Me.tabProduct.Controls.Add(Me.gbProductsList)
+        Me.tabProduct.Controls.Add(Me.gbProductsBoxes)
+        Me.tabProduct.Controls.Add(Me.gbControlProducts)
+        Me.tabProduct.Controls.Add(Me.lblProductList)
+        resources.ApplyResources(Me.tabProduct, "tabProduct")
+        Me.tabProduct.Name = "tabProduct"
+        Me.tabProduct.UseVisualStyleBackColor = True
+        '
+        'lblProductList
+        '
+        resources.ApplyResources(Me.lblProductList, "lblProductList")
+        Me.lblProductList.Name = "lblProductList"
+        '
+        'gbControlProducts
+        '
+        Me.gbControlProducts.Controls.Add(Me.btnAddProduct)
+        Me.gbControlProducts.Controls.Add(Me.btnCleanProduct)
+        Me.gbControlProducts.Controls.Add(Me.btnDeleteProduct)
+        Me.gbControlProducts.Controls.Add(Me.btnUpdateProduct)
+        resources.ApplyResources(Me.gbControlProducts, "gbControlProducts")
+        Me.gbControlProducts.Name = "gbControlProducts"
+        Me.gbControlProducts.TabStop = False
+        '
+        'btnUpdateProduct
+        '
+        resources.ApplyResources(Me.btnUpdateProduct, "btnUpdateProduct")
+        Me.btnUpdateProduct.ImageList = Me.iconList
+        Me.btnUpdateProduct.Name = "btnUpdateProduct"
+        Me.btnUpdateProduct.UseVisualStyleBackColor = True
+        '
+        'btnDeleteProduct
+        '
+        resources.ApplyResources(Me.btnDeleteProduct, "btnDeleteProduct")
+        Me.btnDeleteProduct.ImageList = Me.iconList
+        Me.btnDeleteProduct.Name = "btnDeleteProduct"
+        Me.btnDeleteProduct.UseVisualStyleBackColor = True
+        '
+        'btnCleanProduct
+        '
+        resources.ApplyResources(Me.btnCleanProduct, "btnCleanProduct")
+        Me.btnCleanProduct.ImageList = Me.iconList
+        Me.btnCleanProduct.Name = "btnCleanProduct"
+        Me.btnCleanProduct.UseVisualStyleBackColor = True
+        '
+        'btnAddProduct
+        '
+        resources.ApplyResources(Me.btnAddProduct, "btnAddProduct")
+        Me.btnAddProduct.ImageList = Me.iconList
+        Me.btnAddProduct.Name = "btnAddProduct"
+        Me.btnAddProduct.UseVisualStyleBackColor = True
+        '
+        'gbProductsBoxes
+        '
+        Me.gbProductsBoxes.Controls.Add(Me.txtProductDescription)
+        Me.gbProductsBoxes.Controls.Add(Me.lblProductDescription)
+        resources.ApplyResources(Me.gbProductsBoxes, "gbProductsBoxes")
+        Me.gbProductsBoxes.Name = "gbProductsBoxes"
+        Me.gbProductsBoxes.TabStop = False
+        '
+        'lblProductDescription
+        '
+        resources.ApplyResources(Me.lblProductDescription, "lblProductDescription")
+        Me.lblProductDescription.Name = "lblProductDescription"
+        '
+        'txtProductDescription
+        '
+        resources.ApplyResources(Me.txtProductDescription, "txtProductDescription")
+        Me.txtProductDescription.Name = "txtProductDescription"
+        '
+        'gbProductsList
+        '
+        Me.gbProductsList.Controls.Add(Me.lstViewProducts)
+        resources.ApplyResources(Me.gbProductsList, "gbProductsList")
+        Me.gbProductsList.Name = "gbProductsList"
+        Me.gbProductsList.TabStop = False
+        '
+        'lstViewProducts
+        '
+        Me.lstViewProducts.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ID, Me.Description})
+        Me.lstViewProducts.FullRowSelect = True
+        Me.lstViewProducts.HideSelection = False
+        resources.ApplyResources(Me.lstViewProducts, "lstViewProducts")
+        Me.lstViewProducts.MultiSelect = False
+        Me.lstViewProducts.Name = "lstViewProducts"
+        Me.lstViewProducts.UseCompatibleStateImageBehavior = False
+        Me.lstViewProducts.View = System.Windows.Forms.View.Details
+        '
+        'ID
+        '
+        resources.ApplyResources(Me.ID, "ID")
+        '
+        'Description
+        '
+        resources.ApplyResources(Me.Description, "Description")
+        '
+        'tabControl
+        '
+        Me.tabControl.Controls.Add(Me.tabProduct)
+        Me.tabControl.Controls.Add(Me.tabTrains)
+        Me.tabControl.Controls.Add(Me.tabTrainTypes)
+        Me.tabControl.Controls.Add(Me.tabPrices)
+        Me.tabControl.Controls.Add(Me.tabTrips)
+        Me.tabControl.Controls.Add(Me.tabQuery)
+        resources.ApplyResources(Me.tabControl, "tabControl")
+        Me.tabControl.ImageList = Me.iconList
+        Me.tabControl.Name = "tabControl"
+        Me.tabControl.SelectedIndex = 0
         '
         'btnExit
         '
@@ -985,9 +971,24 @@ Partial Class Main
         Me.btnExit.Name = "btnExit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
-        'OfdPath
+        'txtPath
         '
-        Me.OfdPath.FileName = "OfdPath"
+        resources.ApplyResources(Me.txtPath, "txtPath")
+        Me.txtPath.Name = "txtPath"
+        '
+        'btnConnect
+        '
+        resources.ApplyResources(Me.btnConnect, "btnConnect")
+        Me.btnConnect.ImageList = Me.iconList
+        Me.btnConnect.Name = "btnConnect"
+        Me.btnConnect.UseVisualStyleBackColor = True
+        '
+        'btnSelect
+        '
+        resources.ApplyResources(Me.btnSelect, "btnSelect")
+        Me.btnSelect.ImageList = Me.iconList
+        Me.btnSelect.Name = "btnSelect"
+        Me.btnSelect.UseVisualStyleBackColor = True
         '
         'gbDatabase
         '
@@ -1006,133 +1007,80 @@ Partial Class Main
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.tabControl)
         Me.Name = "Main"
-        Me.tabControl.ResumeLayout(False)
-        Me.tabProduct.ResumeLayout(False)
-        Me.gbProductsList.ResumeLayout(False)
-        Me.gbProductsBoxes.ResumeLayout(False)
-        Me.gbProductsBoxes.PerformLayout()
-        Me.gbControlProducts.ResumeLayout(False)
-        Me.tabTrains.ResumeLayout(False)
-        Me.gbTrainsList.ResumeLayout(False)
-        Me.gbTrainsBoxes.ResumeLayout(False)
-        Me.gbTrainsBoxes.PerformLayout()
-        Me.gbControlTrains.ResumeLayout(False)
-        Me.tabTrainTypes.ResumeLayout(False)
-        Me.gbTrainTypeList.ResumeLayout(False)
-        Me.gbTrainTypeBoxes.ResumeLayout(False)
-        Me.gbTrainTypeBoxes.PerformLayout()
-        CType(Me.nudMaxCapacity, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbControlTrainType.ResumeLayout(False)
-        Me.tabPrices.ResumeLayout(False)
-        Me.gbPriceList.ResumeLayout(False)
-        Me.gbControlPrices.ResumeLayout(False)
-        Me.gbPrices.ResumeLayout(False)
-        Me.gbPrices.PerformLayout()
-        Me.tabTrips.ResumeLayout(False)
-        Me.gbControlTrip.ResumeLayout(False)
-        Me.gbSelectionTrip.ResumeLayout(False)
-        Me.gbSelectionTrip.PerformLayout()
-        CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.gbTripList.ResumeLayout(False)
         Me.tabQuery.ResumeLayout(False)
         Me.tbpQuerie.ResumeLayout(False)
         Me.tabQuery1.ResumeLayout(False)
-        Me.gbSolutionQuery1.ResumeLayout(False)
-        Me.gbSolutionQuery1.PerformLayout()
-        Me.gbLstViewQuery1.ResumeLayout(False)
         Me.gbSlectionQuery1.ResumeLayout(False)
         Me.gbSlectionQuery1.PerformLayout()
+        Me.gbLstViewQuery1.ResumeLayout(False)
+        Me.gbSolutionQuery1.ResumeLayout(False)
+        Me.gbSolutionQuery1.PerformLayout()
+        Me.tabTrips.ResumeLayout(False)
+        Me.gbTripList.ResumeLayout(False)
+        Me.gbSelectionTrip.ResumeLayout(False)
+        Me.gbSelectionTrip.PerformLayout()
+        CType(Me.nudTonsTrip, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbControlTrip.ResumeLayout(False)
+        Me.tabPrices.ResumeLayout(False)
+        Me.gbPrices.ResumeLayout(False)
+        Me.gbPrices.PerformLayout()
+        Me.gbControlPrices.ResumeLayout(False)
+        Me.gbPriceList.ResumeLayout(False)
+        Me.tabTrainTypes.ResumeLayout(False)
+        Me.gbControlTrainType.ResumeLayout(False)
+        Me.gbTrainTypeBoxes.ResumeLayout(False)
+        Me.gbTrainTypeBoxes.PerformLayout()
+        CType(Me.nudMaxCapacity, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.gbTrainTypeList.ResumeLayout(False)
+        Me.tabTrains.ResumeLayout(False)
+        Me.gbControlTrains.ResumeLayout(False)
+        Me.gbTrainsBoxes.ResumeLayout(False)
+        Me.gbTrainsBoxes.PerformLayout()
+        Me.gbTrainsList.ResumeLayout(False)
+        Me.tabProduct.ResumeLayout(False)
+        Me.gbControlProducts.ResumeLayout(False)
+        Me.gbProductsBoxes.ResumeLayout(False)
+        Me.gbProductsBoxes.PerformLayout()
+        Me.gbProductsList.ResumeLayout(False)
+        Me.tabControl.ResumeLayout(False)
         Me.gbDatabase.ResumeLayout(False)
         Me.gbDatabase.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents btnSelect As Button
-    Friend WithEvents btnConnect As Button
-    Friend WithEvents tabControl As TabControl
-    Friend WithEvents tabTrips As TabPage
-    Friend WithEvents tabProduct As TabPage
-    Friend WithEvents lblProductDescription As Label
-    Friend WithEvents txtProductDescription As TextBox
-    Friend WithEvents btnUpdateProduct As Button
-    Friend WithEvents btnDeleteProduct As Button
-    Friend WithEvents btnCleanProduct As Button
-    Friend WithEvents btnAddProduct As Button
-    Friend WithEvents lblProductList As Label
-    Friend WithEvents tabTrains As TabPage
-    Friend WithEvents tabTrainTypes As TabPage
-    Friend WithEvents tabPrices As TabPage
-    Friend WithEvents txtPath As TextBox
-    Friend WithEvents btnExit As Button
     Friend WithEvents OfdPath As OpenFileDialog
-    Friend WithEvents cboxTrain As ComboBox
-    Friend WithEvents lblTypeTrain As Label
-    Friend WithEvents lblTrainDescription As Label
-    Friend WithEvents txtTrainID As TextBox
-    Friend WithEvents btnUpdateTrain As Button
-    Friend WithEvents btnDeleteTrain As Button
-    Friend WithEvents btnCleanTrain As Button
-    Friend WithEvents btnAddTrain As Button
-    Friend WithEvents lblCapacity As Label
-    Friend WithEvents lblTrainType As Label
-    Friend WithEvents txtTrainTypeDescription As TextBox
-    Friend WithEvents btnUpdateTrainType As Button
-    Friend WithEvents btnDeleteTrainType As Button
-    Friend WithEvents btnCleanTrainType As Button
-    Friend WithEvents btnAddTrainType As Button
-    Friend WithEvents lblTrainTypeList As Label
-    Friend WithEvents txtEurosPrices As TextBox
-    Friend WithEvents lblPrice As Label
-    Friend WithEvents lblDate As Label
-    Friend WithEvents dtpDatePrices As DateTimePicker
-    Friend WithEvents cboxProductPrices As ComboBox
-    Friend WithEvents lblProductPrices As Label
-    Friend WithEvents btnUpdatePrices As Button
-    Friend WithEvents btnDeletePrices As Button
-    Friend WithEvents btnCleanPrices As Button
-    Friend WithEvents btnAddPrices As Button
-    Friend WithEvents lblPricesList As Label
-    Friend WithEvents gbControlPrices As GroupBox
-    Friend WithEvents gbPrices As GroupBox
-    Friend WithEvents gbDatabase As GroupBox
-    Friend WithEvents gbProductsList As GroupBox
-    Friend WithEvents gbProductsBoxes As GroupBox
-    Friend WithEvents gbControlProducts As GroupBox
-    Friend WithEvents gbTrainsList As GroupBox
-    Friend WithEvents gbTrainsBoxes As GroupBox
-    Friend WithEvents gbControlTrains As GroupBox
-    Friend WithEvents gbTrainTypeBoxes As GroupBox
-    Friend WithEvents gbControlTrainType As GroupBox
-    Friend WithEvents gbTrainTypeList As GroupBox
-    Friend WithEvents nudMaxCapacity As NumericUpDown
-    Friend WithEvents gbPriceList As GroupBox
-    Friend WithEvents lstViewPrices As ListView
-    Friend WithEvents ProductDescription As ColumnHeader
-    Friend WithEvents PriceDate As ColumnHeader
-    Friend WithEvents PricePerTon As ColumnHeader
-    Friend WithEvents lblEuroSymbol As Label
-    Friend WithEvents ProductID As ColumnHeader
-    Friend WithEvents lstViewProducts As ListView
-    Friend WithEvents ID As ColumnHeader
-    Friend WithEvents Description As ColumnHeader
-    Friend WithEvents lstViewTrains As ListView
-    Friend WithEvents idTrains As ColumnHeader
-    Friend WithEvents trainTypeTrains As ColumnHeader
-    Friend WithEvents lstViewTrainTypes As ListView
-    Friend WithEvents idTrainTypes As ColumnHeader
-    Friend WithEvents descriptionTrainTypes As ColumnHeader
-    Friend WithEvents capacityTrainTypes As ColumnHeader
-    Friend WithEvents tabQuery As TabPage
     Friend WithEvents iconList As ImageList
-    Friend WithEvents gbSelectionTrip As GroupBox
-    Friend WithEvents gbTripList As GroupBox
+    Friend WithEvents tabQuery As TabPage
+    Friend WithEvents tbpQuerie As TabControl
+    Friend WithEvents tabQuery1 As TabPage
+    Friend WithEvents gbSolutionQuery1 As GroupBox
+    Friend WithEvents lblTripsSolution As Label
+    Friend WithEvents txtNumberTripsQuery1 As TextBox
+    Friend WithEvents lblNumberTripsQuery1 As Label
+    Friend WithEvents gbLstViewQuery1 As GroupBox
+    Friend WithEvents lstViewQuery1 As ListView
+    Friend WithEvents tripDateQuery1 As ColumnHeader
+    Friend WithEvents trainQuery1 As ColumnHeader
+    Friend WithEvents productQuery1 As ColumnHeader
+    Friend WithEvents gbSlectionQuery1 As GroupBox
+    Friend WithEvents dtpDateEndQuery1 As DateTimePicker
+    Friend WithEvents lblDateStartQuery As Label
+    Friend WithEvents lblDateEnd As Label
+    Friend WithEvents lblTrainIdQuery As Label
+    Friend WithEvents dtpDateStartQuery1 As DateTimePicker
+    Friend WithEvents cboxTrainIdQuery1 As ComboBox
+    Friend WithEvents btnExecuteQuery1 As Button
+    Friend WithEvents tabQuery2 As TabPage
+    Friend WithEvents tabQuery3 As TabPage
+    Friend WithEvents tabQuery4 As TabPage
+    Friend WithEvents tabTrips As TabPage
     Friend WithEvents gbControlTrip As GroupBox
     Friend WithEvents btnAddTrip As Button
     Friend WithEvents btnCleanTrip As Button
     Friend WithEvents btnDeleteTrip As Button
     Friend WithEvents btnUpdateTrip As Button
-    Friend WithEvents lblTonsTrainType As Label
+    Friend WithEvents gbSelectionTrip As GroupBox
+    Friend WithEvents lstboxProductTrip As ListBox
     Friend WithEvents nudTonsTrip As NumericUpDown
     Friend WithEvents cboxTrainTrip As ComboBox
     Friend WithEvents lblTonsTrip As Label
@@ -1140,32 +1088,84 @@ Partial Class Main
     Friend WithEvents lblProductTrip As Label
     Friend WithEvents lblDateTrip As Label
     Friend WithEvents dtpTrip As DateTimePicker
+    Friend WithEvents gbTripList As GroupBox
     Friend WithEvents lstViewTrip As ListView
     Friend WithEvents dateTrip As ColumnHeader
     Friend WithEvents trainTrip As ColumnHeader
     Friend WithEvents productTrip As ColumnHeader
     Friend WithEvents tonsTrip As ColumnHeader
-    Friend WithEvents lstboxProductTrip As ListBox
-    Friend WithEvents btnExecuteQuery1 As Button
-    Friend WithEvents lblTrainIdQuery As Label
-    Friend WithEvents cboxTrainIdQuery1 As ComboBox
-    Friend WithEvents lblDateEnd As Label
-    Friend WithEvents lblDateStartQuery As Label
-    Friend WithEvents dtpDateEndQuery1 As DateTimePicker
-    Friend WithEvents dtpDateStartQuery1 As DateTimePicker
-    Friend WithEvents tbpQuerie As TabControl
-    Friend WithEvents tabQuery1 As TabPage
-    Friend WithEvents lstViewQuery1 As ListView
-    Friend WithEvents tripDateQuery1 As ColumnHeader
-    Friend WithEvents trainQuery1 As ColumnHeader
-    Friend WithEvents productQuery1 As ColumnHeader
-    Friend WithEvents tabQuery2 As TabPage
-    Friend WithEvents tabQuery3 As TabPage
-    Friend WithEvents tabQuery4 As TabPage
-    Friend WithEvents gbLstViewQuery1 As GroupBox
-    Friend WithEvents gbSlectionQuery1 As GroupBox
-    Friend WithEvents gbSolutionQuery1 As GroupBox
-    Friend WithEvents lblTripsSolution As Label
-    Friend WithEvents txtNumberTripsQuery1 As TextBox
-    Friend WithEvents lblNumberTripsQuery1 As Label
+    Friend WithEvents tabPrices As TabPage
+    Friend WithEvents gbPriceList As GroupBox
+    Friend WithEvents lstViewPrices As ListView
+    Friend WithEvents ProductID As ColumnHeader
+    Friend WithEvents ProductDescription As ColumnHeader
+    Friend WithEvents PriceDate As ColumnHeader
+    Friend WithEvents PricePerTon As ColumnHeader
+    Friend WithEvents gbControlPrices As GroupBox
+    Friend WithEvents btnAddPrices As Button
+    Friend WithEvents btnCleanPrices As Button
+    Friend WithEvents btnDeletePrices As Button
+    Friend WithEvents btnUpdatePrices As Button
+    Friend WithEvents gbPrices As GroupBox
+    Friend WithEvents lblEuroSymbol As Label
+    Friend WithEvents txtEurosPrices As TextBox
+    Friend WithEvents lblProductPrices As Label
+    Friend WithEvents lblDate As Label
+    Friend WithEvents lblPrice As Label
+    Friend WithEvents dtpDatePrices As DateTimePicker
+    Friend WithEvents cboxProductPrices As ComboBox
+    Friend WithEvents lblPricesList As Label
+    Friend WithEvents tabTrainTypes As TabPage
+    Friend WithEvents gbTrainTypeList As GroupBox
+    Friend WithEvents lstViewTrainTypes As ListView
+    Friend WithEvents idTrainTypes As ColumnHeader
+    Friend WithEvents descriptionTrainTypes As ColumnHeader
+    Friend WithEvents capacityTrainTypes As ColumnHeader
+    Friend WithEvents gbTrainTypeBoxes As GroupBox
+    Friend WithEvents lblTonsTrainType As Label
+    Friend WithEvents nudMaxCapacity As NumericUpDown
+    Friend WithEvents lblTrainType As Label
+    Friend WithEvents txtTrainTypeDescription As TextBox
+    Friend WithEvents lblCapacity As Label
+    Friend WithEvents gbControlTrainType As GroupBox
+    Friend WithEvents btnAddTrainType As Button
+    Friend WithEvents btnCleanTrainType As Button
+    Friend WithEvents btnUpdateTrainType As Button
+    Friend WithEvents btnDeleteTrainType As Button
+    Friend WithEvents lblTrainTypeList As Label
+    Friend WithEvents tabTrains As TabPage
+    Friend WithEvents gbTrainsList As GroupBox
+    Friend WithEvents lstViewTrains As ListView
+    Friend WithEvents idTrains As ColumnHeader
+    Friend WithEvents trainTypeTrains As ColumnHeader
+    Friend WithEvents gbTrainsBoxes As GroupBox
+    Friend WithEvents lblTrainDescription As Label
+    Friend WithEvents txtTrainID As TextBox
+    Friend WithEvents cboxTrain As ComboBox
+    Friend WithEvents lblTypeTrain As Label
+    Friend WithEvents gbControlTrains As GroupBox
+    Friend WithEvents btnAddTrain As Button
+    Friend WithEvents btnUpdateTrain As Button
+    Friend WithEvents btnCleanTrain As Button
+    Friend WithEvents btnDeleteTrain As Button
+    Friend WithEvents tabProduct As TabPage
+    Friend WithEvents gbProductsList As GroupBox
+    Friend WithEvents lstViewProducts As ListView
+    Friend WithEvents ID As ColumnHeader
+    Friend WithEvents Description As ColumnHeader
+    Friend WithEvents gbProductsBoxes As GroupBox
+    Friend WithEvents txtProductDescription As TextBox
+    Friend WithEvents lblProductDescription As Label
+    Friend WithEvents gbControlProducts As GroupBox
+    Friend WithEvents btnAddProduct As Button
+    Friend WithEvents btnCleanProduct As Button
+    Friend WithEvents btnDeleteProduct As Button
+    Friend WithEvents btnUpdateProduct As Button
+    Friend WithEvents lblProductList As Label
+    Friend WithEvents tabControl As TabControl
+    Friend WithEvents btnExit As Button
+    Friend WithEvents txtPath As TextBox
+    Friend WithEvents btnConnect As Button
+    Friend WithEvents btnSelect As Button
+    Friend WithEvents gbDatabase As GroupBox
 End Class
