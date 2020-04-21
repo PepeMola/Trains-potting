@@ -1115,7 +1115,7 @@
 
     Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery1.Click
         If Not Me.cboxTrainIdQuery1.SelectedItem Is Nothing Then
-            If Me.dtpDateStartQuery1.Value >= DateTime.Now And Me.dtpDateEndQuery1.Value > Me.dtpDateStartQuery1.Value Then
+            If Me.dtpDateEndQuery1.Value > Me.dtpDateStartQuery1.Value Then
                 Try
                     Dim q As New Query1(Me.dtpDateStartQuery1.Value, Me.dtpDateEndQuery1.Value, Me.cboxTrainIdQuery1.SelectedItem.ToString)
                     q.Read()
@@ -1142,25 +1142,27 @@
                 Me.dtpDateStartQuery1.Value = DateTime.Now
                 Me.dtpDateEndQuery1.Value = DateTime.Now
                 Me.cboxTrainIdQuery1.Text = String.Empty
+                Me.lstViewQuery1.Items.Clear()
                 Exit Sub
             End If
         Else
             MessageBox.Show("Please select a train to execute correctly the query.")
             Me.dtpDateStartQuery1.Value = DateTime.Now
             Me.dtpDateEndQuery1.Value = DateTime.Now
+            Me.lstViewQuery1.Items.Clear()
             Exit Sub
         End If
     End Sub
 
     Private Sub btnCleanQuery1_Click(sender As Object, e As EventArgs) Handles btnCleanQuery1.Click
-        Me.lstViewQuery1.Clear()
+        Me.lstViewQuery1.Items.Clear()
         Me.txtNumberTripsQuery1.Text = String.Empty
     End Sub
 
     '------------------------------------------------QUERY 2----------------------------------------------------------------------------------
 
     Private Sub btnExecuteQuery2_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery2.Click
-        If Me.dtpStartDateQuery2.Value >= DateTime.Now And Me.dtpEndDateQuery2.Value > Me.dtpStartDateQuery2.Value Then
+        If Me.dtpEndDateQuery2.Value > Me.dtpStartDateQuery2.Value Then
             Try
                 Dim q As New Query2(Me.dtpStartDateQuery2.Value, Me.dtpEndDateQuery2.Value)
                 q.Read()
@@ -1168,27 +1170,30 @@
                 For Each row As DataRow In q.query2Dao.solution.Rows
                     Dim item As New ListViewItem(row(0).ToString)
                     item.SubItems.Add(row(1).ToString)
-                    item.SubItems.Add(row(2).ToString)
                     Me.lstViewQuery2.Items.Add(item)
                 Next
 
                 Me.dtpStartDateQuery2.Value = DateTime.Now
                 Me.dtpEndDateQuery2.Value = DateTime.Now
-
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
         Else
-            MessageBox.Show("Sorry, the dates selected are not correct." & vbCrLf & "The Start date should be after than today and" &
+            MessageBox.Show("Sorry, the dates selected are not correct." &
                 vbCrLf & "End date should be after than the selected Start date.")
             Me.dtpStartDateQuery2.Value = DateTime.Now
             Me.dtpEndDateQuery2.Value = DateTime.Now
+            Me.lstViewQuery2.Items.Clear()
             Exit Sub
         End If
     End Sub
 
     Private Sub btnCleanQuery2_Click(sender As Object, e As EventArgs) Handles btnCleanQuery2.Click
-        Me.lstViewQuery2.Clear()
+        Me.lstViewQuery2.Items.Clear()
     End Sub
+
+    '------------------------------------------------QUERY 3----------------------------------------------------------------------------------
+
+    '------------------------------------------------QUERY 4----------------------------------------------------------------------------------
 End Class

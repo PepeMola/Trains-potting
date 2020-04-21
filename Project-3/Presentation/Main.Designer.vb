@@ -57,7 +57,6 @@ Partial Class Main
         Me.dtpStartDateQuery2 = New System.Windows.Forms.DateTimePicker()
         Me.gbQuery2List = New System.Windows.Forms.GroupBox()
         Me.lstViewQuery2 = New System.Windows.Forms.ListView()
-        Me.tripDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.trainType = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.totalTrips = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery3 = New System.Windows.Forms.TabPage()
@@ -423,7 +422,7 @@ Partial Class Main
         '
         'lstViewQuery2
         '
-        Me.lstViewQuery2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.tripDate, Me.trainType, Me.totalTrips})
+        Me.lstViewQuery2.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.trainType, Me.totalTrips})
         resources.ApplyResources(Me.lstViewQuery2, "lstViewQuery2")
         Me.lstViewQuery2.FullRowSelect = True
         Me.lstViewQuery2.HideSelection = False
@@ -431,10 +430,6 @@ Partial Class Main
         Me.lstViewQuery2.Name = "lstViewQuery2"
         Me.lstViewQuery2.UseCompatibleStateImageBehavior = False
         Me.lstViewQuery2.View = System.Windows.Forms.View.Details
-        '
-        'tripDate
-        '
-        resources.ApplyResources(Me.tripDate, "tripDate")
         '
         'trainType
         '
@@ -1171,6 +1166,7 @@ Partial Class Main
         Me.Controls.Add(Me.gbDatabase)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.tabControl)
+        Me.MaximizeBox = False
         Me.Name = "Main"
         Me.tabQuery.ResumeLayout(False)
         Me.tbpQuerie.ResumeLayout(False)
@@ -1345,7 +1341,6 @@ Partial Class Main
     Friend WithEvents dtpStartDateQuery2 As DateTimePicker
     Friend WithEvents gbQuery2List As GroupBox
     Friend WithEvents lstViewQuery2 As ListView
-    Friend WithEvents tripDate As ColumnHeader
     Friend WithEvents trainType As ColumnHeader
     Friend WithEvents totalTrips As ColumnHeader
     Friend WithEvents btnCleanQuery2 As Button

@@ -9,17 +9,16 @@
 
     Public Sub ReadQuery2(ByRef q As Query2)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT t.TripDate, ty.TrainTypeDescription, COUNT(*) As Total FROM Trips t, Trains tr, TrainTypes ty WHERE t.Train = tr.TrainID AND tr.TrainType= ty.TrainTypeID 
+        col = DBBroker.GetBroker.Read("SELECT ty.TrainTypeDescription, COUNT(*) As Total FROM Trips t, Trains tr, TrainTypes ty WHERE t.Train = tr.TrainID AND tr.TrainType= ty.TrainTypeID 
                                        AND t.TripDate>=#" & q.DateStart & "# AND t.TripDate <=#" & q.DateEnd & "# 
-                                       GROUP BY t.TripDate, ty.TrainTypeDescription ORDER BY ty.TrainTypeDescription;")
+                                       GROUP BY ty.TrainTypeDescription ORDER BY COUNT(*);")
 
         'Here we create the table format in which we store the info of the query
-        solution.Columns.Add("Trip Date", GetType(String))
         solution.Columns.Add("Train Type", GetType(String))
         solution.Columns.Add("Total Trips", GetType(String))
 
         For Each aux In col
-            solution.Rows.Add(FormatDateTime(aux(1), DateFormat.ShortDate).ToString, aux(2).ToString, aux(3).ToString)
+            solution.Rows.Add(aux(1).ToString, aux(2).ToString)
         Next
     End Sub
 End Class
