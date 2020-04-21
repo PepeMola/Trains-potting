@@ -29,6 +29,7 @@ Partial Class Main
         Me.tabQuery = New System.Windows.Forms.TabPage()
         Me.tbpQuerie = New System.Windows.Forms.TabControl()
         Me.tabQuery1 = New System.Windows.Forms.TabPage()
+        Me.btnCleanQuery1 = New System.Windows.Forms.Button()
         Me.gbSolutionQuery1 = New System.Windows.Forms.GroupBox()
         Me.lblTripsSolution = New System.Windows.Forms.Label()
         Me.txtNumberTripsQuery1 = New System.Windows.Forms.TextBox()
@@ -47,6 +48,7 @@ Partial Class Main
         Me.cboxTrainIdQuery1 = New System.Windows.Forms.ComboBox()
         Me.btnExecuteQuery1 = New System.Windows.Forms.Button()
         Me.tabQuery2 = New System.Windows.Forms.TabPage()
+        Me.btnCleanQuery2 = New System.Windows.Forms.Button()
         Me.btnExecuteQuery2 = New System.Windows.Forms.Button()
         Me.gbSelectionQuery2 = New System.Windows.Forms.GroupBox()
         Me.lblEndDateQuery2 = New System.Windows.Forms.Label()
@@ -155,8 +157,6 @@ Partial Class Main
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.btnSelect = New System.Windows.Forms.Button()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
-        Me.btnCleanQuery2 = New System.Windows.Forms.Button()
-        Me.btnCleanQuery1 = New System.Windows.Forms.Button()
         Me.tabQuery.SuspendLayout()
         Me.tbpQuerie.SuspendLayout()
         Me.tabQuery1.SuspendLayout()
@@ -242,6 +242,12 @@ Partial Class Main
         resources.ApplyResources(Me.tabQuery1, "tabQuery1")
         Me.tabQuery1.Name = "tabQuery1"
         '
+        'btnCleanQuery1
+        '
+        resources.ApplyResources(Me.btnCleanQuery1, "btnCleanQuery1")
+        Me.btnCleanQuery1.Name = "btnCleanQuery1"
+        Me.btnCleanQuery1.UseVisualStyleBackColor = True
+        '
         'gbSolutionQuery1
         '
         Me.gbSolutionQuery1.BackColor = System.Drawing.Color.LightSteelBlue
@@ -269,7 +275,7 @@ Partial Class Main
         '
         'gbLstViewQuery1
         '
-        Me.gbLstViewQuery1.BackColor = System.Drawing.Color.SkyBlue
+        Me.gbLstViewQuery1.BackColor = System.Drawing.Color.CornflowerBlue
         Me.gbLstViewQuery1.Controls.Add(Me.lstViewQuery1)
         resources.ApplyResources(Me.gbLstViewQuery1, "gbLstViewQuery1")
         Me.gbLstViewQuery1.Name = "gbLstViewQuery1"
@@ -300,7 +306,7 @@ Partial Class Main
         '
         'gbSlectionQuery1
         '
-        Me.gbSlectionQuery1.BackColor = System.Drawing.Color.Silver
+        Me.gbSlectionQuery1.BackColor = System.Drawing.Color.LightSteelBlue
         Me.gbSlectionQuery1.Controls.Add(Me.dtpDateEndQuery1)
         Me.gbSlectionQuery1.Controls.Add(Me.lblDateStartQuery)
         Me.gbSlectionQuery1.Controls.Add(Me.lblDateEnd)
@@ -362,6 +368,12 @@ Partial Class Main
         Me.tabQuery2.Name = "tabQuery2"
         Me.tabQuery2.UseVisualStyleBackColor = True
         '
+        'btnCleanQuery2
+        '
+        resources.ApplyResources(Me.btnCleanQuery2, "btnCleanQuery2")
+        Me.btnCleanQuery2.Name = "btnCleanQuery2"
+        Me.btnCleanQuery2.UseVisualStyleBackColor = True
+        '
         'btnExecuteQuery2
         '
         resources.ApplyResources(Me.btnExecuteQuery2, "btnExecuteQuery2")
@@ -370,6 +382,7 @@ Partial Class Main
         '
         'gbSelectionQuery2
         '
+        Me.gbSelectionQuery2.BackColor = System.Drawing.Color.CornflowerBlue
         Me.gbSelectionQuery2.Controls.Add(Me.lblEndDateQuery2)
         Me.gbSelectionQuery2.Controls.Add(Me.lblStartDateQuery2)
         Me.gbSelectionQuery2.Controls.Add(Me.dtpEndDateQuery2)
@@ -402,6 +415,7 @@ Partial Class Main
         '
         'gbQuery2List
         '
+        Me.gbQuery2List.BackColor = System.Drawing.Color.CornflowerBlue
         Me.gbQuery2List.Controls.Add(Me.lstViewQuery2)
         resources.ApplyResources(Me.gbQuery2List, "gbQuery2List")
         Me.gbQuery2List.Name = "gbQuery2List"
@@ -593,7 +607,7 @@ Partial Class Main
         '
         'tabPrices
         '
-        Me.tabPrices.BackColor = System.Drawing.Color.RoyalBlue
+        Me.tabPrices.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabPrices.Controls.Add(Me.gbPriceList)
         Me.tabPrices.Controls.Add(Me.gbControlPrices)
         Me.tabPrices.Controls.Add(Me.gbPrices)
@@ -736,7 +750,7 @@ Partial Class Main
         '
         'tabTrainTypes
         '
-        Me.tabTrainTypes.BackColor = System.Drawing.Color.RoyalBlue
+        Me.tabTrainTypes.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeList)
         Me.tabTrainTypes.Controls.Add(Me.gbTrainTypeBoxes)
         Me.tabTrainTypes.Controls.Add(Me.gbControlTrainType)
@@ -861,7 +875,7 @@ Partial Class Main
         '
         'tabTrains
         '
-        Me.tabTrains.BackColor = System.Drawing.Color.RoyalBlue
+        Me.tabTrains.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabTrains.Controls.Add(Me.gbTrainsList)
         Me.tabTrains.Controls.Add(Me.gbTrainsBoxes)
         Me.tabTrains.Controls.Add(Me.gbControlTrains)
@@ -972,7 +986,7 @@ Partial Class Main
         '
         'tabProduct
         '
-        Me.tabProduct.BackColor = System.Drawing.Color.Turquoise
+        Me.tabProduct.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabProduct.Controls.Add(Me.gbProductsList)
         Me.tabProduct.Controls.Add(Me.gbProductsBoxes)
         Me.tabProduct.Controls.Add(Me.gbControlProducts)
@@ -1129,23 +1143,11 @@ Partial Class Main
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
         '
-        'btnCleanQuery2
-        '
-        resources.ApplyResources(Me.btnCleanQuery2, "btnCleanQuery2")
-        Me.btnCleanQuery2.Name = "btnCleanQuery2"
-        Me.btnCleanQuery2.UseVisualStyleBackColor = True
-        '
-        'btnCleanQuery1
-        '
-        resources.ApplyResources(Me.btnCleanQuery1, "btnCleanQuery1")
-        Me.btnCleanQuery1.Name = "btnCleanQuery1"
-        Me.btnCleanQuery1.UseVisualStyleBackColor = True
-        '
         'Main
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.BackColor = System.Drawing.Color.DimGray
         Me.Controls.Add(Me.gbDatabase)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.tabControl)

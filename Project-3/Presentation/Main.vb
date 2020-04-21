@@ -1191,6 +1191,4 @@
     Private Sub btnCleanQuery2_Click(sender As Object, e As EventArgs) Handles btnCleanQuery2.Click
         Me.lstViewQuery2.Clear()
     End Sub
-
-
 End Class
