@@ -70,7 +70,6 @@
             lstViewPrices.Items.Add(itemPrices)
         Next
 
-
         'Load Product in List and txtBox
         Dim itemProduct As ListViewItem
         For Each p As Product In product.ProDao.Product
@@ -288,6 +287,8 @@
         btnUpdatePrices.Enabled = True
         btnDeletePrices.Enabled = True
     End Sub
+
+    'No lo entiendo-------------------PILLETE COMENTA EL METODO PARA VER QUE HACE (EN INGLES PLS)
     Private Sub checkRepetedElements(aux)
         Dim price As Prices = New Prices
         Dim itemPrices As ListViewItem
@@ -310,6 +311,7 @@
         Next
 
     End Sub
+
     'Button Add in PRICES
     Private Sub btnAddPrices_Click(sender As Object, e As EventArgs) Handles btnAddPrices.Click
         Dim pri As New Prices
@@ -779,6 +781,7 @@
         btnUpdateTrainType.Enabled = False
         btnDeleteTrainType.Enabled = False
     End Sub
+
     Public Sub LoadTrainTypesInCbox()
         Dim ty As TrainType = New TrainType
         ty.ReadAllTrainType(OfdPath.FileName)
