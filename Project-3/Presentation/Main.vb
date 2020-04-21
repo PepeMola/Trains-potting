@@ -22,12 +22,12 @@
 
     'This Method allow us connect the database and load the info in our Form "Train-potting"
     Private Sub btnConnect_Click(sender As Object, e As EventArgs) Handles btnConnect.Click
-        Dim train As Train = New Train
-        Dim price As Prices = New Prices
-        Dim product As Product = New Product
-        Dim train_type As TrainType = New TrainType
-        Dim trip As Trip = New Trip
-        Dim query As Query1 = New Query1
+        Dim train As Train = New Train 'Variable use to store an object of type Train
+        Dim price As Prices = New Prices 'Variable use to store an object of type Prices
+        Dim product As Product = New Product 'Variable use to store an object of type Product
+        Dim train_type As TrainType = New TrainType 'Variable use to store an object of type TrainType
+        Dim trip As Trip = New Trip 'Variable use to store an object of type Trip
+        Dim query As Query1 = New Query1 'Variable use to store an object of type Trip
 
         Try
             train.ReadAllTrain(OfdPath.FileName)
@@ -42,67 +42,72 @@
             Exit Sub
         End Try
 
+
         'Load Train in List and Combo
-        Dim itemTrain As ListViewItem
-        Dim ty As TrainType
+        Dim itemTrain As ListViewItem 'Varible that creates an object to save a train and add into the lstView of Trains
+        Dim ty As TrainType 'Variable to create objects of type TrainType
 
         For Each t As Train In train.TraDao.Train
             ty = New TrainType(t.TrainType)
             ty.ReadTrainType()
-            itemTrain = New ListViewItem(t.TrainID)
-            itemTrain.SubItems.Add(ty.TrainTypeDescription)
+            itemTrain = New ListViewItem(t.TrainID) 'Creates an item with the ID of the Train
+            itemTrain.SubItems.Add(ty.TrainTypeDescription) 'Adding information of the Train
             lstViewTrains.Items.Add(itemTrain) 'Add the train in the list view of TRAINS
             Me.cboxTrainTrip.Items.Add(t.TrainID) 'Add the train in the combobox of Trips
             Me.cboxTrainIdQuery1.Items.Add(t.TrainID) 'Add the train in the combobox of Query 1
         Next
 
+
         'Load PRICES in List View and Combos
-        Dim itemPrices As ListViewItem
-        Dim pro As Product
+        Dim itemPrices As ListViewItem 'Varible that creates an object to save a price and add into the lstView of Prieces
+        Dim pro As Product 'Variable to create objects of type Product
 
         For Each pri As Prices In price.PriDao.Prices
             pro = New Product(pri.ProductID)
             pro.ReadProduct()
-            itemPrices = New ListViewItem(pri.ProductID)
-            itemPrices.SubItems.Add(pro.ProductDescription)
-            itemPrices.SubItems.Add(pri.PriceDate)
-            itemPrices.SubItems.Add(pri.EurosPerTon)
-            lstViewPrices.Items.Add(itemPrices)
+            itemPrices = New ListViewItem(pri.ProductID) 'Creates an item with the ID of the product
+            itemPrices.SubItems.Add(pro.ProductDescription) 'Adding information of the product 
+            itemPrices.SubItems.Add(pri.PriceDate) 'Adding information of the priece
+            itemPrices.SubItems.Add(pri.EurosPerTon) 'Adding information of the priece
+            lstViewPrices.Items.Add(itemPrices) 'Add the price in the list view of Prieces
         Next
 
         'Load Product in List and txtBox
-        Dim itemProduct As ListViewItem
+        Dim itemProduct As ListViewItem 'Varible that stores an object to save a peoduct and add into the lstView of Products
+
         For Each p As Product In product.ProDao.Product
             p.ReadProductDescription()
-            itemProduct = New ListViewItem(p.ProductID)
-            itemProduct.SubItems.Add(p.ProductDescription)
-            lstViewProducts.Items.Add(itemProduct)
+            itemProduct = New ListViewItem(p.ProductID) 'Creates an item with the ID of the product
+            itemProduct.SubItems.Add(p.ProductDescription) 'Adding information of the product 
+            lstViewProducts.Items.Add(itemProduct) 'Adding each product to the lstView of the products in products tab
             Me.cboxProductPrices.Items.Add(p.ProductDescription) 'Adding each product to the combobox in prices tab
-            Me.lstboxProductTrip.Items.Add(p.ProductDescription)
+            Me.lstboxProductTrip.Items.Add(p.ProductDescription) 'Adding each product to the lstbox in trip tab
         Next
 
+
         'Load TRAIN TYPES in List
-        Dim itemTypes As ListViewItem
+        Dim itemTypes As ListViewItem 'Varible that stores objects to save traintypes and add them into the lstView of TrainTypes
+
         For Each type As TrainType In train_type.TypDao.TrainType
             type.ReadTrainTypeDescription()
-            itemTypes = New ListViewItem(type.TrainTypeID)
-            itemTypes.SubItems.Add(type.TrainTypeDescription)
-            itemTypes.SubItems.Add(type.MaxCapacity)
-            lstViewTrainTypes.Items.Add(itemTypes)
+            itemTypes = New ListViewItem(type.TrainTypeID) 'Creates an item with the ID of the traintype
+            itemTypes.SubItems.Add(type.TrainTypeDescription) 'Adding information of the traintype 
+            itemTypes.SubItems.Add(type.MaxCapacity) 'Adding information of the traintype 
+            lstViewTrainTypes.Items.Add(itemTypes) 'Adding each train type to the lstView in traintype tab
             Me.cboxTrain.Items.Add(type.TrainTypeDescription) 'Adding each train type to the combobox in train tab
         Next
 
         'Load TRIP in list
-        Dim itemTrip As ListViewItem
+        Dim itemTrip As ListViewItem 'Varible that stores objects to save traintypes and add them into the lstView of TrainTypes
         Dim pr As Product
         For Each tri As Trip In trip.TrDao.Trip
             pr = New Product(tri.Product)
             pr.ReadProduct()
-            itemTrip = New ListViewItem(tri.TripDate)
-            itemTrip.SubItems.Add(tri.Train)
-            itemTrip.SubItems.Add(pr.ProductDescription)
-            itemTrip.SubItems.Add(tri.TonsTransported)
-            lstViewTrip.Items.Add(itemTrip)
+            itemTrip = New ListViewItem(tri.TripDate) 'Creates an item with the date of the trip
+            itemTrip.SubItems.Add(tri.Train) 'Adding information of the traintype 
+            itemTrip.SubItems.Add(pr.ProductDescription) 'Adding information of the product
+            itemTrip.SubItems.Add(tri.TonsTransported) 'Adding information of the traintype
+            lstViewTrip.Items.Add(itemTrip) 'Adding each trip to the lstView in trip tab
         Next
 
         tabControl.Enabled = True
@@ -198,7 +203,7 @@
     Private Sub btnDeleteProduct_Click(sender As Object, e As EventArgs) Handles btnDeleteProduct.Click
         Dim pro As New Product
 
-        If Not Me.lstViewProducts.SelectedItems(0).SubItems(0).Text Is Nothing Then
+        If Not Me.lstViewProducts.SelectedItems(0).SubItems(0).Text Is Nothing Then 'If there is not a selected item, it wont let you delete
             If MessageBox.Show("Are yoou sure to remove this? " & lstViewProducts.SelectedItems(0).SubItems(1).Text, "Por favor, confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 pro = New Product(Me.txtProductDescription.Text)
                 pro.ReadProductDescription()
@@ -209,9 +214,9 @@
                     End If
                     lstViewProducts.Items.Remove(lstViewProducts.SelectedItems(0))
                     MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly removed.")
-                    resetcboxProductPrices()
-                    resetListViewTrip()
-                    resetcboxTrips()
+                    resetcboxProductPrices() 'Update the cbox in the prices tab 
+                    resetListViewTrip() 'Update the lstView in the trip tab
+                    resetcboxTrips() 'Update the cbox in the trip tab
                     txtProductDescription.Text = String.Empty
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -230,6 +235,7 @@
     Private Sub btnUpdateProduct_Click(sender As Object, e As EventArgs) Handles btnUpdateProduct.Click
         Dim pro As Product
         If Me.txtProductDescription.Text <> String.Empty Then
+
             pro = New Product(Me.txtProductDescription.Text)
             pro.ProductID = Integer.Parse(lstViewProducts.SelectedItems(0).Text)
 
@@ -245,9 +251,9 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
-            resetcboxProductPrices()
-            resetlstViewPrices()
-            resetcboxTrips()
+            resetcboxProductPrices() 'Update the cbox in the prices tab 
+            resetlstViewPrices() 'Update the lstView in the trip tab
+            resetcboxTrips() 'Update the cbox in the trip tab
             Me.txtProductDescription.Text = String.Empty
             btnAddProduct.Enabled = True
             btnCleanProduct.Enabled = False
@@ -274,6 +280,8 @@
     Private Sub lstViewPrices_Click(sender As Object, e As EventArgs) Handles lstViewPrices.Click
         If Not Me.lstViewPrices.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewPrices.FocusedItem.Index 'Select the afected row
+
+            'Try to assign into the panels the information in the lstView
             Try
                 cboxProductPrices.Text = lstViewPrices.Items(i).SubItems(1).Text
                 dtpDatePrices.Text = lstViewPrices.Items(i).SubItems(2).Text
@@ -287,30 +295,6 @@
         btnCleanPrices.Enabled = True
         btnUpdatePrices.Enabled = True
         btnDeletePrices.Enabled = True
-    End Sub
-
-    'No lo entiendo-------------------PILLETE COMENTA EL METODO PARA VER QUE HACE (EN INGLES PLS)
-    Private Sub checkRepetedElements(aux)
-        Dim price As Prices = New Prices
-        Dim itemPrices As ListViewItem
-        Dim pro As Product
-
-        Try
-            price.ReadAllPrices(OfdPath.FileName)
-        Catch ex As Exception
-            MessageBox.Show("Error in reading price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Exit Sub
-        End Try
-
-        For Each pri As Prices In price.PriDao.Prices
-            pro = New Product(pri.ProductID)
-            pro.ReadProduct()
-            If pro.ProductID = aux.ProductID Then
-                MessageBox.Show("Try update the product", "Suggestion", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Exit Sub
-            End If
-        Next
-
     End Sub
 
     'Button Add in PRICES
@@ -327,7 +311,7 @@
                 pri.PriceDate = dtpDatePrices.Text
                 pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
                 If pri.EurosPerTon <= 0 Then
-                    MessageBox.Show("Enter a valid value stupid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Enter a value higher than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Sub
                 End If
 
@@ -337,14 +321,13 @@
                 dtpDatePrices.Text = String.Empty
                 Exit Sub
             End Try
-            'Metodo que devuelva algun numero para parar ejecucion
-            'checkRepetedElements(pri)
+
             Try
                 If pri.InsertPrice() <> 1 Then
                     MessageBox.Show("Error inserting price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
                 End If
-
+                'If the operation was performed correctly, we add it into the lstView
                 Dim item As New ListViewItem(pri.ProductID)
                 item.SubItems.Add(pro.ProductDescription)
                 item.SubItems.Add(pri.PriceDate)
@@ -388,6 +371,8 @@
                     Exit Sub
                 End If
 
+                'If the operation was performed correctly, we add it into the lstView
+
                 lstViewPrices.SelectedItems(0).SubItems(3).Text = pri.EurosPerTon
                 MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & "correctly updated.")
 
@@ -413,7 +398,7 @@
                         MessageBox.Show("Error removing this price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
-
+                    'If the operation was performed correctly, we remove it into the lstView
                     lstViewPrices.Items.Remove(lstViewPrices.SelectedItems(0))
                     MessageBox.Show("' " & pro.ProductDescription.ToString & " " & pri.PriceDate.ToString & "' correctly deleted.")
                     Me.txtEurosPrices.Text = String.Empty
@@ -444,8 +429,12 @@
     Private Sub resetcboxProductPrices()
         Dim Pro As New Product
         Me.cboxProductPrices.Items.Clear()
+        Try
+            Pro.ReadAllProduct(OfdPath.FileName)
+        Catch ex As Exception
+            MessageBox.Show("Error reading products", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
-        Pro.ReadAllProduct(OfdPath.FileName)
         For Each aux As Product In Pro.ProDao.Product
             Pro = New Product(aux.ProductDescription)
             Pro.ReadProduct()
@@ -484,8 +473,8 @@
         If Not Me.lstViewTrains.SelectedItems(0) Is Nothing Then
             Dim i As Integer = lstViewTrains.FocusedItem.Index 'Select the afected row
             Try
-                Me.txtTrainID.Text = lstViewTrains.Items(i).SubItems(0).Text
-                Me.cboxTrain.Text = lstViewTrains.Items(i).SubItems(1).Text
+                Me.txtTrainID.Text = lstViewTrains.Items(i).SubItems(0).Text 'Asign the ID on the lstView to the txtbox
+                Me.cboxTrain.Text = lstViewTrains.Items(i).SubItems(1).Text 'Asign the traintypeID on the lstView to the txtbox
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
