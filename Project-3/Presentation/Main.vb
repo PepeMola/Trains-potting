@@ -141,9 +141,6 @@
 
         Me.nudTonsTrip.Enabled = False
 
-        'Falta diseñar el tab de queries
-        'Faltan inicializar los botones y listview de queriestab
-
     End Sub
 
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -1092,12 +1089,13 @@
             MessageBox.Show("Error reading line 1090", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub
         End Try
-        For Each p As Product In Product.ProDao.Product
+        For Each p As Product In product.ProDao.Product
             p.ReadProductDescription()
 
             Me.lstboxProductTrip.Items.Add(p.ProductDescription)
         Next
     End Sub
+
     Private Sub resetListViewTrip()
         Dim t As New Trip : Dim pr As Product : Dim itemTrip As ListViewItem
         Me.lstViewTrip.Items.Clear()
