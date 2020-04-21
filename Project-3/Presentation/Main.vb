@@ -212,6 +212,9 @@
                     End If
                     lstViewProducts.Items.Remove(lstViewProducts.SelectedItems(0))
                     MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly removed.")
+                    resetcboxProductPrices()
+                    resetListViewTrip()
+                    resetcboxTrips()
                     txtProductDescription.Text = String.Empty
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -247,6 +250,7 @@
             End Try
             resetcboxProductPrices()
             resetlstViewPrices()
+            resetcboxTrips()
             Me.txtProductDescription.Text = String.Empty
             btnAddProduct.Enabled = True
             btnCleanProduct.Enabled = False
@@ -337,7 +341,7 @@
                 Exit Sub
             End Try
             'Metodo que devuelva algun numero para parar ejecucion
-            checkRepetedElements(pri)
+            'checkRepetedElements(pri)
             Try
                 If pri.InsertPrice() <> 1 Then
                     MessageBox.Show("Error inserting price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -439,7 +443,7 @@
         btnUpdatePrices.Enabled = False
         btnDeletePrices.Enabled = False
     End Sub
-
+    'Method used for update the cbox that contains the product in the price section, it is use when a product suffers a change
     Private Sub resetcboxProductPrices()
         Dim Pro As New Product
         Me.cboxProductPrices.Items.Clear()
@@ -451,7 +455,8 @@
             Me.cboxProductPrices.Items.Add(Pro.ProductDescription)
         Next
     End Sub
-
+    'Method to update de lstViewPrices if any product suffers any change, this reset the lstView of the prices.
+    'This method reads again the list of products that are in the database related with its price and load them into the lstView
     Private Sub resetlstViewPrices()
         Dim itemPrices As ListViewItem
         Dim pro As Product
@@ -781,7 +786,7 @@
         btnUpdateTrainType.Enabled = False
         btnDeleteTrainType.Enabled = False
     End Sub
-
+    'Method used for update the cbox that contains the traintypes in the train section, it is use when a traintype suffers a change
     Public Sub LoadTrainTypesInCbox()
         Dim ty As TrainType = New TrainType
         ty.ReadAllTrainType(OfdPath.FileName)
@@ -793,7 +798,8 @@
             Me.cboxTrain.Items.Add(ty.TrainTypeDescription)
         Next
     End Sub
-
+    'Method to update de lstViewTrain if any traintype suffers any change, this reset the lstView of the trains.
+    'This method reads again the list of traintypes that are in the database related with its train and load them into the lstView
     Private Sub resetListViewTrain()
         Dim itemTypes As ListViewItem
         Dim t As New Train
@@ -1076,6 +1082,22 @@
     End Sub
 
     'This method clean the list view after delete
+
+    Private Sub resetcboxTrips()
+        lstboxProductTrip.Items.Clear()
+        Dim product As Product = New Product
+        Try
+            product.ReadAllProduct(OfdPath.FileName)
+        Catch ex As Exception
+            MessageBox.Show("Error reading line 1090", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Exit Sub
+        End Try
+        For Each p As Product In Product.ProDao.Product
+            p.ReadProductDescription()
+
+            Me.lstboxProductTrip.Items.Add(p.ProductDescription)
+        Next
+    End Sub
     Private Sub resetListViewTrip()
         Dim t As New Trip : Dim pr As Product : Dim itemTrip As ListViewItem
         Me.lstViewTrip.Items.Clear()
@@ -1176,8 +1198,6 @@
                     Me.lstViewQuery2.Items.Add(item)
                 Next
 
-                Me.dtpStartDateQuery2.Value = DateTime.Now
-                Me.dtpEndDateQuery2.Value = DateTime.Now
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
@@ -1193,10 +1213,47 @@
     End Sub
 
     Private Sub btnCleanQuery2_Click(sender As Object, e As EventArgs) Handles btnCleanQuery2.Click
+        Me.dtpStartDateQuery2.Value = DateTime.Now
+        Me.dtpEndDateQuery2.Value = DateTime.Now
         Me.lstViewQuery2.Items.Clear()
     End Sub
 
     '------------------------------------------------QUERY 3----------------------------------------------------------------------------------
 
+    Private Sub btnExecuteQuery3_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery3.Click
+        If Me.dtpEndDateQuery3.Value > Me.dtpStartDateQuery3.Value Then
+            Try
+                Dim q As New Query3(Me.dtpStartDateQuery3.Value, Me.dtpEndDateQuery3.Value)
+                q.Read()
+
+                For Each row As DataRow In q.query3Dao.solution.Rows
+                    Dim item As New ListViewItem(row(0).ToString)
+                    item.SubItems.Add(row(1).ToString)
+                    Me.lstViewQuery3.Items.Add(item)
+                Next
+
+            Catch ex As Exception
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Exit Sub
+            End Try
+        Else
+            MessageBox.Show("Sorry, the dates selected are not correct." &
+                vbCrLf & "End date should be after than the selected Start date.")
+            Me.dtpStartDateQuery3.Value = DateTime.Now
+            Me.dtpEndDateQuery3.Value = DateTime.Now
+            Me.lstViewQuery3.Items.Clear()
+            Exit Sub
+        End If
+    End Sub
+
+    Private Sub btnCleanQuery3_Click(sender As Object, e As EventArgs) Handles btnCleanQuery3.Click
+        Me.dtpStartDateQuery3.Value = DateTime.Now
+        Me.dtpEndDateQuery3.Value = DateTime.Now
+        Me.lstViewQuery3.Items.Clear()
+    End Sub
+
     '------------------------------------------------QUERY 4----------------------------------------------------------------------------------
+
+
+
 End Class
