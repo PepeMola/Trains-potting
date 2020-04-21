@@ -232,7 +232,7 @@ Partial Class Main
         '
         'tabQuery1
         '
-        Me.tabQuery1.BackColor = System.Drawing.Color.Gray
+        Me.tabQuery1.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabQuery1.Controls.Add(Me.btnCleanQuery1)
         Me.tabQuery1.Controls.Add(Me.gbSolutionQuery1)
         Me.tabQuery1.Controls.Add(Me.gbLstViewQuery1)
@@ -1149,7 +1149,7 @@ Partial Class Main
         '
         'gbDatabase
         '
-        Me.gbDatabase.BackColor = System.Drawing.Color.DarkGray
+        Me.gbDatabase.BackColor = System.Drawing.Color.LightSteelBlue
         resources.ApplyResources(Me.gbDatabase, "gbDatabase")
         Me.gbDatabase.Controls.Add(Me.btnSelect)
         Me.gbDatabase.Controls.Add(Me.btnConnect)
@@ -1162,7 +1162,7 @@ Partial Class Main
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkGray
+        Me.BackColor = System.Drawing.Color.LightSlateGray
         Me.Controls.Add(Me.gbDatabase)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.tabControl)
