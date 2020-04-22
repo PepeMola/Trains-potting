@@ -1143,7 +1143,7 @@
         Dim tons As Integer
 
         If Integer.TryParse(InputBox("Tons for " & p.ProductDescription & ": ", "Tons per product").ToString, tons) = True And tons > 0 Then
-            MessageBox.Show(tons)
+
             Return tons
         Else
             MessageBox.Show("Introduce a correct value of tons up to 0.")
