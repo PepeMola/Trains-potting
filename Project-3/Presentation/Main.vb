@@ -728,9 +728,7 @@
         ElseIf Me.txtTrainTypeDescription.Text Is String.Empty Then
             MessageBox.Show("Please, write a description for this train type.")
             Exit Sub
-        ElseIf Me.nudMaxCapacity.Value > 100 Then
-            MessageBox.Show("Enter a value capacity between 0 and 100")
-            Exit Sub
+
         End If
     End Sub
 
