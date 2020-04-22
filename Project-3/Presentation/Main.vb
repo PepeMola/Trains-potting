@@ -496,13 +496,13 @@
             type.ReadTrainTypeDescription()
             t = New Train(Me.txtTrainID.Text)
             t.TrainType = type.TrainTypeID
-            If (t.isTrain = 0) Then
+            If (t.isTrain = 0) Then 'Checking if the train is correctly created
                 Try
                     If t.InsertTrain() <> 1 Then 'If the train is correctly inserted the method insert() return us the value: 1
                         MessageBox.Show("Error inserting Train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
-
+                    'Adding the information of the train that have been introduced into the database to the lstView
                     Dim item As New ListViewItem(t.TrainID)
                     item.SubItems.Add(type.TrainTypeDescription)
                     lstViewTrains.Items.Add(item)
@@ -557,11 +557,11 @@
                 t.TrainType = type.TrainTypeID
 
                 Try
-                    If t.DeleteTrain() <> 1 Then
+                    If t.DeleteTrain() <> 1 Then 'Checks if the train was removed correctly from the database
                         MessageBox.Show("Error removing train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
-
+                    'Removing from the cobx and lstView, also cleaning the panels with that information
                     lstViewTrains.Items.Remove(lstViewTrains.SelectedItems(0))
                     MessageBox.Show("ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " correctly removed.")
                     Me.txtTrainID.Text = String.Empty
@@ -594,16 +594,18 @@
         Dim type As TrainType
         If Not Me.lstViewTrains.SelectedItems(0).SubItems(0).Text = String.Empty Then
             If MessageBox.Show("Are you sure to update this?" & vbCrLf & " ID: " & lstViewTrains.SelectedItems(0).Text & " as " & lstViewTrains.SelectedItems(0).SubItems(1).Text & vbCrLf, "Please, confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                'Creates a train with the information in the interface
                 type = New TrainType(Me.cboxTrain.Text)
                 type.ReadTrainTypeDescription()
                 t = New Train(lstViewTrains.SelectedItems(0).Text)
                 t.TrainType = type.TrainTypeID
 
                 Try
-                    If t.UpdateTrain() <> 1 Then
+                    If t.UpdateTrain() <> 1 Then 'Checks if the train was correctly update
                         MessageBox.Show("Error updating train.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
+                    'if it was update correctly we also update the information in the interface and clean the panels
                     lstViewTrains.SelectedItems(0).SubItems(0).Text = t.TrainID
                     lstViewTrains.SelectedItems(0).SubItems(1).Text = type.TrainTypeDescription
                     MessageBox.Show("ID: '" & t.TrainID.ToString & "' as " & type.TrainTypeDescription.ToString & " correctly updated.")
@@ -666,16 +668,18 @@
         Dim ty As TrainType
 
         If Me.txtTrainTypeDescription.Text <> String.Empty And Me.nudMaxCapacity.Value > 0 Then
+            'Creates a traintype with the information in the interface
             ty = New TrainType(Me.txtTrainTypeDescription.Text)
             ty.ReadTrainTypeDescription()
             ty.MaxCapacity = Me.nudMaxCapacity.Value
 
-            If (ty.isType = 0) Then
+            If (ty.isType = 0) Then 'check if the traintype already exists
                 Try
-                    If ty.InsertTrainType() <> 1 Then
+                    If ty.InsertTrainType() <> 1 Then 'Checks if the traintype was correctly added
                         MessageBox.Show("Error inserting traintype.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
+                    'If the traintype was correctly added, we add the information into the lstViews and cboxs
                     ty.ReadTrainTypeDescription()
                     Dim item As New ListViewItem(ty.TrainTypeID)
                     item.SubItems.Add(ty.TrainTypeDescription)
@@ -685,6 +689,7 @@
 
                     MessageBox.Show("ID: " & ty.TrainTypeID & " as '" & ty.TrainTypeDescription.ToString & "' description, with: " & ty.MaxCapacity &
                         " tons maximum.", "Correctly inserted.")
+                    'Reset the panels
                     Me.txtTrainTypeDescription.Text = String.Empty
                     Me.nudMaxCapacity.Value = 0
 
@@ -710,15 +715,16 @@
         Dim ty As TrainType
         If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
             If MessageBox.Show(" " & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to remove this traintype?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                'Creates an object of kind traintype with the information in the txtTrainDescription
                 ty = New TrainType(Me.txtTrainTypeDescription.Text)
                 ty.ReadTrainTypeDescription()
 
                 Try
-                    If ty.DeleteTrainType() <> 1 Then
+                    If ty.DeleteTrainType() <> 1 Then 'Checks if it was correctly deleted from the database
                         MessageBox.Show("Error removing this Train Type.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
-
+                    'If it was correctly deleted, we remove the train from the lstView in the traintype tap and from the cbox in the train tab
                     lstViewTrainTypes.Items.Remove(lstViewTrainTypes.SelectedItems(0))
                     MessageBox.Show("ID: " & ty.TrainTypeID & " Description: " & ty.TrainTypeDescription.ToString & " was correctly deleted.")
                     txtTrainTypeDescription.Text = String.Empty
@@ -738,21 +744,23 @@
         If Not Me.lstViewTrainTypes.SelectedItems(0) Is Nothing Then
             If MessageBox.Show("Are you sure to update this Train Type?" & lstViewTrainTypes.SelectedItems(0).SubItems(1).Text, vbCrLf & "Please, choose to confirm...", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 Try
+                    'Creates an object of the type traintype with the data in the panels
                     ty = New TrainType(Me.txtTrainTypeDescription.Text)
                     ty.TrainTypeID = Integer.Parse(lstViewTrainTypes.SelectedItems(0).Text)
                     ty.MaxCapacity = nudMaxCapacity.Value
                     ty.TrainTypeDescription = txtTrainTypeDescription.Text
 
-                    If ty.UpdateTrainType() <> 1 Then
+                    If ty.UpdateTrainType() <> 1 Then 'Checks if the traintype was correctly updated
                         MessageBox.Show("Error updating this traintype.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
-
+                    'If it was correctly updated, we update the information from the interface
                     lstViewTrainTypes.SelectedItems(0).SubItems(1).Text = ty.TrainTypeDescription
                     lstViewTrainTypes.SelectedItems(0).SubItems(2).Text = ty.MaxCapacity.ToString
                     MessageBox.Show(ty.TrainTypeDescription.ToString & " " & ty.MaxCapacity & " correctly updated.")
                     txtTrainTypeDescription.Text = String.Empty
                     nudMaxCapacity.Value = 0
+                    'The sections where the traintype appears also are updated, like in the train tab or in the cbox in the traintype tab
                     LoadTrainTypesInCbox()
                     resetListViewTrain()
                 Catch ex As Exception
@@ -834,6 +842,7 @@
             Me.lstboxProductTrip.Items.Clear()
             Dim i As Integer = lstViewTrip.FocusedItem.Index 'Select the afected row
             Try
+                'Adding the information in the lstView into the panels where we introduce the data
                 Me.dtpTrip.Text = lstViewTrip.Items(i).SubItems(0).Text
                 Me.cboxTrainTrip.Text = lstViewTrip.Items(i).SubItems(1).Text
                 Me.lstboxProductTrip.Items.Add(lstViewTrip.Items(i).SubItems(2).Text)
@@ -856,8 +865,8 @@
     'Button Add in TRIP
     Private Sub btnAddTrip_Click(sender As Object, e As EventArgs) Handles btnAddTrip.Click
         Dim tri As New Trip : Dim pro As Product : Dim t As Train : Dim ty As TrainType : Dim capacity As Integer = 0 : Dim tons As Integer
-        If Not Me.dtpTrip.Text <= DateTime.Now Then
-            If Me.cboxTrainTrip.Text <> Nothing Then
+        If Not Me.dtpTrip.Text <= DateTime.Now Then 'Checks if the date of the trip is before the actual date
+            If Me.cboxTrainTrip.Text <> Nothing Then 'Checks if a train was selected to do the trip
                 t = New Train(Me.cboxTrainTrip.Text)
                 t.ReadTrain()
                 ty = New TrainType(t.TrainType)
@@ -865,16 +874,17 @@
                 capacity = ty.MaxCapacity
 
                 For Each p As String In Me.lstboxProductTrip.SelectedItems
+                    'Creates an objecy of kind trip with the information obatined in the panels previously filled
                     pro = New Product(p)
                     pro.ReadProductDescription()
                     tri = New Trip(Me.dtpTrip.Text)
                     tri.Train = t.TrainID
                     tri.Product = pro.ProductID
-                    If (tri.isTrip = 0) Then
+                    If (tri.isTrip = 0) Then 'Checks if the trip already exists
 
                         tons = isNumber(pro)
 
-                        If tons <= capacity Then
+                        If tons <= capacity Then 'Checks if the tons overload the capacity of the train
                             tri.TonsTransported = tons
                             capacity = capacity - tons
                             Try
@@ -888,7 +898,7 @@
                                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                                 Exit Sub
                             End Try
-
+                            'If the trip was correctly added , we add the information into the lstView in the trip tab
                             Dim item As New ListViewItem(tri.TripDate)
                             item.SubItems.Add(t.TrainID)
                             item.SubItems.Add(pro.ProductDescription)
@@ -949,15 +959,16 @@
 
         If Not Me.lstViewTrip.SelectedItems(0) Is Nothing Then
             If MessageBox.Show(" Trip Date: " & lstViewTrip.SelectedItems(0).Text & vbCrLf & " Please, choose to confirm...", "Are you sure to remove this Trip?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-
+                'Creates a trip object with the information in the panels
                 trip = New Trip(Me.dtpTrip.Text, Me.cboxTrainTrip.Text)
                 trip.ReadTrip()
 
                 Try
-                    If trip.DeleteTrip() = 0 Then
+                    If trip.DeleteTrip() = 0 Then 'Checks if the trip was correctly deleted
                         MessageBox.Show("Error removing this Trip.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                         Exit Sub
                     End If
+                    'if it was correctly deleted, we update the listView in the trip tab and also the lstbox in order not to show a deleted trip
                     resetListViewTrip()
                     MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Was correctly deleted.")
 
