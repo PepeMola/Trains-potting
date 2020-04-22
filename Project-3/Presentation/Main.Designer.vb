@@ -60,7 +60,31 @@ Partial Class Main
         Me.trainType = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.totalTrips = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery3 = New System.Windows.Forms.TabPage()
+        Me.gbQuery3List = New System.Windows.Forms.GroupBox()
+        Me.lstViewQuery3 = New System.Windows.Forms.ListView()
+        Me.Product = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.total = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.btnCleanQuery3 = New System.Windows.Forms.Button()
+        Me.btnExecuteQuery3 = New System.Windows.Forms.Button()
+        Me.gbSelectionPanelQuery3 = New System.Windows.Forms.GroupBox()
+        Me.lblEndDateQuery3 = New System.Windows.Forms.Label()
+        Me.lblStartDateQuery3 = New System.Windows.Forms.Label()
+        Me.dtpEndDateQuery3 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpStartDateQuery3 = New System.Windows.Forms.DateTimePicker()
         Me.tabQuery4 = New System.Windows.Forms.TabPage()
+        Me.btnCleanQuery4 = New System.Windows.Forms.Button()
+        Me.btnExecuteQuery4 = New System.Windows.Forms.Button()
+        Me.gbListQuery4 = New System.Windows.Forms.GroupBox()
+        Me.lblTripDateQuery4 = New System.Windows.Forms.Label()
+        Me.txtTripDateQuery4 = New System.Windows.Forms.TextBox()
+        Me.lstViewQuery4 = New System.Windows.Forms.ListView()
+        Me.trainQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.trainTypeQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.productQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.tonsQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.productPriceQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.profitProductQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.totalProfitQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabTrips = New System.Windows.Forms.TabPage()
         Me.gbControlTrip = New System.Windows.Forms.GroupBox()
         Me.btnAddTrip = New System.Windows.Forms.Button()
@@ -156,30 +180,6 @@ Partial Class Main
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.btnSelect = New System.Windows.Forms.Button()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
-        Me.btnCleanQuery3 = New System.Windows.Forms.Button()
-        Me.btnExecuteQuery3 = New System.Windows.Forms.Button()
-        Me.gbSelectionPanelQuery3 = New System.Windows.Forms.GroupBox()
-        Me.lblEndDateQuery3 = New System.Windows.Forms.Label()
-        Me.lblStartDateQuery3 = New System.Windows.Forms.Label()
-        Me.dtpEndDateQuery3 = New System.Windows.Forms.DateTimePicker()
-        Me.dtpStartDateQuery3 = New System.Windows.Forms.DateTimePicker()
-        Me.gbQuery3List = New System.Windows.Forms.GroupBox()
-        Me.lstViewQuery3 = New System.Windows.Forms.ListView()
-        Me.Product = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.total = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.gbListQuery4 = New System.Windows.Forms.GroupBox()
-        Me.lstViewQuery4 = New System.Windows.Forms.ListView()
-        Me.btnCleanQuery4 = New System.Windows.Forms.Button()
-        Me.btnExecuteQuery4 = New System.Windows.Forms.Button()
-        Me.trainQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.trainTypeQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.productQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.tonsQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.productPriceQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.profitProductQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.totalProfitQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.lblTripDateQuery4 = New System.Windows.Forms.Label()
-        Me.txtTripDateQuery4 = New System.Windows.Forms.TextBox()
         Me.tabQuery.SuspendLayout()
         Me.tbpQuerie.SuspendLayout()
         Me.tabQuery1.SuspendLayout()
@@ -190,7 +190,10 @@ Partial Class Main
         Me.gbSelectionQuery2.SuspendLayout()
         Me.gbQuery2List.SuspendLayout()
         Me.tabQuery3.SuspendLayout()
+        Me.gbQuery3List.SuspendLayout()
+        Me.gbSelectionPanelQuery3.SuspendLayout()
         Me.tabQuery4.SuspendLayout()
+        Me.gbListQuery4.SuspendLayout()
         Me.tabTrips.SuspendLayout()
         Me.gbControlTrip.SuspendLayout()
         Me.gbSelectionTrip.SuspendLayout()
@@ -215,9 +218,6 @@ Partial Class Main
         Me.gbControlProducts.SuspendLayout()
         Me.tabControl.SuspendLayout()
         Me.gbDatabase.SuspendLayout()
-        Me.gbSelectionPanelQuery3.SuspendLayout()
-        Me.gbQuery3List.SuspendLayout()
-        Me.gbListQuery4.SuspendLayout()
         Me.SuspendLayout()
         '
         'iconList
@@ -478,6 +478,78 @@ Partial Class Main
         resources.ApplyResources(Me.tabQuery3, "tabQuery3")
         Me.tabQuery3.Name = "tabQuery3"
         '
+        'gbQuery3List
+        '
+        Me.gbQuery3List.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gbQuery3List.Controls.Add(Me.lstViewQuery3)
+        resources.ApplyResources(Me.gbQuery3List, "gbQuery3List")
+        Me.gbQuery3List.Name = "gbQuery3List"
+        Me.gbQuery3List.TabStop = False
+        '
+        'lstViewQuery3
+        '
+        Me.lstViewQuery3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Product, Me.total})
+        resources.ApplyResources(Me.lstViewQuery3, "lstViewQuery3")
+        Me.lstViewQuery3.FullRowSelect = True
+        Me.lstViewQuery3.HideSelection = False
+        Me.lstViewQuery3.MultiSelect = False
+        Me.lstViewQuery3.Name = "lstViewQuery3"
+        Me.lstViewQuery3.UseCompatibleStateImageBehavior = False
+        Me.lstViewQuery3.View = System.Windows.Forms.View.Details
+        '
+        'Product
+        '
+        resources.ApplyResources(Me.Product, "Product")
+        '
+        'total
+        '
+        resources.ApplyResources(Me.total, "total")
+        '
+        'btnCleanQuery3
+        '
+        resources.ApplyResources(Me.btnCleanQuery3, "btnCleanQuery3")
+        Me.btnCleanQuery3.Name = "btnCleanQuery3"
+        Me.btnCleanQuery3.UseVisualStyleBackColor = True
+        '
+        'btnExecuteQuery3
+        '
+        resources.ApplyResources(Me.btnExecuteQuery3, "btnExecuteQuery3")
+        Me.btnExecuteQuery3.Name = "btnExecuteQuery3"
+        Me.btnExecuteQuery3.UseVisualStyleBackColor = True
+        '
+        'gbSelectionPanelQuery3
+        '
+        Me.gbSelectionPanelQuery3.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gbSelectionPanelQuery3.Controls.Add(Me.lblEndDateQuery3)
+        Me.gbSelectionPanelQuery3.Controls.Add(Me.lblStartDateQuery3)
+        Me.gbSelectionPanelQuery3.Controls.Add(Me.dtpEndDateQuery3)
+        Me.gbSelectionPanelQuery3.Controls.Add(Me.dtpStartDateQuery3)
+        resources.ApplyResources(Me.gbSelectionPanelQuery3, "gbSelectionPanelQuery3")
+        Me.gbSelectionPanelQuery3.Name = "gbSelectionPanelQuery3"
+        Me.gbSelectionPanelQuery3.TabStop = False
+        '
+        'lblEndDateQuery3
+        '
+        resources.ApplyResources(Me.lblEndDateQuery3, "lblEndDateQuery3")
+        Me.lblEndDateQuery3.Name = "lblEndDateQuery3"
+        '
+        'lblStartDateQuery3
+        '
+        resources.ApplyResources(Me.lblStartDateQuery3, "lblStartDateQuery3")
+        Me.lblStartDateQuery3.Name = "lblStartDateQuery3"
+        '
+        'dtpEndDateQuery3
+        '
+        Me.dtpEndDateQuery3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        resources.ApplyResources(Me.dtpEndDateQuery3, "dtpEndDateQuery3")
+        Me.dtpEndDateQuery3.Name = "dtpEndDateQuery3"
+        '
+        'dtpStartDateQuery3
+        '
+        Me.dtpStartDateQuery3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        resources.ApplyResources(Me.dtpStartDateQuery3, "dtpStartDateQuery3")
+        Me.dtpStartDateQuery3.Name = "dtpStartDateQuery3"
+        '
         'tabQuery4
         '
         Me.tabQuery4.BackColor = System.Drawing.Color.Gray
@@ -486,6 +558,77 @@ Partial Class Main
         Me.tabQuery4.Controls.Add(Me.gbListQuery4)
         resources.ApplyResources(Me.tabQuery4, "tabQuery4")
         Me.tabQuery4.Name = "tabQuery4"
+        '
+        'btnCleanQuery4
+        '
+        resources.ApplyResources(Me.btnCleanQuery4, "btnCleanQuery4")
+        Me.btnCleanQuery4.Name = "btnCleanQuery4"
+        Me.btnCleanQuery4.UseVisualStyleBackColor = True
+        '
+        'btnExecuteQuery4
+        '
+        resources.ApplyResources(Me.btnExecuteQuery4, "btnExecuteQuery4")
+        Me.btnExecuteQuery4.Name = "btnExecuteQuery4"
+        Me.btnExecuteQuery4.UseVisualStyleBackColor = True
+        '
+        'gbListQuery4
+        '
+        Me.gbListQuery4.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gbListQuery4.Controls.Add(Me.lblTripDateQuery4)
+        Me.gbListQuery4.Controls.Add(Me.txtTripDateQuery4)
+        Me.gbListQuery4.Controls.Add(Me.lstViewQuery4)
+        resources.ApplyResources(Me.gbListQuery4, "gbListQuery4")
+        Me.gbListQuery4.Name = "gbListQuery4"
+        Me.gbListQuery4.TabStop = False
+        '
+        'lblTripDateQuery4
+        '
+        resources.ApplyResources(Me.lblTripDateQuery4, "lblTripDateQuery4")
+        Me.lblTripDateQuery4.Name = "lblTripDateQuery4"
+        '
+        'txtTripDateQuery4
+        '
+        resources.ApplyResources(Me.txtTripDateQuery4, "txtTripDateQuery4")
+        Me.txtTripDateQuery4.Name = "txtTripDateQuery4"
+        '
+        'lstViewQuery4
+        '
+        Me.lstViewQuery4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.trainQuery4, Me.trainTypeQuery4, Me.productQuery4, Me.tonsQuery4, Me.productPriceQuery4, Me.profitProductQuery4, Me.totalProfitQuery4})
+        resources.ApplyResources(Me.lstViewQuery4, "lstViewQuery4")
+        Me.lstViewQuery4.FullRowSelect = True
+        Me.lstViewQuery4.HideSelection = False
+        Me.lstViewQuery4.MultiSelect = False
+        Me.lstViewQuery4.Name = "lstViewQuery4"
+        Me.lstViewQuery4.UseCompatibleStateImageBehavior = False
+        Me.lstViewQuery4.View = System.Windows.Forms.View.Details
+        '
+        'trainQuery4
+        '
+        resources.ApplyResources(Me.trainQuery4, "trainQuery4")
+        '
+        'trainTypeQuery4
+        '
+        resources.ApplyResources(Me.trainTypeQuery4, "trainTypeQuery4")
+        '
+        'productQuery4
+        '
+        resources.ApplyResources(Me.productQuery4, "productQuery4")
+        '
+        'tonsQuery4
+        '
+        resources.ApplyResources(Me.tonsQuery4, "tonsQuery4")
+        '
+        'productPriceQuery4
+        '
+        resources.ApplyResources(Me.productPriceQuery4, "productPriceQuery4")
+        '
+        'profitProductQuery4
+        '
+        resources.ApplyResources(Me.profitProductQuery4, "profitProductQuery4")
+        '
+        'totalProfitQuery4
+        '
+        resources.ApplyResources(Me.totalProfitQuery4, "totalProfitQuery4")
         '
         'tabTrips
         '
@@ -1193,149 +1336,6 @@ Partial Class Main
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
         '
-        'btnCleanQuery3
-        '
-        resources.ApplyResources(Me.btnCleanQuery3, "btnCleanQuery3")
-        Me.btnCleanQuery3.Name = "btnCleanQuery3"
-        Me.btnCleanQuery3.UseVisualStyleBackColor = True
-        '
-        'btnExecuteQuery3
-        '
-        resources.ApplyResources(Me.btnExecuteQuery3, "btnExecuteQuery3")
-        Me.btnExecuteQuery3.Name = "btnExecuteQuery3"
-        Me.btnExecuteQuery3.UseVisualStyleBackColor = True
-        '
-        'gbSelectionPanelQuery3
-        '
-        Me.gbSelectionPanelQuery3.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.gbSelectionPanelQuery3.Controls.Add(Me.lblEndDateQuery3)
-        Me.gbSelectionPanelQuery3.Controls.Add(Me.lblStartDateQuery3)
-        Me.gbSelectionPanelQuery3.Controls.Add(Me.dtpEndDateQuery3)
-        Me.gbSelectionPanelQuery3.Controls.Add(Me.dtpStartDateQuery3)
-        resources.ApplyResources(Me.gbSelectionPanelQuery3, "gbSelectionPanelQuery3")
-        Me.gbSelectionPanelQuery3.Name = "gbSelectionPanelQuery3"
-        Me.gbSelectionPanelQuery3.TabStop = False
-        '
-        'lblEndDateQuery3
-        '
-        resources.ApplyResources(Me.lblEndDateQuery3, "lblEndDateQuery3")
-        Me.lblEndDateQuery3.Name = "lblEndDateQuery3"
-        '
-        'lblStartDateQuery3
-        '
-        resources.ApplyResources(Me.lblStartDateQuery3, "lblStartDateQuery3")
-        Me.lblStartDateQuery3.Name = "lblStartDateQuery3"
-        '
-        'dtpEndDateQuery3
-        '
-        Me.dtpEndDateQuery3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        resources.ApplyResources(Me.dtpEndDateQuery3, "dtpEndDateQuery3")
-        Me.dtpEndDateQuery3.Name = "dtpEndDateQuery3"
-        '
-        'dtpStartDateQuery3
-        '
-        Me.dtpStartDateQuery3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        resources.ApplyResources(Me.dtpStartDateQuery3, "dtpStartDateQuery3")
-        Me.dtpStartDateQuery3.Name = "dtpStartDateQuery3"
-        '
-        'gbQuery3List
-        '
-        Me.gbQuery3List.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.gbQuery3List.Controls.Add(Me.lstViewQuery3)
-        resources.ApplyResources(Me.gbQuery3List, "gbQuery3List")
-        Me.gbQuery3List.Name = "gbQuery3List"
-        Me.gbQuery3List.TabStop = False
-        '
-        'lstViewQuery3
-        '
-        Me.lstViewQuery3.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Product, Me.total})
-        resources.ApplyResources(Me.lstViewQuery3, "lstViewQuery3")
-        Me.lstViewQuery3.FullRowSelect = True
-        Me.lstViewQuery3.HideSelection = False
-        Me.lstViewQuery3.MultiSelect = False
-        Me.lstViewQuery3.Name = "lstViewQuery3"
-        Me.lstViewQuery3.UseCompatibleStateImageBehavior = False
-        Me.lstViewQuery3.View = System.Windows.Forms.View.Details
-        '
-        'Product
-        '
-        resources.ApplyResources(Me.Product, "Product")
-        '
-        'total
-        '
-        resources.ApplyResources(Me.total, "total")
-        '
-        'gbListQuery4
-        '
-        Me.gbListQuery4.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.gbListQuery4.Controls.Add(Me.lblTripDateQuery4)
-        Me.gbListQuery4.Controls.Add(Me.txtTripDateQuery4)
-        Me.gbListQuery4.Controls.Add(Me.lstViewQuery4)
-        resources.ApplyResources(Me.gbListQuery4, "gbListQuery4")
-        Me.gbListQuery4.Name = "gbListQuery4"
-        Me.gbListQuery4.TabStop = False
-        '
-        'lstViewQuery4
-        '
-        Me.lstViewQuery4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.trainQuery4, Me.trainTypeQuery4, Me.productQuery4, Me.tonsQuery4, Me.productPriceQuery4, Me.profitProductQuery4, Me.totalProfitQuery4})
-        resources.ApplyResources(Me.lstViewQuery4, "lstViewQuery4")
-        Me.lstViewQuery4.FullRowSelect = True
-        Me.lstViewQuery4.HideSelection = False
-        Me.lstViewQuery4.MultiSelect = False
-        Me.lstViewQuery4.Name = "lstViewQuery4"
-        Me.lstViewQuery4.UseCompatibleStateImageBehavior = False
-        Me.lstViewQuery4.View = System.Windows.Forms.View.Details
-        '
-        'btnCleanQuery4
-        '
-        resources.ApplyResources(Me.btnCleanQuery4, "btnCleanQuery4")
-        Me.btnCleanQuery4.Name = "btnCleanQuery4"
-        Me.btnCleanQuery4.UseVisualStyleBackColor = True
-        '
-        'btnExecuteQuery4
-        '
-        resources.ApplyResources(Me.btnExecuteQuery4, "btnExecuteQuery4")
-        Me.btnExecuteQuery4.Name = "btnExecuteQuery4"
-        Me.btnExecuteQuery4.UseVisualStyleBackColor = True
-        '
-        'trainQuery4
-        '
-        resources.ApplyResources(Me.trainQuery4, "trainQuery4")
-        '
-        'trainTypeQuery4
-        '
-        resources.ApplyResources(Me.trainTypeQuery4, "trainTypeQuery4")
-        '
-        'productQuery4
-        '
-        resources.ApplyResources(Me.productQuery4, "productQuery4")
-        '
-        'tonsQuery4
-        '
-        resources.ApplyResources(Me.tonsQuery4, "tonsQuery4")
-        '
-        'productPriceQuery4
-        '
-        resources.ApplyResources(Me.productPriceQuery4, "productPriceQuery4")
-        '
-        'profitProductQuery4
-        '
-        resources.ApplyResources(Me.profitProductQuery4, "profitProductQuery4")
-        '
-        'totalProfitQuery4
-        '
-        resources.ApplyResources(Me.totalProfitQuery4, "totalProfitQuery4")
-        '
-        'lblTripDateQuery4
-        '
-        resources.ApplyResources(Me.lblTripDateQuery4, "lblTripDateQuery4")
-        Me.lblTripDateQuery4.Name = "lblTripDateQuery4"
-        '
-        'txtTripDateQuery4
-        '
-        resources.ApplyResources(Me.txtTripDateQuery4, "txtTripDateQuery4")
-        Me.txtTripDateQuery4.Name = "txtTripDateQuery4"
-        '
         'Main
         '
         resources.ApplyResources(Me, "$this")
@@ -1359,7 +1359,12 @@ Partial Class Main
         Me.gbSelectionQuery2.PerformLayout()
         Me.gbQuery2List.ResumeLayout(False)
         Me.tabQuery3.ResumeLayout(False)
+        Me.gbQuery3List.ResumeLayout(False)
+        Me.gbSelectionPanelQuery3.ResumeLayout(False)
+        Me.gbSelectionPanelQuery3.PerformLayout()
         Me.tabQuery4.ResumeLayout(False)
+        Me.gbListQuery4.ResumeLayout(False)
+        Me.gbListQuery4.PerformLayout()
         Me.tabTrips.ResumeLayout(False)
         Me.gbControlTrip.ResumeLayout(False)
         Me.gbSelectionTrip.ResumeLayout(False)
@@ -1390,11 +1395,6 @@ Partial Class Main
         Me.tabControl.ResumeLayout(False)
         Me.gbDatabase.ResumeLayout(False)
         Me.gbDatabase.PerformLayout()
-        Me.gbSelectionPanelQuery3.ResumeLayout(False)
-        Me.gbSelectionPanelQuery3.PerformLayout()
-        Me.gbQuery3List.ResumeLayout(False)
-        Me.gbListQuery4.ResumeLayout(False)
-        Me.gbListQuery4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

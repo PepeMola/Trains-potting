@@ -302,14 +302,19 @@
         Dim pri As New Prices
         Dim pro As Product
 
-        If Me.txtEurosPrices.Text <> Nothing Then
+        If Me.txtEurosPrices.Text <> Nothing And Me.cboxProductPrices.Text <> Nothing Then
             'Checking if the data introduce is right or not
             Try
                 pro = New Product(cboxProductPrices.SelectedItem.ToString)
                 pro.ReadProductDescription()
                 pri.ProductID = pro.ProductID
                 pri.PriceDate = dtpDatePrices.Text
-                pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
+                If txtEurosPrices.Text <> String.Empty Then
+                    pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
+                Else
+                    MessageBox.Show("Enter the price of the product", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
+                End If
                 If pri.EurosPerTon <= 0 Then
                     MessageBox.Show("Enter a value higher than 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Sub
@@ -333,13 +338,23 @@
                 item.SubItems.Add(pri.PriceDate)
                 item.SubItems.Add(pri.EurosPerTon)
                 lstViewPrices.Items.Add(item)
-
+                dtpDatePrices.Text = Date.Now
+                txtEurosPrices.Text = String.Empty
                 MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & " Correctly inserted.")
 
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
+        Else
+            MessageBox.Show("Please fill all the boxes to add a new Priece.")
+            Me.txtTrainID.Text = String.Empty
+            Me.cboxTrain.Text = String.Empty
+            btnAddTrain.Enabled = True
+            btnCleanTrain.Enabled = False
+            btnUpdateTrain.Enabled = False
+            btnDeleteTrain.Enabled = False
+            Me.txtTrainID.Enabled = True
         End If
 
     End Sub
@@ -351,19 +366,25 @@
 
         If Me.txtEurosPrices.Text <> Nothing Then
 
-            'Checking if the data introduce is right or not
+            pro = New Product(cboxProductPrices.SelectedItem.ToString)
+            pro.ReadProductDescription()
+            pri.ProductID = pro.ProductID
+            pri.PriceDate = dtpDatePrices.Text
             Try
-                pro = New Product(cboxProductPrices.SelectedItem.ToString)
-                pro.ReadProductDescription()
-                pri.ProductID = pro.ProductID
-                pri.PriceDate = dtpDatePrices.Text
-                pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
+                Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
             Catch ex As Exception
-                MessageBox.Show("Be careful with the data you have introduce", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                txtEurosPrices.Text = String.Empty
-                dtpDatePrices.Text = String.Empty
+                MessageBox.Show("Enter a positive number for the price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End Try
+
+            If txtEurosPrices.Text > 0 Then
+                pri.EurosPerTon = Convert.ToDouble(Replace(txtEurosPrices.Text, ".", ","))
+            Else
+                MessageBox.Show("Enter a valid price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                txtEurosPrices.Text = String.Empty
+                Exit Sub
+            End If
+
 
             Try
                 If pri.UpdatePrice() <> 1 Then
@@ -706,6 +727,9 @@
             Exit Sub
         ElseIf Me.txtTrainTypeDescription.Text Is String.Empty Then
             MessageBox.Show("Please, write a description for this train type.")
+            Exit Sub
+        ElseIf Me.nudMaxCapacity.Value > 100 Then
+            MessageBox.Show("Enter a value capacity between 0 and 100")
             Exit Sub
         End If
     End Sub
