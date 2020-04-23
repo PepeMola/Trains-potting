@@ -8,6 +8,11 @@
         Me.PriDao = New PricesDAO
     End Sub
 
+    Public Sub New(ProductID As Integer)
+        Me.PriDao = New PricesDAO
+        Me.ProductID = ProductID
+    End Sub
+
     Public Sub New(ProductID As Integer, PriceDate As Date)
         Me.PriDao = New PricesDAO
         Me.ProductID = ProductID

@@ -1274,6 +1274,36 @@
 
     '------------------------------------------------QUERY 4----------------------------------------------------------------------------------
 
+    Private Sub btnExecuteQuery4_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery4.Click
+        Try
+            Dim q As New Query4()
+            q.Read()
 
+            For Each row As DataRow In q.query4Dao.solution.Rows
+                Dim item As New ListViewItem(row(0).ToString)
+                item.SubItems.Add(row(1).ToString)
+                item.SubItems.Add(row(2).ToString)
+                item.SubItems.Add(row(3).ToString)
+                item.SubItems.Add(row(4).ToString)
+                Me.lstViewQuery4.Items.Add(item)
+            Next
 
+            Me.txtTripDateQuery4.Text = q.query4Dao.query(1).ToString
+            Me.txtTrainIDQuery4.Text = q.query4Dao.query(2).ToString
+            Me.txtTrainTypeQuery4.Text = q.query4Dao.query(3).ToString
+            Me.txtMaxProfitQuery4.Text = q.query4Dao.query(4).ToString
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End Try
+    End Sub
+
+    Private Sub btnCleanQuery4_Click(sender As Object, e As EventArgs) Handles btnCleanQuery4.Click
+        Me.lstViewQuery4.Items.Clear()
+        Me.txtTripDateQuery4.Text = ""
+        Me.txtTrainIDQuery4.Text = ""
+        Me.txtTrainTypeQuery4.Text = ""
+        Me.txtMaxProfitQuery4.Text = ""
+    End Sub
 End Class

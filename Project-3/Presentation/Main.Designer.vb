@@ -78,13 +78,10 @@ Partial Class Main
         Me.lblTripDateQuery4 = New System.Windows.Forms.Label()
         Me.txtTripDateQuery4 = New System.Windows.Forms.TextBox()
         Me.lstViewQuery4 = New System.Windows.Forms.ListView()
-        Me.trainQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.trainTypeQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.productQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tonsQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.productPriceQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.profitProductQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.totalProfitQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabTrips = New System.Windows.Forms.TabPage()
         Me.gbControlTrip = New System.Windows.Forms.GroupBox()
         Me.btnAddTrip = New System.Windows.Forms.Button()
@@ -180,6 +177,13 @@ Partial Class Main
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.btnSelect = New System.Windows.Forms.Button()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
+        Me.lblTrainIDQuery4 = New System.Windows.Forms.Label()
+        Me.lblMaxProfit = New System.Windows.Forms.Label()
+        Me.lblTrainTypeQuery4 = New System.Windows.Forms.Label()
+        Me.txtTrainIDQuery4 = New System.Windows.Forms.TextBox()
+        Me.txtTrainTypeQuery4 = New System.Windows.Forms.TextBox()
+        Me.txtMaxProfitQuery4 = New System.Windows.Forms.TextBox()
+        Me.productPriceDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery.SuspendLayout()
         Me.tbpQuerie.SuspendLayout()
         Me.tabQuery1.SuspendLayout()
@@ -574,6 +578,12 @@ Partial Class Main
         'gbListQuery4
         '
         Me.gbListQuery4.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gbListQuery4.Controls.Add(Me.txtMaxProfitQuery4)
+        Me.gbListQuery4.Controls.Add(Me.txtTrainTypeQuery4)
+        Me.gbListQuery4.Controls.Add(Me.txtTrainIDQuery4)
+        Me.gbListQuery4.Controls.Add(Me.lblTrainTypeQuery4)
+        Me.gbListQuery4.Controls.Add(Me.lblMaxProfit)
+        Me.gbListQuery4.Controls.Add(Me.lblTrainIDQuery4)
         Me.gbListQuery4.Controls.Add(Me.lblTripDateQuery4)
         Me.gbListQuery4.Controls.Add(Me.txtTripDateQuery4)
         Me.gbListQuery4.Controls.Add(Me.lstViewQuery4)
@@ -593,7 +603,7 @@ Partial Class Main
         '
         'lstViewQuery4
         '
-        Me.lstViewQuery4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.trainQuery4, Me.trainTypeQuery4, Me.productQuery4, Me.tonsQuery4, Me.productPriceQuery4, Me.profitProductQuery4, Me.totalProfitQuery4})
+        Me.lstViewQuery4.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.productQuery4, Me.tonsQuery4, Me.productPriceQuery4, Me.productPriceDate, Me.profitProductQuery4})
         resources.ApplyResources(Me.lstViewQuery4, "lstViewQuery4")
         Me.lstViewQuery4.FullRowSelect = True
         Me.lstViewQuery4.HideSelection = False
@@ -601,14 +611,6 @@ Partial Class Main
         Me.lstViewQuery4.Name = "lstViewQuery4"
         Me.lstViewQuery4.UseCompatibleStateImageBehavior = False
         Me.lstViewQuery4.View = System.Windows.Forms.View.Details
-        '
-        'trainQuery4
-        '
-        resources.ApplyResources(Me.trainQuery4, "trainQuery4")
-        '
-        'trainTypeQuery4
-        '
-        resources.ApplyResources(Me.trainTypeQuery4, "trainTypeQuery4")
         '
         'productQuery4
         '
@@ -625,10 +627,6 @@ Partial Class Main
         'profitProductQuery4
         '
         resources.ApplyResources(Me.profitProductQuery4, "profitProductQuery4")
-        '
-        'totalProfitQuery4
-        '
-        resources.ApplyResources(Me.totalProfitQuery4, "totalProfitQuery4")
         '
         'tabTrips
         '
@@ -1336,6 +1334,40 @@ Partial Class Main
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
         '
+        'lblTrainIDQuery4
+        '
+        resources.ApplyResources(Me.lblTrainIDQuery4, "lblTrainIDQuery4")
+        Me.lblTrainIDQuery4.Name = "lblTrainIDQuery4"
+        '
+        'lblMaxProfit
+        '
+        resources.ApplyResources(Me.lblMaxProfit, "lblMaxProfit")
+        Me.lblMaxProfit.Name = "lblMaxProfit"
+        '
+        'lblTrainTypeQuery4
+        '
+        resources.ApplyResources(Me.lblTrainTypeQuery4, "lblTrainTypeQuery4")
+        Me.lblTrainTypeQuery4.Name = "lblTrainTypeQuery4"
+        '
+        'txtTrainIDQuery4
+        '
+        resources.ApplyResources(Me.txtTrainIDQuery4, "txtTrainIDQuery4")
+        Me.txtTrainIDQuery4.Name = "txtTrainIDQuery4"
+        '
+        'txtTrainTypeQuery4
+        '
+        resources.ApplyResources(Me.txtTrainTypeQuery4, "txtTrainTypeQuery4")
+        Me.txtTrainTypeQuery4.Name = "txtTrainTypeQuery4"
+        '
+        'txtMaxProfitQuery4
+        '
+        resources.ApplyResources(Me.txtMaxProfitQuery4, "txtMaxProfitQuery4")
+        Me.txtMaxProfitQuery4.Name = "txtMaxProfitQuery4"
+        '
+        'productPriceDate
+        '
+        resources.ApplyResources(Me.productPriceDate, "productPriceDate")
+        '
         'Main
         '
         resources.ApplyResources(Me, "$this")
@@ -1547,11 +1579,15 @@ Partial Class Main
     Friend WithEvents lblTripDateQuery4 As Label
     Friend WithEvents txtTripDateQuery4 As TextBox
     Friend WithEvents lstViewQuery4 As ListView
-    Friend WithEvents trainQuery4 As ColumnHeader
-    Friend WithEvents trainTypeQuery4 As ColumnHeader
     Friend WithEvents productQuery4 As ColumnHeader
     Friend WithEvents tonsQuery4 As ColumnHeader
     Friend WithEvents productPriceQuery4 As ColumnHeader
     Friend WithEvents profitProductQuery4 As ColumnHeader
-    Friend WithEvents totalProfitQuery4 As ColumnHeader
+    Friend WithEvents txtMaxProfitQuery4 As TextBox
+    Friend WithEvents txtTrainTypeQuery4 As TextBox
+    Friend WithEvents txtTrainIDQuery4 As TextBox
+    Friend WithEvents lblTrainTypeQuery4 As Label
+    Friend WithEvents lblMaxProfit As Label
+    Friend WithEvents lblTrainIDQuery4 As Label
+    Friend WithEvents productPriceDate As ColumnHeader
 End Class
