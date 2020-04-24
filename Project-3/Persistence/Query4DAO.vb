@@ -20,7 +20,7 @@
                                         HAVING SUM(t1.TonsTransported*pr1.EurosPerTon) =
                                             (SELECT MAX(tr.Profit) 
                                              FROM (SELECT t.TripDate, t.Train, SUM(t.TonsTransported*pr.EurosPerTon) AS Profit FROM Trips AS t, Products AS p, Prices AS pr 
-                                             WHERE t.Product = p.ProductID AND p.ProductID = pr.Product
+                                             WHERE t.Product = p.ProductID AND p.ProductID = pr.Product  AND pr.PriceDate < t.TripDate
                                              GROUP BY t.TripDate, t.Train)  AS tr);")
 
         For Each aux In col

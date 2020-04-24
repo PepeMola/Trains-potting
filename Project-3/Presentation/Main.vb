@@ -70,19 +70,23 @@
             itemPrices.SubItems.Add(pri.PriceDate) 'Adding information of the priece
             itemPrices.SubItems.Add(pri.EurosPerTon) 'Adding information of the priece
             lstViewPrices.Items.Add(itemPrices) 'Add the price in the list view of Prieces
-            Me.lstboxProductTrip.Items.Add(pro.ProductDescription) 'Adding each product to the lstbox in trip tab
+
         Next
 
         'Load Product in List and txtBox
         Dim itemProduct As ListViewItem 'Varible that stores an object to save a peoduct and add into the lstView of Products
-
+        Dim pr1 As Prices
         For Each p As Product In product.ProDao.Product
             p.ReadProductDescription()
+            pr1 = New Prices(p.ProductID)
+            pr1.ReadPrice()
             itemProduct = New ListViewItem(p.ProductID) 'Creates an item with the ID of the product
             itemProduct.SubItems.Add(p.ProductDescription) 'Adding information of the product 
             lstViewProducts.Items.Add(itemProduct) 'Adding each product to the lstView of the products in products tab
             Me.cboxProductPrices.Items.Add(p.ProductDescription) 'Adding each product to the combobox in prices tab
-
+            If pr1.EurosPerTon > 0 Then
+                Me.lstboxProductTrip.Items.Add(p.ProductDescription) 'Adding each product to the lstbox in trip tab
+            End If
         Next
 
 
