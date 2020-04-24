@@ -70,6 +70,7 @@
             itemPrices.SubItems.Add(pri.PriceDate) 'Adding information of the priece
             itemPrices.SubItems.Add(pri.EurosPerTon) 'Adding information of the priece
             lstViewPrices.Items.Add(itemPrices) 'Add the price in the list view of Prieces
+            Me.lstboxProductTrip.Items.Add(pro.ProductDescription) 'Adding each product to the lstbox in trip tab
         Next
 
         'Load Product in List and txtBox
@@ -81,7 +82,7 @@
             itemProduct.SubItems.Add(p.ProductDescription) 'Adding information of the product 
             lstViewProducts.Items.Add(itemProduct) 'Adding each product to the lstView of the products in products tab
             Me.cboxProductPrices.Items.Add(p.ProductDescription) 'Adding each product to the combobox in prices tab
-            Me.lstboxProductTrip.Items.Add(p.ProductDescription) 'Adding each product to the lstbox in trip tab
+
         Next
 
 
@@ -189,7 +190,7 @@
                     MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly inserted.")
                     txtProductDescription.Text = String.Empty
                     Me.cboxProductPrices.Items.Add(pro.ProductDescription) 'Adding each product to the combobox in prices tab
-                    Me.lstboxProductTrip.Items.Add(pro.ProductDescription)
+
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End Try
@@ -215,7 +216,7 @@
                     lstViewProducts.Items.Remove(lstViewProducts.SelectedItems(0))
                     MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly removed.")
                     resetcboxProductPrices() 'Update the cbox in the prices tab 
-                    resetListViewTrip() 'Update the lstView in the trip tab
+                    resetlstViewPrices() 'Update the lstView in the trip tab
                     resetcboxTrips() 'Update the cbox in the trip tab
                     txtProductDescription.Text = String.Empty
                 Catch ex As Exception
@@ -338,6 +339,7 @@
                 item.SubItems.Add(pri.PriceDate)
                 item.SubItems.Add(pri.EurosPerTon)
                 lstViewPrices.Items.Add(item)
+                Me.lstboxProductTrip.Items.Add(pro.ProductDescription)
                 dtpDatePrices.Text = Date.Now
                 txtEurosPrices.Text = String.Empty
                 MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & " Correctly inserted.")
@@ -396,7 +398,8 @@
 
                 lstViewPrices.SelectedItems(0).SubItems(3).Text = pri.EurosPerTon
                 MessageBox.Show(pro.ProductDescription.ToString & " " & pri.PriceDate & "correctly updated.")
-
+                resetlstViewPrices() 'Update the lstView in the trip tab
+                resetcboxTrips() 'Update the cbox in the trip tab
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -425,6 +428,8 @@
                     Me.txtEurosPrices.Text = String.Empty
                     Me.cboxProductPrices.Text = String.Empty
                     Me.dtpDatePrices.ResetText()
+                    resetListViewTrip() 'Update the lstView in the trip tab
+                    resetcboxTrips() 'Update the cbox in the trip tab
                     btnAddPrices.Enabled = True
                     btnCleanPrices.Enabled = False
                     btnUpdatePrices.Enabled = False
