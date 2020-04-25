@@ -9,9 +9,9 @@
 
     Public Sub ReadQuery2(ByRef q As Query2)
         Dim col As Collection : Dim aux As Collection
-        col = DBBroker.GetBroker.Read("SELECT ty.TrainTypeDescription, COUNT(*) As Total FROM Trips t, Trains tr, TrainTypes ty WHERE t.Train = tr.TrainID AND tr.TrainType= ty.TrainTypeID 
-                                       AND t.TripDate>=#" & q.DateStart & "# AND t.TripDate <=#" & q.DateEnd & "# 
-                                       GROUP BY ty.TrainTypeDescription ORDER BY COUNT(*);")
+        col = DBBroker.GetBroker.Read("SELECT TrainTypes.TrainTypeDescription, COUNT(TrainTypes.TrainTypeDescription) AS TotalTrips
+                FROM (SELECT DISTINCT Trips.TripDate, TrainTypes.TrainTypeDescription FROM TrainTypes INNER JOIN (Trains INNER JOIN Trips ON Trains.TrainID = Trips.Train) ON TrainTypes.TrainTypeID = Trains.TrainType WHERE (((Trips.TripDate)>#" & q.DateStart & "# And (Trips.TripDate)<#" & q.DateEnd & "#) And (Trips.Train=Trains.TrainID) And (Trains.TrainType=TrainTypes.TrainTypeID)) GROUP BY Trips.TripDate, TrainTypes.TrainTypeDescription)  AS [%$##@_Alias]
+                GROUP BY  TrainTypes.TrainTypeDescription;")
 
         'Here we create the table format in which we store the info of the query
         solution.Columns.Add("Train Type", GetType(String))
