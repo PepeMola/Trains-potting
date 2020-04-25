@@ -390,7 +390,6 @@
                 Exit Sub
             End If
 
-
             Try
                 If pri.UpdatePrice() <> 1 Then
                     MessageBox.Show("Error updating Price.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -509,8 +508,8 @@
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Exit Sub
             End Try
-            Me.txtTrainID.Enabled = True
-            btnAddTrain.Enabled = True
+            Me.txtTrainID.Enabled = False
+            btnAddTrain.Enabled = False
             btnCleanTrain.Enabled = True
             btnUpdateTrain.Enabled = True
             btnDeleteTrain.Enabled = True
@@ -1047,7 +1046,6 @@
                 type = New TrainType(train.TrainType)
                 type.ReadTrainType()
 
-                MessageBox.Show(tons & " " & tons + Me.nudTonsTrip.Value)
                 If Me.nudTonsTrip.Value > 0 And (tons + Me.nudTonsTrip.Value) <= type.MaxCapacity Then
                     trip.TonsTransported = Me.nudTonsTrip.Value
                     Try
@@ -1066,14 +1064,14 @@
 
                         MessageBox.Show(" Date: " & trip.TripDate & vbCrLf & " Train: " & trip.Train & vbCrLf & " Product: " & pro.ProductDescription & vbCrLf & " Tons: " & trip.TonsTransported & vbCrLf & " was correctly updated.")
                         Me.dtpTrip.ResetText()
-                        Me.cboxTrainTrip.ResetText()
+                        Me.cboxTrainTrip.SelectedText = ""
                         Me.nudTonsTrip.Value = 0
                         btnAddTrip.Enabled = True
                         btnDeleteTrip.Enabled = False
                         btnUpdateTrip.Enabled = False
                         btnCleanTrip.Enabled = False
                         Me.lstboxProductTrip.Items.Clear()
-
+                        Me.resetcboxTrips()
                         Me.dtpTrip.Enabled = True
                         Me.lstboxProductTrip.Enabled = True
                         Me.nudTonsTrip.Enabled = False

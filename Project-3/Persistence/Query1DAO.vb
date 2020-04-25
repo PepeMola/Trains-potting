@@ -10,7 +10,7 @@
     Public Sub ReadQuery(ByRef q As Query1)
         Dim col As Collection : Dim aux As Collection
         col = DBBroker.GetBroker.Read("SELECT Trips.TripDate, Trips.Train, Products.ProductDescription FROM Products INNER JOIN Trips ON Products.ProductID = Trips.Product
-                                       WHERE (((Trips.TripDate)>=#" & q.DateStart & "# And (Trips.TripDate)<=# " & q.DateEnd & "#) AND ((Trips.Train)='" & q.TrainID & "'));")
+                                       WHERE Trips.TripDate>=#" & q.DateStart & "# And Trips.TripDate<=# " & q.DateEnd & "# AND Trips.Train='" & q.TrainID & "';")
 
         'Here we create the table format in which we store the info of the query
         solution.Columns.Add("Trip Date", GetType(String))
