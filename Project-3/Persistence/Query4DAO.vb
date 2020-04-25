@@ -47,7 +47,7 @@
                                                       WHERE p3.ProductID = pr3.Product
                                                       GROUP BY  p3.ProductID) As q,
                                                 Prices pr2, Products p2, Trips t2
-                                                WHERE pr2.PriceDate = q.LatestDate AND p2.ProductID = q.Product AND p2.ProductID = t2.Product AND pr2.Product = p2.ProductID AND t2.TripDate = #24/04/2020#
+                                                WHERE pr2.PriceDate = q.LatestDate AND p2.ProductID = q.Product AND p2.ProductID = t2.Product AND pr2.Product = p2.ProductID AND t2.TripDate = #" & trip.TripDate & "#
                                                 GROUP BY p2.ProductDescription, t2.TonsTransported, pr2.EurosPerTon, q.LatestDate;")
 
         'Here we create the table format in which we store the info of the query

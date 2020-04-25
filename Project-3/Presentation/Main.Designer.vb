@@ -75,12 +75,19 @@ Partial Class Main
         Me.btnCleanQuery4 = New System.Windows.Forms.Button()
         Me.btnExecuteQuery4 = New System.Windows.Forms.Button()
         Me.gbListQuery4 = New System.Windows.Forms.GroupBox()
+        Me.txtMaxProfitQuery4 = New System.Windows.Forms.TextBox()
+        Me.txtTrainTypeQuery4 = New System.Windows.Forms.TextBox()
+        Me.txtTrainIDQuery4 = New System.Windows.Forms.TextBox()
+        Me.lblTrainTypeQuery4 = New System.Windows.Forms.Label()
+        Me.lblMaxProfit = New System.Windows.Forms.Label()
+        Me.lblTrainIDQuery4 = New System.Windows.Forms.Label()
         Me.lblTripDateQuery4 = New System.Windows.Forms.Label()
         Me.txtTripDateQuery4 = New System.Windows.Forms.TextBox()
         Me.lstViewQuery4 = New System.Windows.Forms.ListView()
         Me.productQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tonsQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.productPriceQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.productPriceDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.profitProductQuery4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabTrips = New System.Windows.Forms.TabPage()
         Me.gbControlTrip = New System.Windows.Forms.GroupBox()
@@ -172,18 +179,10 @@ Partial Class Main
         Me.btnUpdateProduct = New System.Windows.Forms.Button()
         Me.lblProductList = New System.Windows.Forms.Label()
         Me.tabControl = New System.Windows.Forms.TabControl()
-        Me.btnExit = New System.Windows.Forms.Button()
         Me.txtPath = New System.Windows.Forms.TextBox()
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.btnSelect = New System.Windows.Forms.Button()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
-        Me.lblTrainIDQuery4 = New System.Windows.Forms.Label()
-        Me.lblMaxProfit = New System.Windows.Forms.Label()
-        Me.lblTrainTypeQuery4 = New System.Windows.Forms.Label()
-        Me.txtTrainIDQuery4 = New System.Windows.Forms.TextBox()
-        Me.txtTrainTypeQuery4 = New System.Windows.Forms.TextBox()
-        Me.txtMaxProfitQuery4 = New System.Windows.Forms.TextBox()
-        Me.productPriceDate = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.tabQuery.SuspendLayout()
         Me.tbpQuerie.SuspendLayout()
         Me.tabQuery1.SuspendLayout()
@@ -392,7 +391,7 @@ Partial Class Main
         '
         'tabQuery2
         '
-        Me.tabQuery2.BackColor = System.Drawing.Color.Gray
+        Me.tabQuery2.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabQuery2.Controls.Add(Me.btnCleanQuery2)
         Me.tabQuery2.Controls.Add(Me.btnExecuteQuery2)
         Me.tabQuery2.Controls.Add(Me.gbSelectionQuery2)
@@ -435,14 +434,14 @@ Partial Class Main
         '
         'dtpEndDateQuery2
         '
-        Me.dtpEndDateQuery2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         resources.ApplyResources(Me.dtpEndDateQuery2, "dtpEndDateQuery2")
+        Me.dtpEndDateQuery2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpEndDateQuery2.Name = "dtpEndDateQuery2"
         '
         'dtpStartDateQuery2
         '
-        Me.dtpStartDateQuery2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         resources.ApplyResources(Me.dtpStartDateQuery2, "dtpStartDateQuery2")
+        Me.dtpStartDateQuery2.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpStartDateQuery2.Name = "dtpStartDateQuery2"
         '
         'gbQuery2List
@@ -474,7 +473,7 @@ Partial Class Main
         '
         'tabQuery3
         '
-        Me.tabQuery3.BackColor = System.Drawing.Color.Gray
+        Me.tabQuery3.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabQuery3.Controls.Add(Me.gbQuery3List)
         Me.tabQuery3.Controls.Add(Me.btnCleanQuery3)
         Me.tabQuery3.Controls.Add(Me.btnExecuteQuery3)
@@ -544,19 +543,19 @@ Partial Class Main
         '
         'dtpEndDateQuery3
         '
-        Me.dtpEndDateQuery3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         resources.ApplyResources(Me.dtpEndDateQuery3, "dtpEndDateQuery3")
+        Me.dtpEndDateQuery3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpEndDateQuery3.Name = "dtpEndDateQuery3"
         '
         'dtpStartDateQuery3
         '
-        Me.dtpStartDateQuery3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         resources.ApplyResources(Me.dtpStartDateQuery3, "dtpStartDateQuery3")
+        Me.dtpStartDateQuery3.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpStartDateQuery3.Name = "dtpStartDateQuery3"
         '
         'tabQuery4
         '
-        Me.tabQuery4.BackColor = System.Drawing.Color.Gray
+        Me.tabQuery4.BackColor = System.Drawing.Color.LightSlateGray
         Me.tabQuery4.Controls.Add(Me.btnCleanQuery4)
         Me.tabQuery4.Controls.Add(Me.btnExecuteQuery4)
         Me.tabQuery4.Controls.Add(Me.gbListQuery4)
@@ -591,6 +590,36 @@ Partial Class Main
         Me.gbListQuery4.Name = "gbListQuery4"
         Me.gbListQuery4.TabStop = False
         '
+        'txtMaxProfitQuery4
+        '
+        resources.ApplyResources(Me.txtMaxProfitQuery4, "txtMaxProfitQuery4")
+        Me.txtMaxProfitQuery4.Name = "txtMaxProfitQuery4"
+        '
+        'txtTrainTypeQuery4
+        '
+        resources.ApplyResources(Me.txtTrainTypeQuery4, "txtTrainTypeQuery4")
+        Me.txtTrainTypeQuery4.Name = "txtTrainTypeQuery4"
+        '
+        'txtTrainIDQuery4
+        '
+        resources.ApplyResources(Me.txtTrainIDQuery4, "txtTrainIDQuery4")
+        Me.txtTrainIDQuery4.Name = "txtTrainIDQuery4"
+        '
+        'lblTrainTypeQuery4
+        '
+        resources.ApplyResources(Me.lblTrainTypeQuery4, "lblTrainTypeQuery4")
+        Me.lblTrainTypeQuery4.Name = "lblTrainTypeQuery4"
+        '
+        'lblMaxProfit
+        '
+        resources.ApplyResources(Me.lblMaxProfit, "lblMaxProfit")
+        Me.lblMaxProfit.Name = "lblMaxProfit"
+        '
+        'lblTrainIDQuery4
+        '
+        resources.ApplyResources(Me.lblTrainIDQuery4, "lblTrainIDQuery4")
+        Me.lblTrainIDQuery4.Name = "lblTrainIDQuery4"
+        '
         'lblTripDateQuery4
         '
         resources.ApplyResources(Me.lblTripDateQuery4, "lblTripDateQuery4")
@@ -623,6 +652,10 @@ Partial Class Main
         'productPriceQuery4
         '
         resources.ApplyResources(Me.productPriceQuery4, "productPriceQuery4")
+        '
+        'productPriceDate
+        '
+        resources.ApplyResources(Me.productPriceDate, "productPriceDate")
         '
         'profitProductQuery4
         '
@@ -1292,17 +1325,6 @@ Partial Class Main
         Me.tabControl.Name = "tabControl"
         Me.tabControl.SelectedIndex = 0
         '
-        'btnExit
-        '
-        Me.btnExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnExit.FlatAppearance.BorderSize = 2
-        Me.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateGray
-        resources.ApplyResources(Me.btnExit, "btnExit")
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.UseVisualStyleBackColor = False
-        '
         'txtPath
         '
         Me.txtPath.BackColor = System.Drawing.SystemColors.ButtonHighlight
@@ -1326,7 +1348,7 @@ Partial Class Main
         '
         'gbDatabase
         '
-        Me.gbDatabase.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.gbDatabase.BackColor = System.Drawing.Color.LightSlateGray
         resources.ApplyResources(Me.gbDatabase, "gbDatabase")
         Me.gbDatabase.Controls.Add(Me.btnSelect)
         Me.gbDatabase.Controls.Add(Me.btnConnect)
@@ -1334,48 +1356,14 @@ Partial Class Main
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
         '
-        'lblTrainIDQuery4
-        '
-        resources.ApplyResources(Me.lblTrainIDQuery4, "lblTrainIDQuery4")
-        Me.lblTrainIDQuery4.Name = "lblTrainIDQuery4"
-        '
-        'lblMaxProfit
-        '
-        resources.ApplyResources(Me.lblMaxProfit, "lblMaxProfit")
-        Me.lblMaxProfit.Name = "lblMaxProfit"
-        '
-        'lblTrainTypeQuery4
-        '
-        resources.ApplyResources(Me.lblTrainTypeQuery4, "lblTrainTypeQuery4")
-        Me.lblTrainTypeQuery4.Name = "lblTrainTypeQuery4"
-        '
-        'txtTrainIDQuery4
-        '
-        resources.ApplyResources(Me.txtTrainIDQuery4, "txtTrainIDQuery4")
-        Me.txtTrainIDQuery4.Name = "txtTrainIDQuery4"
-        '
-        'txtTrainTypeQuery4
-        '
-        resources.ApplyResources(Me.txtTrainTypeQuery4, "txtTrainTypeQuery4")
-        Me.txtTrainTypeQuery4.Name = "txtTrainTypeQuery4"
-        '
-        'txtMaxProfitQuery4
-        '
-        resources.ApplyResources(Me.txtMaxProfitQuery4, "txtMaxProfitQuery4")
-        Me.txtMaxProfitQuery4.Name = "txtMaxProfitQuery4"
-        '
-        'productPriceDate
-        '
-        resources.ApplyResources(Me.productPriceDate, "productPriceDate")
-        '
         'Main
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightSlateGray
+        Me.BackColor = System.Drawing.Color.LightSteelBlue
         Me.Controls.Add(Me.gbDatabase)
-        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.tabControl)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Main"
         Me.tabQuery.ResumeLayout(False)
@@ -1545,7 +1533,6 @@ Partial Class Main
     Friend WithEvents btnUpdateProduct As Button
     Friend WithEvents lblProductList As Label
     Friend WithEvents tabControl As TabControl
-    Friend WithEvents btnExit As Button
     Friend WithEvents txtPath As TextBox
     Friend WithEvents btnConnect As Button
     Friend WithEvents btnSelect As Button

@@ -5,10 +5,6 @@
         Me.btnConnect.Enabled = False
     End Sub
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
-        End
-    End Sub
-
     Private Sub btnSelect_Click(sender As Object, e As EventArgs) Handles btnSelect.Click
         Me.OfdPath.InitialDirectory = Application.StartupPath
         If (Me.OfdPath.ShowDialog() = DialogResult.OK) Then
@@ -200,6 +196,8 @@
                 End Try
             Else
                 MessageBox.Show("This product already exists.")
+                txtProductDescription.Text = String.Empty
+                Exit Sub
             End If
         End If
     End Sub
@@ -209,7 +207,7 @@
         Dim pro As New Product
 
         If Not Me.lstViewProducts.SelectedItems(0).SubItems(0).Text Is Nothing Then 'If there is not a selected item, it wont let you delete
-            If MessageBox.Show("Are yoou sure to remove this? " & lstViewProducts.SelectedItems(0).SubItems(1).Text, "Por favor, confirme", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+            If MessageBox.Show("Are you sure to remove this? " & lstViewProducts.SelectedItems(0).SubItems(1).Text, "Please, choose to confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 pro = New Product(Me.txtProductDescription.Text)
                 pro.ReadProductDescription()
                 Try
@@ -277,7 +275,6 @@
         btnDeleteProduct.Enabled = False
     End Sub
 
-
     '-----------------------------------------------------------------------------------------------------------------------------------------
     '---------------------------------------BUTTONS OF PRICES TAB-----------------------------------------------------------------------------
     '-----------------------------------------------------------------------------------------------------------------------------------------
@@ -308,7 +305,7 @@
         Dim pro As Product
 
         If Me.txtEurosPrices.Text <> Nothing And Me.cboxProductPrices.Text <> Nothing Then
-            'Checking if the data introduce is right or not
+            'Checking if the data introduced is right or not
             Try
                 pro = New Product(cboxProductPrices.SelectedItem.ToString)
                 pro.ReadProductDescription()
@@ -326,7 +323,7 @@
                 End If
 
             Catch ex As Exception
-                MessageBox.Show("Be careful with the data you have introduce", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Be careful with the data you have introduced", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 txtEurosPrices.Text = String.Empty
                 dtpDatePrices.Text = String.Empty
                 Exit Sub
@@ -353,7 +350,7 @@
                 Exit Sub
             End Try
         Else
-            MessageBox.Show("Please fill all the boxes to add a new Priece.")
+            MessageBox.Show("Please fill all the boxes to add a new Price.")
             Me.txtTrainID.Text = String.Empty
             Me.cboxTrain.Text = String.Empty
             btnAddTrain.Enabled = True
