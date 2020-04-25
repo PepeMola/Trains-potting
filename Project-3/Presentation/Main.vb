@@ -217,7 +217,8 @@
                     End If
                     lstViewProducts.Items.Remove(lstViewProducts.SelectedItems(0))
                     MessageBox.Show("'" & pro.ProductDescription.ToString & "' correctly removed.")
-                    resetcboxProductPrices() 'Update the cbox in the prices tab 
+                    Me.cboxProductPrices.Items.Remove(pro.ProductDescription)
+                    'resetcboxProductPrices() 'Update the cbox in the prices tab 
                     resetlstViewPrices() 'Update the lstView in the trip tab
                     resetcboxTrips() 'Update the cbox in the trip tab
                     txtProductDescription.Text = String.Empty
@@ -254,6 +255,7 @@
             Catch ex As Exception
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
+
             resetcboxProductPrices() 'Update the cbox in the prices tab 
             resetlstViewPrices() 'Update the lstView in the trip tab
             resetcboxTrips() 'Update the cbox in the trip tab
@@ -455,6 +457,7 @@
     'Method used for update the cbox that contains the product in the price section, it is use when a product suffers a change
     Private Sub resetcboxProductPrices()
         Dim Pro As New Product
+
         Me.cboxProductPrices.Items.Clear()
         Try
             Pro.ReadAllProduct(OfdPath.FileName)
@@ -858,9 +861,15 @@
             Exit Sub
         End Try
 
+        Dim pr1 As Prices
         For Each p As Product In product.ProDao.Product
             p.ReadProductDescription()
-            lstboxProductTrip.Items.Add(p.ProductDescription)
+            pr1 = New Prices(p.ProductID)
+            pr1.ReadPrice()
+            Me.cboxProductPrices.Items.Add(p.ProductDescription) 'Adding each product to the combobox in prices tab
+            If pr1.EurosPerTon > 0 Then
+                Me.lstboxProductTrip.Items.Add(p.ProductDescription) 'Adding each product to the lstbox in trip tab
+            End If
         Next
     End Sub
 
@@ -1007,8 +1016,9 @@
                     btnDeleteTrip.Enabled = False
                     btnUpdateTrip.Enabled = False
                     btnCleanTrip.Enabled = False
+
                     Me.lstboxProductTrip.Items.Clear()
-                    restoreLstBoxProductTrip()
+                    Me.resetcboxTrips()
                     Me.dtpTrip.Enabled = True
                     Me.lstboxProductTrip.Enabled = True
                     Me.nudTonsTrip.Enabled = True
@@ -1063,7 +1073,7 @@
                         btnUpdateTrip.Enabled = False
                         btnCleanTrip.Enabled = False
                         Me.lstboxProductTrip.Items.Clear()
-                        restoreLstBoxProductTrip()
+
                         Me.dtpTrip.Enabled = True
                         Me.lstboxProductTrip.Enabled = True
                         Me.nudTonsTrip.Enabled = False
@@ -1081,7 +1091,7 @@
                     btnUpdateTrip.Enabled = False
                     btnCleanTrip.Enabled = False
                     Me.lstboxProductTrip.Items.Clear()
-                    restoreLstBoxProductTrip()
+
                     Me.dtpTrip.Enabled = True
                     Me.lstboxProductTrip.Enabled = True
                     Me.nudTonsTrip.Enabled = True
@@ -1100,7 +1110,7 @@
         btnUpdateTrip.Enabled = False
         btnCleanTrip.Enabled = False
         Me.lstboxProductTrip.Items.Clear()
-        restoreLstBoxProductTrip()
+        Me.resetcboxTrips()
         Me.dtpTrip.Enabled = True
         Me.lstboxProductTrip.Enabled = True
         Me.nudTonsTrip.Enabled = True
@@ -1110,17 +1120,21 @@
 
     Private Sub resetcboxTrips()
         lstboxProductTrip.Items.Clear()
-        Dim product As Product = New Product
+        Dim Product As Product = New Product
         Try
-            product.ReadAllProduct(OfdPath.FileName)
+            Product.ReadAllProduct(OfdPath.FileName)
         Catch ex As Exception
             MessageBox.Show("Error reading line 1090", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Exit Sub
         End Try
-        For Each p As Product In product.ProDao.Product
+        Dim pr1 As Prices
+        For Each p As Product In Product.ProDao.Product
             p.ReadProductDescription()
-
-            Me.lstboxProductTrip.Items.Add(p.ProductDescription)
+            pr1 = New Prices(p.ProductID)
+            pr1.ReadPrice()
+            If pr1.EurosPerTon > 0 Then
+                Me.lstboxProductTrip.Items.Add(p.ProductDescription) 'Adding each product to the lstbox in trip tab
+            End If
         Next
     End Sub
 
