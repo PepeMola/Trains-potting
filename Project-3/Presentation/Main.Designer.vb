@@ -183,6 +183,7 @@ Partial Class Main
         Me.btnConnect = New System.Windows.Forms.Button()
         Me.btnSelect = New System.Windows.Forms.Button()
         Me.gbDatabase = New System.Windows.Forms.GroupBox()
+        Me.esiLogo = New System.Windows.Forms.PictureBox()
         Me.tabQuery.SuspendLayout()
         Me.tbpQuerie.SuspendLayout()
         Me.tabQuery1.SuspendLayout()
@@ -221,6 +222,7 @@ Partial Class Main
         Me.gbControlProducts.SuspendLayout()
         Me.tabControl.SuspendLayout()
         Me.gbDatabase.SuspendLayout()
+        CType(Me.esiLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'iconList
@@ -239,6 +241,7 @@ Partial Class Main
         Me.iconList.Images.SetKeyName(9, "updateButton.png")
         Me.iconList.Images.SetKeyName(10, "selectButton.png")
         Me.iconList.Images.SetKeyName(11, "dbIcon.png")
+        Me.iconList.Images.SetKeyName(12, "esi-logo.jpg")
         '
         'OfdPath
         '
@@ -296,6 +299,7 @@ Partial Class Main
         '
         'txtNumberTripsQuery1
         '
+        Me.txtNumberTripsQuery1.BackColor = System.Drawing.Color.White
         resources.ApplyResources(Me.txtNumberTripsQuery1, "txtNumberTripsQuery1")
         Me.txtNumberTripsQuery1.Name = "txtNumberTripsQuery1"
         '
@@ -592,17 +596,23 @@ Partial Class Main
         '
         'txtMaxProfitQuery4
         '
+        Me.txtMaxProfitQuery4.BackColor = System.Drawing.SystemColors.ButtonHighlight
         resources.ApplyResources(Me.txtMaxProfitQuery4, "txtMaxProfitQuery4")
+        Me.txtMaxProfitQuery4.ForeColor = System.Drawing.Color.Black
         Me.txtMaxProfitQuery4.Name = "txtMaxProfitQuery4"
         '
         'txtTrainTypeQuery4
         '
+        Me.txtTrainTypeQuery4.BackColor = System.Drawing.SystemColors.ButtonHighlight
         resources.ApplyResources(Me.txtTrainTypeQuery4, "txtTrainTypeQuery4")
+        Me.txtTrainTypeQuery4.ForeColor = System.Drawing.Color.Black
         Me.txtTrainTypeQuery4.Name = "txtTrainTypeQuery4"
         '
         'txtTrainIDQuery4
         '
+        Me.txtTrainIDQuery4.BackColor = System.Drawing.SystemColors.ButtonHighlight
         resources.ApplyResources(Me.txtTrainIDQuery4, "txtTrainIDQuery4")
+        Me.txtTrainIDQuery4.ForeColor = System.Drawing.Color.Black
         Me.txtTrainIDQuery4.Name = "txtTrainIDQuery4"
         '
         'lblTrainTypeQuery4
@@ -627,7 +637,9 @@ Partial Class Main
         '
         'txtTripDateQuery4
         '
+        Me.txtTripDateQuery4.BackColor = System.Drawing.SystemColors.ButtonHighlight
         resources.ApplyResources(Me.txtTripDateQuery4, "txtTripDateQuery4")
+        Me.txtTripDateQuery4.ForeColor = System.Drawing.Color.Black
         Me.txtTripDateQuery4.Name = "txtTripDateQuery4"
         '
         'lstViewQuery4
@@ -1023,6 +1035,7 @@ Partial Class Main
         '
         Me.nudMaxCapacity.ForeColor = System.Drawing.Color.Black
         resources.ApplyResources(Me.nudMaxCapacity, "nudMaxCapacity")
+        Me.nudMaxCapacity.Maximum = New Decimal(New Integer() {150, 0, 0, 0})
         Me.nudMaxCapacity.Name = "nudMaxCapacity"
         '
         'lblTrainType
@@ -1150,6 +1163,7 @@ Partial Class Main
         '
         'cboxTrain
         '
+        Me.cboxTrain.BackColor = System.Drawing.SystemColors.Window
         Me.cboxTrain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         resources.ApplyResources(Me.cboxTrain, "cboxTrain")
         Me.cboxTrain.ForeColor = System.Drawing.Color.Black
@@ -1356,11 +1370,18 @@ Partial Class Main
         Me.gbDatabase.Name = "gbDatabase"
         Me.gbDatabase.TabStop = False
         '
+        'esiLogo
+        '
+        resources.ApplyResources(Me.esiLogo, "esiLogo")
+        Me.esiLogo.Name = "esiLogo"
+        Me.esiLogo.TabStop = False
+        '
         'Main
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Controls.Add(Me.esiLogo)
         Me.Controls.Add(Me.gbDatabase)
         Me.Controls.Add(Me.tabControl)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -1415,6 +1436,7 @@ Partial Class Main
         Me.tabControl.ResumeLayout(False)
         Me.gbDatabase.ResumeLayout(False)
         Me.gbDatabase.PerformLayout()
+        CType(Me.esiLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1577,4 +1599,5 @@ Partial Class Main
     Friend WithEvents lblMaxProfit As Label
     Friend WithEvents lblTrainIDQuery4 As Label
     Friend WithEvents productPriceDate As ColumnHeader
+    Friend WithEvents esiLogo As PictureBox
 End Class

@@ -1177,6 +1177,9 @@
     '------------------------------------------------QUERY 1----------------------------------------------------------------------------------
 
     Private Sub btnExecute_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery1.Click
+        Me.lstViewQuery1.Items.Clear()
+        Me.txtNumberTripsQuery1.Text = String.Empty
+
         If Not Me.cboxTrainIdQuery1.SelectedItem Is Nothing Then
             If Me.dtpDateEndQuery1.Value > Me.dtpDateStartQuery1.Value Then
                 Try
@@ -1192,8 +1195,6 @@
 
                     Me.txtNumberTripsQuery1.Text = q.query1Dao.query(1).ToString
 
-                    Me.dtpDateStartQuery1.Value = DateTime.Now
-                    Me.dtpDateEndQuery1.Value = DateTime.Now
                     Me.cboxTrainIdQuery1.Text = String.Empty
                 Catch ex As Exception
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -1220,11 +1221,14 @@
     Private Sub btnCleanQuery1_Click(sender As Object, e As EventArgs) Handles btnCleanQuery1.Click
         Me.lstViewQuery1.Items.Clear()
         Me.txtNumberTripsQuery1.Text = String.Empty
+        Me.dtpDateStartQuery1.Value = DateTime.Now
+        Me.dtpDateEndQuery1.Value = DateTime.Now
     End Sub
 
     '------------------------------------------------QUERY 2----------------------------------------------------------------------------------
 
     Private Sub btnExecuteQuery2_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery2.Click
+        Me.lstViewQuery2.Items.Clear()
         If Me.dtpEndDateQuery2.Value > Me.dtpStartDateQuery2.Value Then
             Try
                 Dim q As New Query2(Me.dtpStartDateQuery2.Value, Me.dtpEndDateQuery2.Value)
@@ -1259,6 +1263,7 @@
     '------------------------------------------------QUERY 3----------------------------------------------------------------------------------
 
     Private Sub btnExecuteQuery3_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery3.Click
+        Me.lstViewQuery3.Items.Clear()
         If Me.dtpEndDateQuery3.Value > Me.dtpStartDateQuery3.Value Then
             Try
                 Dim q As New Query3(Me.dtpStartDateQuery3.Value, Me.dtpEndDateQuery3.Value)
@@ -1293,6 +1298,11 @@
     '------------------------------------------------QUERY 4----------------------------------------------------------------------------------
 
     Private Sub btnExecuteQuery4_Click(sender As Object, e As EventArgs) Handles btnExecuteQuery4.Click
+        Me.lstViewQuery4.Items.Clear()
+        Me.txtTripDateQuery4.Text = ""
+        Me.txtTrainIDQuery4.Text = ""
+        Me.txtTrainTypeQuery4.Text = ""
+        Me.txtMaxProfitQuery4.Text = ""
         Try
             Dim q As New Query4()
             q.Read()
@@ -1323,5 +1333,9 @@
         Me.txtTrainIDQuery4.Text = ""
         Me.txtTrainTypeQuery4.Text = ""
         Me.txtMaxProfitQuery4.Text = ""
+    End Sub
+
+    Private Sub esiLogo_Click(sender As Object, e As EventArgs) Handles esiLogo.Click
+
     End Sub
 End Class
